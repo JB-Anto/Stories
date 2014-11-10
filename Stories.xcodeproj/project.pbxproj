@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A525C4C1A11613E00C33D2C /* JACoverContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A525C4B1A11613E00C33D2C /* JACoverContentViewController.m */; };
+		0A525C4F1A1164AA00C33D2C /* JAMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A525C4E1A1164AA00C33D2C /* JAMainViewController.m */; };
+		0A525C551A116D0A00C33D2C /* background_cover_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A525C521A116D0A00C33D2C /* background_cover_1@2x.png */; };
+		0A525C561A116D0A00C33D2C /* background_cover_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A525C531A116D0A00C33D2C /* background_cover_2@2x.png */; };
+		0A525C571A116D0A00C33D2C /* background_cover_3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A525C541A116D0A00C33D2C /* background_cover_3@2x.png */; };
+		0A525C5A1A116D8500C33D2C /* JSONFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A525C591A116D8500C33D2C /* JSONFetcher.m */; };
+		0A525C5E1A116DD100C33D2C /* covers.json in Resources */ = {isa = PBXBuildFile; fileRef = 0A525C5D1A116DD100C33D2C /* covers.json */; };
 		8D8C02D51A10CB6200904841 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D8C02D41A10CB6200904841 /* main.m */; };
 		8D8C02D81A10CB6200904841 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D8C02D71A10CB6200904841 /* AppDelegate.m */; };
 		8D8C02DE1A10CB6200904841 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D8C02DC1A10CB6200904841 /* Main.storyboard */; };
@@ -27,6 +34,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A525C4A1A11613E00C33D2C /* JACoverContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JACoverContentViewController.h; sourceTree = "<group>"; };
+		0A525C4B1A11613E00C33D2C /* JACoverContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JACoverContentViewController.m; sourceTree = "<group>"; };
+		0A525C4D1A1164AA00C33D2C /* JAMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAMainViewController.h; sourceTree = "<group>"; };
+		0A525C4E1A1164AA00C33D2C /* JAMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAMainViewController.m; sourceTree = "<group>"; };
+		0A525C521A116D0A00C33D2C /* background_cover_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background_cover_1@2x.png"; sourceTree = "<group>"; };
+		0A525C531A116D0A00C33D2C /* background_cover_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background_cover_2@2x.png"; sourceTree = "<group>"; };
+		0A525C541A116D0A00C33D2C /* background_cover_3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background_cover_3@2x.png"; sourceTree = "<group>"; };
+		0A525C581A116D8500C33D2C /* JSONFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONFetcher.h; sourceTree = "<group>"; };
+		0A525C591A116D8500C33D2C /* JSONFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONFetcher.m; sourceTree = "<group>"; };
+		0A525C5D1A116DD100C33D2C /* covers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = covers.json; path = Stories/covers.json; sourceTree = "<group>"; };
 		8D8C02CF1A10CB6200904841 /* Stories.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stories.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D8C02D31A10CB6200904841 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D8C02D41A10CB6200904841 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -60,9 +77,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A525C501A116D0A00C33D2C /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				0A525C511A116D0A00C33D2C /* Cover */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		0A525C511A116D0A00C33D2C /* Cover */ = {
+			isa = PBXGroup;
+			children = (
+				0A525C521A116D0A00C33D2C /* background_cover_1@2x.png */,
+				0A525C531A116D0A00C33D2C /* background_cover_2@2x.png */,
+				0A525C541A116D0A00C33D2C /* background_cover_3@2x.png */,
+			);
+			path = Cover;
+			sourceTree = "<group>";
+		};
+		0A525C5C1A116DBD00C33D2C /* Ressources */ = {
+			isa = PBXGroup;
+			children = (
+				0A525C5D1A116DD100C33D2C /* covers.json */,
+			);
+			name = Ressources;
+			sourceTree = "<group>";
+		};
 		8D8C02C61A10CB6200904841 = {
 			isa = PBXGroup;
 			children = (
+				0A525C5C1A116DBD00C33D2C /* Ressources */,
 				8D8C02D11A10CB6200904841 /* Stories */,
 				8D8C02EB1A10CB6300904841 /* StoriesTests */,
 				8D8C02D01A10CB6200904841 /* Products */,
@@ -83,8 +127,13 @@
 			children = (
 				8D8C02D61A10CB6200904841 /* AppDelegate.h */,
 				8D8C02D71A10CB6200904841 /* AppDelegate.m */,
+				0A525C4D1A1164AA00C33D2C /* JAMainViewController.h */,
+				0A525C4E1A1164AA00C33D2C /* JAMainViewController.m */,
 				8DBB416B1A1108FF006FDAD4 /* JACoverViewController.h */,
 				8DBB416C1A1108FF006FDAD4 /* JACoverViewController.m */,
+				0A525C4A1A11613E00C33D2C /* JACoverContentViewController.h */,
+				0A525C4B1A11613E00C33D2C /* JACoverContentViewController.m */,
+				0A525C501A116D0A00C33D2C /* Images */,
 				8DBB41561A10EE94006FDAD4 /* Utils */,
 				8D8C02DC1A10CB6200904841 /* Main.storyboard */,
 				8D8C02DF1A10CB6200904841 /* Images.xcassets */,
@@ -123,6 +172,8 @@
 		8DBB41561A10EE94006FDAD4 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				0A525C581A116D8500C33D2C /* JSONFetcher.h */,
+				0A525C591A116D8500C33D2C /* JSONFetcher.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -207,9 +258,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A525C5E1A116DD100C33D2C /* covers.json in Resources */,
 				8D8C02DE1A10CB6200904841 /* Main.storyboard in Resources */,
 				8D8C02E31A10CB6200904841 /* LaunchScreen.xib in Resources */,
+				0A525C561A116D0A00C33D2C /* background_cover_2@2x.png in Resources */,
+				0A525C571A116D0A00C33D2C /* background_cover_3@2x.png in Resources */,
 				8D8C02E01A10CB6200904841 /* Images.xcassets in Resources */,
+				0A525C551A116D0A00C33D2C /* background_cover_1@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,8 +283,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D8C02D81A10CB6200904841 /* AppDelegate.m in Sources */,
+				0A525C4C1A11613E00C33D2C /* JACoverContentViewController.m in Sources */,
 				8D8C02D51A10CB6200904841 /* main.m in Sources */,
+				0A525C4F1A1164AA00C33D2C /* JAMainViewController.m in Sources */,
 				8DBB416D1A1108FF006FDAD4 /* JACoverViewController.m in Sources */,
+				0A525C5A1A116D8500C33D2C /* JSONFetcher.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

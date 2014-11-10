@@ -10,4 +10,5 @@
 
 @interface JACoverViewController : UIPageViewController
 
+
 @end

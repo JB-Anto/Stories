@@ -1,38 +1,34 @@
 //
-//  JACoverViewController.m
+//  JACoverContentViewController.m
 //  Stories
 //
-//  Created by LANGLADE Antonin on 10/11/2014.
+//  Created by Antonin Langlade on 10/11/2014.
 //  Copyright (c) 2014 Jb & Anto. All rights reserved.
 //
 
-#import "JACoverViewController.h"
+#import "JACoverContentViewController.h"
 
-@interface JACoverViewController ()
+@interface JACoverContentViewController ()
 
 @end
 
-@implementation JACoverViewController
+@implementation JACoverContentViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    NSArray *subviews = self.view.subviews;
-    UIPageControl *thisControl = nil;
-    for (int i=0; i<[subviews count]; i++) {
-        if ([[subviews objectAtIndex:i] isKindOfClass:[UIPageControl class]]) {
-            thisControl = (UIPageControl *)[subviews objectAtIndex:i];
-        }
-    }
     
-    thisControl.hidden = true;
-    self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height+40);
-    
+    self.backgroundIV.image = [UIImage imageNamed:self.imageFile];
+    //self.placesLBL.text = self.titleText;
+    self.titleLBL.text = self.titleText;
+    self.titleLBL.lineBreakMode = NSLineBreakByWordWrapping;
+    self.titleLBL.numberOfLines = 2;
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 /*
 #pragma mark - Navigation
 

@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  JACoverViewController.h
 //  Stories
 //
 //  Created by LANGLADE Antonin on 10/11/2014.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface JACoverViewController : UIPageViewController
 
 @end
-

@@ -10,12 +10,24 @@
 #import "JACoverContentViewController.h"
 #import "JSONFetcher.h"
 
-@interface JAMainViewController : UIViewController<UIPageViewControllerDataSource>
 
-- (IBAction)startWalkthrough:(id)sender;
+
+
+@interface JAMainViewController : UIViewController <SwitchCoverProtocol, UIPageViewControllerDataSource>
+
+
+
+- (void)setViewControllers:(NSArray *)viewControllers
+                 direction:(UIPageViewControllerNavigationDirection)direction
+                  animated:(BOOL)animated
+                completion:(void (^)(BOOL finished))completion;
+
 @property (strong, nonatomic) UIPageViewController *pageViewController;
 @property (strong, nonatomic) NSMutableArray *coverModel;
 @property (strong, nonatomic) NSArray *pageTitles;
 @property (strong, nonatomic) NSArray *pageImages;
+@property (strong, nonatomic) NSArray *viewControllers;
 
 @end
+
+

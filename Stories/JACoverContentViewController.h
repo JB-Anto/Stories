@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "JACoverViewController.h"
 
-@interface JACoverContentViewController : UIViewController 
+
+
+@interface JACoverContentViewController : UIViewController
+
 
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundIV;
 @property (weak, nonatomic) IBOutlet UILabel *placesLBL;
@@ -17,5 +20,7 @@
 @property NSUInteger pageIndex;
 @property NSString *titleText;
 @property NSString *imageFile;
+
+- (IBAction)pushButton:(id)sender;
 
 @end

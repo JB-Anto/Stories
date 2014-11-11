@@ -22,11 +22,17 @@
     self.titleLBL.text = self.titleText;
     self.titleLBL.lineBreakMode = NSLineBreakByWordWrapping;
     self.titleLBL.numberOfLines = 2;
+
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)pushButton:(id)sender {
+    [[NSNotificationCenter defaultCenter]
+     postNotificationName:@"TestNotification"
+     object:self];
 }
 
 /*
@@ -38,5 +44,6 @@
     // Pass the selected object to the new view controller.
 }
 */
+
 
 @end

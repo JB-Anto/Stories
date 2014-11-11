@@ -7,8 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+@protocol SwitchCoverProtocol <NSObject>
+
+@optional
+-(void)changeViewController;
+
+@end
 
 @interface JACoverViewController : UIPageViewController
-
+@property (weak, nonatomic) id<SwitchCoverProtocol> delegate;
 
 @end

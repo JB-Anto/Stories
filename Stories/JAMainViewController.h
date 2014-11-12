@@ -13,7 +13,7 @@
 
 
 
-@interface JAMainViewController : UIViewController <SwitchCoverProtocol, UIPageViewControllerDataSource>
+@interface JAMainViewController : UIViewController <UIPageViewControllerDataSource>
 
 
 

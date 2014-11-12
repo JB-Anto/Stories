@@ -33,11 +33,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (IBAction)pushButton:(id)sender {
-    
-    [self.delegate changeViewController];
-    
-}
+
 /*
 #pragma mark - Navigation
 

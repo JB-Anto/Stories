@@ -7,26 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "JACoverContentViewController.h"
+
 #import "JSONFetcher.h"
+#import "JACoverCollectionViewController.h"
 
 
 
-
-@interface JAMainViewController : UIViewController <UIPageViewControllerDataSource>
-
-
-
-- (void)setViewControllers:(NSArray *)viewControllers
-                 direction:(UIPageViewControllerNavigationDirection)direction
-                  animated:(BOOL)animated
-                completion:(void (^)(BOOL finished))completion;
-
-@property (strong, nonatomic) UIPageViewController *pageViewController;
-@property (strong, nonatomic) NSMutableArray *coverModel;
-@property (strong, nonatomic) NSArray *pageTitles;
-@property (strong, nonatomic) NSArray *pageImages;
-@property (strong, nonatomic) NSArray *viewControllers;
+@interface JAMainViewController : UIViewController
 
 @end
 

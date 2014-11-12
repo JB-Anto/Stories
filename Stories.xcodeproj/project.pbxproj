@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A525C4C1A11613E00C33D2C /* JACoverContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A525C4B1A11613E00C33D2C /* JACoverContentViewController.m */; };
 		0A525C4F1A1164AA00C33D2C /* JAMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A525C4E1A1164AA00C33D2C /* JAMainViewController.m */; };
 		0A525C551A116D0A00C33D2C /* background_cover_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A525C521A116D0A00C33D2C /* background_cover_1@2x.png */; };
 		0A525C561A116D0A00C33D2C /* background_cover_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A525C531A116D0A00C33D2C /* background_cover_2@2x.png */; };
@@ -20,7 +19,8 @@
 		8D8C02E01A10CB6200904841 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D8C02DF1A10CB6200904841 /* Images.xcassets */; };
 		8D8C02E31A10CB6200904841 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D8C02E11A10CB6200904841 /* LaunchScreen.xib */; };
 		8D8C02EF1A10CB6300904841 /* StoriesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D8C02EE1A10CB6300904841 /* StoriesTests.m */; };
-		8DBB416D1A1108FF006FDAD4 /* JACoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBB416C1A1108FF006FDAD4 /* JACoverViewController.m */; };
+		8DD244561A13850800FC7683 /* JACoverCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD244551A13850800FC7683 /* JACoverCollectionViewController.m */; };
+		8DD244591A13856000FC7683 /* JACoverCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD244581A13856000FC7683 /* JACoverCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,8 +34,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0A525C4A1A11613E00C33D2C /* JACoverContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JACoverContentViewController.h; sourceTree = "<group>"; };
-		0A525C4B1A11613E00C33D2C /* JACoverContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JACoverContentViewController.m; sourceTree = "<group>"; };
 		0A525C4D1A1164AA00C33D2C /* JAMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAMainViewController.h; sourceTree = "<group>"; };
 		0A525C4E1A1164AA00C33D2C /* JAMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAMainViewController.m; sourceTree = "<group>"; };
 		0A525C521A116D0A00C33D2C /* background_cover_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background_cover_1@2x.png"; sourceTree = "<group>"; };
@@ -55,8 +53,10 @@
 		8D8C02E81A10CB6300904841 /* StoriesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StoriesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D8C02ED1A10CB6300904841 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D8C02EE1A10CB6300904841 /* StoriesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoriesTests.m; sourceTree = "<group>"; };
-		8DBB416B1A1108FF006FDAD4 /* JACoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JACoverViewController.h; sourceTree = "<group>"; };
-		8DBB416C1A1108FF006FDAD4 /* JACoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JACoverViewController.m; sourceTree = "<group>"; };
+		8DD244541A13850800FC7683 /* JACoverCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JACoverCollectionViewController.h; sourceTree = "<group>"; };
+		8DD244551A13850800FC7683 /* JACoverCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JACoverCollectionViewController.m; sourceTree = "<group>"; };
+		8DD244571A13856000FC7683 /* JACoverCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JACoverCollectionViewCell.h; sourceTree = "<group>"; };
+		8DD244581A13856000FC7683 /* JACoverCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JACoverCollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,12 +101,12 @@
 				0A525C5D1A116DD100C33D2C /* covers.json */,
 			);
 			name = Ressources;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		8D8C02C61A10CB6200904841 = {
 			isa = PBXGroup;
 			children = (
-				0A525C5C1A116DBD00C33D2C /* Ressources */,
 				8D8C02D11A10CB6200904841 /* Stories */,
 				8D8C02EB1A10CB6300904841 /* StoriesTests */,
 				8D8C02D01A10CB6200904841 /* Products */,
@@ -125,14 +125,15 @@
 		8D8C02D11A10CB6200904841 /* Stories */ = {
 			isa = PBXGroup;
 			children = (
+				0A525C5C1A116DBD00C33D2C /* Ressources */,
 				8D8C02D61A10CB6200904841 /* AppDelegate.h */,
 				8D8C02D71A10CB6200904841 /* AppDelegate.m */,
 				0A525C4D1A1164AA00C33D2C /* JAMainViewController.h */,
 				0A525C4E1A1164AA00C33D2C /* JAMainViewController.m */,
-				8DBB416B1A1108FF006FDAD4 /* JACoverViewController.h */,
-				8DBB416C1A1108FF006FDAD4 /* JACoverViewController.m */,
-				0A525C4A1A11613E00C33D2C /* JACoverContentViewController.h */,
-				0A525C4B1A11613E00C33D2C /* JACoverContentViewController.m */,
+				8DD244541A13850800FC7683 /* JACoverCollectionViewController.h */,
+				8DD244551A13850800FC7683 /* JACoverCollectionViewController.m */,
+				8DD244571A13856000FC7683 /* JACoverCollectionViewCell.h */,
+				8DD244581A13856000FC7683 /* JACoverCollectionViewCell.m */,
 				0A525C501A116D0A00C33D2C /* Images */,
 				8DBB41561A10EE94006FDAD4 /* Utils */,
 				8D8C02DC1A10CB6200904841 /* Main.storyboard */,
@@ -283,11 +284,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D8C02D81A10CB6200904841 /* AppDelegate.m in Sources */,
-				0A525C4C1A11613E00C33D2C /* JACoverContentViewController.m in Sources */,
 				8D8C02D51A10CB6200904841 /* main.m in Sources */,
 				0A525C4F1A1164AA00C33D2C /* JAMainViewController.m in Sources */,
-				8DBB416D1A1108FF006FDAD4 /* JACoverViewController.m in Sources */,
+				8DD244591A13856000FC7683 /* JACoverCollectionViewCell.m in Sources */,
 				0A525C5A1A116D8500C33D2C /* JSONFetcher.m in Sources */,
+				8DD244561A13850800FC7683 /* JACoverCollectionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

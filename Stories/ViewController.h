@@ -10,6 +10,8 @@
 
 @interface ViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UICollectionView *ChapterCollectionView;
+@property (weak, nonatomic) NSArray *chapterArray;
 
 @end
 

@@ -66,8 +66,9 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.collectionView registerClass:[JACoverCollectionViewCell class] forCellWithReuseIdentifier:@"CoverCell"];
     self.collectionView.pagingEnabled = YES;
     // Do any additional setup after loading the view.
+
     
-    
+
     self.collectionView.collectionViewLayout = layout;
     
 }
@@ -101,6 +102,7 @@ static NSString * const reuseIdentifier = @"Cell";
 
     [self.collectionView scrollToItemAtIndexPath:nextItem atScrollPosition:UICollectionViewScrollPositionLeft animated:YES];
 }
+
 /*
 #pragma mark - Navigation
 
@@ -123,10 +125,10 @@ static NSString * const reuseIdentifier = @"Cell";
         
 //    long row = [indexPath row];
     
-    image = [UIImage imageNamed:@"background_cover_1.png"];
+    image = [UIImage imageNamed:@"background_cover_2.png"];
     
-    myCell.backgroundView.image = image;
-    
+    myCell.backgroundIV.image = image;
+
     return myCell;
 }
 
@@ -144,6 +146,34 @@ static NSString * const reuseIdentifier = @"Cell";
 
 #pragma mark <UICollectionViewDelegate>
 
+- (void)scrollViewWillEndDragging:(UICollectionView *)collectionView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
+    NSLog(@"EndDrag");
+}
+
+- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(JACoverCollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"WillAppear %ld",(long)indexPath.row);
+    
+    
+    NSArray *cells = [self.collectionView visibleCells];
+    
+    for (JACoverCollectionViewCell *cell in cells)
+    {
+        cell.placesLBL.textColor = [UIColor whiteColor];
+        cell.placesLBL.frame = CGRectMake(100, cell.frame.origin.y, cell.frame.size.width, cell.frame.size.height); 
+
+    }
+
+    [UIView animateWithDuration:1.0 animations:^{
+        cell.placesLBL.textColor = [UIColor redColor];
+        cell.placesLBL.transform = CGAffineTransformMakeTranslation(-100, 0);
+//        cell.placesLBL.frame = CGRectMake(0, cell.frame.origin.y, cell.frame.size.width, cell.frame.size.height);
+    }];
+    
+}
+- (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(JACoverCollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"EndAppear %ld",(long)indexPath.row);
+
+}
 /*
 // Uncomment this method to specify if the specified item should be highlighted during tracking
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {

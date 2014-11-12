@@ -10,7 +10,7 @@
 
 @interface JACoverCollectionViewCell : UICollectionViewCell
 
-@property (strong, nonatomic) IBOutlet UIImageView *backgroundView;
-
+@property (strong, nonatomic) IBOutlet UIImageView *backgroundIV;
+@property (strong, nonatomic) IBOutlet UILabel *placesLBL;
 
 @end

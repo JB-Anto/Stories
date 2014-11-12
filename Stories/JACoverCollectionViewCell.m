@@ -16,10 +16,16 @@
     
     if(self)
     {
-        self.backgroundView = [[UIImageView alloc] initWithFrame:self.bounds];
-        [self addSubview:self.backgroundView];
-        
+        self.backgroundIV = [[UIImageView alloc] initWithFrame:self.bounds];
 
+        self.placesLBL = [[UILabel alloc]initWithFrame:CGRectMake(100, self.bounds.size.height/2 - 10, self.bounds.size.width, 40)];
+        self.placesLBL.textAlignment = NSTextAlignmentCenter;
+        self.placesLBL.textColor = [UIColor whiteColor];
+        self.placesLBL.text = @"REST";
+//        self.placesLBL.backgroundColor = [UIColor yellowColor];
+        
+        [self addSubview:self.backgroundIV];
+        [self addSubview:self.placesLBL];
     }
         
     return self;

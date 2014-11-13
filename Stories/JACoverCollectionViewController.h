@@ -20,6 +20,10 @@ typedef NS_ENUM(NSInteger, JAAnimDirection) {
 
 @interface JACoverCollectionViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate>
 
+@property (nonatomic,strong) UICollectionView *collectionView;
+@property (nonatomic,strong) JACoverCollectionViewCell *cellToAnimate;
+@property (nonatomic,strong) JAManagerData *manager;
+@property (strong, nonatomic) JALoaderView *loaderView;
+@property (strong, nonatomic) UILabel *nameViewLBL;
 @property int currentIndex;
-
 @end

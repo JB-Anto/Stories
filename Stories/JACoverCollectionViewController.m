@@ -10,10 +10,6 @@
 
 @interface JACoverCollectionViewController ()
 
-@property (nonatomic,strong) UICollectionView *collectionView;
-@property (nonatomic,strong) JACoverCollectionViewCell *cellToAnimate;
-@property (nonatomic,strong) JAManagerData *manager;
-@property (strong, nonatomic) JALoaderView *loaderView;
 @property UIGestureRecognizerState stateLongTap;
 @property BOOL animatedLoader;
 @property BOOL firstTime;
@@ -34,7 +30,7 @@ static NSString * const reuseIdentifier = @"Cell";
     self.stateLongTap = UIGestureRecognizerStatePossible;
 
     // For Swipe Gestion
-    self.currentIndex = 0;
+//    self.currentIndex = 0;
     
     self.manager = [JAManagerData sharedManager];
     
@@ -64,6 +60,13 @@ static NSString * const reuseIdentifier = @"Cell";
     
     [self.collectionView registerClass:[JACoverCollectionViewCell class] forCellWithReuseIdentifier:@"CoverCell"];
     self.collectionView.pagingEnabled = YES;
+    
+    // Name View
+    self.nameViewLBL = [[UILabel alloc]initWithFrame:CGRectMake(25, 25, self.view.bounds.size.width, 50)];
+    self.nameViewLBL.textColor = [UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1];
+    self.nameViewLBL.font = [UIFont fontWithName:@"Circular-Std-Book" size:24.0];
+    self.nameViewLBL.text = @"Publications";
+    [self.view addSubview:self.nameViewLBL];
     
     // Loader View
     self.loaderView = [[JALoaderView alloc]initWithFrame:CGRectMake(0, 0, 160, 160)];

@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface JAMainChapterViewController : UIViewController
-
+@property (strong, nonatomic) UITableViewController *tableViewController;
 @end

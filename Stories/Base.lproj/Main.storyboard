@@ -49,7 +49,7 @@
         <!--Chapter Table View Controller-->
         <scene sceneID="VRK-d9-n8p">
             <objects>
-                <tableViewController id="S3h-NS-wGM" customClass="JAChapterTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="tableViewController" id="S3h-NS-wGM" customClass="JAChapterTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="2fH-fN-WZ2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

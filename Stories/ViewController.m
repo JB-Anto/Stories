@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "JAChapterTableViewController.h"
 
 @interface ViewController ()
 
@@ -16,6 +17,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    JAChapterTableViewController *chapterTableViewController;
+    
+    [self.view addSubview:chapterTableViewController.ArticlesTableView];
+
 }
 
 - (void)didReceiveMemoryWarning {

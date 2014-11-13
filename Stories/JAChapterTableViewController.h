@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface JAChapterTableViewController : UITableViewController
-
+@property (strong, nonatomic) IBOutlet UITableView *ArticlesTableView;
 @end

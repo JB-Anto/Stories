@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		77D177BA1A148D3600BA71F9 /* JAChapterCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D177B91A148D3600BA71F9 /* JAChapterCollectionViewController.m */; };
+		77D177BE1A148D6300BA71F9 /* JAChapterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D177BD1A148D6300BA71F9 /* JAChapterTableViewController.m */; };
 		8D8C02D51A10CB6200904841 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D8C02D41A10CB6200904841 /* main.m */; };
 		8D8C02D81A10CB6200904841 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D8C02D71A10CB6200904841 /* AppDelegate.m */; };
 		8D8C02DB1A10CB6200904841 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D8C02DA1A10CB6200904841 /* ViewController.m */; };
@@ -27,6 +29,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		77D177B81A148D3600BA71F9 /* JAChapterCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAChapterCollectionViewController.h; sourceTree = "<group>"; };
+		77D177B91A148D3600BA71F9 /* JAChapterCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAChapterCollectionViewController.m; sourceTree = "<group>"; };
+		77D177BC1A148D6300BA71F9 /* JAChapterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAChapterTableViewController.h; sourceTree = "<group>"; };
+		77D177BD1A148D6300BA71F9 /* JAChapterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAChapterTableViewController.m; sourceTree = "<group>"; };
 		8D8C02CF1A10CB6200904841 /* Stories.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stories.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D8C02D31A10CB6200904841 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D8C02D41A10CB6200904841 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -60,6 +66,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		77D177BB1A148D3F00BA71F9 /* Chapter */ = {
+			isa = PBXGroup;
+			children = (
+				8D8C02D91A10CB6200904841 /* ViewController.h */,
+				8D8C02DA1A10CB6200904841 /* ViewController.m */,
+				77D177B81A148D3600BA71F9 /* JAChapterCollectionViewController.h */,
+				77D177B91A148D3600BA71F9 /* JAChapterCollectionViewController.m */,
+				77D177BC1A148D6300BA71F9 /* JAChapterTableViewController.h */,
+				77D177BD1A148D6300BA71F9 /* JAChapterTableViewController.m */,
+			);
+			name = Chapter;
+			sourceTree = "<group>";
+		};
 		8D8C02C61A10CB6200904841 = {
 			isa = PBXGroup;
 			children = (
@@ -82,9 +101,8 @@
 			isa = PBXGroup;
 			children = (
 				8D8C02D61A10CB6200904841 /* AppDelegate.h */,
+				77D177BB1A148D3F00BA71F9 /* Chapter */,
 				8D8C02D71A10CB6200904841 /* AppDelegate.m */,
-				8D8C02D91A10CB6200904841 /* ViewController.h */,
-				8D8C02DA1A10CB6200904841 /* ViewController.m */,
 				8D8C02DC1A10CB6200904841 /* Main.storyboard */,
 				8D8C02DF1A10CB6200904841 /* Images.xcassets */,
 				8D8C02E11A10CB6200904841 /* LaunchScreen.xib */,
@@ -222,6 +240,8 @@
 				8D8C02DB1A10CB6200904841 /* ViewController.m in Sources */,
 				8D8C02D81A10CB6200904841 /* AppDelegate.m in Sources */,
 				8D8C02D51A10CB6200904841 /* main.m in Sources */,
+				77D177BA1A148D3600BA71F9 /* JAChapterCollectionViewController.m in Sources */,
+				77D177BE1A148D6300BA71F9 /* JAChapterTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +432,7 @@
 				8D8C02F41A10CB6300904841 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8D8C02F51A10CB6300904841 /* Build configuration list for PBXNativeTarget "StoriesTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +441,7 @@
 				8D8C02F71A10CB6300904841 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

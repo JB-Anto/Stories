@@ -147,7 +147,7 @@ static NSString * const reuseIdentifier = @"Cell";
 #pragma mark <UICollectionViewDelegate>
 
 - (void)scrollViewWillEndDragging:(UICollectionView *)collectionView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
-    NSLog(@"EndDrag");
+//    NSLog(@"EndDrag");
 }
 
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(JACoverCollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -174,6 +174,20 @@ static NSString * const reuseIdentifier = @"Cell";
     NSLog(@"EndAppear %ld",(long)indexPath.row);
 
 }
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+    for (JACoverCollectionViewCell *cell in self.collectionView.visibleCells) {
+        CGRect cellRect = [scrollView convertRect:cell.frame toView:scrollView.superview];
+
+        if (CGRectContainsRect(scrollView.frame, cellRect)){
+            
+            NSLog(@"fully ");
+//            [self updateThemeDataWithCell:cell];
+        }else{
+            //NSLog(@"not fully %@", cell.themeLabel.text);
+        }
+    }
+}
+
 /*
 // Uncomment this method to specify if the specified item should be highlighted during tracking
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {

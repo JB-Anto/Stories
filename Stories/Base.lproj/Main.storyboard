@@ -10,7 +10,7 @@
                 <viewController id="ort-Br-atN" customClass="JACoverCollectionViewController" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cCH-t5-DqY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="95" y="-141"/>
+            <point key="canvasLocation" x="402" y="-135"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

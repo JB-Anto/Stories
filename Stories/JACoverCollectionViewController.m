@@ -11,8 +11,8 @@
 @interface JACoverCollectionViewController ()
 
 @property(nonatomic,strong) UICollectionView *collectionView;
-
-
+@property(nonatomic,strong) JACoverCollectionViewCell *cellToAnimate;
+@property BOOL firstTime;
 
 @end
 
@@ -24,8 +24,19 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.firstTime = YES;
     self.currentIndex = 0;
+    
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"stories" ofType:@"json"];
+    NSData *jsonData = [[NSData alloc] initWithContentsOfFile:filePath];
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    
+
+    
+    JAStoriesModel *stories = [[JAStoriesModel alloc] initWithString:jsonString error:nil];
+    NSLog(@"%@", [stories.stories[0] chapters]);
+    
+    
     
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     layout.itemSize = CGSizeMake(CGRectGetWidth(self.view.bounds),  CGRectGetHeight(self.view.bounds));
@@ -39,6 +50,7 @@ static NSString * const reuseIdentifier = @"Cell";
     self.collectionView = [[UICollectionView alloc] initWithFrame:[[UIScreen mainScreen] bounds] collectionViewLayout:layout];
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
+    self.collectionView.bounces = NO;
 
 //    self.collectionView.userInteractionEnabled = NO;
     
@@ -152,40 +164,21 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(JACoverCollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"WillAppear %ld",(long)indexPath.row);
-    
-    
-    NSArray *cells = [self.collectionView visibleCells];
-    
-    for (JACoverCollectionViewCell *cell in cells)
-    {
-        cell.placesLBL.textColor = [UIColor whiteColor];
-        cell.placesLBL.frame = CGRectMake(100, cell.frame.origin.y, cell.frame.size.width, cell.frame.size.height); 
-
+    self.cellToAnimate = cell;
+    if(self.firstTime){
+        [cell animateEnter];
+        self.firstTime = NO;
     }
-
-    [UIView animateWithDuration:1.0 animations:^{
-        cell.placesLBL.textColor = [UIColor redColor];
-        cell.placesLBL.transform = CGAffineTransformMakeTranslation(-100, 0);
-//        cell.placesLBL.frame = CGRectMake(0, cell.frame.origin.y, cell.frame.size.width, cell.frame.size.height);
-    }];
     
 }
 - (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(JACoverCollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"EndAppear %ld",(long)indexPath.row);
+    [self.cellToAnimate animateEnter];
+    [cell resetAnimation];
 
 }
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
-    for (JACoverCollectionViewCell *cell in self.collectionView.visibleCells) {
-        CGRect cellRect = [scrollView convertRect:cell.frame toView:scrollView.superview];
-
-        if (CGRectContainsRect(scrollView.frame, cellRect)){
-            
-            NSLog(@"fully ");
-//            [self updateThemeDataWithCell:cell];
-        }else{
-            //NSLog(@"not fully %@", cell.themeLabel.text);
-        }
-    }
+    
 }
 
 /*

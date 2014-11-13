@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "JACoverCollectionViewCell.h"
+#import "JAStoriesModel.h"
+#import "JAStorieModel.h"
 
 typedef NS_ENUM(NSInteger, JAAnimDirection) {
     JAAnimDirectionLeft,

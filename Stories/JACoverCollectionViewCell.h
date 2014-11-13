@@ -13,4 +13,8 @@
 @property (strong, nonatomic) IBOutlet UIImageView *backgroundIV;
 @property (strong, nonatomic) IBOutlet UILabel *placesLBL;
 
+
+-(void)animateEnter;
+-(void)resetAnimation;
+
 @end

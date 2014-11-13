@@ -18,7 +18,7 @@
     {
         self.backgroundIV = [[UIImageView alloc] initWithFrame:self.bounds];
 
-        self.placesLBL = [[UILabel alloc]initWithFrame:CGRectMake(100, self.bounds.size.height/2 - 10, self.bounds.size.width, 40)];
+        self.placesLBL = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 40)];
         self.placesLBL.textAlignment = NSTextAlignmentCenter;
         self.placesLBL.textColor = [UIColor whiteColor];
         self.placesLBL.text = @"REST";
@@ -31,5 +31,12 @@
     return self;
     
 }
-
+-(void)animateEnter{
+    [UIView animateWithDuration:1 animations:^{
+        self.placesLBL.frame = CGRectMake(100, 400, 100, 40);
+    }];
+}
+-(void)resetAnimation{
+    self.placesLBL.frame = CGRectMake(0, 0, 100, 40);
+}
 @end

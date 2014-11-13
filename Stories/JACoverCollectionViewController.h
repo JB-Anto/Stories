@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "JACoverCollectionViewCell.h"
+#import "JAManagerData.h"
 #import "JAStoriesModel.h"
 #import "JAStorieModel.h"
 

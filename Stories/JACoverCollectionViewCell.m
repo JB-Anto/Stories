@@ -17,26 +17,48 @@
     if(self)
     {
         self.backgroundIV = [[UIImageView alloc] initWithFrame:self.bounds];
+        self.foregroundIV = [[UIImageView alloc] initWithFrame:CGRectMake(self.bounds.size.width/3, 0, self.bounds.size.width, self.bounds.size.height)];
 
-        self.placesLBL = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 40)];
-        self.placesLBL.textAlignment = NSTextAlignmentCenter;
-        self.placesLBL.textColor = [UIColor whiteColor];
-        self.placesLBL.text = @"REST";
-//        self.placesLBL.backgroundColor = [UIColor yellowColor];
+        self.locationLBL = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, self.bounds.size.width, 60)];
+        self.locationLBL.textAlignment = NSTextAlignmentCenter;
+        self.locationLBL.textColor = [UIColor whiteColor];
+        self.locationLBL.font = [UIFont fontWithName:@"Young-Serif-Regular" size:50.0];
+        
+        self.titleLBL = [[UILabel alloc]initWithFrame:CGRectMake(0, 70, self.bounds.size.width, 70)];
+        self.titleLBL.textAlignment = NSTextAlignmentCenter;
+        self.titleLBL.textColor = [UIColor whiteColor];
+        self.titleLBL.font = [UIFont fontWithName:@"Circular-Std-Book" size:24.0];
+        self.titleLBL.lineBreakMode = NSLineBreakByWordWrapping;
+        self.titleLBL.numberOfLines = 2;
+        
+        self.titleView = [[UIView alloc]initWithFrame:CGRectMake(50, self.bounds.size.height/2 - 150/2, self.bounds.size.width, 200)];
+        self.titleView.alpha = 0;
         
         [self addSubview:self.backgroundIV];
-        [self addSubview:self.placesLBL];
+        [self addSubview:self.foregroundIV];
+        [self.titleView addSubview:self.locationLBL];
+        [self.titleView addSubview:self.titleLBL];
+        [self addSubview:self.titleView];
+
     }
         
     return self;
     
 }
 -(void)animateEnter{
-    [UIView animateWithDuration:1 animations:^{
-        self.placesLBL.frame = CGRectMake(100, 400, 100, 40);
-    }];
+    [UIView animateWithDuration:.3 delay:.1 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        self.titleView.transform = CGAffineTransformMakeTranslation(-50, 0);
+    } completion:nil];
+    [UIView animateWithDuration:.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        self.foregroundIV.transform = CGAffineTransformMakeTranslation(-self.bounds.size.width/3, 0);
+    } completion:nil];
+    [UIView animateWithDuration:.8 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        self.titleView.alpha = 1;
+    } completion:nil];
 }
 -(void)resetAnimation{
-    self.placesLBL.frame = CGRectMake(0, 0, 100, 40);
+    self.titleView.transform = CGAffineTransformMakeTranslation(50, 0);
+    self.titleView.alpha = 0;
+    self.foregroundIV.transform = CGAffineTransformMakeTranslation(self.bounds.size.width/3, 0);
 }
 @end

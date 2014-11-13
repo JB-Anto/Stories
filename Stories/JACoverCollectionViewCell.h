@@ -10,8 +10,11 @@
 
 @interface JACoverCollectionViewCell : UICollectionViewCell
 
-@property (strong, nonatomic) IBOutlet UIImageView *backgroundIV;
-@property (strong, nonatomic) IBOutlet UILabel *placesLBL;
+@property (strong, nonatomic) UIImageView *backgroundIV;
+@property (strong, nonatomic) UIImageView *foregroundIV;
+@property (strong, nonatomic) UIView *titleView;
+@property (strong, nonatomic) UILabel *titleLBL;
+@property (strong, nonatomic) UILabel *locationLBL;
 
 
 -(void)animateEnter;

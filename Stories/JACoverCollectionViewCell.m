@@ -46,10 +46,10 @@
     
 }
 -(void)animateEnter{
-    [UIView animateWithDuration:.3 delay:.1 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+    [UIView animateWithDuration:.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.titleView.transform = CGAffineTransformMakeTranslation(-50, 0);
     } completion:nil];
-    [UIView animateWithDuration:.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+    [UIView animateWithDuration:.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.foregroundIV.transform = CGAffineTransformMakeTranslation(-self.bounds.size.width/3, 0);
     } completion:nil];
     [UIView animateWithDuration:.8 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{

@@ -10,9 +10,12 @@
 
 @interface JACoverCollectionViewController ()
 
-@property(nonatomic,strong) UICollectionView *collectionView;
-@property(nonatomic,strong) JACoverCollectionViewCell *cellToAnimate;
-@property(nonatomic,strong) JAManagerData *manager;
+@property (nonatomic,strong) UICollectionView *collectionView;
+@property (nonatomic,strong) JACoverCollectionViewCell *cellToAnimate;
+@property (nonatomic,strong) JAManagerData *manager;
+@property (strong, nonatomic) JALoaderView *loaderView;
+@property UIGestureRecognizerState stateLongTap;
+@property BOOL animatedLoader;
 @property BOOL firstTime;
 
 @end
@@ -25,7 +28,12 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.firstTime = YES;
+    self.animatedLoader = NO;
+    self.stateLongTap = UIGestureRecognizerStatePossible;
+
+    // For Swipe Gestion
     self.currentIndex = 0;
     
     self.manager = [JAManagerData sharedManager];
@@ -44,7 +52,8 @@ static NSString * const reuseIdentifier = @"Cell";
     layout.minimumLineSpacing = 0;
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
-
+    
+    // Collection View
     self.collectionView = [[UICollectionView alloc] initWithFrame:[[UIScreen mainScreen] bounds] collectionViewLayout:layout];
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
@@ -56,6 +65,15 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.collectionView registerClass:[JACoverCollectionViewCell class] forCellWithReuseIdentifier:@"CoverCell"];
     self.collectionView.pagingEnabled = YES;
     
+    // Loader View
+    self.loaderView = [[JALoaderView alloc]initWithFrame:CGRectMake(0, 0, 160, 160)];
+    [self.view addSubview:self.loaderView];
+    // Load the chapter view
+    UILongPressGestureRecognizer *longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressDetected:)];
+    longPressRecognizer.minimumPressDuration = .3;
+    longPressRecognizer.numberOfTouchesRequired = 1;
+    [self.view addGestureRecognizer:longPressRecognizer];
+
     // For swipeGesture
     
 //    UIView *swipeGesture = [[UIView alloc]init];
@@ -78,6 +96,29 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)longPressDetected:(UITapGestureRecognizer *)sender{
+    CGPoint touchPosition = [sender locationInView:self.view];
+    self.loaderView.center = touchPosition;
+    if(self.stateLongTap != sender.state){
+        self.stateLongTap = sender.state;
+    }
+    if(self.stateLongTap == UIGestureRecognizerStateEnded){
+        [self.loaderView.imageView stopAnimating];
+    }
+    else if(self.stateLongTap == UIGestureRecognizerStateBegan || self.stateLongTap == UIGestureRecognizerStateChanged){
+        [self.loaderView.imageView startAnimating];
+    }
+    
+    [self performSelector:@selector(loadChapterView) withObject:nil
+               afterDelay:self.loaderView.imageView.animationDuration];
+    
+}
+-(void)loadChapterView{
+    if(self.stateLongTap == UIGestureRecognizerStateChanged){
+        NSLog(@"Ok");
+    }
 }
 - (void)handleSwipe:(UISwipeGestureRecognizer *)swipe {
     

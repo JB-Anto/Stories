@@ -81,6 +81,7 @@
 		8D8C02E01A10CB6200904841 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D8C02DF1A10CB6200904841 /* Images.xcassets */; };
 		8D8C02E31A10CB6200904841 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D8C02E11A10CB6200904841 /* LaunchScreen.xib */; };
 		8D8C02EF1A10CB6300904841 /* StoriesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D8C02EE1A10CB6300904841 /* StoriesTests.m */; };
+		8DB9C3D41A160BE200FBC975 /* JAFollowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DB9C3D31A160BE200FBC975 /* JAFollowView.m */; };
 		8DD244561A13850800FC7683 /* JACoverCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD244551A13850800FC7683 /* JACoverCollectionViewController.m */; };
 		8DD244591A13856000FC7683 /* JACoverCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD244581A13856000FC7683 /* JACoverCollectionViewCell.m */; };
 /* End PBXBuildFile section */
@@ -202,6 +203,8 @@
 		8D8C02E81A10CB6300904841 /* StoriesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StoriesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D8C02ED1A10CB6300904841 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D8C02EE1A10CB6300904841 /* StoriesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoriesTests.m; sourceTree = "<group>"; };
+		8DB9C3D21A160BE200FBC975 /* JAFollowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAFollowView.h; sourceTree = "<group>"; };
+		8DB9C3D31A160BE200FBC975 /* JAFollowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAFollowView.m; sourceTree = "<group>"; };
 		8DD244541A13850800FC7683 /* JACoverCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JACoverCollectionViewController.h; path = Stories/JACoverCollectionViewController.h; sourceTree = "<group>"; };
 		8DD244551A13850800FC7683 /* JACoverCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JACoverCollectionViewController.m; path = Stories/JACoverCollectionViewController.m; sourceTree = "<group>"; };
 		8DD244571A13856000FC7683 /* JACoverCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JACoverCollectionViewCell.h; path = Stories/JACoverCollectionViewCell.h; sourceTree = "<group>"; };
@@ -243,6 +246,8 @@
 			children = (
 				0A8783DB1A155CF50028437C /* JALoaderView.h */,
 				0A8783DC1A155CF50028437C /* JALoaderView.m */,
+				8DB9C3D21A160BE200FBC975 /* JAFollowView.h */,
+				8DB9C3D31A160BE200FBC975 /* JAFollowView.m */,
 			);
 			name = VIews;
 			sourceTree = "<group>";
@@ -674,6 +679,7 @@
 				8DD244591A13856000FC7683 /* JACoverCollectionViewCell.m in Sources */,
 				8D54A9351A14EB8600ABDAD2 /* JSONKeyMapper.m in Sources */,
 				8D54A90B1A14E5DD00ABDAD2 /* JACreditModel.m in Sources */,
+				8DB9C3D41A160BE200FBC975 /* JAFollowView.m in Sources */,
 				8D54A92D1A14EB8600ABDAD2 /* JSONModel.m in Sources */,
 				8D54A93B1A14FBA000ABDAD2 /* JAManagerData.m in Sources */,
 				8D54A8F91A14DD9C00ABDAD2 /* JAStorieModel.m in Sources */,
@@ -800,6 +806,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Stories/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
@@ -811,6 +818,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Stories/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";

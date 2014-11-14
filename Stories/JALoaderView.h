@@ -8,8 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol LoaderDelegate
+
+-(void)loadNextView;
+
+@end
+
 @interface JALoaderView : UIView
 
+@property (strong,nonatomic) UIView *loader;
 @property (strong,nonatomic) UIImageView *imageView;
+@property UIGestureRecognizerState stateLoader;
+
+@property (nonatomic, assign) id delegate;
+
+-(void)movePosition:(CGPoint)point;
+-(void)setState:(UIGestureRecognizerState)state;
 
 @end

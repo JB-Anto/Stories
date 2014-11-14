@@ -18,7 +18,7 @@ typedef NS_ENUM(NSInteger, JAAnimDirection) {
     JAAnimDirectionRight
 };
 
-@interface JACoverCollectionViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate>
+@interface JACoverCollectionViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, LoaderDelegate>
 
 @property (nonatomic,strong) UICollectionView *collectionView;
 @property (nonatomic,strong) JACoverCollectionViewCell *cellToAnimate;

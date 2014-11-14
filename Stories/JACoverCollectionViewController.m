@@ -55,23 +55,29 @@ static NSString * const reuseIdentifier = @"Cell";
     self.collectionView.dataSource = self;
     self.collectionView.bounces = NO;
     self.collectionView.collectionViewLayout = layout;
+
     
     [self.view addSubview:self.collectionView];
     
     [self.collectionView registerClass:[JACoverCollectionViewCell class] forCellWithReuseIdentifier:@"CoverCell"];
     self.collectionView.pagingEnabled = YES;
+    self.collectionView.showsHorizontalScrollIndicator = NO;
     
     // Name View
     self.nameViewLBL = [[UILabel alloc]initWithFrame:CGRectMake(25, 25, self.view.bounds.size.width, 50)];
     self.nameViewLBL.textColor = [UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1];
-    self.nameViewLBL.font = [UIFont fontWithName:@"Circular-Std-Book" size:24.0];
+    self.nameViewLBL.font = [UIFont fontWithName:@"Circular-Std-Book" size:19.0];
     self.nameViewLBL.text = @"Publications";
     [self.view addSubview:self.nameViewLBL];
     
     // Loader View
     self.loaderView = [[JALoaderView alloc]initWithFrame:CGRectMake(0, 0, 160, 160)];
+    self.loaderView.delegate = self;
     [self.view addSubview:self.loaderView];
-    // Load the chapter view
+    
+    
+
+    // Gesture recognizer
     UILongPressGestureRecognizer *longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressDetected:)];
     longPressRecognizer.minimumPressDuration = .3;
     longPressRecognizer.numberOfTouchesRequired = 1;
@@ -98,31 +104,20 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(void)longPressDetected:(UITapGestureRecognizer *)sender{
+    
     CGPoint touchPosition = [sender locationInView:self.view];
-    self.loaderView.center = touchPosition;
-    if(self.stateLongTap != sender.state){
-        self.stateLongTap = sender.state;
-    }
-    if(self.stateLongTap == UIGestureRecognizerStateEnded){
-        [self.loaderView.imageView stopAnimating];
-    }
-    else if(self.stateLongTap == UIGestureRecognizerStateBegan || self.stateLongTap == UIGestureRecognizerStateChanged){
-        [self.loaderView.imageView startAnimating];
-    }
     
-    [self performSelector:@selector(loadChapterView) withObject:nil
-               afterDelay:self.loaderView.imageView.animationDuration];
-    
+    [self.loaderView movePosition:touchPosition];
+    [self.loaderView setState:sender.state];
+
 }
--(void)loadChapterView{
-    if(self.stateLongTap == UIGestureRecognizerStateChanged){
-        NSLog(@"Ok");
-    }
+-(void)loadNextView{
+    NSLog(@"Hiya!");
 }
+
 - (void)handleSwipe:(UISwipeGestureRecognizer *)swipe {
     
     if (swipe.direction == UISwipeGestureRecognizerDirectionLeft) {
@@ -185,6 +180,7 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
     NSLog(@"Decelerate");
     [self.cellToAnimate animateEnter];
+    [self.cellToAnimate.followView validateFollow];
 }
 - (void)scrollViewWillEndDragging:(UICollectionView *)collectionView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
 //    NSLog(@"EndDrag");
@@ -201,8 +197,8 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 - (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(JACoverCollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"EndAppear %ld",(long)indexPath.row);
-    
     [cell resetAnimation];
+    [cell.followView unValidateFollow];
 
 }
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{

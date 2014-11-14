@@ -34,9 +34,14 @@
         self.titleView = [[UIView alloc]initWithFrame:CGRectMake(50, self.bounds.size.height/2 - 150/2, self.bounds.size.width, 200)];
         self.titleView.alpha = 0;
         
+        // Follow View
+        self.followView = [[JAFollowView alloc]initWithFrame:CGRectMake(self.bounds.size.width - 50, 40, 25, 25)];
+        self.followView.delegate = self;
+        self.followView.backgroundColor = [UIColor clearColor];
+
         [self addSubview:self.backgroundIV];
         [self addSubview:self.foregroundIV];
-        [self addSubview:self.foregroundIV];
+        [self addSubview:self.followView];
         [self.titleView addSubview:self.locationLBL];
         [self.titleView addSubview:self.titleLBL];
         [self addSubview:self.titleView];

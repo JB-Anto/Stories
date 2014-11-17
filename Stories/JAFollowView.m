@@ -12,6 +12,8 @@
 
 @property (strong,nonatomic) CAShapeLayer *maskWithHole;
 @property (strong,nonatomic) CAShapeLayer *maskWithHole2;
+@property CGPoint centerView;
+@property BOOL validate;
 
 @end
 
@@ -23,20 +25,20 @@
     
     if(self)
     {
-        
-        self.followView = [[UIView alloc]initWithFrame:CGRectMake(frame.origin.x, frame.origin.y, 160, 160)];
-        
+
         
         self.maskWithHole = [CAShapeLayer layer];
+        self.centerView = self.center;
+        self.validate = NO;
         
         self.layer.transform = CATransform3DMakeRotation(45*M_PI/180, 0, 0, 1.0);
         
         UIBezierPath *maskPath = [UIBezierPath bezierPath];
-        [maskPath moveToPoint:CGPointMake(0, 0)];
-        [maskPath addLineToPoint:CGPointMake(frame.size.width, 0)];
-        [maskPath addLineToPoint:CGPointMake(frame.size.width,frame.size.height)];
-        [maskPath addLineToPoint:CGPointMake(0, frame.size.height)];
-        [maskPath addLineToPoint:CGPointMake(0, 0)];
+        [maskPath moveToPoint:CGPointMake(frame.size.width/4, frame.size.height/4)];
+        [maskPath addLineToPoint:CGPointMake(frame.size.width * 3/4, frame.size.height/4)];
+        [maskPath addLineToPoint:CGPointMake(frame.size.width * 3/4,frame.size.height * 3/4)];
+        [maskPath addLineToPoint:CGPointMake(frame.size.width/4, frame.size.height * 3/4)];
+        [maskPath addLineToPoint:CGPointMake(frame.size.width/4, frame.size.height / 4)];
         [self.maskWithHole setPath:[maskPath CGPath]];
         self.maskWithHole.lineWidth = 10.0;
         [self.maskWithHole setFillColor:[UIColor clearColor].CGColor];
@@ -45,15 +47,19 @@
         self.maskWithHole2 = [CAShapeLayer layer];
         
         UIBezierPath *maskPath2 = [UIBezierPath bezierPath];
-        [maskPath2 moveToPoint:CGPointMake(0, 0)];
-        [maskPath2 addLineToPoint:CGPointMake(frame.size.width, 0)];
-        [maskPath2 addLineToPoint:CGPointMake(frame.size.width,frame.size.height)];
-        [maskPath2 addLineToPoint:CGPointMake(0, frame.size.height)];
-        [maskPath2 addLineToPoint:CGPointMake(0, 0)];
+        [maskPath2 moveToPoint:CGPointMake(frame.size.width/4, frame.size.height/4)];
+        [maskPath2 addLineToPoint:CGPointMake(frame.size.width * 3/4, frame.size.height/4)];
+        [maskPath2 addLineToPoint:CGPointMake(frame.size.width * 3/4,frame.size.height * 3/4)];
+        [maskPath2 addLineToPoint:CGPointMake(frame.size.width/4, frame.size.height * 3/4)];
+        [maskPath2 addLineToPoint:CGPointMake(frame.size.width/4, frame.size.height/4)];
         [self.maskWithHole2 setPath:[maskPath2 CGPath]];
-
         [self.layer addSublayer:self.maskWithHole];
         [self.layer setMask:self.maskWithHole2];
+        
+        UILongPressGestureRecognizer *dragFollow = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(followDrag:)];
+        dragFollow.minimumPressDuration = .05;
+        dragFollow.numberOfTouchesRequired = 1;
+        [self addGestureRecognizer:dragFollow];
         
     }
     
@@ -65,25 +71,42 @@
         self.layer.transform = CATransform3DMakeRotation(angle*M_PI/180, 0, 0, 1.0);
     }];
 }
+-(void)followDrag:(UITapGestureRecognizer *)sender{
+    CGPoint touchPosition = [sender locationInView:self.superview];
+    float degree = [self getAngleFromMouse:touchPosition] * 180 / M_PI;
+    float distance = [self getDistanceFromMouse:touchPosition];
+    
 
+    if(sender.state == UIGestureRecognizerStateChanged) {
+        if(degree > 90 && degree < 180){
+            self.center = touchPosition;
+        }
+        if (distance >= 80) {
+            [self validateFollow];
+        }
+        else{
+            [self unValidateFollow];
+        }
+    }
+    else if(sender.state == UIGestureRecognizerStateEnded){
+        [self animateToCenter];
+    }
+    
+    NSLog(@"Angle %f || Distance %f", degree, distance);
+}
 -(void)validateFollow{
-    
-    CABasicAnimation *animation =
-    [CABasicAnimation animationWithKeyPath:@"lineWidth"];
-    
-    animation.toValue = @(30.0);
-    animation.removedOnCompletion = NO;
-    animation.fillMode = kCAFillModeForwards;
-    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
-    [animation setDuration:.5];
-    [self.maskWithHole addAnimation:animation forKey:@"tesst"];
-
+    [self animationBorder:30.0f];
+    self.validate = YES;
 }
 -(void)unValidateFollow{
+    [self animationBorder:10.0f];
+    self.validate = NO;
+}
+-(void)animationBorder:(float)border{
     CABasicAnimation *animation =
     [CABasicAnimation animationWithKeyPath:@"lineWidth"];
     
-    animation.toValue = @(10.0);
+    animation.toValue = @(border);
     animation.removedOnCompletion = NO;
     animation.fillMode = kCAFillModeForwards;
     animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
@@ -91,6 +114,20 @@
     [self.maskWithHole addAnimation:animation forKey:@"tesst"];
 }
 
+
+-(float)getAngleFromMouse:(CGPoint)touchPosition{
+    return atan2(( touchPosition.y - self.centerView.y), (touchPosition.x - self.centerView.x));
+};
+
+-(float)getDistanceFromMouse:(CGPoint)touchPosition{
+    return sqrt(pow((touchPosition.x - self.centerView.x),2)+pow((touchPosition.y - self.centerView.y),2));
+};
+
+-(void)animateToCenter{
+    [UIView animateWithDuration:.5 animations:^{
+        self.center = self.centerView;
+    }];
+}
 - (void)drawRect:(CGRect)rect
 {
     [super drawRect:rect];

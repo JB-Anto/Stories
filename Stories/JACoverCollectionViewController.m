@@ -83,6 +83,7 @@ static NSString * const reuseIdentifier = @"Cell";
     longPressRecognizer.numberOfTouchesRequired = 1;
     [self.view addGestureRecognizer:longPressRecognizer];
 
+
     // For swipeGesture
     
 //    UIView *swipeGesture = [[UIView alloc]init];
@@ -180,7 +181,7 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
     NSLog(@"Decelerate");
     [self.cellToAnimate animateEnter];
-    [self.cellToAnimate.followView validateFollow];
+//    [self.cellToAnimate.followView validateFollow];
 }
 - (void)scrollViewWillEndDragging:(UICollectionView *)collectionView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
 //    NSLog(@"EndDrag");
@@ -198,11 +199,14 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(JACoverCollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"EndAppear %ld",(long)indexPath.row);
     [cell resetAnimation];
-    [cell.followView unValidateFollow];
+//    [cell.followView unValidateFollow];
 
 }
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
     
+}
+-(BOOL)prefersStatusBarHidden{
+    return YES;
 }
 
 

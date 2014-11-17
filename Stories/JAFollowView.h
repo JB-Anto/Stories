@@ -16,7 +16,6 @@
 
 @interface JAFollowView : UIView
 
-@property (strong, nonatomic) UIView *followView;
 @property (nonatomic, assign) id delegate;
 
 -(void)rotateSquare:(float)angle;

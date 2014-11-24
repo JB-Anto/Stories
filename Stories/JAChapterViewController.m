@@ -16,7 +16,12 @@
 @property NSUInteger chaptersCount;
 @property float chapterHeight;
 @property int currentIndex;
+@property CGPoint touchPosition;
+@property CGPoint positionLoader;
+@property UIGestureRecognizerState currentStateTouch;
 @property NSTimer *timerForLoader;
+@property BOOL touchToLoad;
+
 @end
 
 @implementation JAChapterViewController
@@ -29,6 +34,8 @@
     self.manager.currentChapter = 0;
     self.titlesArray = [NSMutableArray array];
     self.currentIndex = -1;
+    self.touchToLoad = NO;
+
     
     // Date out format
     self.dateFormater = [[NSDateFormatter alloc]init];
@@ -48,25 +55,30 @@
     
     // Chapters View
     self.chapterScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height/7)];
-    self.chapterScrollView.backgroundColor = [UIColor redColor];
+    self.chapterScrollView.backgroundColor = [UIColor pxColorWithHexValue:[[self.manager.data.stories[self.manager.currentStorie] cover] color]];
     [self.view addSubview:self.chapterScrollView];
     
     // Titles View
     self.titlesView = [[UIView alloc]initWithFrame:CGRectMake(0, self.view.bounds.size.height/7, self.view.bounds.size.width, self.view.bounds.size.height*6/7)];
-    self.titlesView.backgroundColor = [UIColor yellowColor];
+    self.titlesView.backgroundColor = [UIColor pxColorWithHexValue:[[self.manager.data.stories[self.manager.currentStorie] cover] color]];
     [self.view addSubview:self.titlesView];
     
-    // Loader View
-    self.loaderView = [[JALoaderView alloc]initWithFrame:CGRectMake(0, 0, 160, 160)];
-    self.loaderView.delegate = self;
-    [self.view addSubview:self.loaderView];
-
+    
+    [self createTitlesBlocks];
+    
     // Gesture recognizer
     UILongPressGestureRecognizer *longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressDetected:)];
     longPressRecognizer.minimumPressDuration = .05;
     longPressRecognizer.numberOfTouchesRequired = 1;
     [self.titlesView addGestureRecognizer:longPressRecognizer];
     
+    // Loader View
+    self.loaderView = [[JALoaderView alloc]initWithFrame:CGRectMake(0, 0, 160, 160)];
+    self.loaderView.delegate = self;
+    self.loaderView.userInteractionEnabled = NO;
+    [self.view addSubview:self.loaderView];
+}
+-(void)createTitlesBlocks{
     // Count for Title View
     self.chaptersCount = [[[[self.manager.data.stories[self.manager.currentStorie] chapters] objectAtIndex:self.manager.currentChapter] articles] count];
     self.chapterHeight = self.titlesView.frame.size.height / self.chaptersCount;
@@ -75,37 +87,103 @@
     
     for (int i = 0; i < self.chaptersCount ; i++) {
         UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, i*self.chapterHeight, self.view.frame.size.width, self.chapterHeight)];
-        titleView.backgroundColor = [UIColor colorWithRed:1.0/self.chaptersCount *i green:1.0/self.chaptersCount *i blue: 1.0/self.chaptersCount*i alpha:1];
+        //        titleView.backgroundColor = [UIColor colorWithRed:1.0/self.chaptersCount *i green:1.0/self.chaptersCount *i blue: 1.0/self.chaptersCount*i alpha:1];
         
         NSString *text = [[[[[self.manager.data.stories[self.manager.currentStorie] chapters] objectAtIndex:self.manager.currentChapter] articles] objectAtIndex:i] title];
         
         NSString *dateString = [[[[[self.manager.data.stories[self.manager.currentStorie] chapters] objectAtIndex:self.manager.currentChapter] articles] objectAtIndex:i] createdAt];
-    
+        
         NSDate *date = [self.dateFormaterFromString dateFromString:dateString];
         NSString *finalDate = [self.dateFormater stringFromDate:date];
         
         NSMutableAttributedString * completeString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ %@",text,[finalDate lowercaseString]]];
-        [completeString addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"News-Plantin-Pro-Regular" size:30.0] range:NSMakeRange(0,[text length])];
-        [completeString addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"Calibre-Thin" size:18.0] range:NSMakeRange([text length]+1,[finalDate length])];
+        [completeString addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"News-Plantin-Pro-Regular" size:32.0] range:NSMakeRange(0,[text length])];
+        [completeString addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"Calibre-Thin" size:20.0] range:NSMakeRange([text length]+1,[finalDate length])];
         
         [completeString addAttribute:NSBaselineOffsetAttributeName value:@(10) range:NSMakeRange([text length]+1,[finalDate length])];
         
         UILabel *titleLBL = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, titleView.frame.size.width - 40, titleView.frame.size.height)];
         titleLBL.lineBreakMode = NSLineBreakByWordWrapping;
         titleLBL.numberOfLines = 0;
-        titleLBL.backgroundColor = [UIColor blueColor];
+        //        titleLBL.backgroundColor = [UIColor blueColor];
         titleLBL.textColor = [UIColor whiteColor];
         titleLBL.attributedText = completeString;
         titleLBL.tag = 1;
-
+        
         [self setAnchorPoint:CGPointMake(0, 0.5) forView:titleLBL];
         titleLBL.transform = CGAffineTransformMakeScale(0.8, 0.8);
         
         [titleView addSubview:titleLBL];
         [self.titlesView addSubview:titleView];
-
+        
         [self.titlesArray addObject:titleView];
     }
+
+}
+-(void)longPressDetected:(UITapGestureRecognizer *)sender{
+    
+    self.touchPosition = [sender locationInView:self.titlesView];
+    self.currentStateTouch = sender.state;
+    bool loadedNextView = NO;
+    int index = (int)(self.touchPosition.y/self.chapterHeight);
+
+    [self animateTitlesView:index negativeScale:0.0 negativeAlpha:0.0];
+    
+    if(self.currentIndex != index){
+        NSLog(@"index %i %i",self.currentIndex,index);
+        self.touchToLoad = NO;
+        [self.loaderView setState:UIGestureRecognizerStateEnded];
+        self.currentIndex = index;
+        if(self.timerForLoader){
+            [self.timerForLoader invalidate];
+        }
+        
+        self.timerForLoader = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(startLoader) userInfo:nil repeats:NO];
+    }
+    self.positionLoader = [sender locationInView:self.view];
+
+    if(self.touchToLoad == YES){
+        [self.loaderView movePosition:self.positionLoader];
+        [self.loaderView setState:self.currentStateTouch];
+    }
+    
+    for (int i = index - 1; i >= 0; i--) {
+        [self animateTitlesView:i negativeScale:((index-i)*((1.0 /self.titlesArray.count)/2)) negativeAlpha:((index-i) * (1.0 /self.titlesArray.count))];
+    }
+    for (int i = index + 1; i < [self.titlesArray count]; i++) {
+        [self animateTitlesView:i negativeScale:((i - index)*((1.0 /self.titlesArray.count)/2)) negativeAlpha:((i - index)*(1.0 /self.titlesArray.count))];
+    }
+
+    if(sender.state == UIGestureRecognizerStateEnded){
+        if(loadedNextView == NO){
+            [self.timerForLoader invalidate];
+            self.touchToLoad = NO;
+            self.currentIndex = -1;
+            for (int i = 0; i < [self.titlesArray count]; i++) {
+                [self animateTitlesView:i negativeScale:.2 negativeAlpha:0.0];
+            }
+        }
+    }
+}
+// Animate with a negative scale and alpha value
+-(void)animateTitlesView:(int)index negativeScale:(float)negativeScale negativeAlpha:(float)negativeAlpha{
+    UIView *titleView = [self.titlesArray objectAtIndex:index];
+    UILabel *titleLBL = (UILabel*)[titleView viewWithTag:1];
+    [UIView animateWithDuration:0.2 animations:^{
+        titleLBL.transform = CGAffineTransformMakeScale(1.0 - negativeScale, 1.0 - negativeScale);
+        titleLBL.alpha = 1.0 - negativeAlpha;
+    }];
+
+}
+-(void)startLoader{
+    NSLog(@"Start Loader");
+    self.touchToLoad = YES;
+    [self.loaderView movePosition:self.positionLoader];
+    [self.loaderView setState:UIGestureRecognizerStateBegan];
+    
+}
+-(void)loadNextView{
+    NSLog(@"ROCKSTAR BABE");
 }
 -(void)setAnchorPoint:(CGPoint)anchorPoint forView:(UIView *)view
 {
@@ -127,61 +205,6 @@
     
     view.layer.position = position;
     view.layer.anchorPoint = anchorPoint;
-}
--(void)longPressDetected:(UITapGestureRecognizer *)sender{
-    
-    CGPoint touchPosition = [sender locationInView:self.titlesView];
-    
-    bool loadedNextView = NO;
-    int index = (int)(touchPosition.y/self.chapterHeight);
-
-    [self animateTitlesView:index negativeScale:0.0 negativeAlpha:0.0];
-    
-    if(self.currentIndex != index){
-        NSLog(@"index %i %i",self.currentIndex,index);
-        self.currentIndex = index;
-        if(self.timerForLoader){
-            [self.timerForLoader invalidate];
-        }
-        
-        self.timerForLoader = [NSTimer scheduledTimerWithTimeInterval:1.0
-                                                               target:self
-                                                             selector:@selector(startLoader)
-                                                             userInfo:nil
-                                                              repeats:NO];
-    }
-    
-    for (int i = index - 1; i >= 0; i--) {
-        [self animateTitlesView:i negativeScale:((index-i)*((1.0 /self.titlesArray.count)/2)) negativeAlpha:((index-i) * (1.0 /self.titlesArray.count))];
-    }
-    for (int i = index + 1; i < [self.titlesArray count]; i++) {
-        [self animateTitlesView:i negativeScale:((i - index)*((1.0 /self.titlesArray.count)/2)) negativeAlpha:((i - index)*(1.0 /self.titlesArray.count))];
-    }
-
-    if(sender.state == UIGestureRecognizerStateEnded){
-        if(loadedNextView == NO){
-            [self.timerForLoader invalidate];
-            self.currentIndex = -1;
-            for (int i = 0; i < [self.titlesArray count]; i++) {
-                [self animateTitlesView:i negativeScale:.2 negativeAlpha:0.0];
-            }
-        }
-
-    }
-}
-// Animate with a negatie scale and alpha value
--(void)animateTitlesView:(int)index negativeScale:(float)negativeScale negativeAlpha:(float)negativeAlpha{
-    UIView *titleView = [self.titlesArray objectAtIndex:index];
-    UILabel *titleLBL = (UILabel*)[titleView viewWithTag:1];
-    [UIView animateWithDuration:0.2 animations:^{
-        titleLBL.transform = CGAffineTransformMakeScale(1.0 - negativeScale, 1.0 - negativeScale);
-        titleLBL.alpha = 1.0 - negativeAlpha;
-    }];
-
-}
--(void)startLoader{
-    NSLog(@"Start Loader");
-    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

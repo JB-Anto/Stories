@@ -57,7 +57,6 @@
 }
 -(void)loadNextView{
     if(self.stateLoader == UIGestureRecognizerStateChanged || self.stateLoader == UIGestureRecognizerStateBegan){
-        NSLog(@"Chapters");
         [self.delegate loadNextView];
     }
 }

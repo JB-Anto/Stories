@@ -11,7 +11,7 @@
                 "location": "Hong Kong",
                 "background": "background_cover_1",
                 "foreground": "personnage_cover_1",
-                "color": "#FFFFFF"
+                "color": "#E99736"
             },
             "chapters": [
                 {
@@ -20,8 +20,8 @@
                     "articles": [
                         {
                             "id": 0,
-                            "title": "Test moi je suis bon",
-                            "createdAt": "2014-04-23T19:00:00.000Z",
+                            "title": "Ukraine expects tough talks",
+                            "createdAt": "2014-10-29T19:00:00.000Z",
                             "imageLoading": "",
                             "blocks": [
                                 {
@@ -94,8 +94,8 @@
                         },
                         {
                             "id": 0,
-                            "title": "ça pue la merde cette histoire de bledard",
-                            "createdAt": "2014-04-23T19:00:00.000Z",
+                            "title": "Defeat of Ukrainian forces at Ilovaisk",
+                            "createdAt": "2014-10-22T19:00:00.000Z",
                             "imageLoading": "",
                             "blocks": [
                                 {
@@ -168,8 +168,8 @@
                         },
                         {
                             "id": 0,
-                            "title": "Pas de bras pas de chocolat",
-                            "createdAt": "2014-04-23T19:00:00.000Z",
+                            "title": "Russian troops widthdrawal",
+                            "createdAt": "2014-10-12T19:00:00.000Z",
                             "imageLoading": "",
                             "blocks": [
                                 {
@@ -242,8 +242,8 @@
                         },
                         {
                             "id": 0,
-                            "title": "Un grosse patate de forrain",
-                            "createdAt": "2014-04-23T19:00:00.000Z",
+                            "title": "Germany wants Rusian troops pull back",
+                            "createdAt": "2014-09-23T19:00:00.000Z",
                             "imageLoading": "",
                             "blocks": [
                                 {
@@ -316,8 +316,8 @@
                         },
                         {
                             "id": 0,
-                            "title": "JB le putain de feuj des familles",
-                            "createdAt": "2014-04-23T19:00:00.000Z",
+                            "title": "Defence minister's resignation",
+                            "createdAt": "2014-09-17T19:00:00.000Z",
                             "imageLoading": "",
                             "blocks": [
                                 {
@@ -482,7 +482,7 @@
                 "location": "Hong Kong",
                 "background": "background_cover_2",
                 "foreground": "personnage_cover_2",
-                "color": "#FFFFFF"
+                "color": "#8C2A3A"
             },
             "chapters": [
                 {

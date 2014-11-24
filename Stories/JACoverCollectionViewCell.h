@@ -7,12 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JAFollowView.h"
 
-@interface JACoverCollectionViewCell : UICollectionViewCell
+@interface JACoverCollectionViewCell : UICollectionViewCell <FollowDelegate>
 
-@property (strong, nonatomic) IBOutlet UIImageView *backgroundIV;
-@property (strong, nonatomic) IBOutlet UILabel *placesLBL;
-
+@property (strong, nonatomic) UIImageView *backgroundIV;
+@property (strong, nonatomic) UIImageView *foregroundIV;
+@property (strong, nonatomic) UIView *titleView;
+@property (strong, nonatomic) UILabel *titleLBL;
+@property (strong, nonatomic) UILabel *locationLBL;
+@property (strong, nonatomic) JAFollowView *followView;
 
 -(void)animateEnter;
 -(void)resetAnimation;

@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "JACoverCollectionViewCell.h"
+#import "JALoaderView.h"
+#import "JAManagerData.h"
 #import "JAStoriesModel.h"
 #import "JAStorieModel.h"
 
@@ -16,8 +18,12 @@ typedef NS_ENUM(NSInteger, JAAnimDirection) {
     JAAnimDirectionRight
 };
 
-@interface JACoverCollectionViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate>
+@interface JACoverCollectionViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, LoaderDelegate>
 
+@property (nonatomic,strong) UICollectionView *collectionView;
+@property (nonatomic,strong) JACoverCollectionViewCell *cellToAnimate;
+@property (nonatomic,strong) JAManagerData *manager;
+@property (strong, nonatomic) JALoaderView *loaderView;
+@property (strong, nonatomic) UILabel *nameViewLBL;
 @property int currentIndex;
-
 @end

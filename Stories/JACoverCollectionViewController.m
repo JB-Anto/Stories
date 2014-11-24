@@ -10,8 +10,8 @@
 
 @interface JACoverCollectionViewController ()
 
-@property(nonatomic,strong) UICollectionView *collectionView;
-@property(nonatomic,strong) JACoverCollectionViewCell *cellToAnimate;
+@property UIGestureRecognizerState stateLongTap;
+@property BOOL animatedLoader;
 @property BOOL firstTime;
 
 @end
@@ -24,38 +24,66 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.firstTime = YES;
-    self.currentIndex = 0;
     
+    self.firstTime = YES;
+    self.animatedLoader = NO;
+    self.stateLongTap = UIGestureRecognizerStatePossible;
+
+    // For Swipe Gestion
+//    self.currentIndex = 0;
+    
+    self.manager = [JAManagerData sharedManager];
+    
+    // Get data
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"stories" ofType:@"json"];
     NSData *jsonData = [[NSData alloc] initWithContentsOfFile:filePath];
     NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     
-
+    self.manager.data = [[JAStoriesModel alloc] initWithString:jsonString error:nil];
     
-    JAStoriesModel *stories = [[JAStoriesModel alloc] initWithString:jsonString error:nil];
-    NSLog(@"%@", [stories.stories[0] chapters]);
-    
-    
-    
+    // Layout View
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     layout.itemSize = CGSizeMake(CGRectGetWidth(self.view.bounds),  CGRectGetHeight(self.view.bounds));
     layout.minimumInteritemSpacing = 0;
     layout.minimumLineSpacing = 0;
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
-
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = NO;
+    
+    // Collection View
     self.collectionView = [[UICollectionView alloc] initWithFrame:[[UIScreen mainScreen] bounds] collectionViewLayout:layout];
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     self.collectionView.bounces = NO;
+    self.collectionView.collectionViewLayout = layout;
 
-//    self.collectionView.userInteractionEnabled = NO;
     
     [self.view addSubview:self.collectionView];
     
+    [self.collectionView registerClass:[JACoverCollectionViewCell class] forCellWithReuseIdentifier:@"CoverCell"];
+    self.collectionView.pagingEnabled = YES;
+    self.collectionView.showsHorizontalScrollIndicator = NO;
+    
+    // Name View
+    self.nameViewLBL = [[UILabel alloc]initWithFrame:CGRectMake(25, 25, self.view.bounds.size.width, 50)];
+    self.nameViewLBL.textColor = [UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1];
+    self.nameViewLBL.font = [UIFont fontWithName:@"Circular-Std-Book" size:19.0];
+    self.nameViewLBL.text = @"Publications";
+    [self.view addSubview:self.nameViewLBL];
+    
+    // Loader View
+    self.loaderView = [[JALoaderView alloc]initWithFrame:CGRectMake(0, 0, 160, 160)];
+    self.loaderView.delegate = self;
+    [self.view addSubview:self.loaderView];
+    
+    
+
+    // Gesture recognizer
+    UILongPressGestureRecognizer *longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressDetected:)];
+    longPressRecognizer.minimumPressDuration = .3;
+    longPressRecognizer.numberOfTouchesRequired = 1;
+    [self.view addGestureRecognizer:longPressRecognizer];
+
+
     // For swipeGesture
     
 //    UIView *swipeGesture = [[UIView alloc]init];
@@ -73,22 +101,24 @@ static NSString * const reuseIdentifier = @"Cell";
 //    // Adding the swipe gesture on image view
 //    [swipeGesture addGestureRecognizer:swipeLeft];
 //    [swipeGesture addGestureRecognizer:swipeRight];
-    
-    // Register cell classes
-    [self.collectionView registerClass:[JACoverCollectionViewCell class] forCellWithReuseIdentifier:@"CoverCell"];
-    self.collectionView.pagingEnabled = YES;
-    // Do any additional setup after loading the view.
-
-    
-
-    self.collectionView.collectionViewLayout = layout;
-    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
+
+-(void)longPressDetected:(UITapGestureRecognizer *)sender{
+    
+    CGPoint touchPosition = [sender locationInView:self.view];
+    
+    [self.loaderView movePosition:touchPosition];
+    [self.loaderView setState:sender.state];
+
+}
+-(void)loadNextView{
+    NSLog(@"Hiya!");
+}
+
 - (void)handleSwipe:(UISwipeGestureRecognizer *)swipe {
     
     if (swipe.direction == UISwipeGestureRecognizerDirectionLeft) {
@@ -115,15 +145,6 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.collectionView scrollToItemAtIndexPath:nextItem atScrollPosition:UICollectionViewScrollPositionLeft animated:YES];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                  cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -131,15 +152,15 @@ static NSString * const reuseIdentifier = @"Cell";
                                     dequeueReusableCellWithReuseIdentifier:@"CoverCell"
                                     forIndexPath:indexPath];
     
+    long row = [indexPath row];
     
-    UIImage *image;
+    UIImage *background = [UIImage imageNamed:[[self.manager.data.stories[row] cover] background]];
+    UIImage *foreground = [UIImage imageNamed:[[self.manager.data.stories[row] cover] foreground]];
     
-        
-//    long row = [indexPath row];
-    
-    image = [UIImage imageNamed:@"background_cover_2.png"];
-    
-    myCell.backgroundIV.image = image;
+    myCell.backgroundIV.image = background;
+    myCell.foregroundIV.image = foreground;
+    myCell.titleLBL.text = [[self.manager.data.stories[row] cover] title];
+    myCell.locationLBL.text = [[self.manager.data.stories[row] cover] location];
 
     return myCell;
 }
@@ -152,18 +173,22 @@ static NSString * const reuseIdentifier = @"Cell";
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 10;
+    return [self.manager.data.stories count];
 }
 
 
 #pragma mark <UICollectionViewDelegate>
-
+- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
+    NSLog(@"Decelerate");
+    [self.cellToAnimate animateEnter];
+//    [self.cellToAnimate.followView validateFollow];
+}
 - (void)scrollViewWillEndDragging:(UICollectionView *)collectionView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
 //    NSLog(@"EndDrag");
 }
 
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(JACoverCollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"WillAppear %ld",(long)indexPath.row);
+//    NSLog(@"WillAppear %ld",(long)indexPath.row);
     self.cellToAnimate = cell;
     if(self.firstTime){
         [cell animateEnter];
@@ -173,41 +198,16 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 - (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(JACoverCollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"EndAppear %ld",(long)indexPath.row);
-    [self.cellToAnimate animateEnter];
     [cell resetAnimation];
+//    [cell.followView unValidateFollow];
 
 }
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
     
 }
-
-/*
-// Uncomment this method to specify if the specified item should be highlighted during tracking
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-	return YES;
-}
-*/
-
-/*
-// Uncomment this method to specify if the specified item should be selected
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+-(BOOL)prefersStatusBarHidden{
     return YES;
 }
-*/
 
-/*
-// Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath {
-	return NO;
-}
-
-- (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	return NO;
-}
-
-- (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	
-}
-*/
 
 @end

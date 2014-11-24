@@ -2,15 +2,110 @@
 { 
     "stories" : [
         {
-            "id": 0,
+            "id": 1,
             "isFollow": 0,
             "createdAt": "12-10-2014",
             "cover": {
                 "id": 0,
-                "title": "The Umbrella Revolution",
+                "title": "The Umbrella \n Revolution",
                 "location": "Hong Kong",
                 "background": "background_cover_1",
                 "foreground": "personnage_cover_1",
+                "color": "#FFFFFF"
+            },
+            "chapters": [
+                {
+                    "id": 0,
+                    "title": "Chapitre 1",
+                    "articles": [
+                        {
+                            "id": 0,
+                            "title": "",
+                            "createdAt": "",
+                            "imageLoading": "",
+                            "blocks": [
+                                {
+                                    "id": 0,
+                                    "type": "title",
+                                    "title": "",
+                                    "createdAt": "",
+                                    "location": ""
+                                },
+                                {
+                                    "id": 0,
+                                    "type": "resumes",
+                                    "resumes": [
+                                        "",
+                                        "",
+                                        ""
+                                    ]
+                                },
+                                {
+                                    "id": 0,
+                                    "type": "paragraph",
+                                    "text": "",
+                                    "links": [
+                                        "",
+                                        "",
+                                        ""
+                                    ]
+                                },
+                                {
+                                    "id": 0,
+                                    "type": "image",
+                                    "text": "",
+                                    "image": ""
+                                },
+                                {
+                                    "id": 0,
+                                    "type": "quotes",
+                                    "author": "",
+                                    "text": ""
+                                },
+                                {
+                                    "id": 0,
+                                    "type": "keyNumber",
+                                    "number": "",
+                                    "text": ""
+                                }
+                            ],
+                            "credits": [
+                                {
+                                    "id": 0,
+                                    "type": "editor",
+                                    "title": "",
+                                    "names": [
+                                        "",
+                                        "",
+                                        ""
+                                    ]
+                                },
+                                {
+                                    "id": 0,
+                                    "type": "publishing",
+                                    "title": "",
+                                    "names": [
+                                        "",
+                                        "",
+                                        ""
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "isFollow": 0,
+            "createdAt": "12-10-2014",
+            "cover": {
+                "id": 0,
+                "title": "The Umbrella \n Revolution",
+                "location": "Hong Kong",
+                "background": "background_cover_2",
+                "foreground": "personnage_cover_2",
                 "color": "#FFFFFF"
             },
             "chapters": [

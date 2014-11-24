@@ -48,6 +48,15 @@
 		0A87842D1A155DE80028437C /* loader_7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A8784051A155DE80028437C /* loader_7@2x.png */; };
 		0A87842E1A155DE80028437C /* loader_8@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A8784061A155DE80028437C /* loader_8@2x.png */; };
 		0A87842F1A155DE80028437C /* loader_9@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A8784071A155DE80028437C /* loader_9@2x.png */; };
+		770CB9121A232FB8002817BE /* Article.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 770CB9101A232FB8002817BE /* Article.storyboard */; };
+		770CB9221A233006002817BE /* JACreditsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 770CB9161A233006002817BE /* JACreditsCollectionViewCell.m */; };
+		770CB9231A233006002817BE /* JAImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 770CB9181A233006002817BE /* JAImageCollectionViewCell.m */; };
+		770CB9241A233006002817BE /* JAKeyNumberCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 770CB91A1A233006002817BE /* JAKeyNumberCollectionViewCell.m */; };
+		770CB9251A233006002817BE /* JAParagraphCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 770CB91C1A233006002817BE /* JAParagraphCollectionViewCell.m */; };
+		770CB9261A233006002817BE /* JAQuotesCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 770CB91E1A233006002817BE /* JAQuotesCollectionViewCell.m */; };
+		770CB9271A233006002817BE /* JAResumeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 770CB9201A233006002817BE /* JAResumeCollectionViewCell.m */; };
+		770CB92A1A233014002817BE /* JAArticleCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 770CB9281A233014002817BE /* JAArticleCollectionViewController.m */; };
+		770CB92B1A233014002817BE /* JATitleCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 770CB9291A233014002817BE /* JATitleCollectionViewCell.m */; };
 		8D54A8F61A14DCDA00ABDAD2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D54A8F31A14DC9A00ABDAD2 /* SystemConfiguration.framework */; };
 		8D54A8F91A14DD9C00ABDAD2 /* JAStorieModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D54A8F81A14DD9C00ABDAD2 /* JAStorieModel.m */; };
 		8D54A8FC1A14DED600ABDAD2 /* JACoverModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D54A8FB1A14DED600ABDAD2 /* JACoverModel.m */; };
@@ -139,6 +148,23 @@
 		0A8784051A155DE80028437C /* loader_7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loader_7@2x.png"; sourceTree = "<group>"; };
 		0A8784061A155DE80028437C /* loader_8@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loader_8@2x.png"; sourceTree = "<group>"; };
 		0A8784071A155DE80028437C /* loader_9@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loader_9@2x.png"; sourceTree = "<group>"; };
+		770CB9111A232FB8002817BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Article.storyboard; sourceTree = "<group>"; };
+		770CB9141A233006002817BE /* JAArticleCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JAArticleCollectionViewController.h; path = Stories/JAArticleCollectionViewController.h; sourceTree = "<group>"; };
+		770CB9151A233006002817BE /* JACreditsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JACreditsCollectionViewCell.h; sourceTree = "<group>"; };
+		770CB9161A233006002817BE /* JACreditsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JACreditsCollectionViewCell.m; sourceTree = "<group>"; };
+		770CB9171A233006002817BE /* JAImageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAImageCollectionViewCell.h; sourceTree = "<group>"; };
+		770CB9181A233006002817BE /* JAImageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAImageCollectionViewCell.m; sourceTree = "<group>"; };
+		770CB9191A233006002817BE /* JAKeyNumberCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAKeyNumberCollectionViewCell.h; sourceTree = "<group>"; };
+		770CB91A1A233006002817BE /* JAKeyNumberCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAKeyNumberCollectionViewCell.m; sourceTree = "<group>"; };
+		770CB91B1A233006002817BE /* JAParagraphCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAParagraphCollectionViewCell.h; sourceTree = "<group>"; };
+		770CB91C1A233006002817BE /* JAParagraphCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAParagraphCollectionViewCell.m; sourceTree = "<group>"; };
+		770CB91D1A233006002817BE /* JAQuotesCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAQuotesCollectionViewCell.h; sourceTree = "<group>"; };
+		770CB91E1A233006002817BE /* JAQuotesCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAQuotesCollectionViewCell.m; sourceTree = "<group>"; };
+		770CB91F1A233006002817BE /* JAResumeCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAResumeCollectionViewCell.h; sourceTree = "<group>"; };
+		770CB9201A233006002817BE /* JAResumeCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAResumeCollectionViewCell.m; sourceTree = "<group>"; };
+		770CB9211A233006002817BE /* JATitleCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JATitleCollectionViewCell.h; sourceTree = "<group>"; };
+		770CB9281A233014002817BE /* JAArticleCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JAArticleCollectionViewController.m; path = Stories/JAArticleCollectionViewController.m; sourceTree = "<group>"; };
+		770CB9291A233014002817BE /* JATitleCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JATitleCollectionViewCell.m; sourceTree = "<group>"; };
 		8D54A8F31A14DC9A00ABDAD2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		8D54A8F71A14DD9C00ABDAD2 /* JAStorieModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAStorieModel.h; sourceTree = "<group>"; };
 		8D54A8F81A14DD9C00ABDAD2 /* JAStorieModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAStorieModel.m; sourceTree = "<group>"; };
@@ -244,6 +270,7 @@
 		0A8783DE1A155CFC0028437C /* VIews */ = {
 			isa = PBXGroup;
 			children = (
+				770CB9131A232FED002817BE /* ArticleCellViews */,
 				0A8783DB1A155CF50028437C /* JALoaderView.h */,
 				0A8783DC1A155CF50028437C /* JALoaderView.m */,
 				8DB9C3D21A160BE200FBC975 /* JAFollowView.h */,
@@ -297,6 +324,36 @@
 				0A8784071A155DE80028437C /* loader_9@2x.png */,
 			);
 			path = Loader;
+			sourceTree = "<group>";
+		};
+		770CB90F1A232F9B002817BE /* Article */ = {
+			isa = PBXGroup;
+			children = (
+				770CB9281A233014002817BE /* JAArticleCollectionViewController.m */,
+				770CB9141A233006002817BE /* JAArticleCollectionViewController.h */,
+			);
+			name = Article;
+			sourceTree = "<group>";
+		};
+		770CB9131A232FED002817BE /* ArticleCellViews */ = {
+			isa = PBXGroup;
+			children = (
+				770CB9211A233006002817BE /* JATitleCollectionViewCell.h */,
+				770CB9291A233014002817BE /* JATitleCollectionViewCell.m */,
+				770CB9151A233006002817BE /* JACreditsCollectionViewCell.h */,
+				770CB9161A233006002817BE /* JACreditsCollectionViewCell.m */,
+				770CB9171A233006002817BE /* JAImageCollectionViewCell.h */,
+				770CB9181A233006002817BE /* JAImageCollectionViewCell.m */,
+				770CB9191A233006002817BE /* JAKeyNumberCollectionViewCell.h */,
+				770CB91A1A233006002817BE /* JAKeyNumberCollectionViewCell.m */,
+				770CB91B1A233006002817BE /* JAParagraphCollectionViewCell.h */,
+				770CB91C1A233006002817BE /* JAParagraphCollectionViewCell.m */,
+				770CB91D1A233006002817BE /* JAQuotesCollectionViewCell.h */,
+				770CB91E1A233006002817BE /* JAQuotesCollectionViewCell.m */,
+				770CB91F1A233006002817BE /* JAResumeCollectionViewCell.h */,
+				770CB9201A233006002817BE /* JAResumeCollectionViewCell.m */,
+			);
+			name = ArticleCellViews;
 			sourceTree = "<group>";
 		};
 		8D54A8FD1A14DEEB00ABDAD2 /* Model */ = {
@@ -384,6 +441,7 @@
 		8D54A9371A14FAF400ABDAD2 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				770CB90F1A232F9B002817BE /* Article */,
 				8D54A9381A14FB0700ABDAD2 /* Cover */,
 			);
 			name = ViewControllers;
@@ -472,6 +530,7 @@
 				8D8C02DC1A10CB6200904841 /* Main.storyboard */,
 				8D8C02DF1A10CB6200904841 /* Images.xcassets */,
 				8D8C02E11A10CB6200904841 /* LaunchScreen.xib */,
+				770CB9101A232FB8002817BE /* Article.storyboard */,
 				8D8C02D21A10CB6200904841 /* Supporting Files */,
 			);
 			path = Stories;
@@ -598,6 +657,7 @@
 				0A87842F1A155DE80028437C /* loader_9@2x.png in Resources */,
 				0A87841F1A155DE80028437C /* loader_30@2x.png in Resources */,
 				0A8784201A155DE80028437C /* loader_31@2x.png in Resources */,
+				770CB9121A232FB8002817BE /* Article.storyboard in Resources */,
 				0A87842A1A155DE80028437C /* loader_4@2x.png in Resources */,
 				0A87840B1A155DE80028437C /* loader_12@2x.png in Resources */,
 				8D8C02E31A10CB6200904841 /* LaunchScreen.xib in Resources */,
@@ -661,27 +721,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				770CB9221A233006002817BE /* JACreditsCollectionViewCell.m in Sources */,
 				8D54A9331A14EB8600ABDAD2 /* JSONHTTPClient.m in Sources */,
 				8D8C02D81A10CB6200904841 /* AppDelegate.m in Sources */,
 				8D54A9341A14EB8600ABDAD2 /* JSONModel+networking.m in Sources */,
 				0A8783DD1A155CF50028437C /* JALoaderView.m in Sources */,
 				8D54A90E1A14E85E00ABDAD2 /* JAStoriesModel.m in Sources */,
+				770CB9251A233006002817BE /* JAParagraphCollectionViewCell.m in Sources */,
+				770CB9241A233006002817BE /* JAKeyNumberCollectionViewCell.m in Sources */,
 				8D54A9021A14E00A00ABDAD2 /* JAChapterModel.m in Sources */,
 				8D54A9301A14EB8600ABDAD2 /* JSONModelError.m in Sources */,
+				770CB92B1A233014002817BE /* JATitleCollectionViewCell.m in Sources */,
 				8D54A9311A14EB8600ABDAD2 /* NSArray+JSONModel.m in Sources */,
 				8D8C02D51A10CB6200904841 /* main.m in Sources */,
+				770CB9261A233006002817BE /* JAQuotesCollectionViewCell.m in Sources */,
 				8D54A9321A14EB8600ABDAD2 /* JSONAPI.m in Sources */,
 				8D54A9051A14E3E900ABDAD2 /* JAArticleModel.m in Sources */,
 				8D54A8FC1A14DED600ABDAD2 /* JACoverModel.m in Sources */,
 				8D54A9361A14EB8600ABDAD2 /* JSONValueTransformer.m in Sources */,
 				8D54A9081A14E53700ABDAD2 /* JABlockModel.m in Sources */,
+				770CB9231A233006002817BE /* JAImageCollectionViewCell.m in Sources */,
 				8D54A92F1A14EB8600ABDAD2 /* JSONModelClassProperty.m in Sources */,
 				8DD244591A13856000FC7683 /* JACoverCollectionViewCell.m in Sources */,
 				8D54A9351A14EB8600ABDAD2 /* JSONKeyMapper.m in Sources */,
 				8D54A90B1A14E5DD00ABDAD2 /* JACreditModel.m in Sources */,
+				770CB92A1A233014002817BE /* JAArticleCollectionViewController.m in Sources */,
 				8DB9C3D41A160BE200FBC975 /* JAFollowView.m in Sources */,
 				8D54A92D1A14EB8600ABDAD2 /* JSONModel.m in Sources */,
 				8D54A93B1A14FBA000ABDAD2 /* JAManagerData.m in Sources */,
+				770CB9271A233006002817BE /* JAResumeCollectionViewCell.m in Sources */,
 				8D54A8F91A14DD9C00ABDAD2 /* JAStorieModel.m in Sources */,
 				8DD244561A13850800FC7683 /* JACoverCollectionViewController.m in Sources */,
 				8D54A92E1A14EB8600ABDAD2 /* JSONModelArray.m in Sources */,
@@ -707,6 +775,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		770CB9101A232FB8002817BE /* Article.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				770CB9111A232FB8002817BE /* Base */,
+			);
+			name = Article.storyboard;
+			sourceTree = "<group>";
+		};
 		8D8C02DC1A10CB6200904841 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

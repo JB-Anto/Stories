@@ -12,7 +12,8 @@
 @interface JAManagerData : NSObject
 
 @property (strong,nonatomic) JAStoriesModel *data;
-
+@property int currentStorie;
+@property int currentChapter;
 
 + (id)sharedManager;
 

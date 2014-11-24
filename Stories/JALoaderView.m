@@ -51,11 +51,11 @@
     }
     else if(self.stateLoader == UIGestureRecognizerStateBegan){
         [self.imageView startAnimating];
-        [self performSelector:@selector(loadChapterView ) withObject:nil
+        [self performSelector:@selector(loadNextView ) withObject:nil
                    afterDelay:self.imageView.animationDuration];
     }
 }
--(void)loadChapterView{
+-(void)loadNextView{
     if(self.stateLoader == UIGestureRecognizerStateChanged || self.stateLoader == UIGestureRecognizerStateBegan){
         NSLog(@"Chapters");
         [self.delegate loadNextView];

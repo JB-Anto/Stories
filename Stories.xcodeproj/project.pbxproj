@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A7D6E791A232ED50017A8C0 /* JAChapterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7D6E781A232ED50017A8C0 /* JAChapterViewController.m */; };
 		0A8783DD1A155CF50028437C /* JALoaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8783DC1A155CF50028437C /* JALoaderView.m */; };
 		0A8784081A155DE80028437C /* loader_0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A8783E01A155DE80028437C /* loader_0@2x.png */; };
 		0A8784091A155DE80028437C /* loader_10@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A8783E11A155DE80028437C /* loader_10@2x.png */; };
@@ -48,6 +49,8 @@
 		0A87842D1A155DE80028437C /* loader_7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A8784051A155DE80028437C /* loader_7@2x.png */; };
 		0A87842E1A155DE80028437C /* loader_8@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A8784061A155DE80028437C /* loader_8@2x.png */; };
 		0A87842F1A155DE80028437C /* loader_9@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A8784071A155DE80028437C /* loader_9@2x.png */; };
+		0A9321731A2347E600AAED95 /* News-Plantin-Pro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0A9321721A2347E600AAED95 /* News-Plantin-Pro-Regular.otf */; };
+		0A9321771A235F7200AAED95 /* Calibre-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0A9321761A235F7200AAED95 /* Calibre-Thin.otf */; };
 		8D54A8F61A14DCDA00ABDAD2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D54A8F31A14DC9A00ABDAD2 /* SystemConfiguration.framework */; };
 		8D54A8F91A14DD9C00ABDAD2 /* JAStorieModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D54A8F81A14DD9C00ABDAD2 /* JAStorieModel.m */; };
 		8D54A8FC1A14DED600ABDAD2 /* JACoverModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D54A8FB1A14DED600ABDAD2 /* JACoverModel.m */; };
@@ -97,6 +100,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A7D6E771A232ED50017A8C0 /* JAChapterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JAChapterViewController.h; path = Stories/JAChapterViewController.h; sourceTree = "<group>"; };
+		0A7D6E781A232ED50017A8C0 /* JAChapterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JAChapterViewController.m; path = Stories/JAChapterViewController.m; sourceTree = "<group>"; };
 		0A8783DB1A155CF50028437C /* JALoaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JALoaderView.h; sourceTree = "<group>"; };
 		0A8783DC1A155CF50028437C /* JALoaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JALoaderView.m; sourceTree = "<group>"; };
 		0A8783E01A155DE80028437C /* loader_0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loader_0@2x.png"; sourceTree = "<group>"; };
@@ -139,6 +144,8 @@
 		0A8784051A155DE80028437C /* loader_7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loader_7@2x.png"; sourceTree = "<group>"; };
 		0A8784061A155DE80028437C /* loader_8@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loader_8@2x.png"; sourceTree = "<group>"; };
 		0A8784071A155DE80028437C /* loader_9@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loader_9@2x.png"; sourceTree = "<group>"; };
+		0A9321721A2347E600AAED95 /* News-Plantin-Pro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "News-Plantin-Pro-Regular.otf"; path = "Stories/Fonts/News-Plantin-Pro-Regular.otf"; sourceTree = "<group>"; };
+		0A9321761A235F7200AAED95 /* Calibre-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Thin.otf"; path = "Stories/Fonts/Calibre-Thin.otf"; sourceTree = "<group>"; };
 		8D54A8F31A14DC9A00ABDAD2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		8D54A8F71A14DD9C00ABDAD2 /* JAStorieModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAStorieModel.h; sourceTree = "<group>"; };
 		8D54A8F81A14DD9C00ABDAD2 /* JAStorieModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAStorieModel.m; sourceTree = "<group>"; };
@@ -239,6 +246,15 @@
 			);
 			name = Ressources;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		0A7D6E761A232C180017A8C0 /* Chapter */ = {
+			isa = PBXGroup;
+			children = (
+				0A7D6E771A232ED50017A8C0 /* JAChapterViewController.h */,
+				0A7D6E781A232ED50017A8C0 /* JAChapterViewController.m */,
+			);
+			name = Chapter;
 			sourceTree = "<group>";
 		};
 		0A8783DE1A155CFC0028437C /* VIews */ = {
@@ -384,6 +400,7 @@
 		8D54A9371A14FAF400ABDAD2 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				0A7D6E761A232C180017A8C0 /* Chapter */,
 				8D54A9381A14FB0700ABDAD2 /* Cover */,
 			);
 			name = ViewControllers;
@@ -426,6 +443,7 @@
 		8D54A9481A15085600ABDAD2 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				0A9321761A235F7200AAED95 /* Calibre-Thin.otf */,
 				8D54A95B1A1508A200ABDAD2 /* Circular Std Black Italic.otf */,
 				8D54A95C1A1508A200ABDAD2 /* Circular Std Black.otf */,
 				8D54A95D1A1508A200ABDAD2 /* Circular Std Bold Italic.otf */,
@@ -435,6 +453,7 @@
 				8D54A9621A1508A200ABDAD2 /* Circular Std Medium.otf */,
 				8D54A9681A150DDB00ABDAD2 /* Circular-Std-Book.otf */,
 				8D54A9651A150A3C00ABDAD2 /* Young-Serif-Regular.ttf */,
+				0A9321721A2347E600AAED95 /* News-Plantin-Pro-Regular.otf */,
 			);
 			name = Fonts;
 			sourceTree = "<group>";
@@ -629,6 +648,7 @@
 				8D54A9471A14FE9800ABDAD2 /* personnage_cover_2@2x.png in Resources */,
 				8D54A9431A14FE9800ABDAD2 /* background_cover_0@2x.png in Resources */,
 				0A87842E1A155DE80028437C /* loader_8@2x.png in Resources */,
+				0A9321731A2347E600AAED95 /* News-Plantin-Pro-Regular.otf in Resources */,
 				8D54A9461A14FE9800ABDAD2 /* personnage_cover_1@2x.png in Resources */,
 				0A8784241A155DE80028437C /* loader_35@2x.png in Resources */,
 				0A87840F1A155DE80028437C /* loader_16@2x.png in Resources */,
@@ -638,6 +658,7 @@
 				0A8784121A155DE80028437C /* loader_19@2x.png in Resources */,
 				0A87841D1A155DE80028437C /* loader_29@2x.png in Resources */,
 				0A87841B1A155DE80028437C /* loader_27@2x.png in Resources */,
+				0A9321771A235F7200AAED95 /* Calibre-Thin.otf in Resources */,
 				0A8784171A155DE80028437C /* loader_23@2x.png in Resources */,
 				0A8784281A155DE80028437C /* loader_39@2x.png in Resources */,
 				0A8784111A155DE80028437C /* loader_18@2x.png in Resources */,
@@ -680,6 +701,7 @@
 				8D54A9351A14EB8600ABDAD2 /* JSONKeyMapper.m in Sources */,
 				8D54A90B1A14E5DD00ABDAD2 /* JACreditModel.m in Sources */,
 				8DB9C3D41A160BE200FBC975 /* JAFollowView.m in Sources */,
+				0A7D6E791A232ED50017A8C0 /* JAChapterViewController.m in Sources */,
 				8D54A92D1A14EB8600ABDAD2 /* JSONModel.m in Sources */,
 				8D54A93B1A14FBA000ABDAD2 /* JAManagerData.m in Sources */,
 				8D54A8F91A14DD9C00ABDAD2 /* JAStorieModel.m in Sources */,

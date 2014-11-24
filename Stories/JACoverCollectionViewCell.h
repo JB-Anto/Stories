@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "JAFollowView.h"
 
-@interface JACoverCollectionViewCell : UICollectionViewCell
+@interface JACoverCollectionViewCell : UICollectionViewCell <FollowDelegate>
 
 @property (strong, nonatomic) UIImageView *backgroundIV;
 @property (strong, nonatomic) UIImageView *foregroundIV;

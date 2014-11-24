@@ -35,7 +35,7 @@
         self.titleView.alpha = 0;
         
         // Follow View
-        self.followView = [[JAFollowView alloc]initWithFrame:CGRectMake(self.bounds.size.width - 75, 30, 50, 50)];
+        self.followView = [[JAFollowView alloc]initWithFrame:CGRectMake(self.bounds.size.width - 75, 35, 40, 40)];
         self.followView.delegate = self;
         self.followView.backgroundColor = [UIColor clearColor];
 
@@ -50,6 +50,9 @@
         
     return self;
     
+}
+-(void)followArticle:(BOOL)follow{
+    NSLog(@"BOOL Follow %d",follow);
 }
 -(void)animateEnter{
     [UIView animateWithDuration:.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{

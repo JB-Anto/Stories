@@ -8,20 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol LoaderDelegate
+@protocol FollowDelegate
 
--(void)followArticle;
+-(void)followArticle:(BOOL)follow;
 
 @end
 
 @interface JAFollowView : UIView
 
-@property (nonatomic, assign) id delegate;
-
 typedef NS_ENUM(NSInteger, JAAnimationEntry) {
     JAAnimEntryIn,
     JAAnimEntryOut
 };
+
+
+@property (nonatomic, assign) id delegate;
 
 -(void)rotateSquare:(float)angle;
 -(void)validateFollow;

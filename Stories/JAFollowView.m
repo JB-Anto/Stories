@@ -26,7 +26,6 @@
     if(self)
     {
 
-        
         self.maskWithHole = [CAShapeLayer layer];
         self.centerView = self.center;
         self.validate = NO;
@@ -40,7 +39,7 @@
         [maskPath addLineToPoint:CGPointMake(frame.size.width/4, frame.size.height * 3/4)];
         [maskPath addLineToPoint:CGPointMake(frame.size.width/4, frame.size.height / 4)];
         [self.maskWithHole setPath:[maskPath CGPath]];
-        self.maskWithHole.lineWidth = 10.0;
+        self.maskWithHole.lineWidth = 8.0;
         [self.maskWithHole setFillColor:[UIColor clearColor].CGColor];
         [self.maskWithHole setStrokeColor:[[UIColor whiteColor] CGColor]];
         
@@ -91,26 +90,27 @@
     else if(sender.state == UIGestureRecognizerStateEnded){
         [self animateToCenter];
     }
-    
-    NSLog(@"Angle %f || Distance %f", degree, distance);
+//    NSLog(@"Angle %f || Distance %f", degree, distance);
 }
 -(void)validateFollow{
     if(self.validate == NO){
         [self animationBorder:JAAnimEntryIn];
+        [self.delegate followArticle:YES];
     }
     self.validate = YES;
 }
 -(void)unValidateFollow{
     if(self.validate == YES){
         [self animationBorder:JAAnimEntryOut];
+        [self.delegate followArticle:NO];
     }
     self.validate = NO;
 }
 -(void)animationBorder:(JAAnimationEntry)entry{
     CABasicAnimation *animation =
     [CABasicAnimation animationWithKeyPath:@"lineWidth"];
-    animation.fromValue = entry==JAAnimEntryIn?@(10.0f):@(30.0f);
-    animation.toValue = entry==JAAnimEntryIn?@(30.0f):@(10.0f);
+    animation.fromValue = entry==JAAnimEntryIn?@(8.0f):@(30.0f);
+    animation.toValue = entry==JAAnimEntryIn?@(30.0f):@(8.0f);
     animation.removedOnCompletion = NO;
     animation.fillMode = kCAFillModeForwards;
     animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
@@ -132,11 +132,7 @@
         self.center = self.centerView;
     }];
 }
-- (void)drawRect:(CGRect)rect
-{
-    [super drawRect:rect];
 
-}
 @end
 
 

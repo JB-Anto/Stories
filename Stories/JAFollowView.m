@@ -81,7 +81,7 @@
         if(degree > 90 && degree < 180){
             self.center = touchPosition;
         }
-        if (distance >= 80) {
+        if (distance >= 90) {
             [self validateFollow];
         }
         else{
@@ -95,18 +95,22 @@
     NSLog(@"Angle %f || Distance %f", degree, distance);
 }
 -(void)validateFollow{
-    [self animationBorder:30.0f];
+    if(self.validate == NO){
+        [self animationBorder:JAAnimEntryIn];
+    }
     self.validate = YES;
 }
 -(void)unValidateFollow{
-    [self animationBorder:10.0f];
+    if(self.validate == YES){
+        [self animationBorder:JAAnimEntryOut];
+    }
     self.validate = NO;
 }
--(void)animationBorder:(float)border{
+-(void)animationBorder:(JAAnimationEntry)entry{
     CABasicAnimation *animation =
     [CABasicAnimation animationWithKeyPath:@"lineWidth"];
-    
-    animation.toValue = @(border);
+    animation.fromValue = entry==JAAnimEntryIn?@(10.0f):@(30.0f);
+    animation.toValue = entry==JAAnimEntryIn?@(30.0f):@(10.0f);
     animation.removedOnCompletion = NO;
     animation.fillMode = kCAFillModeForwards;
     animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];

@@ -18,6 +18,11 @@
 
 @property (nonatomic, assign) id delegate;
 
+typedef NS_ENUM(NSInteger, JAAnimationEntry) {
+    JAAnimEntryIn,
+    JAAnimEntryOut
+};
+
 -(void)rotateSquare:(float)angle;
 -(void)validateFollow;
 -(void)unValidateFollow;

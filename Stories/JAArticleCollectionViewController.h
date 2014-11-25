@@ -18,11 +18,13 @@
 #import "JAChapterModel.h"
 #import "JABlockModel.h"
 #import "JAManagerData.h"
+#import "JAUILabel.h"
 
 @interface JAArticleCollectionViewController : UICollectionViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 @property (strong, nonatomic) NSMutableArray *blocks;
 @property (strong, nonatomic) NSMutableArray *text;
 @property (strong, nonatomic) IBOutlet UICollectionView *articleCollectionView;
+
 // TEMPORARY
 @property (nonatomic,strong) JAManagerData *manager;
 @property (nonatomic,strong) NSDictionary *idDictionnary;

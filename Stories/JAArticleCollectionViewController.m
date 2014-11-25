@@ -9,19 +9,21 @@
 #import "JAArticleCollectionViewController.h"
 
 @interface JAArticleCollectionViewController ()
-
+{
+    NSInteger _numberOfResumeCell;
+}
 @end
 
 @implementation JAArticleCollectionViewController
 
-static NSString * const reuseIdentifier = @"Cell";
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // Register cell classes
     [self.articleCollectionView registerClass:[JATitleCollectionViewCell class] forCellWithReuseIdentifier:@"TitleCell"];
+    [self.articleCollectionView registerClass:[JAResumeCollectionViewCell class] forCellWithReuseIdentifier:@"ResumeCell"];
     
-    // TEMPORARY
+    // TEMPORARY - DATA Management
     self.idDictionnary = [NSDictionary dictionaryWithObjectsAndKeys: @"2", @"storieID", 0, @"chapterID", 0, @"articleID", nil];
     
     // Get data(Doesn't work)
@@ -45,12 +47,10 @@ static NSString * const reuseIdentifier = @"Cell";
     
     NSDictionary *resume1 = [NSDictionary dictionaryWithObjectsAndKeys:
                              @"resume", @"type",
-                             @"Defence minister criticised over August rout of troops", @"resume", nil];
-    
+                             @"President hopes tot nominate successor on Monday", @"resume", nil];
     NSDictionary *resume2 = [NSDictionary dictionaryWithObjectsAndKeys:
                              @"resume", @"type",
-                             @"President hopes tot nominate successor on Monday", @"resume", nil];
-    
+                             @"Defence minister criticised over August rout of troops", @"resume", nil];
     NSDictionary *resume3 = [NSDictionary dictionaryWithObjectsAndKeys:
                              @"resume", @"type",
                              @"Fragile ceasefire in eastern Ukraine broadly holding", @"resume", nil];
@@ -91,15 +91,13 @@ static NSString * const reuseIdentifier = @"Cell";
                                 @"Analysts say the Aug. 24 attack led Poroshenko reluctantly to accept that Kiev could not beat the separatists militarily as long as they were sypported by direct involvement of Russian troops and equipment", @"paragraph", nil];
     
     
-    //_blocks = [@[title, resume1, resume2, resume3, paragraph1, image, paragraph2, quote, paragraph3, paragraph4, keyNumber, paragraph5] mutableCopy];
     _blocks = [@[title, resume1, resume2, resume3, paragraph1, image, paragraph2, quote, paragraph3, paragraph4, keyNumber, paragraph5] mutableCopy];
+    
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = NO;
     
-    // Register cell classes
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    _numberOfResumeCell = 3;
     
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
@@ -118,11 +116,6 @@ static NSString * const reuseIdentifier = @"Cell";
 */
 
 #pragma mark <UICollectionViewDataSource>
-
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 1;
-}
-
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return _blocks.count;
@@ -158,7 +151,7 @@ static NSString * const reuseIdentifier = @"Cell";
         [cell.dateLabel setText:[currentBlock objectForKey:@"date"]];
         [cell.dateLabel setLineSpacingWithNumber:1.25];
         CGRect dateLabelRect = [cell.dateLabel calculateRectInBoundingRectWithSize:maximumLabelSize];
-        [cell.dateLabel setFrame:CGRectMake(cell.center.x - cell.frame.size.width/2, cell.center.y + dateLabelRect.size.height/2, cell.frame.size.width, dateLabelRect.size.height)];
+        [cell.dateLabel setFrame:CGRectMake(cell.center.x - cell.frame.size.width/2 , cell.center.y + dateLabelRect.size.height/2, cell.frame.size.width, dateLabelRect.size.height)];
 
         return cell;
         
@@ -167,6 +160,22 @@ static NSString * const reuseIdentifier = @"Cell";
         JAResumeCollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"ResumeCell" forIndexPath:indexPath];
         
         [cell.resumeLabel setText:[currentBlock objectForKey:@"resume"]];
+        
+        // Resume Label Settings
+        CGSize maximumLabelSize = CGSizeMake(160, 9999);
+        CGRect resumeLabelRect = [cell.resumeLabel calculateRectInBoundingRectWithSize:maximumLabelSize];
+        
+        CGFloat positionOfLabel = 0;
+        
+        if(_numberOfResumeCell == 1) {
+            positionOfLabel = self.view.frame.size.width - self.view.frame.size.width/_numberOfResumeCell;
+        } else {
+            positionOfLabel = self.view.frame.size.width - self.view.frame.size.width/_numberOfResumeCell - resumeLabelRect.size.width/2;
+        }
+        
+        [cell.resumeLabel setFrame:CGRectMake(positionOfLabel, 0, resumeLabelRect.size.width, resumeLabelRect.size.height)];
+        
+        _numberOfResumeCell--;
         
         return cell;
         
@@ -208,22 +217,33 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     NSDictionary *currentBlock = [NSDictionary dictionaryWithDictionary:_blocks[[indexPath row]]];
     
     if([[currentBlock objectForKey:@"type"] isEqualToString:@"title"]) {
-        UILabel *title = [UILabel new];
-        [title setText:[currentBlock objectForKey:@"title"]];
+        
+        // Calculate height of title cell in function of title label height
+        JATitleCollectionViewCell *cell = [JATitleCollectionViewCell new];
+        [cell.titleLabel  setText:[currentBlock objectForKey:@"title"]];
         
         CGSize maximumLabelSize = CGSizeMake(256, 9999);
-        CGRect titleLabelSize = [[currentBlock objectForKey:@"title"] boundingRectWithSize:maximumLabelSize
-                                                                   options: NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading | NSStringDrawingTruncatesLastVisibleLine
-                                                                attributes:@{NSFontAttributeName:[UIFont fontWithName:@"Young-Serif-Regular" size:45.0]}
-                                                                   context:nil];
+        CGRect titleLabelSize = [cell.titleLabel calculateRectInBoundingRectWithSize:maximumLabelSize];
 
-     
         return CGSizeMake(self.view.bounds.size.width, titleLabelSize.size.height);
         
-    } else {
+    } else if([[currentBlock objectForKey:@"type"] isEqualToString:@"resume"]) {
+        
+        // Calculate resume of title cell in function of resume label height
+        JAResumeCollectionViewCell *cell = [JAResumeCollectionViewCell new];
+        [cell.resumeLabel  setText:[currentBlock objectForKey:@"resume"]];
+        
+        CGSize maximumLabelSize = CGSizeMake(160, 9999);
+        CGRect resumeLabelSize = [cell.resumeLabel calculateRectInBoundingRectWithSize:maximumLabelSize];
+        
+        return CGSizeMake(self.view.bounds.size.width, resumeLabelSize.size.height);
+        
+    }
+    else {
         return CGSizeMake(self.view.bounds.size.width, 300);
     }
 }

@@ -362,8 +362,8 @@
 			children = (
 				770CB9211A233006002817BE /* JATitleCollectionViewCell.h */,
 				770CB9291A233014002817BE /* JATitleCollectionViewCell.m */,
-				770CB9151A233006002817BE /* JACreditsCollectionViewCell.h */,
-				770CB9161A233006002817BE /* JACreditsCollectionViewCell.m */,
+				770CB91F1A233006002817BE /* JAResumeCollectionViewCell.h */,
+				770CB9201A233006002817BE /* JAResumeCollectionViewCell.m */,
 				770CB9171A233006002817BE /* JAImageCollectionViewCell.h */,
 				770CB9181A233006002817BE /* JAImageCollectionViewCell.m */,
 				770CB9191A233006002817BE /* JAKeyNumberCollectionViewCell.h */,
@@ -372,8 +372,8 @@
 				770CB91C1A233006002817BE /* JAParagraphCollectionViewCell.m */,
 				770CB91D1A233006002817BE /* JAQuotesCollectionViewCell.h */,
 				770CB91E1A233006002817BE /* JAQuotesCollectionViewCell.m */,
-				770CB91F1A233006002817BE /* JAResumeCollectionViewCell.h */,
-				770CB9201A233006002817BE /* JAResumeCollectionViewCell.m */,
+				770CB9151A233006002817BE /* JACreditsCollectionViewCell.h */,
+				770CB9161A233006002817BE /* JACreditsCollectionViewCell.m */,
 			);
 			name = ArticleCellViews;
 			sourceTree = "<group>";

@@ -21,7 +21,7 @@
         // Main characteristics of labels in the view
         UIFont *titleFont = [UIFont fontWithName:@"Young-Serif-Regular" size:45.0];
         UIFont *infoFont = [UIFont fontWithName:@"Circular-Std-Medium" size:48.0];
-        UIColor *titleColor = [UIColor colorWithHue:0.68 saturation:0.44 brightness:0.37 alpha:.9];
+        UIColor *titleColor = [UIColor colorWithHue:0.68 saturation:0.45 brightness:0.34 alpha:.9];
         UIColor *infoColor = [UIColor colorWithHue:0.08 saturation:0.74 brightness:0.93 alpha:1];
         
         // Initial Setting - Title Label
@@ -47,6 +47,8 @@
         [self addSubview:self.dateLabel];
         [self addSubview:self.titleLabel];
         
+        // ********TEMPORARY********
+        [self setBackgroundColor:[UIColor blueColor]];
     }
     
     return self;

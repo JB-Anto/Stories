@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JAUILabel.h"
 
 @interface JAResumeCollectionViewCell : UICollectionViewCell
-@property (strong, nonatomic) IBOutlet UILabel *resumeLabel;
+@property (strong, nonatomic) JAUILabel *resumeLabel;
 @end

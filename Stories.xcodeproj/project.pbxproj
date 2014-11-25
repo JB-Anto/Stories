@@ -72,6 +72,20 @@
 		770CB9401A23491E002817BE /* News-Plantin-Pro-Regular-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 770CB9351A23491E002817BE /* News-Plantin-Pro-Regular-Italic.otf */; };
 		770CB9411A23491E002817BE /* News-Plantin-Pro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 770CB9361A23491E002817BE /* News-Plantin-Pro-Regular.otf */; };
 		770CB9431A234A18002817BE /* Circular-Std-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 770CB9421A234A18002817BE /* Circular-Std-Bold.otf */; };
+		777CA27C1A24947E008A7FE3 /* Calibre-Black-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 777CA26E1A24947E008A7FE3 /* Calibre-Black-Italic.otf */; };
+		777CA27D1A24947E008A7FE3 /* Calibre-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 777CA26F1A24947E008A7FE3 /* Calibre-Black.otf */; };
+		777CA27E1A24947E008A7FE3 /* Calibre-Bold-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 777CA2701A24947E008A7FE3 /* Calibre-Bold-Italic.otf */; };
+		777CA27F1A24947E008A7FE3 /* Calibre-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 777CA2711A24947E008A7FE3 /* Calibre-Bold.otf */; };
+		777CA2801A24947E008A7FE3 /* Calibre-Light-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 777CA2721A24947E008A7FE3 /* Calibre-Light-Italic.otf */; };
+		777CA2811A24947E008A7FE3 /* Calibre-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 777CA2731A24947E008A7FE3 /* Calibre-Light.otf */; };
+		777CA2821A24947E008A7FE3 /* Calibre-Medium-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 777CA2741A24947E008A7FE3 /* Calibre-Medium-Italic.otf */; };
+		777CA2831A24947E008A7FE3 /* Calibre-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 777CA2751A24947E008A7FE3 /* Calibre-Medium.otf */; };
+		777CA2841A24947E008A7FE3 /* Calibre-Regular-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 777CA2761A24947E008A7FE3 /* Calibre-Regular-Italic.otf */; };
+		777CA2851A24947E008A7FE3 /* Calibre-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 777CA2771A24947E008A7FE3 /* Calibre-Regular.otf */; };
+		777CA2861A24947E008A7FE3 /* Calibre-Semibold-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 777CA2781A24947E008A7FE3 /* Calibre-Semibold-Italic.otf */; };
+		777CA2871A24947E008A7FE3 /* Calibre-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 777CA2791A24947E008A7FE3 /* Calibre-Semibold.otf */; };
+		777CA2881A24947E008A7FE3 /* Calibre-Thin-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 777CA27A1A24947E008A7FE3 /* Calibre-Thin-Italic.otf */; };
+		777CA2891A24947E008A7FE3 /* Calibre-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 777CA27B1A24947E008A7FE3 /* Calibre-Thin.otf */; };
 		77E758061A245C880015EDEF /* 2-0-0-poroshenko.png in Resources */ = {isa = PBXBuildFile; fileRef = 77E758041A245C880015EDEF /* 2-0-0-poroshenko.png */; };
 		77E758071A245C880015EDEF /* 2-0-0-poroshenko@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77E758051A245C880015EDEF /* 2-0-0-poroshenko@2x.png */; };
 		77E758101A2469C60015EDEF /* JAUILabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E7580F1A2469C60015EDEF /* JAUILabel.m */; };
@@ -198,6 +212,20 @@
 		770CB9351A23491E002817BE /* News-Plantin-Pro-Regular-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "News-Plantin-Pro-Regular-Italic.otf"; path = "Stories/Fonts/News-Plantin-Pro-Regular-Italic.otf"; sourceTree = "<group>"; };
 		770CB9361A23491E002817BE /* News-Plantin-Pro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "News-Plantin-Pro-Regular.otf"; path = "Stories/Fonts/News-Plantin-Pro-Regular.otf"; sourceTree = "<group>"; };
 		770CB9421A234A18002817BE /* Circular-Std-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Circular-Std-Bold.otf"; path = "Stories/Fonts/Circular-Std-Bold.otf"; sourceTree = "<group>"; };
+		777CA26E1A24947E008A7FE3 /* Calibre-Black-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Black-Italic.otf"; path = "Stories/Fonts/Calibre-Black-Italic.otf"; sourceTree = "<group>"; };
+		777CA26F1A24947E008A7FE3 /* Calibre-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Black.otf"; path = "Stories/Fonts/Calibre-Black.otf"; sourceTree = "<group>"; };
+		777CA2701A24947E008A7FE3 /* Calibre-Bold-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Bold-Italic.otf"; path = "Stories/Fonts/Calibre-Bold-Italic.otf"; sourceTree = "<group>"; };
+		777CA2711A24947E008A7FE3 /* Calibre-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Bold.otf"; path = "Stories/Fonts/Calibre-Bold.otf"; sourceTree = "<group>"; };
+		777CA2721A24947E008A7FE3 /* Calibre-Light-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Light-Italic.otf"; path = "Stories/Fonts/Calibre-Light-Italic.otf"; sourceTree = "<group>"; };
+		777CA2731A24947E008A7FE3 /* Calibre-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Light.otf"; path = "Stories/Fonts/Calibre-Light.otf"; sourceTree = "<group>"; };
+		777CA2741A24947E008A7FE3 /* Calibre-Medium-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Medium-Italic.otf"; path = "Stories/Fonts/Calibre-Medium-Italic.otf"; sourceTree = "<group>"; };
+		777CA2751A24947E008A7FE3 /* Calibre-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Medium.otf"; path = "Stories/Fonts/Calibre-Medium.otf"; sourceTree = "<group>"; };
+		777CA2761A24947E008A7FE3 /* Calibre-Regular-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Regular-Italic.otf"; path = "Stories/Fonts/Calibre-Regular-Italic.otf"; sourceTree = "<group>"; };
+		777CA2771A24947E008A7FE3 /* Calibre-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Regular.otf"; path = "Stories/Fonts/Calibre-Regular.otf"; sourceTree = "<group>"; };
+		777CA2781A24947E008A7FE3 /* Calibre-Semibold-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Semibold-Italic.otf"; path = "Stories/Fonts/Calibre-Semibold-Italic.otf"; sourceTree = "<group>"; };
+		777CA2791A24947E008A7FE3 /* Calibre-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Semibold.otf"; path = "Stories/Fonts/Calibre-Semibold.otf"; sourceTree = "<group>"; };
+		777CA27A1A24947E008A7FE3 /* Calibre-Thin-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Thin-Italic.otf"; path = "Stories/Fonts/Calibre-Thin-Italic.otf"; sourceTree = "<group>"; };
+		777CA27B1A24947E008A7FE3 /* Calibre-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Thin.otf"; path = "Stories/Fonts/Calibre-Thin.otf"; sourceTree = "<group>"; };
 		77E758041A245C880015EDEF /* 2-0-0-poroshenko.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2-0-0-poroshenko.png"; sourceTree = "<group>"; };
 		77E758051A245C880015EDEF /* 2-0-0-poroshenko@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2-0-0-poroshenko@2x.png"; sourceTree = "<group>"; };
 		77E7580E1A2469C60015EDEF /* JAUILabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAUILabel.h; sourceTree = "<group>"; };
@@ -506,9 +534,7 @@
 			isa = PBXGroup;
 			children = (
 				770CB90F1A232F9B002817BE /* Article */,
-
 				0A7D6E761A232C180017A8C0 /* Chapter */,
-
 				8D54A9381A14FB0700ABDAD2 /* Cover */,
 			);
 			name = ViewControllers;
@@ -552,6 +578,20 @@
 		8D54A9481A15085600ABDAD2 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				777CA26E1A24947E008A7FE3 /* Calibre-Black-Italic.otf */,
+				777CA26F1A24947E008A7FE3 /* Calibre-Black.otf */,
+				777CA2701A24947E008A7FE3 /* Calibre-Bold-Italic.otf */,
+				777CA2711A24947E008A7FE3 /* Calibre-Bold.otf */,
+				777CA2721A24947E008A7FE3 /* Calibre-Light-Italic.otf */,
+				777CA2731A24947E008A7FE3 /* Calibre-Light.otf */,
+				777CA2741A24947E008A7FE3 /* Calibre-Medium-Italic.otf */,
+				777CA2751A24947E008A7FE3 /* Calibre-Medium.otf */,
+				777CA2761A24947E008A7FE3 /* Calibre-Regular-Italic.otf */,
+				777CA2771A24947E008A7FE3 /* Calibre-Regular.otf */,
+				777CA2781A24947E008A7FE3 /* Calibre-Semibold-Italic.otf */,
+				777CA2791A24947E008A7FE3 /* Calibre-Semibold.otf */,
+				777CA27A1A24947E008A7FE3 /* Calibre-Thin-Italic.otf */,
+				777CA27B1A24947E008A7FE3 /* Calibre-Thin.otf */,
 				7705EFB91A2374AD0015B1BD /* Young-Serif-Regular.ttf */,
 				770CB92C1A23491E002817BE /* Circular-Std-Black-Italic.otf */,
 				770CB92D1A23491E002817BE /* Circular-Std-Black.otf */,
@@ -639,8 +679,6 @@
 			children = (
 				77E7580D1A2469A20015EDEF /* Label Layout */,
 				77E7580C1A2469950015EDEF /* Data Manager */,
-				8D54A9391A14FBA000ABDAD2 /* JAManagerData.h */,
-				8D54A93A1A14FBA000ABDAD2 /* JAManagerData.m */,
 				0A83AE321A23F52D0098F1DD /* UIColor+UIColor_PXExtentions.h */,
 				0A83AE331A23F52D0098F1DD /* UIColor+UIColor_PXExtentions.m */,
 			);
@@ -729,7 +767,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D8C02DE1A10CB6200904841 /* Main.storyboard in Resources */,
+				777CA27E1A24947E008A7FE3 /* Calibre-Bold-Italic.otf in Resources */,
 				0A8784191A155DE80028437C /* loader_25@2x.png in Resources */,
+				777CA2891A24947E008A7FE3 /* Calibre-Thin.otf in Resources */,
 				0A87842F1A155DE80028437C /* loader_9@2x.png in Resources */,
 				770CB93C1A23491E002817BE /* Circular-Std-Medium-Italic.otf in Resources */,
 				0A87841F1A155DE80028437C /* loader_30@2x.png in Resources */,
@@ -738,17 +778,23 @@
 				0A87842A1A155DE80028437C /* loader_4@2x.png in Resources */,
 				0A87840B1A155DE80028437C /* loader_12@2x.png in Resources */,
 				8D8C02E31A10CB6200904841 /* LaunchScreen.xib in Resources */,
+				777CA2821A24947E008A7FE3 /* Calibre-Medium-Italic.otf in Resources */,
 				0A8784091A155DE80028437C /* loader_10@2x.png in Resources */,
 				0A87842C1A155DE80028437C /* loader_6@2x.png in Resources */,
 				0A8784151A155DE80028437C /* loader_21@2x.png in Resources */,
 				770CB9381A23491E002817BE /* Circular-Std-Black.otf in Resources */,
 				0A8784161A155DE80028437C /* loader_22@2x.png in Resources */,
+				777CA2811A24947E008A7FE3 /* Calibre-Light.otf in Resources */,
+				777CA2871A24947E008A7FE3 /* Calibre-Semibold.otf in Resources */,
 				0A8784261A155DE80028437C /* loader_37@2x.png in Resources */,
 				0A87842D1A155DE80028437C /* loader_7@2x.png in Resources */,
 				770CB9411A23491E002817BE /* News-Plantin-Pro-Regular.otf in Resources */,
 				0A8784081A155DE80028437C /* loader_0@2x.png in Resources */,
 				770CB93A1A23491E002817BE /* Circular-Std-Book-Italic.otf in Resources */,
+				777CA27C1A24947E008A7FE3 /* Calibre-Black-Italic.otf in Resources */,
 				0A8784141A155DE80028437C /* loader_20@2x.png in Resources */,
+				777CA27D1A24947E008A7FE3 /* Calibre-Black.otf in Resources */,
+				777CA2831A24947E008A7FE3 /* Calibre-Medium.otf in Resources */,
 				0A87842B1A155DE80028437C /* loader_5@2x.png in Resources */,
 				0A8784271A155DE80028437C /* loader_38@2x.png in Resources */,
 				0A8784251A155DE80028437C /* loader_36@2x.png in Resources */,
@@ -764,30 +810,33 @@
 				0A87841C1A155DE80028437C /* loader_28@2x.png in Resources */,
 				0A8784221A155DE80028437C /* loader_33@2x.png in Resources */,
 				77E758071A245C880015EDEF /* 2-0-0-poroshenko@2x.png in Resources */,
+				777CA2801A24947E008A7FE3 /* Calibre-Light-Italic.otf in Resources */,
 				0A87841E1A155DE80028437C /* loader_2@2x.png in Resources */,
 				8D54A9451A14FE9800ABDAD2 /* background_cover_2@2x.png in Resources */,
 				0A87840D1A155DE80028437C /* loader_14@2x.png in Resources */,
+				777CA27F1A24947E008A7FE3 /* Calibre-Bold.otf in Resources */,
 				0A8784231A155DE80028437C /* loader_34@2x.png in Resources */,
 				770CB9371A23491E002817BE /* Circular-Std-Black-Italic.otf in Resources */,
 				77E758061A245C880015EDEF /* 2-0-0-poroshenko.png in Resources */,
 				0A8784101A155DE80028437C /* loader_17@2x.png in Resources */,
 				770CB9431A234A18002817BE /* Circular-Std-Bold.otf in Resources */,
 				770CB93D1A23491E002817BE /* Circular-Std-Medium.otf in Resources */,
+				777CA2851A24947E008A7FE3 /* Calibre-Regular.otf in Resources */,
 				8D8C02E01A10CB6200904841 /* Images.xcassets in Resources */,
 				8D54A9471A14FE9800ABDAD2 /* personnage_cover_2@2x.png in Resources */,
 				8D54A9431A14FE9800ABDAD2 /* background_cover_0@2x.png in Resources */,
 				0A87842E1A155DE80028437C /* loader_8@2x.png in Resources */,
-				0A9321731A2347E600AAED95 /* News-Plantin-Pro-Regular.otf in Resources */,
 				8D54A9461A14FE9800ABDAD2 /* personnage_cover_1@2x.png in Resources */,
 				0A8784241A155DE80028437C /* loader_35@2x.png in Resources */,
+				777CA2881A24947E008A7FE3 /* Calibre-Thin-Italic.otf in Resources */,
 				0A87840F1A155DE80028437C /* loader_16@2x.png in Resources */,
 				0A8784181A155DE80028437C /* loader_24@2x.png in Resources */,
 				7705EFBA1A2374AD0015B1BD /* Young-Serif-Regular.ttf in Resources */,
 				8D54A9121A14E9AF00ABDAD2 /* stories.json in Resources */,
 				0A8784121A155DE80028437C /* loader_19@2x.png in Resources */,
 				0A87841D1A155DE80028437C /* loader_29@2x.png in Resources */,
+				777CA2841A24947E008A7FE3 /* Calibre-Regular-Italic.otf in Resources */,
 				0A87841B1A155DE80028437C /* loader_27@2x.png in Resources */,
-				0A9321771A235F7200AAED95 /* Calibre-Thin.otf in Resources */,
 				0A8784171A155DE80028437C /* loader_23@2x.png in Resources */,
 				0A8784281A155DE80028437C /* loader_39@2x.png in Resources */,
 				0A8784111A155DE80028437C /* loader_18@2x.png in Resources */,
@@ -795,6 +844,7 @@
 				0A8784131A155DE80028437C /* loader_1@2x.png in Resources */,
 				0A87841A1A155DE80028437C /* loader_26@2x.png in Resources */,
 				770CB93B1A23491E002817BE /* Circular-Std-Book.otf in Resources */,
+				777CA2861A24947E008A7FE3 /* Calibre-Semibold-Italic.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

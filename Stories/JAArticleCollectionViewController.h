@@ -13,9 +13,17 @@
 #import "JAImageCollectionViewCell.h"
 #import "JAQuotesCollectionViewCell.h"
 #import "JAKeyNumberCollectionViewCell.h"
+#import "JAStoriesModel.h"
+#import "JAStorieModel.h"
+#import "JAChapterModel.h"
+#import "JABlockModel.h"
+#import "JAManagerData.h"
 
 @interface JAArticleCollectionViewController : UICollectionViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 @property (strong, nonatomic) NSMutableArray *blocks;
 @property (strong, nonatomic) NSMutableArray *text;
-
+@property (strong, nonatomic) IBOutlet UICollectionView *articleCollectionView;
+// TEMPORARY
+@property (nonatomic,strong) JAManagerData *manager;
+@property (nonatomic,strong) NSDictionary *idDictionnary;
 @end

@@ -19,6 +19,22 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self.articleCollectionView registerClass:[JATitleCollectionViewCell class] forCellWithReuseIdentifier:@"TitleCell"];
+    
+    // TEMPORARY
+    self.idDictionnary = [NSDictionary dictionaryWithObjectsAndKeys: @"2", @"storieID", 0, @"chapterID", 0, @"articleID", nil];
+    
+    // Get data(Doesn't work)
+    //    self.manager = [JAManagerData sharedManager];
+    //    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"stories" ofType:@"json"];
+    //    NSData *jsonData = [[NSData alloc] initWithContentsOfFile:filePath];
+    //    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    //    
+    //    self.manager.data = [[JAStoriesModel alloc] initWithString:jsonString error:nil];
+    //    NSArray *blocks = [[[self.manager.data.stories[1] chapters][0] articles][0] blocks];
+    //    NSLog(@"%@", [blocks[0] type]);
+    
+    
     // FAKE DATA
     
     NSDictionary *title = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -45,7 +61,7 @@ static NSString * const reuseIdentifier = @"Cell";
 
     NSDictionary *image = [NSDictionary dictionaryWithObjectsAndKeys:
                            @"image", @"type",
-                           @"imageFake", @"image",
+                           @"2-0-0-poroshenko", @"image",
                            @"US Attorney General Eric Holder speaks at the opening of the Ukraine Forum of Asset Recovery at Lancaster House in Central London, April 29, 2014.", @"description", nil];
 
     NSDictionary *paragraph2 = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -118,17 +134,32 @@ static NSString * const reuseIdentifier = @"Cell";
     
     long row = [indexPath row];
     
-    NSLog(@"%@", _blocks[row]);
-    
     NSDictionary *currentBlock = [NSDictionary dictionaryWithDictionary:_blocks[row]];
     
     if([[currentBlock objectForKey:@"type"] isEqualToString:@"title"]) {
+        
         JATitleCollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"TitleCell" forIndexPath:indexPath];
         
-        [cell.titleLabel setText:[currentBlock objectForKey:@"title"]];
-        [cell.locationLabel setText:[currentBlock objectForKey:@"location"]];
-        [cell.dateLabel setText:[currentBlock objectForKey:@"date"]];
+        CGSize maximumLabelSize = CGSizeMake(256, 9999);
         
+        // Title Label Settings
+        [cell.titleLabel setText:[currentBlock objectForKey:@"title"]];
+        [cell.titleLabel setLineHeightWithNumber:.85];
+        CGRect titleLabelRect = [cell.titleLabel calculateRectInBoundingRectWithSize:maximumLabelSize];
+        [cell.titleLabel setFrame:CGRectMake(20, 0, titleLabelRect.size.width, titleLabelRect.size.height)];
+        
+        // Location Label Settings
+        [cell.locationLabel setText:[currentBlock objectForKey:@"location"]];
+        [cell.locationLabel setLineSpacingWithNumber:1.25];
+        CGRect locationLabelRect = [cell.locationLabel calculateRectInBoundingRectWithSize:maximumLabelSize];
+        [cell.locationLabel setFrame:CGRectMake(cell.center.x - cell.frame.size.width/2, cell.center.y - locationLabelRect.size.height/2, cell.frame.size.width, locationLabelRect.size.height)];
+        
+        // Date Label Settings
+        [cell.dateLabel setText:[currentBlock objectForKey:@"date"]];
+        [cell.dateLabel setLineSpacingWithNumber:1.25];
+        CGRect dateLabelRect = [cell.dateLabel calculateRectInBoundingRectWithSize:maximumLabelSize];
+        [cell.dateLabel setFrame:CGRectMake(cell.center.x - cell.frame.size.width/2, cell.center.y + dateLabelRect.size.height/2, cell.frame.size.width, dateLabelRect.size.height)];
+
         return cell;
         
     }
@@ -158,8 +189,8 @@ static NSString * const reuseIdentifier = @"Cell";
     else if([[currentBlock objectForKey:@"type"] isEqualToString:@"image"]) {
         JAImageCollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"ImageCell" forIndexPath:indexPath];
         
-        cell.imageView.image = [UIImage imageNamed:[currentBlock objectForKey:@"image"]];
-        [cell.legendLabel setText:[currentBlock objectForKey:@"author"]];
+        [cell.imageView setImage:[UIImage imageNamed:[currentBlock objectForKey:@"image"]]];
+        [cell.legendLabel setText:[currentBlock objectForKey:@"description"]];
         
         return cell;
     }
@@ -175,6 +206,27 @@ static NSString * const reuseIdentifier = @"Cell";
     }
 }
 
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSDictionary *currentBlock = [NSDictionary dictionaryWithDictionary:_blocks[[indexPath row]]];
+    
+    if([[currentBlock objectForKey:@"type"] isEqualToString:@"title"]) {
+        UILabel *title = [UILabel new];
+        [title setText:[currentBlock objectForKey:@"title"]];
+        
+        CGSize maximumLabelSize = CGSizeMake(256, 9999);
+        CGRect titleLabelSize = [[currentBlock objectForKey:@"title"] boundingRectWithSize:maximumLabelSize
+                                                                   options: NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading | NSStringDrawingTruncatesLastVisibleLine
+                                                                attributes:@{NSFontAttributeName:[UIFont fontWithName:@"Young-Serif-Regular" size:45.0]}
+                                                                   context:nil];
+
+     
+        return CGSizeMake(self.view.bounds.size.width, titleLabelSize.size.height);
+        
+    } else {
+        return CGSizeMake(self.view.bounds.size.width, 300);
+    }
+}
 
 #pragma mark <UICollectionViewDelegate>
 
@@ -206,5 +258,10 @@ static NSString * const reuseIdentifier = @"Cell";
 	
 }
 */
+
+-(BOOL)prefersStatusBarHidden
+{
+    return YES;
+}
 
 @end

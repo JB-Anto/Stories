@@ -10,4 +10,14 @@
 
 @implementation JAImageCollectionViewCell
 
+-(id)initWithFrame:(CGRect)frame
+{
+    if(self = [super initWithFrame:self.frame]) {
+        [self setBackgroundColor:[UIColor greenColor]];
+        NSLog(@"Init imageCell");
+    }
+    
+    return self;
+    
+}
 @end

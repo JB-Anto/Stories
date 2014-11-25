@@ -7,11 +7,11 @@
             "createdAt": "12-10-2014",
             "cover": {
                 "id": 0,
-                "title": "The Umbrella \n Revolution",
-                "location": "Hong Kong",
+                "title": "The fight of the \n Kurd Rebels",
+                "location": "ISIS",
                 "background": "background_cover_1",
                 "foreground": "personnage_cover_1",
-                "color": "#FFFFFF"
+                "color": "#9A3241"
             },
             "chapters": [
                 {
@@ -102,11 +102,11 @@
             "createdAt": "12-10-2014",
             "cover": {
                 "id": 0,
-                "title": "The Umbrella \n Revolution",
-                "location": "Hong Kong",
+                "title": "The Russian \n Intervention",
+                "location": "Ukraine",
                 "background": "background_cover_2",
                 "foreground": "personnage_cover_2",
-                "color": "#FFFFFF"
+                "color": "#EC963D"
             },
             "chapters": [
                 {
@@ -115,75 +115,90 @@
                     "articles": [
                         {
                             "id": 0,
-                            "title": "",
-                            "createdAt": "",
+                            "title": "Ukraine president accepts embattled defence minister's resignation",
+                            "createdAt": "Sun, 12 Oct 2014 20:24 GMT",
                             "imageLoading": "",
                             "blocks": [
                                 {
                                     "id": 0,
                                     "type": "title",
-                                    "title": "",
-                                    "createdAt": "",
-                                    "location": ""
+                                    "title": "Ukraine president accepts embattled defence minister's resignation",
+                                    "createdAt": "Sun, 12 Oct 2014 20:24 GMT",
+                                    "location": "Kiev"
                                 },
                                 {
-                                    "id": 0,
+                                    "id": 1 ,
                                     "type": "resumes",
                                     "resumes": [
-                                        "",
-                                        "",
-                                        ""
+                                        "Defence minister criticised over August rout of troops.",
+                                        "President hopes to nominate successor on Monday.",
+                                        "Fragile ceasefire in eastern Ukraine broadly holding."
                                     ]
                                 },
                                 {
-                                    "id": 0,
+                                    "id": 2,
                                     "type": "paragraph",
-                                    "text": "",
-                                    "links": [
-                                        "",
-                                        "",
-                                        ""
-                                    ]
+                                    "text": "Ukrainian president Petro Poroshenko accepted on Sunday the resignation of his defence minister who has been under fire over a rout of government forces in the east which let to Kiev calling a ceasefire with pro-Russian separatists.",
+                                    "links": ["","",""]
                                 },
                                 {
-                                    "id": 0,
+                                    "id": 3,
                                     "type": "image",
-                                    "text": "",
-                                    "image": ""
+                                    "text": "US Attorney General Eric Holder speaks at the opening of the Ukraine Forum of Asset Recovery at Lancaster House in Central London, April 29, 2014.",
+                                    "image": "2-0-0-poroshenko"
                                 },
                                 {
-                                    "id": 0,
+                                    "id": 4,
+                                    "type": "paragraph",
+                                    "text": "Poroshenko’s website said the president had accepted the offer of resignation from Valery Heletey, 47, whom he appointed only in July. It said Poroshenko hoped to present a new ministerial candidate to parliament on Monday.",
+                                    "links": ["","",""]
+                                },
+                                {
+                                    "id": 5,
                                     "type": "quotes",
-                                    "author": "",
-                                    "text": ""
+                                    "author": "Petro Poroshenko",
+                                    "text": "“I don’t have illusion. These will be difficult talks. But I am.”"
                                 },
                                 {
-                                    "id": 0,
+                                    "id": 6,
+                                    "type": "paragraph",
+                                       "text": "Heletey who formerly led a presidential bodyguard unit, had drawn criticism since the crushing defeat of Ukrainian forces at Ilovaisk, east of the main rebel held eastern city of Donetsk, in late August.",
+                                    "links": ["","",""]
+                                },
+                                {
+                                    "id": 7,
+                                    "type": "paragraph",
+                                    "text": "Ukrainian military sources say a large number of Russian troops were also killed - a charge not acknowledged by Moscow, which denies any part in the Ukraine Conflict despite what Kiev and Western governements say is incontrovertible proof.",
+                                    "links": ["","",""]
+                                },
+                                {
+                                    "id": 8,
                                     "type": "keyNumber",
-                                    "number": "",
-                                    "text": ""
-                                }
+                                    "number": "102",
+                                    "text": "Ukrainian troops \n Were killed"
+                                },
+                                {
+                                    "id": 9,
+                                    "type": "paragraph",
+                                    "text": "Analysts say the Aug. 24 attack led Poroshenko reluctantly to accept that Kiev could not beat the separatists militarily as long as they were sypported by direct involvement of Russian troops and equipment.",
+                                    "links": ["","",""]
+                                },
                             ],
                             "credits": [
                                 {
                                     "id": 0,
                                     "type": "editor",
-                                    "title": "",
+                                    "title": "Authors:",
                                     "names": [
-                                        "",
-                                        "",
-                                        ""
+                                        "Richard Balmforth",
+                                        "Natalia Zinets"
                                     ]
                                 },
                                 {
-                                    "id": 0,
+                                    "id": 1,
                                     "type": "publishing",
-                                    "title": "",
-                                    "names": [
-                                        "",
-                                        "",
-                                        ""
-                                    ]
+                                    "title": "Editing:",
+                                    "names": ["Robin Pomeroy"]
                                 }
                             ]
                         }

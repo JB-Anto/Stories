@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JAUILabel.h"
 
 @interface JATitleCollectionViewCell : UICollectionViewCell
-@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
-@property (strong, nonatomic) IBOutlet UILabel *dateLabel;
-@property (strong, nonatomic) IBOutlet UILabel *locationLabel;
+@property (strong, nonatomic) JAUILabel *titleLabel;
+@property (strong, nonatomic) JAUILabel *dateLabel;
+@property (strong, nonatomic) JAUILabel *locationLabel;
 
 @end

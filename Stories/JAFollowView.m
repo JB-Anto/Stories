@@ -56,15 +56,15 @@
         [self.layer setMask:self.maskWithHole2];
         
         UILongPressGestureRecognizer *dragFollow = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(followDrag:)];
-        dragFollow.minimumPressDuration = .05;
+        dragFollow.minimumPressDuration = .01;
         dragFollow.numberOfTouchesRequired = 1;
         [self addGestureRecognizer:dragFollow];
         
     }
-    
     return self;
     
 }
+
 -(void)rotateSquare:(float)angle{
     [UIView animateWithDuration:1.0 animations:^{
         self.layer.transform = CATransform3DMakeRotation(angle*M_PI/180, 0, 0, 1.0);
@@ -128,7 +128,7 @@
 };
 
 -(void)animateToCenter{
-    [UIView animateWithDuration:.5 animations:^{
+    [UIView animateWithDuration:.2 animations:^{
         self.center = self.centerView;
     }];
 }

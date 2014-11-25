@@ -8,7 +8,7 @@
 
 #import "JAChapterViewController.h"
 
-@interface JAChapterViewController ()
+@interface JAChapterViewController () <UIGestureRecognizerDelegate>
 
 @property (strong, nonatomic) NSMutableArray *titlesArray;
 @property (strong, nonatomic) NSDateFormatter *dateFormater;
@@ -56,13 +56,21 @@
     [self.view addSubview:self.titlesView];
     
     [self createTitlesBlocks];
+
+    UITapGestureRecognizer *doubleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTap:)];
+    doubleTapGesture.numberOfTapsRequired = 2;
+    doubleTapGesture.delegate = self;
+    [self.view addGestureRecognizer:doubleTapGesture];
     
     // Gesture recognizer
     UILongPressGestureRecognizer *longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressDetected:)];
     longPressRecognizer.minimumPressDuration = .05;
     longPressRecognizer.numberOfTouchesRequired = 1;
+    longPressRecognizer.delegate = self;
     [self.titlesView addGestureRecognizer:longPressRecognizer];
     
+
+
     // Loader View
     self.loaderView = [[JALoaderView alloc]initWithFrame:CGRectMake(0, 0, 160, 160)];
     self.loaderView.delegate = self;
@@ -79,7 +87,7 @@
     for (int i = 0; i < self.chaptersCount ; i++) {
         UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, i*self.chapterHeight, self.view.frame.size.width, self.chapterHeight)];
         //        titleView.backgroundColor = [UIColor colorWithRed:1.0/self.chaptersCount *i green:1.0/self.chaptersCount *i blue: 1.0/self.chaptersCount*i alpha:1];
-        float percent = 30.0;
+        float percent = 70.0;
         
         NSString *text = [[[[self.manager getCurrentChapter] articles] objectAtIndex:i] title];
         
@@ -114,6 +122,9 @@
         [self.titlesArray addObject:titleView];
     }
 
+}
+-(void)doubleTap:(UITapGestureRecognizer*)sender{
+    [self performSegueWithIdentifier:@"JACoverPop" sender:self];
 }
 -(void)longPressDetected:(UITapGestureRecognizer *)sender{
     
@@ -164,9 +175,11 @@
 -(void)animateTitlesView:(int)index negativeScale:(float)negativeScale negativeAlpha:(float)negativeAlpha{
     UIView *titleView = [self.titlesArray objectAtIndex:index];
     UILabel *titleLBL = (UILabel*)[titleView viewWithTag:1];
+
     [UIView animateWithDuration:0.2 animations:^{
         titleLBL.transform = CGAffineTransformMakeScale(1.0 - negativeScale, 1.0 - negativeScale);
         titleLBL.alpha = 1.0 - negativeAlpha;
+    } completion:^(BOOL finished) {
     }];
 
 }
@@ -178,6 +191,7 @@
     
 }
 -(void)loadNextView{
+    
     NSLog(@"ROCKSTAR BABE");
 }
 -(void)setAnchorPoint:(CGPoint)anchorPoint forView:(UIView *)view
@@ -206,6 +220,10 @@
     // Dispose of any resources that can be recreated.
 }
 -(BOOL)prefersStatusBarHidden {
+    return YES;
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
     return YES;
 }
 /*

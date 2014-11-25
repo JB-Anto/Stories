@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "JAManagerData.h"
 #import "JALoaderView.h"
-#import "UIColor+UIColor_PXExtentions.h"
+
 
 @interface JAChapterViewController : UIViewController <LoaderDelegate>
 

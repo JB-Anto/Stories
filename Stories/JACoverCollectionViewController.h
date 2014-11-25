@@ -12,6 +12,7 @@
 #import "JAManagerData.h"
 #import "JAStoriesModel.h"
 #import "JAStorieModel.h"
+#import "JACoverSeguePop.h"
 
 typedef NS_ENUM(NSInteger, JAAnimDirection) {
     JAAnimDirectionLeft,

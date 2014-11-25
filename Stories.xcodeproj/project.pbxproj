@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A58C1031A24B12B0061C514 /* JACoverSeguePush.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A58C1021A24B12B0061C514 /* JACoverSeguePush.m */; };
+		0A58C1061A24BD0A0061C514 /* JACoverSeguePop.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A58C1051A24BD0A0061C514 /* JACoverSeguePop.m */; };
+		0A58C1091A24C3EA0061C514 /* JACustomNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A58C1081A24C3EA0061C514 /* JACustomNavigationController.m */; };
+		0A58C10D1A24DF470061C514 /* UIView+Easing.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A58C10C1A24DF470061C514 /* UIView+Easing.m */; };
 		0A7D6E791A232ED50017A8C0 /* JAChapterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7D6E781A232ED50017A8C0 /* JAChapterViewController.m */; };
 		0A83AE341A23F52D0098F1DD /* UIColor+UIColor_PXExtentions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A83AE331A23F52D0098F1DD /* UIColor+UIColor_PXExtentions.m */; };
 		0A8783DD1A155CF50028437C /* JALoaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8783DC1A155CF50028437C /* JALoaderView.m */; };
@@ -136,6 +140,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A58C1011A24B12B0061C514 /* JACoverSeguePush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JACoverSeguePush.h; sourceTree = "<group>"; };
+		0A58C1021A24B12B0061C514 /* JACoverSeguePush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JACoverSeguePush.m; sourceTree = "<group>"; };
+		0A58C1041A24BD0A0061C514 /* JACoverSeguePop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JACoverSeguePop.h; sourceTree = "<group>"; };
+		0A58C1051A24BD0A0061C514 /* JACoverSeguePop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JACoverSeguePop.m; sourceTree = "<group>"; };
+		0A58C1071A24C3EA0061C514 /* JACustomNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JACustomNavigationController.h; path = Stories/JACustomNavigationController.h; sourceTree = "<group>"; };
+		0A58C1081A24C3EA0061C514 /* JACustomNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JACustomNavigationController.m; path = Stories/JACustomNavigationController.m; sourceTree = "<group>"; };
+		0A58C10B1A24DF470061C514 /* UIView+Easing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Easing.h"; sourceTree = "<group>"; };
+		0A58C10C1A24DF470061C514 /* UIView+Easing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Easing.m"; sourceTree = "<group>"; };
 		0A7D6E771A232ED50017A8C0 /* JAChapterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JAChapterViewController.h; path = Stories/JAChapterViewController.h; sourceTree = "<group>"; };
 		0A7D6E781A232ED50017A8C0 /* JAChapterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JAChapterViewController.m; path = Stories/JAChapterViewController.m; sourceTree = "<group>"; };
 		0A83AE321A23F52D0098F1DD /* UIColor+UIColor_PXExtentions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+UIColor_PXExtentions.h"; sourceTree = "<group>"; };
@@ -182,6 +194,7 @@
 		0A8784051A155DE80028437C /* loader_7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loader_7@2x.png"; sourceTree = "<group>"; };
 		0A8784061A155DE80028437C /* loader_8@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loader_8@2x.png"; sourceTree = "<group>"; };
 		0A8784071A155DE80028437C /* loader_9@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loader_9@2x.png"; sourceTree = "<group>"; };
+		0ABFEEB21A24E0F2002271AF /* JAPrefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAPrefix.pch; sourceTree = "<group>"; };
 		7705EFB91A2374AD0015B1BD /* Young-Serif-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Young-Serif-Regular.ttf"; path = "Stories/Fonts/Young-Serif-Regular.ttf"; sourceTree = "<group>"; };
 		770CB9111A232FB8002817BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Article.storyboard; sourceTree = "<group>"; };
 		770CB9141A233006002817BE /* JAArticleCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JAArticleCollectionViewController.h; path = Stories/JAArticleCollectionViewController.h; sourceTree = "<group>"; };
@@ -323,6 +336,26 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		0A58C1001A24B0BA0061C514 /* CoverSegue */ = {
+			isa = PBXGroup;
+			children = (
+				0A58C1011A24B12B0061C514 /* JACoverSeguePush.h */,
+				0A58C1021A24B12B0061C514 /* JACoverSeguePush.m */,
+				0A58C1041A24BD0A0061C514 /* JACoverSeguePop.h */,
+				0A58C1051A24BD0A0061C514 /* JACoverSeguePop.m */,
+			);
+			name = CoverSegue;
+			sourceTree = "<group>";
+		};
+		0A58C10A1A24C3F20061C514 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				0A58C1071A24C3EA0061C514 /* JACustomNavigationController.h */,
+				0A58C1081A24C3EA0061C514 /* JACustomNavigationController.m */,
+			);
+			name = Navigation;
+			sourceTree = "<group>";
+		};
 		0A7D6E761A232C180017A8C0 /* Chapter */ = {
 			isa = PBXGroup;
 			children = (
@@ -336,6 +369,7 @@
 			isa = PBXGroup;
 			children = (
 				770CB9131A232FED002817BE /* ArticleCellViews */,
+				0A58C1001A24B0BA0061C514 /* CoverSegue */,
 				0A8783DB1A155CF50028437C /* JALoaderView.h */,
 				0A8783DC1A155CF50028437C /* JALoaderView.m */,
 				8DB9C3D21A160BE200FBC975 /* JAFollowView.h */,
@@ -533,6 +567,7 @@
 		8D54A9371A14FAF400ABDAD2 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				0A58C10A1A24C3F20061C514 /* Navigation */,
 				770CB90F1A232F9B002817BE /* Article */,
 				0A7D6E761A232C180017A8C0 /* Chapter */,
 				8D54A9381A14FB0700ABDAD2 /* Cover */,
@@ -651,6 +686,7 @@
 		8D8C02D21A10CB6200904841 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0ABFEEB21A24E0F2002271AF /* JAPrefix.pch */,
 				8D8C02D31A10CB6200904841 /* Info.plist */,
 				8D8C02D41A10CB6200904841 /* main.m */,
 			);
@@ -681,6 +717,8 @@
 				77E7580C1A2469950015EDEF /* Data Manager */,
 				0A83AE321A23F52D0098F1DD /* UIColor+UIColor_PXExtentions.h */,
 				0A83AE331A23F52D0098F1DD /* UIColor+UIColor_PXExtentions.m */,
+				0A58C10B1A24DF470061C514 /* UIView+Easing.h */,
+				0A58C10C1A24DF470061C514 /* UIView+Easing.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -866,6 +904,8 @@
 				8D54A9331A14EB8600ABDAD2 /* JSONHTTPClient.m in Sources */,
 				8D8C02D81A10CB6200904841 /* AppDelegate.m in Sources */,
 				8D54A9341A14EB8600ABDAD2 /* JSONModel+networking.m in Sources */,
+				0A58C10D1A24DF470061C514 /* UIView+Easing.m in Sources */,
+				0A58C1031A24B12B0061C514 /* JACoverSeguePush.m in Sources */,
 				0A8783DD1A155CF50028437C /* JALoaderView.m in Sources */,
 				8D54A90E1A14E85E00ABDAD2 /* JAStoriesModel.m in Sources */,
 				770CB9251A233006002817BE /* JAParagraphCollectionViewCell.m in Sources */,
@@ -874,6 +914,7 @@
 				8D54A9301A14EB8600ABDAD2 /* JSONModelError.m in Sources */,
 				770CB92B1A233014002817BE /* JATitleCollectionViewCell.m in Sources */,
 				8D54A9311A14EB8600ABDAD2 /* NSArray+JSONModel.m in Sources */,
+				0A58C1061A24BD0A0061C514 /* JACoverSeguePop.m in Sources */,
 				0A83AE341A23F52D0098F1DD /* UIColor+UIColor_PXExtentions.m in Sources */,
 				8D8C02D51A10CB6200904841 /* main.m in Sources */,
 				770CB9261A233006002817BE /* JAQuotesCollectionViewCell.m in Sources */,
@@ -881,6 +922,7 @@
 				8D54A9051A14E3E900ABDAD2 /* JAArticleModel.m in Sources */,
 				8D54A8FC1A14DED600ABDAD2 /* JACoverModel.m in Sources */,
 				8D54A9361A14EB8600ABDAD2 /* JSONValueTransformer.m in Sources */,
+				0A58C1091A24C3EA0061C514 /* JACustomNavigationController.m in Sources */,
 				8D54A9081A14E53700ABDAD2 /* JABlockModel.m in Sources */,
 				770CB9231A233006002817BE /* JAImageCollectionViewCell.m in Sources */,
 				8D54A92F1A14EB8600ABDAD2 /* JSONModelClassProperty.m in Sources */,
@@ -1027,6 +1069,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/JAPrefix.pch";
 				INFOPLIST_FILE = Stories/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
@@ -1039,6 +1083,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/JAPrefix.pch";
 				INFOPLIST_FILE = Stories/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";

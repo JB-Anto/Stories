@@ -1,0 +1,18 @@
+//
+//  JAPrefix.pch
+//  Stories
+//
+//  Created by Antonin Langlade on 25/11/2014.
+//  Copyright (c) 2014 Jb & Anto. All rights reserved.
+//
+
+#ifndef Stories_JAPrefix_pch
+#define Stories_JAPrefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import "UIColor+UIColor_PXExtentions.h"
+#import "UIView+Easing.h"
+
+#endif

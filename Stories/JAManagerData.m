@@ -43,17 +43,17 @@
 }
 -(JAStorieModel*)getCurrentStorie{
     
-    return self.data.stories[self.currentStorie];
+    return [[self.data stories] objectAtIndex:self.currentStorie];
 }
 
 -(JAChapterModel*)getCurrentChapter{
 
-    return [[self.data.stories[self.currentStorie] chapters] objectAtIndex:self.currentChapter];
+    return [[[[self.data stories] objectAtIndex:self.currentStorie] chapters] objectAtIndex:self.currentChapter];
 }
 
 -(JAArticleModel*)getCurrentArticle{
     
-    return [[[[self.data.stories[self.currentStorie] chapters] objectAtIndex:self.currentChapter] articles] objectAtIndex:self.currentArticle];
+    return [[[[[[self.data stories] objectAtIndex:self.currentStorie] chapters] objectAtIndex:self.currentChapter] articles] objectAtIndex:self.currentArticle];
 }
 
 @end

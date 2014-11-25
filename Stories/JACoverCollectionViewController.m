@@ -111,6 +111,7 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 -(void)loadNextView{
     NSLog(@"Hiya!");
+    [self performSegueWithIdentifier:@"JACoverPush" sender:self];
 }
 
 - (void)handleSwipe:(UISwipeGestureRecognizer *)swipe {
@@ -177,9 +178,6 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.cellToAnimate animateEnter];
 //    [self.cellToAnimate.followView validateFollow];
 }
-- (void)scrollViewWillEndDragging:(UICollectionView *)collectionView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
-//    NSLog(@"EndDrag");
-}
 
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(JACoverCollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
 //    NSLog(@"WillAppear %ld",(long)indexPath.row);
@@ -196,8 +194,9 @@ static NSString * const reuseIdentifier = @"Cell";
 //    [cell.followView unValidateFollow];
 
 }
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
-    
+
+-(IBAction)returnFromChapterView:(UIStoryboardSegue*)segue{
+
 }
 -(BOOL)prefersStatusBarHidden{
     return YES;

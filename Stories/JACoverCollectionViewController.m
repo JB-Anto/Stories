@@ -25,6 +25,8 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.manager = [JAManagerData sharedManager];
+    
     self.firstTime = YES;
     self.animatedLoader = NO;
     self.stateLongTap = UIGestureRecognizerStatePossible;
@@ -32,14 +34,6 @@ static NSString * const reuseIdentifier = @"Cell";
     // For Swipe Gestion
 //    self.currentIndex = 0;
     
-    self.manager = [JAManagerData sharedManager];
-    
-    // Get data
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"stories" ofType:@"json"];
-    NSData *jsonData = [[NSData alloc] initWithContentsOfFile:filePath];
-    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    
-    self.manager.data = [[JAStoriesModel alloc] initWithString:jsonString error:nil];
     
     // Layout View
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];

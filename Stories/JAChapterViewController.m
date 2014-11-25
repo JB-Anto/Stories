@@ -30,13 +30,13 @@
     [super viewDidLoad];
     
     self.manager = [JAManagerData sharedManager];
+    
     self.manager.currentStorie = 0;
     self.manager.currentChapter = 0;
     self.titlesArray = [NSMutableArray array];
     self.currentIndex = -1;
     self.touchToLoad = NO;
 
-    
     // Date out format
     self.dateFormater = [[NSDateFormatter alloc]init];
     [self.dateFormater setDateFormat:@"MMM,\u00A0dd"];
@@ -45,24 +45,15 @@
     self.dateFormaterFromString = [[NSDateFormatter alloc]init];
     [self.dateFormaterFromString setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"];
     
-    // Get data
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"stories" ofType:@"json"];
-    NSData *jsonData = [[NSData alloc] initWithContentsOfFile:filePath];
-    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    
-    // Manager
-    self.manager.data = [[JAStoriesModel alloc] initWithString:jsonString error:nil];
-    
     // Chapters View
     self.chapterScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height/7)];
-    self.chapterScrollView.backgroundColor = [UIColor pxColorWithHexValue:[[self.manager.data.stories[self.manager.currentStorie] cover] color]];
+    self.chapterScrollView.backgroundColor = [UIColor pxColorWithHexValue:[[[self.manager getCurrentStorie] cover] color]];
     [self.view addSubview:self.chapterScrollView];
     
     // Titles View
     self.titlesView = [[UIView alloc]initWithFrame:CGRectMake(0, self.view.bounds.size.height/7, self.view.bounds.size.width, self.view.bounds.size.height*6/7)];
-    self.titlesView.backgroundColor = [UIColor pxColorWithHexValue:[[self.manager.data.stories[self.manager.currentStorie] cover] color]];
+    self.titlesView.backgroundColor = [UIColor pxColorWithHexValue:[[[self.manager getCurrentStorie] cover] color]];
     [self.view addSubview:self.titlesView];
-    
     
     [self createTitlesBlocks];
     
@@ -80,7 +71,7 @@
 }
 -(void)createTitlesBlocks{
     // Count for Title View
-    self.chaptersCount = [[[[self.manager.data.stories[self.manager.currentStorie] chapters] objectAtIndex:self.manager.currentChapter] articles] count];
+    self.chaptersCount = [[[self.manager getCurrentChapter] articles] count];
     self.chapterHeight = self.titlesView.frame.size.height / self.chaptersCount;
     
     // Instanciate all titles
@@ -88,10 +79,11 @@
     for (int i = 0; i < self.chaptersCount ; i++) {
         UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, i*self.chapterHeight, self.view.frame.size.width, self.chapterHeight)];
         //        titleView.backgroundColor = [UIColor colorWithRed:1.0/self.chaptersCount *i green:1.0/self.chaptersCount *i blue: 1.0/self.chaptersCount*i alpha:1];
+        float percent = 30.0;
         
-        NSString *text = [[[[[self.manager.data.stories[self.manager.currentStorie] chapters] objectAtIndex:self.manager.currentChapter] articles] objectAtIndex:i] title];
+        NSString *text = [[[[self.manager getCurrentChapter] articles] objectAtIndex:i] title];
         
-        NSString *dateString = [[[[[self.manager.data.stories[self.manager.currentStorie] chapters] objectAtIndex:self.manager.currentChapter] articles] objectAtIndex:i] createdAt];
+        NSString *dateString = [[[[self.manager getCurrentChapter] articles] objectAtIndex:i] createdAt];
         
         NSDate *date = [self.dateFormaterFromString dateFromString:dateString];
         NSString *finalDate = [self.dateFormater stringFromDate:date];
@@ -101,6 +93,9 @@
         [completeString addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"Calibre-Thin" size:20.0] range:NSMakeRange([text length]+1,[finalDate length])];
         
         [completeString addAttribute:NSBaselineOffsetAttributeName value:@(10) range:NSMakeRange([text length]+1,[finalDate length])];
+        int rangeFinalUnderline = (int)(percent * [text length] / 100);
+        
+        [completeString addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInt:NSUnderlineStyleSingle] range:NSMakeRange(0,rangeFinalUnderline)];
         
         UILabel *titleLBL = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, titleView.frame.size.width - 40, titleView.frame.size.height)];
         titleLBL.lineBreakMode = NSLineBreakByWordWrapping;

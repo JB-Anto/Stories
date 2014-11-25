@@ -7,6 +7,9 @@
 //
 
 #import "JAManagerData.h"
+#import "JAStorieModel.h"
+#import "JAChapterModel.h"
+#import "JAArticleModel.h"
 
 @implementation JAManagerData
 
@@ -17,6 +20,7 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         myManager = [[self alloc] init];
+
     });
     return myManager;
 }
@@ -24,21 +28,32 @@
 - (id)init {
     if (self = [super init]) {
         NSLog(@"Init singleton");
-      
+        [self getDataFromJSON];
     }
     return self;
 }
-//-(UIViewController*)changeGame{
-//    UIViewController *viewController;
-//    if([self.arrayOfGames count] - 1<= self.currentGame){
-//        viewController = [[EMGameQuestionViewController alloc]initWithNibName:@"EMGameQuestionViewController" bundle:nil];
-//    }
-//    else{
-//        self.currentGame += 1;
-//        viewController = [[EMHotColdViewController alloc]initWithNibName:@"EMHotColdViewController" bundle:nil];
-//
-//    }
-//    return viewController;
-//}
+-(void)getDataFromJSON{
+    // Get data
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"stories" ofType:@"json"];
+    NSData *jsonData = [[NSData alloc] initWithContentsOfFile:filePath];
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    
+    // Manager
+    self.data = [[JAStoriesModel alloc] initWithString:jsonString error:nil];
+}
+-(JAStorieModel*)getCurrentStorie{
+    
+    return self.data.stories[self.currentStorie];
+}
+
+-(JAChapterModel*)getCurrentChapter{
+
+    return [[self.data.stories[self.currentStorie] chapters] objectAtIndex:self.currentChapter];
+}
+
+-(JAArticleModel*)getCurrentArticle{
+    
+    return [[[[self.data.stories[self.currentStorie] chapters] objectAtIndex:self.currentChapter] articles] objectAtIndex:self.currentArticle];
+}
 
 @end

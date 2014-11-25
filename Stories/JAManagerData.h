@@ -12,10 +12,14 @@
 @interface JAManagerData : NSObject
 
 @property (strong,nonatomic) JAStoriesModel *data;
-
+@property int currentStorie;
+@property int currentChapter;
+@property int currentArticle;
 
 + (id)sharedManager;
 
-//-(UIViewController*)changeGame;
+-(JAStorieModel*)getCurrentStorie;
+-(JAChapterModel*)getCurrentChapter;
+-(JAArticleModel*)getCurrentArticle;
 
 @end

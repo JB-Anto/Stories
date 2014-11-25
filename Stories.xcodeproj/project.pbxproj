@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A7D6E791A232ED50017A8C0 /* JAChapterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A7D6E781A232ED50017A8C0 /* JAChapterViewController.m */; };
+		0A83AE341A23F52D0098F1DD /* UIColor+UIColor_PXExtentions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A83AE331A23F52D0098F1DD /* UIColor+UIColor_PXExtentions.m */; };
 		0A8783DD1A155CF50028437C /* JALoaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8783DC1A155CF50028437C /* JALoaderView.m */; };
 		0A8784081A155DE80028437C /* loader_0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A8783E01A155DE80028437C /* loader_0@2x.png */; };
 		0A8784091A155DE80028437C /* loader_10@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A8783E11A155DE80028437C /* loader_10@2x.png */; };
@@ -120,6 +122,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A7D6E771A232ED50017A8C0 /* JAChapterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JAChapterViewController.h; path = Stories/JAChapterViewController.h; sourceTree = "<group>"; };
+		0A7D6E781A232ED50017A8C0 /* JAChapterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JAChapterViewController.m; path = Stories/JAChapterViewController.m; sourceTree = "<group>"; };
+		0A83AE321A23F52D0098F1DD /* UIColor+UIColor_PXExtentions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+UIColor_PXExtentions.h"; sourceTree = "<group>"; };
+		0A83AE331A23F52D0098F1DD /* UIColor+UIColor_PXExtentions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+UIColor_PXExtentions.m"; sourceTree = "<group>"; };
 		0A8783DB1A155CF50028437C /* JALoaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JALoaderView.h; sourceTree = "<group>"; };
 		0A8783DC1A155CF50028437C /* JALoaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JALoaderView.m; sourceTree = "<group>"; };
 		0A8783E01A155DE80028437C /* loader_0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loader_0@2x.png"; sourceTree = "<group>"; };
@@ -287,6 +293,15 @@
 			);
 			name = Ressources;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		0A7D6E761A232C180017A8C0 /* Chapter */ = {
+			isa = PBXGroup;
+			children = (
+				0A7D6E771A232ED50017A8C0 /* JAChapterViewController.h */,
+				0A7D6E781A232ED50017A8C0 /* JAChapterViewController.m */,
+			);
+			name = Chapter;
 			sourceTree = "<group>";
 		};
 		0A8783DE1A155CFC0028437C /* VIews */ = {
@@ -491,6 +506,9 @@
 			isa = PBXGroup;
 			children = (
 				770CB90F1A232F9B002817BE /* Article */,
+
+				0A7D6E761A232C180017A8C0 /* Chapter */,
+
 				8D54A9381A14FB0700ABDAD2 /* Cover */,
 			);
 			name = ViewControllers;
@@ -621,6 +639,10 @@
 			children = (
 				77E7580D1A2469A20015EDEF /* Label Layout */,
 				77E7580C1A2469950015EDEF /* Data Manager */,
+				8D54A9391A14FBA000ABDAD2 /* JAManagerData.h */,
+				8D54A93A1A14FBA000ABDAD2 /* JAManagerData.m */,
+				0A83AE321A23F52D0098F1DD /* UIColor+UIColor_PXExtentions.h */,
+				0A83AE331A23F52D0098F1DD /* UIColor+UIColor_PXExtentions.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -755,6 +777,7 @@
 				8D54A9471A14FE9800ABDAD2 /* personnage_cover_2@2x.png in Resources */,
 				8D54A9431A14FE9800ABDAD2 /* background_cover_0@2x.png in Resources */,
 				0A87842E1A155DE80028437C /* loader_8@2x.png in Resources */,
+				0A9321731A2347E600AAED95 /* News-Plantin-Pro-Regular.otf in Resources */,
 				8D54A9461A14FE9800ABDAD2 /* personnage_cover_1@2x.png in Resources */,
 				0A8784241A155DE80028437C /* loader_35@2x.png in Resources */,
 				0A87840F1A155DE80028437C /* loader_16@2x.png in Resources */,
@@ -764,6 +787,7 @@
 				0A8784121A155DE80028437C /* loader_19@2x.png in Resources */,
 				0A87841D1A155DE80028437C /* loader_29@2x.png in Resources */,
 				0A87841B1A155DE80028437C /* loader_27@2x.png in Resources */,
+				0A9321771A235F7200AAED95 /* Calibre-Thin.otf in Resources */,
 				0A8784171A155DE80028437C /* loader_23@2x.png in Resources */,
 				0A8784281A155DE80028437C /* loader_39@2x.png in Resources */,
 				0A8784111A155DE80028437C /* loader_18@2x.png in Resources */,
@@ -800,6 +824,7 @@
 				8D54A9301A14EB8600ABDAD2 /* JSONModelError.m in Sources */,
 				770CB92B1A233014002817BE /* JATitleCollectionViewCell.m in Sources */,
 				8D54A9311A14EB8600ABDAD2 /* NSArray+JSONModel.m in Sources */,
+				0A83AE341A23F52D0098F1DD /* UIColor+UIColor_PXExtentions.m in Sources */,
 				8D8C02D51A10CB6200904841 /* main.m in Sources */,
 				770CB9261A233006002817BE /* JAQuotesCollectionViewCell.m in Sources */,
 				8D54A9321A14EB8600ABDAD2 /* JSONAPI.m in Sources */,
@@ -814,6 +839,7 @@
 				8D54A90B1A14E5DD00ABDAD2 /* JACreditModel.m in Sources */,
 				770CB92A1A233014002817BE /* JAArticleCollectionViewController.m in Sources */,
 				8DB9C3D41A160BE200FBC975 /* JAFollowView.m in Sources */,
+				0A7D6E791A232ED50017A8C0 /* JAChapterViewController.m in Sources */,
 				8D54A92D1A14EB8600ABDAD2 /* JSONModel.m in Sources */,
 				8D54A93B1A14FBA000ABDAD2 /* JAManagerData.m in Sources */,
 				770CB9271A233006002817BE /* JAResumeCollectionViewCell.m in Sources */,

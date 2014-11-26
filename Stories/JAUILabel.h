@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreText/CoreText.h>
 
 @interface JAUILabel : UILabel
 -(void)setLineHeightWithNumber:(CGFloat)lineHeight;
 -(void)setLineSpacingWithNumber:(CGFloat) lineSpacing;
 -(CGRect)calculateRectInBoundingRectWithSize:(CGSize) maximumSize;
+-(CGRect)calculateRectInBoundingRectWithSize:(CGSize) maximumSize AndLineHeight:(CGFloat)lineHeight;
 @end

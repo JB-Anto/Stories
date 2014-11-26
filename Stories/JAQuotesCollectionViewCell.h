@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JAUILabel.h"
 
 @interface JAQuotesCollectionViewCell : UICollectionViewCell
-@property (weak, nonatomic) IBOutlet UILabel *quotesLabel;
-@property (strong, nonatomic) IBOutlet UILabel *authorLabel;
+@property (strong, nonatomic) JAUILabel *quoteLabel;
+@property (strong, nonatomic) JAUILabel *authorLabel;
 @end

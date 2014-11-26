@@ -15,15 +15,16 @@
 
 @interface JABlockModel : JSONModel
 
-@property (assign,nonatomic) uint id;
+@property (assign,nonatomic) NSNumber *id;
 @property (strong,nonatomic) NSString *type;
-@property (strong,nonatomic) NSString <Optional> *title;
-@property (strong,nonatomic) NSString <Optional> *location;
-@property (strong,nonatomic) NSArray <Optional> *resumes;
-@property (strong,nonatomic) NSArray <Optional> *links;
-@property (strong,nonatomic) NSString <Optional> *image;
-@property (strong,nonatomic) NSString <Optional> *author;
-@property (strong,nonatomic) NSString <Optional> *number;
-
+@property (strong,nonatomic) NSString *title;
+@property (strong,nonatomic) NSString *location;
+@property (strong,nonatomic) NSString *createdAt;
+@property (strong,nonatomic) NSArray *resumes;
+@property (strong,nonatomic) NSArray *links;
+@property (strong,nonatomic) NSString *image;
+@property (strong,nonatomic) NSString *author;
+@property (strong,nonatomic) NSString *number;
+@property (strong,nonatomic) NSString *text;
 
 @end

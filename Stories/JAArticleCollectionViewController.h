@@ -21,11 +21,10 @@
 #import "JAUILabel.h"
 
 @interface JAArticleCollectionViewController : UICollectionViewController <UICollectionViewDataSource, UICollectionViewDelegate>
-@property (strong, nonatomic) NSMutableArray *blocks;
+@property (strong, nonatomic) NSArray *blocks;
 @property (strong, nonatomic) NSMutableArray *text;
 @property (strong, nonatomic) IBOutlet UICollectionView *articleCollectionView;
-
-// TEMPORARY
 @property (nonatomic,strong) JAManagerData *manager;
-@property (nonatomic,strong) NSDictionary *idDictionnary;
+@property (nonatomic,strong) JABlockModel *currentBlock;
+@property (strong, nonatomic) NSMutableArray *resumesID;
 @end

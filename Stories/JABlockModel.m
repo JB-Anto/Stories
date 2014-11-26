@@ -9,8 +9,8 @@
 #import "JABlockModel.h"
 
 @implementation JABlockModel
-//+(BOOL)propertyIsOptional:(NSString*)propertyName
-//{
-//    return YES;
-//}
++(BOOL)propertyIsOptional:(NSString*)propertyName
+{
+    return YES;
+}
 @end

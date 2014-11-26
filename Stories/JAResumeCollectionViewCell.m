@@ -24,14 +24,18 @@
         
         // Initial Setting - Resume Label
         self.resumeLabel = [JAUILabel new];
-        [self.resumeLabel setNumberOfLines:2];
+        [self.resumeLabel setNumberOfLines:0];
         [self.resumeLabel setFont:resumeFont];
         [self.resumeLabel setTextColor:resumeColor];
-        [self.resumeLabel setBackgroundColor:[UIColor redColor]];
+        
         
         // Ready to add in parent view
         [self addSubview:self.resumeLabel];
-        [self setBackgroundColor:[UIColor greenColor]];
+        
+        // ********TEMPORARY********
+        //[self.resumeLabel setBackgroundColor:[UIColor redColor]];
+        //[self setBackgroundColor:[UIColor greenColor]];
+        
     }
     
     return self;

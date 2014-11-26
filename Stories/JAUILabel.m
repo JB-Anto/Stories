@@ -44,9 +44,12 @@
 
 -(CGRect)calculateRectInBoundingRectWithSize:(CGSize) maximumSize
 {
+    
+    UIFont *font = [UIFont fontWithName:self.font.fontName size:self.font.lineHeight];
+    
     CGRect labelRect = [self.text boundingRectWithSize:maximumSize
-                                  options: NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading | NSStringDrawingTruncatesLastVisibleLine
-                                  attributes:@{NSFontAttributeName:self.font}
+                                  options: NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
+                                  attributes:@{NSFontAttributeName:font}
                                   context:nil];
     
     return labelRect;

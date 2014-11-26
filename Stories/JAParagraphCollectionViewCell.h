@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JAUILabel.h"
 
 @interface JAParagraphCollectionViewCell : UICollectionViewCell
-@property (strong, nonatomic) IBOutlet UILabel *paragraphLabel;
+@property (strong, nonatomic) JAUILabel *paragraphLabel;
 @end

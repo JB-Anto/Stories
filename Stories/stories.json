@@ -2,7 +2,7 @@
 { 
     "stories" : [
         {
-            "id": 1,
+            "id": 0,
             "isFollow": 0,
             "createdAt": "12-10-2014",
             "cover": {
@@ -32,7 +32,7 @@
                                     "location": ""
                                 },
                                 {
-                                    "id": 0,
+                                    "id": 1,
                                     "type": "resumes",
                                     "resumes": [
                                         "",
@@ -41,7 +41,7 @@
                                     ]
                                 },
                                 {
-                                    "id": 0,
+                                    "id": 2,
                                     "type": "paragraph",
                                     "text": "",
                                     "links": [
@@ -51,19 +51,19 @@
                                     ]
                                 },
                                 {
-                                    "id": 0,
+                                    "id": 3,
                                     "type": "image",
                                     "text": "",
                                     "image": ""
                                 },
                                 {
-                                    "id": 0,
+                                    "id": 4,
                                     "type": "quotes",
                                     "author": "",
                                     "text": ""
                                 },
                                 {
-                                    "id": 0,
+                                    "id": 5,
                                     "type": "keyNumber",
                                     "number": "",
                                     "text": ""
@@ -81,7 +81,7 @@
                                     ]
                                 },
                                 {
-                                    "id": 0,
+                                    "id": 1,
                                     "type": "publishing",
                                     "title": "",
                                     "names": [
@@ -93,7 +93,7 @@
                             ]
                         },
                         {
-                            "id": 0,
+                            "id": 1,
                             "title": "Defeat of Ukrainian forces at Ilovaisk",
                             "createdAt": "2014-10-22T19:00:00.000Z",
                             "imageLoading": "",
@@ -106,7 +106,7 @@
                                     "location": ""
                                 },
                                 {
-                                    "id": 0,
+                                    "id": 1,
                                     "type": "resumes",
                                     "resumes": [
                                         "",
@@ -115,7 +115,7 @@
                                     ]
                                 },
                                 {
-                                    "id": 0,
+                                    "id": 2,
                                     "type": "paragraph",
                                     "text": "",
                                     "links": [
@@ -125,19 +125,19 @@
                                     ]
                                 },
                                 {
-                                    "id": 0,
+                                    "id": 3,
                                     "type": "image",
                                     "text": "",
                                     "image": ""
                                 },
                                 {
-                                    "id": 0,
+                                    "id": 4,
                                     "type": "quotes",
                                     "author": "",
                                     "text": ""
                                 },
                                 {
-                                    "id": 0,
+                                    "id": 5,
                                     "type": "keyNumber",
                                     "number": "",
                                     "text": ""
@@ -145,7 +145,7 @@
                             ],
                             "credits": [
                                 {
-                                    "id": 0,
+                                    "id": 1,
                                     "type": "editor",
                                     "title": "",
                                     "names": [
@@ -155,7 +155,7 @@
                                     ]
                                 },
                                 {
-                                    "id": 0,
+                                    "id": 2,
                                     "type": "publishing",
                                     "title": "",
                                     "names": [
@@ -167,7 +167,7 @@
                             ]
                         },
                         {
-                            "id": 0,
+                            "id": 2,
                             "title": "Russian troops widthdrawal",
                             "createdAt": "2014-10-12T19:00:00.000Z",
                             "imageLoading": "",
@@ -180,7 +180,7 @@
                                     "location": ""
                                 },
                                 {
-                                    "id": 0,
+                                    "id": 1,
                                     "type": "resumes",
                                     "resumes": [
                                         "",
@@ -189,7 +189,7 @@
                                     ]
                                 },
                                 {
-                                    "id": 0,
+                                    "id": 2,
                                     "type": "paragraph",
                                     "text": "",
                                     "links": [
@@ -199,19 +199,19 @@
                                     ]
                                 },
                                 {
-                                    "id": 0,
+                                    "id": 3,
                                     "type": "image",
                                     "text": "",
                                     "image": ""
                                 },
                                 {
-                                    "id": 0,
+                                    "id": 4,
                                     "type": "quotes",
                                     "author": "",
                                     "text": ""
                                 },
                                 {
-                                    "id": 0,
+                                    "id": 5,
                                     "type": "keyNumber",
                                     "number": "",
                                     "text": ""
@@ -229,7 +229,7 @@
                                     ]
                                 },
                                 {
-                                    "id": 0,
+                                    "id": 1,
                                     "type": "publishing",
                                     "title": "",
                                     "names": [
@@ -241,7 +241,7 @@
                             ]
                         },
                         {
-                            "id": 0,
+                            "id": 3,
                             "title": "Germany wants Rusian troops pull back",
                             "createdAt": "2014-09-23T19:00:00.000Z",
                             "imageLoading": "",
@@ -254,7 +254,7 @@
                                     "location": ""
                                 },
                                 {
-                                    "id": 0,
+                                    "id": 1,
                                     "type": "resumes",
                                     "resumes": [
                                         "",
@@ -263,7 +263,7 @@
                                     ]
                                 },
                                 {
-                                    "id": 0,
+                                    "id": 2,
                                     "type": "paragraph",
                                     "text": "",
                                     "links": [
@@ -273,19 +273,19 @@
                                     ]
                                 },
                                 {
-                                    "id": 0,
+                                    "id": 3,
                                     "type": "image",
                                     "text": "",
                                     "image": ""
                                 },
                                 {
-                                    "id": 0,
+                                    "id": 4,
                                     "type": "quotes",
                                     "author": "",
                                     "text": ""
                                 },
                                 {
-                                    "id": 0,
+                                    "id": 5,
                                     "type": "keyNumber",
                                     "number": "",
                                     "text": ""
@@ -303,7 +303,7 @@
                                     ]
                                 },
                                 {
-                                    "id": 0,
+                                    "id": 1,
                                     "type": "publishing",
                                     "title": "",
                                     "names": [
@@ -315,7 +315,7 @@
                             ]
                         },
                         {
-                            "id": 0,
+                            "id": 4,
                             "title": "Defence minister's resignation",
                             "createdAt": "2014-09-17T19:00:00.000Z",
                             "imageLoading": "",
@@ -323,66 +323,72 @@
                                 {
                                     "id": 0,
                                     "type": "title",
-                                    "title": "Ukraine president accepts embattled defence minister's resignation",
-                                    "createdAt": "Sun, 12 Oct 2014 20:24 GMT",
+                                    "title": "Ukraine president accepts embattled defence minister’s resignation",
+                                    "createdAt": "2014-10-12T19:00:00.000Z",
                                     "location": "Kiev"
                                 },
                                 {
                                     "id": 1 ,
-                                    "type": "resumes",
-                                    "resumes": [
-                                        "Defence minister criticised over August rout of troops.",
-                                        "President hopes to nominate successor on Monday.",
-                                        "Fragile ceasefire in eastern Ukraine broadly holding."
-                                    ]
+                                    "type": "resume",
+                                    "text": "Defence minister criticised over August rout of troops."
                                 },
                                 {
-                                    "id": 2,
-                                    "type": "paragraph",
-                                    "text": "Ukrainian president Petro Poroshenko accepted on Sunday the resignation of his defence minister who has been under fire over a rout of government forces in the east which let to Kiev calling a ceasefire with pro-Russian separatists.",
-                                    "links": ["","",""]
+                                   "id": 2 ,
+                                   "type": "resume",
+                                   "text": "President hopes to nominate successor on Monday."
                                 },
                                 {
-                                    "id": 3,
-                                    "type": "image",
-                                    "text": "US Attorney General Eric Holder speaks at the opening of the Ukraine Forum of Asset Recovery at Lancaster House in Central London, April 29, 2014.",
-                                    "image": "2-0-0-poroshenko"
+                                   "id": 3 ,
+                                   "type": "resume",
+                                   "text": "Fragile ceasefire in eastern Ukraine broadly holding."
                                 },
                                 {
-                                    "id": 4,
-                                    "type": "paragraph",
-                                    "text": "Poroshenko’s website said the president had accepted the offer of resignation from Valery Heletey, 47, whom he appointed only in July. It said Poroshenko hoped to present a new ministerial candidate to parliament on Monday.",
-                                    "links": ["","",""]
+                                   "id": 4,
+                                   "type": "paragraph",
+                                   "text": "Ukrainian president <link>Petro Poroshenko</link> accepted on Sunday the resignation of his defence minister who has been under fire over a rout of government forces in the east which let to Kiev calling a ceasefire with pro-Russian separatists.",
+                                   "links": ["PoroshenkoView"]
                                 },
                                 {
-                                    "id": 5,
-                                    "type": "quotes",
-                                    "author": "Petro Poroshenko",
-                                    "text": "“I don’t have illusion. These will be difficult talks. But I am.”"
+                                   "id": 5,
+                                   "type": "image",
+                                   "text": "US Attorney General Eric Holder speaks at the opening of the Ukraine Forum of Asset Recovery at Lancaster House in Central London, April 29, 2014.",
+                                   "image": "2-0-0-poroshenko"
                                 },
                                 {
                                     "id": 6,
                                     "type": "paragraph",
-                                       "text": "Heletey who formerly led a presidential bodyguard unit, had drawn criticism since the crushing defeat of Ukrainian forces at Ilovaisk, east of the main rebel held eastern city of Donetsk, in late August.",
-                                    "links": ["","",""]
+                                    "text": "<link>Poroshenko</link>’s website said the president had accepted the offer of resignation from Valery Heletey, 47, whom he appointed only in July. It said Poroshenko hoped to present a new ministerial candidate to parliament on Monday.",
+                                    "links": ["PoroshenkoView"]
                                 },
                                 {
                                     "id": 7,
+                                    "type": "quote",
+                                    "author": "Petro\nPoroshenko",
+                                    "text": "“I don’t have illusion. These will be difficult talks. But I am.”"
+                                },
+                                {
+                                    "id": 8,
+                                    "type": "paragraph",
+                                       "text": "<link>Heletey</link> who formerly led a presidential bodyguard unit, had drawn criticism since the crushing defeat of Ukrainian forces at Ilovaisk, east of the main rebel held eastern city of Donetsk, in late August.",
+                                    "links": ["HeleteyView"]
+                                },
+                                {
+                                    "id": 9,
                                     "type": "paragraph",
                                     "text": "Ukrainian military sources say a large number of Russian troops were also killed - a charge not acknowledged by Moscow, which denies any part in the Ukraine Conflict despite what Kiev and Western governements say is incontrovertible proof.",
                                     "links": ["","",""]
                                 },
                                 {
-                                    "id": 8,
+                                    "id": 10,
                                     "type": "keyNumber",
                                     "number": "102",
-                                    "text": "Ukrainian troops \n Were killed"
+                                    "text": "Ukrainian troops Were killed"
                                 },
                                 {
-                                    "id": 9,
+                                    "id": 11,
                                     "type": "paragraph",
-                                    "text": "Analysts say the Aug. 24 attack led Poroshenko reluctantly to accept that Kiev could not beat the separatists militarily as long as they were sypported by direct involvement of Russian troops and equipment.",
-                                    "links": ["","",""]
+                                    "text": "Analysts say the Aug. 24 attack led <link>Poroshenko</link> reluctantly to accept that Kiev could not beat the separatists militarily as long as they were sypported by direct involvement of Russian troops and equipment.",
+                                    "links": ["PoroshenkoView"]
                                 },
                             ],
                             "credits": [
@@ -423,7 +429,7 @@
                                     "location": ""
                                 },
                                 {
-                                    "id": 0,
+                                    "id": 1,
                                     "type": "resumes",
                                     "resumes": [
                                         "",
@@ -432,7 +438,7 @@
                                     ]
                                 },
                                 {
-                                    "id": 0,
+                                    "id": 2,
                                     "type": "paragraph",
                                     "text": "",
                                     "links": [
@@ -442,19 +448,19 @@
                                     ]
                                 },
                                 {
-                                    "id": 0,
+                                    "id": 3,
                                     "type": "image",
                                     "text": "",
                                     "image": ""
                                 },
                                 {
-                                    "id": 0,
+                                    "id": 4,
                                     "type": "quotes",
                                     "author": "",
                                     "text": ""
                                 },
                                 {
-                                    "id": 0,
+                                    "id": 5,
                                     "type": "keyNumber",
                                     "number": "",
                                     "text": ""
@@ -472,7 +478,7 @@
                                     ]
                                 },
                                 {
-                                    "id": 0,
+                                    "id": 1,
                                     "type": "publishing",
                                     "title": "",
                                     "names": [
@@ -494,7 +500,7 @@
             "cover": {
                 "id": 0,
                 "title": "The fight of the \n Kurd Rebels",
-                "location": "ISIS",
+                "location": "Isis",
                 "background": "background_cover_1",
                 "foreground": "personnage_cover_1",
                 "color": "#9A3241"

@@ -48,7 +48,7 @@
         [self addSubview:self.titleLabel];
         
         // ********TEMPORARY********
-        [self setBackgroundColor:[UIColor blueColor]];
+//        [self setBackgroundColor:[UIColor blueColor]];
     }
     
     return self;

@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JAUILabel.h"
 
-@interface JAImageCollectionViewCell : UICollectionViewCell
-@property (strong, nonatomic) IBOutlet UIImageView *imageView;
-@property (strong, nonatomic) IBOutlet UILabel *legendLabel;
+@interface JAImageCollectionViewCell : UICollectionViewCell <UIGestureRecognizerDelegate>
+@property (strong, nonatomic) UIImageView *imageView;
+@property (strong, nonatomic) JAUILabel *legendLabel;
 @end

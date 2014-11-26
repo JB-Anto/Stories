@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JAUILabel.h"
 
 @interface JAKeyNumberCollectionViewCell : UICollectionViewCell
-@property (strong, nonatomic) IBOutlet UILabel *numberLabel;
-@property (strong, nonatomic) IBOutlet UILabel *descriptionLabel;
+@property (strong, nonatomic) JAUILabel *numberLabel;
+@property (strong, nonatomic) JAUILabel *descriptionLabel;
 @end

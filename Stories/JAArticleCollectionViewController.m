@@ -10,7 +10,8 @@
 
 @interface JAArticleCollectionViewController ()
 {
-    NSInteger _numberOfResumeCell;
+    CGSize optimalSizeForLabel;
+    CGSize maximumSizeOfLabel;
 }
 @end
 
@@ -20,84 +21,30 @@
     [super viewDidLoad];
     
     // Register cell classes
-    [self.articleCollectionView registerClass:[JATitleCollectionViewCell class] forCellWithReuseIdentifier:@"TitleCell"];
-    [self.articleCollectionView registerClass:[JAResumeCollectionViewCell class] forCellWithReuseIdentifier:@"ResumeCell"];
+    [self.articleCollectionView registerClass:[JATitleCollectionViewCell class]     forCellWithReuseIdentifier:@"TitleCell"];
+    [self.articleCollectionView registerClass:[JAResumeCollectionViewCell class]    forCellWithReuseIdentifier:@"ResumeCell"];
+    [self.articleCollectionView registerClass:[JAParagraphCollectionViewCell class] forCellWithReuseIdentifier:@"ParagraphCell"];
+    [self.articleCollectionView registerClass:[JAImageCollectionViewCell class]     forCellWithReuseIdentifier:@"ImageCell"];
+    [self.articleCollectionView registerClass:[JAQuotesCollectionViewCell class]    forCellWithReuseIdentifier:@"QuoteCell"];
+    [self.articleCollectionView registerClass:[JAKeyNumberCollectionViewCell class] forCellWithReuseIdentifier:@"KeyNumberCell"];
     
-    // TEMPORARY - DATA Management
-    self.idDictionnary = [NSDictionary dictionaryWithObjectsAndKeys: @"2", @"storieID", 0, @"chapterID", 0, @"articleID", nil];
+    // DATA Management
+    self.manager = [JAManagerData sharedManager];
+    self.manager.currentStorie  = 0;
+    self.manager.currentChapter = 0;
+    self.manager.currentArticle = 4;
     
-    // Get data(Doesn't work)
-    //    self.manager = [JAManagerData sharedManager];
-    //    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"stories" ofType:@"json"];
-    //    NSData *jsonData = [[NSData alloc] initWithContentsOfFile:filePath];
-    //    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    //    
-    //    self.manager.data = [[JAStoriesModel alloc] initWithString:jsonString error:nil];
-    //    NSArray *blocks = [[[self.manager.data.stories[1] chapters][0] articles][0] blocks];
-    //    NSLog(@"%@", [blocks[0] type]);
+    _blocks = [[self.manager getCurrentArticle] blocks];
     
+    // NSArray of each resume block ids
+    self.resumesID = [NSMutableArray new];
     
-    // FAKE DATA
-    
-    NSDictionary *title = [NSDictionary dictionaryWithObjectsAndKeys:
-                                        @"title", @"type",
-                                        @"Ukraine president accepts embatted defence minister's resignation", @"title",
-                                        @"Kiev", @"location",
-                                        @"Oct, 12", @"date", nil];
-    
-    NSDictionary *resume1 = [NSDictionary dictionaryWithObjectsAndKeys:
-                             @"resume", @"type",
-                             @"President hopes tot nominate successor on Monday", @"resume", nil];
-    NSDictionary *resume2 = [NSDictionary dictionaryWithObjectsAndKeys:
-                             @"resume", @"type",
-                             @"Defence minister criticised over August rout of troops", @"resume", nil];
-    NSDictionary *resume3 = [NSDictionary dictionaryWithObjectsAndKeys:
-                             @"resume", @"type",
-                             @"Fragile ceasefire in eastern Ukraine broadly holding", @"resume", nil];
-
-    NSDictionary *paragraph1 = [NSDictionary dictionaryWithObjectsAndKeys:
-                                @"paragraph", @"type",
-                                @"Ukrainian president Petro Poroshenko accepted on Sunday the resignation of his defence minister who has been under fire over a rout of government forces in the east which let to Kiev calling a ceasefire with pro-Russian separatists.", @"paragraph", nil];
-
-    NSDictionary *image = [NSDictionary dictionaryWithObjectsAndKeys:
-                           @"image", @"type",
-                           @"2-0-0-poroshenko", @"image",
-                           @"US Attorney General Eric Holder speaks at the opening of the Ukraine Forum of Asset Recovery at Lancaster House in Central London, April 29, 2014.", @"description", nil];
-
-    NSDictionary *paragraph2 = [NSDictionary dictionaryWithObjectsAndKeys:
-                                @"paragraph", @"type",
-                                @"Poroshenko’s website said the president had accepted the offer of resignation from Valery Heletey, 47, whom he appointed only in July. It said Poroshenko hoped to present a new ministerial candidate to parliament on Monday.", @"paragraph", nil];
-    
-    NSDictionary *quote = [NSDictionary dictionaryWithObjectsAndKeys:
-                           @"quote", @"type",
-                           @"“I don’t have illusion. These will be difficult talks. But I am.”", @"quote",
-                           @"Petro Poroshenko", @"author", nil];
-
-    NSDictionary *paragraph3 = [NSDictionary dictionaryWithObjectsAndKeys:
-                                @"paragraph", @"type",
-                                @"Heletey who formerly led a presidential bodyguard unit, had drawn criticism since the crushing defeat of Ukrainian forces at Ilovaisk, east of the main rebel held eastern city of Donetsk, in late August.", @"paragraph", nil];
-    
-    NSDictionary *paragraph4 = [NSDictionary dictionaryWithObjectsAndKeys:
-                                @"paragraph", @"type",
-                                @"Ukrainian military sources say a large number of Russian troops were also killed - a charge not acknowledged by Moscow, which denies any part in the Ukraine Conflict despite what Kiev and Western governements say is incontrovertible proof.", @"paragraph", nil];
-    
-    NSDictionary *keyNumber = [NSDictionary dictionaryWithObjectsAndKeys:
-                               @"number", @"type",
-                               @"102", @"number",
-                               @"Ukrainian troops were killed", @"description", nil];
-    
-    NSDictionary *paragraph5 = [NSDictionary dictionaryWithObjectsAndKeys:
-                                @"paragraph", @"type",
-                                @"Analysts say the Aug. 24 attack led Poroshenko reluctantly to accept that Kiev could not beat the separatists militarily as long as they were sypported by direct involvement of Russian troops and equipment", @"paragraph", nil];
-    
-    
-    _blocks = [@[title, resume1, resume2, resume3, paragraph1, image, paragraph2, quote, paragraph3, paragraph4, keyNumber, paragraph5] mutableCopy];
-    
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    _numberOfResumeCell = 3;
-    
+    for(int i=0; i<[_blocks count]; i++) {
+        self.currentBlock = _blocks[i];
+        if([[self.currentBlock type] isEqualToString:@"resume"]) {
+            [self.resumesID addObject:[self.currentBlock id]];
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -120,131 +67,226 @@
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return _blocks.count;
 }
-
-
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     
     long row = [indexPath row];
     
-    NSDictionary *currentBlock = [NSDictionary dictionaryWithDictionary:_blocks[row]];
+    self.currentBlock = _blocks[row];
     
-    if([[currentBlock objectForKey:@"type"] isEqualToString:@"title"]) {
+    if([[self.currentBlock type] isEqualToString:@"title"]) {
         
         JATitleCollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"TitleCell" forIndexPath:indexPath];
         
-        CGSize maximumLabelSize = CGSizeMake(256, 9999);
+        maximumSizeOfLabel = CGSizeMake(256, CGFLOAT_MAX);
         
         // Title Label Settings
-        [cell.titleLabel setText:[currentBlock objectForKey:@"title"]];
-        [cell.titleLabel setLineHeightWithNumber:.85];
-        CGRect titleLabelRect = [cell.titleLabel calculateRectInBoundingRectWithSize:maximumLabelSize];
-        [cell.titleLabel setFrame:CGRectMake(20, 0, titleLabelRect.size.width, titleLabelRect.size.height)];
+        [cell.titleLabel setText:[self.currentBlock title]];
+        [cell.titleLabel setLineHeightWithNumber:0.85];
+        //CGRect titleLabelRect = [cell.titleLabel calculateRectInBoundingRectWithSize:maximumLabelSize];
+        optimalSizeForLabel = [cell.titleLabel sizeThatFits:maximumSizeOfLabel];
+        [cell.titleLabel setFrame:CGRectMake(20, 0, optimalSizeForLabel.width, optimalSizeForLabel.height)];
         
         // Location Label Settings
-        [cell.locationLabel setText:[currentBlock objectForKey:@"location"]];
+        [cell.locationLabel setText:[self.currentBlock location]];
         [cell.locationLabel setLineSpacingWithNumber:1.25];
-        CGRect locationLabelRect = [cell.locationLabel calculateRectInBoundingRectWithSize:maximumLabelSize];
-        [cell.locationLabel setFrame:CGRectMake(cell.center.x - cell.frame.size.width/2, cell.center.y - locationLabelRect.size.height/2, cell.frame.size.width, locationLabelRect.size.height)];
+        [cell.locationLabel sizeToFit];
+        [cell.locationLabel setFrame:CGRectMake(cell.center.x - cell.bounds.size.width/2, cell.center.y - cell.locationLabel.frame.size.height/2, cell.bounds.size.width, cell.locationLabel.frame.size.height)];
         
         // Date Label Settings
-        [cell.dateLabel setText:[currentBlock objectForKey:@"date"]];
+        // Date out format
+        NSDateFormatter *dateFormater = [[NSDateFormatter alloc]init];
+        [dateFormater setDateFormat:@"MMM\u00A0dd"];
+        
+        // Date in format
+        NSDateFormatter *dateFormaterFromString = [[NSDateFormatter alloc]init];
+        [dateFormaterFromString setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"];
+        
+        NSDate *date = [dateFormaterFromString dateFromString:[self.currentBlock createdAt]];
+        NSString *finalDate = [dateFormater stringFromDate:date];
+        
+        [cell.dateLabel setText:finalDate];
         [cell.dateLabel setLineSpacingWithNumber:1.25];
-        CGRect dateLabelRect = [cell.dateLabel calculateRectInBoundingRectWithSize:maximumLabelSize];
-        [cell.dateLabel setFrame:CGRectMake(cell.center.x - cell.frame.size.width/2 , cell.center.y + dateLabelRect.size.height/2, cell.frame.size.width, dateLabelRect.size.height)];
+        
+        [cell.dateLabel sizeToFit];
+        [cell.dateLabel setFrame:CGRectMake(cell.center.x - cell.bounds.size.width/2 , cell.center.y + cell.dateLabel.frame.size.height/2, cell.bounds.size.width, cell.dateLabel.frame.size.height)];
+        
+        return cell;
+        
+    }
+    else if([[self.currentBlock type] isEqualToString:@"resume"]) {
+        
+        JAResumeCollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"ResumeCell" forIndexPath:indexPath];
+        
+        [cell.resumeLabel setText:[self.currentBlock text]];
+        
+        // Resume Label Settings
+        maximumSizeOfLabel = CGSizeMake(160, CGFLOAT_MAX);
+        optimalSizeForLabel = [cell.resumeLabel sizeThatFits:maximumSizeOfLabel];
+
+        NSInteger index = [self.resumesID indexOfObject:[self.currentBlock id]];
+        CGFloat positionOfLabel =  (CGRectGetWidth(self.view.bounds)*0.5-optimalSizeForLabel.width/2) - (index * (CGRectGetWidth(self.view.bounds)*0.5-optimalSizeForLabel.width/2)/([self.resumesID count]-1)/1.5) + 20;
+        [cell.resumeLabel setFrame:CGRectMake(positionOfLabel, 0, optimalSizeForLabel.width, optimalSizeForLabel.height)];
+        
+        return cell;
+        
+    }
+    else if([[self.currentBlock type] isEqualToString:@"paragraph"]) {
+        
+        JAParagraphCollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"ParagraphCell" forIndexPath:indexPath];
+        
+        [cell.paragraphLabel setText:[self.currentBlock text]];
+        [cell.paragraphLabel setLineHeightWithNumber:1.5];
+        maximumSizeOfLabel = CGSizeMake(CGRectGetWidth(self.view.bounds)-40, CGFLOAT_MAX);
+        optimalSizeForLabel = [cell.paragraphLabel sizeThatFits:maximumSizeOfLabel];
+        [cell.paragraphLabel setFrame:CGRectMake(20, 0, optimalSizeForLabel.width, optimalSizeForLabel.height)];
+        
+        return cell;
+        
+    }
+    else if([[self.currentBlock type] isEqualToString:@"quote"]) {
+        
+        JAQuotesCollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"QuoteCell" forIndexPath:indexPath];
+        
+        [cell.quoteLabel setText:[self.currentBlock text]];
+        [cell.quoteLabel setLineHeightWithNumber:1.23];
+        
+        [cell.authorLabel setText:[self.currentBlock author]];
+        [cell.authorLabel setLineHeightWithNumber:1.25];
+        
+        maximumSizeOfLabel = CGSizeMake(225, CGFLOAT_MAX);
+        optimalSizeForLabel = [cell.quoteLabel sizeThatFits:maximumSizeOfLabel];
+        
+        [cell.quoteLabel setFrame:CGRectMake(0, 0, optimalSizeForLabel.width, optimalSizeForLabel.height)];
+        [cell.authorLabel sizeToFit];
+        [cell.authorLabel setTextAlignment:NSTextAlignmentRight];
+        [cell.authorLabel setFrame:CGRectMake(CGRectGetWidth(cell.bounds)-CGRectGetWidth(cell.authorLabel.bounds)-20, CGRectGetHeight(cell.quoteLabel.bounds)-CGRectGetHeight(cell.authorLabel.bounds)/1.15, CGRectGetWidth(cell.authorLabel.bounds), CGRectGetHeight(cell.authorLabel.bounds))];
+        
+        return cell;
+        
+    }
+    else if([[self.currentBlock type] isEqualToString:@"image"]) {
+
+        JAImageCollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"ImageCell" forIndexPath:indexPath];
+        
+        [cell.imageView setImage:[UIImage imageNamed:[self.currentBlock image]]];
+        [cell.imageView setFrame:CGRectMake(0, 0, cell.imageView.image.size.width, cell.imageView.image.size.height)];
+        [cell.legendLabel setText:[self.currentBlock text]];
+        [cell.legendLabel setLineHeightWithNumber:1.6];
+        
+        maximumSizeOfLabel = CGSizeMake(185, CGFLOAT_MAX);
+        optimalSizeForLabel = [cell.legendLabel sizeThatFits:maximumSizeOfLabel];
+        [cell.legendLabel setFrame:CGRectMake(cell.imageView.image.size.width*0.65, CGRectGetHeight(cell.bounds)/2 - optimalSizeForLabel.height/2, optimalSizeForLabel.width, optimalSizeForLabel.height)];
 
         return cell;
         
     }
-    else if([[currentBlock objectForKey:@"type"] isEqualToString:@"resume"]) {
-        JAResumeCollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"ResumeCell" forIndexPath:indexPath];
+    else if([[self.currentBlock type] isEqualToString:@"keyNumber"]) {
         
-        [cell.resumeLabel setText:[currentBlock objectForKey:@"resume"]];
-        
-        // Resume Label Settings
-        CGSize maximumLabelSize = CGSizeMake(160, 9999);
-        CGRect resumeLabelRect = [cell.resumeLabel calculateRectInBoundingRectWithSize:maximumLabelSize];
-        
-        CGFloat positionOfLabel = 0;
-        
-        if(_numberOfResumeCell == 1) {
-            positionOfLabel = self.view.frame.size.width - self.view.frame.size.width/_numberOfResumeCell;
-        } else {
-            positionOfLabel = self.view.frame.size.width - self.view.frame.size.width/_numberOfResumeCell - resumeLabelRect.size.width/2;
-        }
-        
-        [cell.resumeLabel setFrame:CGRectMake(positionOfLabel, 0, resumeLabelRect.size.width, resumeLabelRect.size.height)];
-        
-        _numberOfResumeCell--;
-        
-        return cell;
-        
-    }
-    else if([[currentBlock objectForKey:@"type"] isEqualToString:@"paragraph"]) {
-        JAParagraphCollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"ParagraphCell" forIndexPath:indexPath];
-        
-        [cell.paragraphLabel setText:[currentBlock objectForKey:@"paragraph"]];
-        
-        return cell;
-    }
-    else if([[currentBlock objectForKey:@"type"] isEqualToString:@"quote"]) {
-        JAQuotesCollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"QuotesCell" forIndexPath:indexPath];
-        
-        [cell.quotesLabel setText:[currentBlock objectForKey:@"quote"]];
-        [cell.authorLabel setText:[currentBlock objectForKey:@"author"]];
-        
-        return cell;
-    }
-    else if([[currentBlock objectForKey:@"type"] isEqualToString:@"image"]) {
-        JAImageCollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"ImageCell" forIndexPath:indexPath];
-        
-        [cell.imageView setImage:[UIImage imageNamed:[currentBlock objectForKey:@"image"]]];
-        [cell.legendLabel setText:[currentBlock objectForKey:@"description"]];
-        
-        return cell;
-    }
-    else if([[currentBlock objectForKey:@"type"] isEqualToString:@"number"]) {
         JAKeyNumberCollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"KeyNumberCell" forIndexPath:indexPath];
         
-        [cell.numberLabel setText:[currentBlock objectForKey:@"number"]];
-        [cell.descriptionLabel setText:[currentBlock objectForKey:@"description"]];
+        [cell.numberLabel setText:[self.currentBlock number]];
+        [cell.numberLabel sizeToFit];
+        
+        [cell.descriptionLabel setText:[self.currentBlock text]];
+        [cell.descriptionLabel setLineHeightWithNumber:1.29];
+        
+        maximumSizeOfLabel = CGSizeMake(195, CGFLOAT_MAX);
+        optimalSizeForLabel = [cell.descriptionLabel sizeThatFits:maximumSizeOfLabel];
+        
+        [cell.descriptionLabel setFrame:CGRectMake(CGRectGetWidth(cell.numberLabel.bounds)/2, CGRectGetHeight(cell.numberLabel.bounds)/2 - optimalSizeForLabel.height/4, optimalSizeForLabel.width, optimalSizeForLabel.height)];
+        
         return cell;
+        
     }
     else {
         return nil;
     }
+    
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    NSDictionary *currentBlock = [NSDictionary dictionaryWithDictionary:_blocks[[indexPath row]]];
+    self.currentBlock = _blocks[[indexPath row]];
     
-    if([[currentBlock objectForKey:@"type"] isEqualToString:@"title"]) {
+    if([[self.currentBlock type] isEqualToString:@"title"]) {
         
         // Calculate height of title cell in function of title label height
         JATitleCollectionViewCell *cell = [JATitleCollectionViewCell new];
-        [cell.titleLabel  setText:[currentBlock objectForKey:@"title"]];
         
-        CGSize maximumLabelSize = CGSizeMake(256, 9999);
-        CGRect titleLabelSize = [cell.titleLabel calculateRectInBoundingRectWithSize:maximumLabelSize];
+        [cell.titleLabel  setText:[self.currentBlock title]];
+        [cell.titleLabel setLineHeightWithNumber:0.85];
+        maximumSizeOfLabel = CGSizeMake(256, CGFLOAT_MAX);
+        optimalSizeForLabel = [cell.titleLabel sizeThatFits:maximumSizeOfLabel];
 
-        return CGSizeMake(self.view.bounds.size.width, titleLabelSize.size.height);
+        return CGSizeMake(self.view.bounds.size.width, optimalSizeForLabel.height);
         
-    } else if([[currentBlock objectForKey:@"type"] isEqualToString:@"resume"]) {
+    } else if([[self.currentBlock type] isEqualToString:@"resume"]) {
         
-        // Calculate resume of title cell in function of resume label height
+        // Calculate height of resume cell in function of resume label height
         JAResumeCollectionViewCell *cell = [JAResumeCollectionViewCell new];
-        [cell.resumeLabel  setText:[currentBlock objectForKey:@"resume"]];
+        [cell.resumeLabel  setText:[self.currentBlock text]];
         
-        CGSize maximumLabelSize = CGSizeMake(160, 9999);
-        CGRect resumeLabelSize = [cell.resumeLabel calculateRectInBoundingRectWithSize:maximumLabelSize];
+        maximumSizeOfLabel = CGSizeMake(160, CGFLOAT_MAX);
+        optimalSizeForLabel = [cell.resumeLabel sizeThatFits:maximumSizeOfLabel];
         
-        return CGSizeMake(self.view.bounds.size.width, resumeLabelSize.size.height);
+        return CGSizeMake(CGRectGetWidth(self.view.bounds), optimalSizeForLabel.height-25);
+        
+    } else if([[self.currentBlock type] isEqualToString:@"paragraph"]) {
+    
+        // Calculate height of paragraph cell in function of parapragh label height
+        JAParagraphCollectionViewCell *cell = [JAParagraphCollectionViewCell new];
+        [cell.paragraphLabel  setText:[self.currentBlock text]];
+        [cell.paragraphLabel setLineHeightWithNumber:1.5];
+        
+        maximumSizeOfLabel = CGSizeMake(self.view.bounds.size.width-40, CGFLOAT_MAX);
+        optimalSizeForLabel = [cell.paragraphLabel sizeThatFits:maximumSizeOfLabel];
+        
+        return CGSizeMake(CGRectGetWidth(self.view.bounds), optimalSizeForLabel.height);
+        
+    } else if([[self.currentBlock type] isEqualToString:@"image"]) {
+        
+        // Calculate height of image cell in function of image view height
+        UIImage *image = [UIImage imageNamed:[self.currentBlock image]];
+        
+        return CGSizeMake(CGRectGetWidth(self.view.bounds), image.size.height);
+        
+    } else if([[self.currentBlock type] isEqualToString:@"quote"]) {
+        
+        // Calculate height of quote cell in function of quote & author label height
+        JAQuotesCollectionViewCell *cell = [JAQuotesCollectionViewCell new];
+        [cell.quoteLabel setText:[self.currentBlock text]];
+        [cell.quoteLabel setLineHeightWithNumber:1.23];
+        
+        [cell.authorLabel setText:[self.currentBlock author]];
+        [cell.authorLabel sizeToFit];
+        
+        maximumSizeOfLabel = CGSizeMake(225, CGFLOAT_MAX);
+        optimalSizeForLabel = [cell.quoteLabel sizeThatFits:maximumSizeOfLabel];
+        
+        
+        return CGSizeMake(CGRectGetWidth(self.view.bounds)-80, optimalSizeForLabel.height + (CGRectGetHeight(cell.authorLabel.bounds)*0.15));
+        
+    } else if([[self.currentBlock type] isEqualToString:@"keyNumber"]) {
+        
+        // Calculate height of quote cell in function of quote & author label height
+        JAKeyNumberCollectionViewCell *cell = [JAKeyNumberCollectionViewCell new];
+        [cell.numberLabel setText:[self.currentBlock number]];
+        [cell.numberLabel sizeToFit];
+        
+        [cell.descriptionLabel setText:[self.currentBlock text]];
+        [cell.descriptionLabel setLineHeightWithNumber:1.29];
+        
+        maximumSizeOfLabel = CGSizeMake(195, CGFLOAT_MAX);
+        optimalSizeForLabel = [cell.descriptionLabel sizeThatFits:maximumSizeOfLabel];
+        
+        
+        return CGSizeMake(CGRectGetWidth(self.view.bounds)-80, (optimalSizeForLabel.height/4) + CGRectGetHeight(cell.numberLabel.bounds));
         
     }
     else {
-        return CGSizeMake(self.view.bounds.size.width, 300);
+        return CGSizeZero;
     }
 }
 

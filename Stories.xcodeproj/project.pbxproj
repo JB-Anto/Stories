@@ -332,7 +332,7 @@
 			name = Chapter;
 			sourceTree = "<group>";
 		};
-		0A8783DE1A155CFC0028437C /* VIews */ = {
+		0A8783DE1A155CFC0028437C /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				770CB9131A232FED002817BE /* ArticleCellViews */,
@@ -341,7 +341,7 @@
 				8DB9C3D21A160BE200FBC975 /* JAFollowView.h */,
 				8DB9C3D31A160BE200FBC975 /* JAFollowView.m */,
 			);
-			name = VIews;
+			name = Views;
 			sourceTree = "<group>";
 		};
 		0A8783DF1A155DE80028437C /* Loader */ = {
@@ -407,14 +407,14 @@
 				770CB9291A233014002817BE /* JATitleCollectionViewCell.m */,
 				770CB91F1A233006002817BE /* JAResumeCollectionViewCell.h */,
 				770CB9201A233006002817BE /* JAResumeCollectionViewCell.m */,
-				770CB9171A233006002817BE /* JAImageCollectionViewCell.h */,
-				770CB9181A233006002817BE /* JAImageCollectionViewCell.m */,
-				770CB9191A233006002817BE /* JAKeyNumberCollectionViewCell.h */,
-				770CB91A1A233006002817BE /* JAKeyNumberCollectionViewCell.m */,
 				770CB91B1A233006002817BE /* JAParagraphCollectionViewCell.h */,
 				770CB91C1A233006002817BE /* JAParagraphCollectionViewCell.m */,
+				770CB9171A233006002817BE /* JAImageCollectionViewCell.h */,
+				770CB9181A233006002817BE /* JAImageCollectionViewCell.m */,
 				770CB91D1A233006002817BE /* JAQuotesCollectionViewCell.h */,
 				770CB91E1A233006002817BE /* JAQuotesCollectionViewCell.m */,
+				770CB9191A233006002817BE /* JAKeyNumberCollectionViewCell.h */,
+				770CB91A1A233006002817BE /* JAKeyNumberCollectionViewCell.m */,
 				770CB9151A233006002817BE /* JACreditsCollectionViewCell.h */,
 				770CB9161A233006002817BE /* JACreditsCollectionViewCell.m */,
 			);
@@ -635,7 +635,7 @@
 				8D54A8FD1A14DEEB00ABDAD2 /* Model */,
 				0A525C5C1A116DBD00C33D2C /* Ressources */,
 				8D54A9371A14FAF400ABDAD2 /* ViewControllers */,
-				0A8783DE1A155CFC0028437C /* VIews */,
+				0A8783DE1A155CFC0028437C /* Views */,
 				8D8C02D61A10CB6200904841 /* AppDelegate.h */,
 				8D8C02D71A10CB6200904841 /* AppDelegate.m */,
 				8DBB41561A10EE94006FDAD4 /* Utils */,

@@ -80,15 +80,17 @@
         if(degree > 90 && degree < 180){
             self.center = touchPosition;
         }
-        if (distance >= 90) {
-            [self validateFollow];
-        }
-        else{
-            [self unValidateFollow];
-        }
+
     }
     else if(sender.state == UIGestureRecognizerStateEnded){
         [self animateToCenter];
+        if(self.validate == NO && distance > 10){
+            [self validateFollow];
+        }
+        else if(self.validate == YES && distance > 10){
+            [self unValidateFollow];
+        }
+
     }
 //    NSLog(@"Angle %f || Distance %f", degree, distance);
 }

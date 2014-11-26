@@ -14,5 +14,6 @@
 
 #import "UIColor+UIColor_PXExtentions.h"
 #import "UIView+Easing.h"
+#import "JAManagerData.h"
 
 #endif

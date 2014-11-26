@@ -13,7 +13,7 @@
 @property (strong, nonatomic) NSMutableArray *titlesArray;
 @property (strong, nonatomic) NSDateFormatter *dateFormater;
 @property (strong, nonatomic) NSDateFormatter *dateFormaterFromString;
-@property NSUInteger chaptersCount;
+@property NSUInteger titleChapterCount;
 @property float chapterHeight;
 @property int currentIndex;
 @property CGPoint touchPosition;
@@ -21,6 +21,7 @@
 @property UIGestureRecognizerState currentStateTouch;
 @property NSTimer *timerForLoader;
 @property BOOL touchToLoad;
+@property float currentTranslation;
 
 @end
 
@@ -31,12 +32,12 @@
     
     self.manager = [JAManagerData sharedManager];
     
-    self.manager.currentStorie = 0;
-    self.manager.currentChapter = 0;
     self.titlesArray = [NSMutableArray array];
     self.currentIndex = -1;
     self.touchToLoad = NO;
-
+    self.manager.currentChapter = 0;
+    self.currentTranslation = 0;
+    
     // Date out format
     self.dateFormater = [[NSDateFormatter alloc]init];
     [self.dateFormater setDateFormat:@"MMM,\u00A0dd"];
@@ -44,19 +45,23 @@
     // Date in format
     self.dateFormaterFromString = [[NSDateFormatter alloc]init];
     [self.dateFormaterFromString setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"];
+
+    NSUInteger chaptersCount = [[[self.manager getCurrentStorie] chapters] count];
     
     // Chapters View
-    self.chapterScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height/7)];
-    self.chapterScrollView.backgroundColor = [UIColor pxColorWithHexValue:[[[self.manager getCurrentStorie] cover] color]];
+    self.chapterScrollView = [[JAChapterScrollView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width , self.view.bounds.size.height/7)];
+    self.chapterScrollView.delegate = self;
     [self.view addSubview:self.chapterScrollView];
     
     // Titles View
-    self.titlesView = [[UIView alloc]initWithFrame:CGRectMake(0, self.view.bounds.size.height/7, self.view.bounds.size.width, self.view.bounds.size.height*6/7)];
+    self.titlesView = [[UIView alloc]initWithFrame:CGRectMake(0, self.view.bounds.size.height/7, self.view.bounds.size.width  * chaptersCount, self.view.bounds.size.height*6/7)];
     self.titlesView.backgroundColor = [UIColor pxColorWithHexValue:[[[self.manager getCurrentStorie] cover] color]];
     [self.view addSubview:self.titlesView];
     
-    [self createTitlesBlocks];
-
+    for (int i = 0; i < chaptersCount; i++) {
+        [self.titlesView addSubview:[self createTitlesBlocks:i]];
+    }
+    
     UITapGestureRecognizer *doubleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTap:)];
     doubleTapGesture.numberOfTapsRequired = 2;
     doubleTapGesture.delegate = self;
@@ -68,8 +73,6 @@
     longPressRecognizer.numberOfTouchesRequired = 1;
     longPressRecognizer.delegate = self;
     [self.titlesView addGestureRecognizer:longPressRecognizer];
-    
-
 
     // Loader View
     self.loaderView = [[JALoaderView alloc]initWithFrame:CGRectMake(0, 0, 160, 160)];
@@ -77,21 +80,22 @@
     self.loaderView.userInteractionEnabled = NO;
     [self.view addSubview:self.loaderView];
 }
--(void)createTitlesBlocks{
+-(UIView*)createTitlesBlocks:(int)index{
     // Count for Title View
-    self.chaptersCount = [[[self.manager getCurrentChapter] articles] count];
-    self.chapterHeight = self.titlesView.frame.size.height / self.chaptersCount;
+    self.titleChapterCount = [[[[[self.manager getCurrentStorie] chapters] objectAtIndex:index] articles] count];
+    self.chapterHeight = self.titlesView.frame.size.height / self.titleChapterCount;
     
     // Instanciate all titles
-    
-    for (int i = 0; i < self.chaptersCount ; i++) {
+    UIView *globalTitleBlock = [[UIView alloc]initWithFrame:CGRectMake(index * self.view.frame.size.width, 0, self.view.frame.size.width, self.titlesView.frame.size.height)];
+    NSMutableArray *arrayOfTitle = [NSMutableArray array];
+    for (int i = 0; i < self.titleChapterCount ; i++) {
         UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, i*self.chapterHeight, self.view.frame.size.width, self.chapterHeight)];
         //        titleView.backgroundColor = [UIColor colorWithRed:1.0/self.chaptersCount *i green:1.0/self.chaptersCount *i blue: 1.0/self.chaptersCount*i alpha:1];
         float percent = 70.0;
+
+        NSString *text = [[[[[[self.manager getCurrentStorie] chapters]objectAtIndex:index] articles] objectAtIndex:i] title];
         
-        NSString *text = [[[[self.manager getCurrentChapter] articles] objectAtIndex:i] title];
-        
-        NSString *dateString = [[[[self.manager getCurrentChapter] articles] objectAtIndex:i] createdAt];
+        NSString *dateString = [[[[[[self.manager getCurrentStorie] chapters] objectAtIndex:index] articles] objectAtIndex:i] createdAt];
         
         NSDate *date = [self.dateFormaterFromString dateFromString:dateString];
         NSString *finalDate = [self.dateFormater stringFromDate:date];
@@ -108,7 +112,6 @@
         UILabel *titleLBL = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, titleView.frame.size.width - 40, titleView.frame.size.height)];
         titleLBL.lineBreakMode = NSLineBreakByWordWrapping;
         titleLBL.numberOfLines = 0;
-        //        titleLBL.backgroundColor = [UIColor blueColor];
         titleLBL.textColor = [UIColor whiteColor];
         titleLBL.attributedText = completeString;
         titleLBL.tag = 1;
@@ -117,10 +120,12 @@
         titleLBL.transform = CGAffineTransformMakeScale(0.8, 0.8);
         
         [titleView addSubview:titleLBL];
-        [self.titlesView addSubview:titleView];
+        [globalTitleBlock addSubview:titleView];
         
-        [self.titlesArray addObject:titleView];
+        [arrayOfTitle addObject:titleView];
     }
+    [self.titlesArray addObject:arrayOfTitle];
+    return globalTitleBlock;
 
 }
 -(void)doubleTap:(UITapGestureRecognizer*)sender{
@@ -154,10 +159,10 @@
     }
     
     for (int i = index - 1; i >= 0; i--) {
-        [self animateTitlesView:i negativeScale:((index-i)*((1.0 /self.titlesArray.count)/2)) negativeAlpha:((index-i) * (1.0 /self.titlesArray.count))];
+        [self animateTitlesView:i negativeScale:((index-i)*((1.0 /[[self.titlesArray objectAtIndex:self.manager.currentChapter]count])/2)) negativeAlpha:((index-i) * (1.0 /[[self.titlesArray objectAtIndex:self.manager.currentChapter]count]))];
     }
-    for (int i = index + 1; i < [self.titlesArray count]; i++) {
-        [self animateTitlesView:i negativeScale:((i - index)*((1.0 /self.titlesArray.count)/2)) negativeAlpha:((i - index)*(1.0 /self.titlesArray.count))];
+    for (int i = index + 1; i < [[self.titlesArray objectAtIndex:self.manager.currentChapter]count]; i++) {
+        [self animateTitlesView:i negativeScale:((i - index)*((1.0 /[[self.titlesArray objectAtIndex:self.manager.currentChapter]count])/2)) negativeAlpha:((i - index)*(1.0 /[[self.titlesArray objectAtIndex:self.manager.currentChapter]count]))];
     }
 
     if(sender.state == UIGestureRecognizerStateEnded){
@@ -165,7 +170,7 @@
             [self.timerForLoader invalidate];
             self.touchToLoad = NO;
             self.currentIndex = -1;
-            for (int i = 0; i < [self.titlesArray count]; i++) {
+            for (int i = 0; i < [[self.titlesArray objectAtIndex:self.manager.currentChapter]count]; i++) {
                 [self animateTitlesView:i negativeScale:.2 negativeAlpha:0.0];
             }
         }
@@ -173,7 +178,8 @@
 }
 // Animate with a negative scale and alpha value
 -(void)animateTitlesView:(int)index negativeScale:(float)negativeScale negativeAlpha:(float)negativeAlpha{
-    UIView *titleView = [self.titlesArray objectAtIndex:index];
+
+    UIView *titleView = [[self.titlesArray objectAtIndex:self.manager.currentChapter] objectAtIndex:index];
     UILabel *titleLBL = (UILabel*)[titleView viewWithTag:1];
 
     [UIView animateWithDuration:0.2 animations:^{
@@ -191,8 +197,16 @@
     
 }
 -(void)loadNextView{
-    
     NSLog(@"ROCKSTAR BABE");
+    
+}
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset{
+    int index = (int)(targetContentOffset->x / (self.view.frame.size.width/2));
+    self.manager.currentChapter = index;
+    
+}
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    self.titlesView.frame = CGRectMake(-scrollView.contentOffset.x * 2, self.titlesView.frame.origin.y, self.titlesView.frame.size.width, self.titlesView.frame.size.height);
 }
 -(void)setAnchorPoint:(CGPoint)anchorPoint forView:(UIView *)view
 {

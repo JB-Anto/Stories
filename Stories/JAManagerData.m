@@ -1,6 +1,5 @@
 //
 //  EMManagerData.m
-//  com.gobelins.Estimap
 //
 //  Created by Antonin Langlade on 26/02/2014.
 //  Copyright (c) 2014 Antonin Langlade. All rights reserved.

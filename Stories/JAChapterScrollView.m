@@ -31,7 +31,6 @@
             [self addSubview:chapterLBL];
         }
         
-        
         [self setContentSize:CGSizeMake((self.frame.size.width / 2) * (chaptersCount + 1), self.frame.size.height)];
     
     }
@@ -40,12 +39,5 @@
     
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
 
 @end

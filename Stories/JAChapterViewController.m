@@ -90,7 +90,7 @@
     NSMutableArray *arrayOfTitle = [NSMutableArray array];
     for (int i = 0; i < self.titleChapterCount ; i++) {
         UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, i*self.chapterHeight, self.view.frame.size.width, self.chapterHeight)];
-        //        titleView.backgroundColor = [UIColor colorWithRed:1.0/self.chaptersCount *i green:1.0/self.chaptersCount *i blue: 1.0/self.chaptersCount*i alpha:1];
+;
         float percent = 70.0;
 
         NSString *text = [[[[[[self.manager getCurrentStorie] chapters]objectAtIndex:index] articles] objectAtIndex:i] title];
@@ -231,7 +231,6 @@
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 -(BOOL)prefersStatusBarHidden {
     return YES;

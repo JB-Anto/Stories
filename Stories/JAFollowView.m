@@ -92,7 +92,6 @@
         }
 
     }
-//    NSLog(@"Angle %f || Distance %f", degree, distance);
 }
 -(void)validateFollow{
     if(self.validate == NO){

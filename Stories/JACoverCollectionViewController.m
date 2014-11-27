@@ -139,10 +139,8 @@ static NSString * const reuseIdentifier = @"Cell";
     return [self.manager.data.stories count];
 }
 
-
 #pragma mark <UICollectionViewDelegate>
 - (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
-//    NSLog(@"Decelerate");
     [self.cellToAnimate animateEnter];
 }
 
@@ -156,14 +154,10 @@ static NSString * const reuseIdentifier = @"Cell";
     
 }
 - (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(JACoverCollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
-//    NSLog(@"EndAppear %ld",(long)indexPath.row);
     [cell resetAnimation];
 }
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
-    NSLog(@"test");
-//    NSLog(@"Offset %i",(int)(scrollView.contentOffset.x/self.collectionView.frame.size.width));
-
     self.currentIndex = (int)(scrollView.contentOffset.x/self.collectionView.frame.size.width);
     NSLog(@"INDEXXX %li",(long)self.currentIndex);
 }

@@ -159,10 +159,13 @@ static NSString * const reuseIdentifier = @"Cell";
 //    NSLog(@"EndAppear %ld",(long)indexPath.row);
     [cell resetAnimation];
 }
+
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
-    JACoverCollectionViewCell *myCell = [[self.collectionView visibleCells] firstObject];
-    self.currentIndex = [self.collectionView indexPathForCell:myCell].item;
-//    NSLog(@"INDEXXX %li",(long)self.currentIndex);
+    NSLog(@"test");
+//    NSLog(@"Offset %i",(int)(scrollView.contentOffset.x/self.collectionView.frame.size.width));
+
+    self.currentIndex = (int)(scrollView.contentOffset.x/self.collectionView.frame.size.width);
+    NSLog(@"INDEXXX %li",(long)self.currentIndex);
 }
 
 -(IBAction)returnFromChapterView:(UIStoryboardSegue*)segue{

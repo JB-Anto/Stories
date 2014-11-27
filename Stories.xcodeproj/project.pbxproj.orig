@@ -445,7 +445,11 @@
 				8DB9C3D21A160BE200FBC975 /* JAFollowView.h */,
 				8DB9C3D31A160BE200FBC975 /* JAFollowView.m */,
 			);
+<<<<<<< HEAD
+			name = Views;
+=======
 			name = Follow;
+>>>>>>> cover
 			sourceTree = "<group>";
 		};
 		0AC564CB1A2610DE00259418 /* ChapterScroll */ = {

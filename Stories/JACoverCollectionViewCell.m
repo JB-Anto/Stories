@@ -55,12 +55,19 @@
     NSLog(@"BOOL Follow %d",follow);
 }
 -(void)animateEnter{
-    [UIView animateWithDuration:.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+    [self.titleView setEasingFunction:easeOutExpo forKeyPath:@"transform"];
+    [UIView animateWithDuration:1 animations:^{
         self.titleView.transform = CGAffineTransformMakeTranslation(-50, 0);
-    } completion:nil];
-    [UIView animateWithDuration:.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+    } completion:^(BOOL finished){
+        [self.titleView removeEasingFunctionForKeyPath:@"transform"];
+    }];
+    
+    [self.foregroundIV setEasingFunction:easeOutExpo forKeyPath:@"transform"];
+    [UIView animateWithDuration:1 animations:^{
         self.foregroundIV.transform = CGAffineTransformMakeTranslation(-self.bounds.size.width/3, 0);
-    } completion:nil];
+    } completion:^(BOOL finished){
+        [self.foregroundIV removeEasingFunctionForKeyPath:@"transform"];
+    }];
     [UIView animateWithDuration:.8 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
         self.titleView.alpha = 1;
     } completion:nil];

@@ -1,24 +1,50 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="QyJ-ZR-5gp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="iw1-Fa-2yo">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
+        <!--Custom Navigation Controller-->
+        <scene sceneID="Nwd-8c-Jk4">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="iw1-Fa-2yo" customClass="JACustomNavigationController" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WWz-DM-5KQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ort-Br-atN" kind="relationship" relationship="rootViewController" id="ufk-Gk-SQM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mcJ-V2-56E" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="31" y="-287"/>
+        </scene>
         <!--Cover Collection View Controller-->
         <scene sceneID="TxP-Ns-3Qf">
             <objects>
-                <viewController id="ort-Br-atN" customClass="JACoverCollectionViewController" sceneMemberID="viewController"/>
+                <viewController id="ort-Br-atN" customClass="JACoverCollectionViewController" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="FQT-DQ-WVJ"/>
+                    <connections>
+                        <segue destination="QyJ-ZR-5gp" kind="custom" identifier="JACoverPush" customClass="JACoverSeguePush" id="vqc-DW-kzt"/>
+                    </connections>
+                </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cCH-t5-DqY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="402" y="-135"/>
+            <point key="canvasLocation" x="504" y="-287"/>
         </scene>
         <!--Chapter View Controller-->
         <scene sceneID="i9f-Tc-d5X">
             <objects>
-                <viewController id="QyJ-ZR-5gp" customClass="JAChapterViewController" sceneMemberID="viewController"/>
+                <viewController id="QyJ-ZR-5gp" customClass="JAChapterViewController" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="BiS-7t-T8R" kind="unwind" identifier="JACoverPop" unwindAction="returnFromChapterView:" id="W7J-Ti-06Y"/>
+                    </connections>
+                </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uF6-fg-cz9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="BiS-7t-T8R" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1069" y="-135"/>
+            <point key="canvasLocation" x="1009" y="-287"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

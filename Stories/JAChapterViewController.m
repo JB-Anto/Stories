@@ -13,8 +13,9 @@
 @property (strong, nonatomic) NSMutableArray *titlesArray;
 @property (strong, nonatomic) NSDateFormatter *dateFormater;
 @property (strong, nonatomic) NSDateFormatter *dateFormaterFromString;
+@property (strong, nonatomic) NSMutableArray *heightCellArray;
+
 @property NSUInteger titleChapterCount;
-@property float chapterHeight;
 @property int currentIndex;
 @property CGPoint touchPosition;
 @property CGPoint positionLoader;
@@ -22,6 +23,7 @@
 @property NSTimer *timerForLoader;
 @property BOOL touchToLoad;
 @property float currentTranslation;
+
 
 @end
 
@@ -33,6 +35,7 @@
     self.manager = [JAManagerData sharedManager];
     
     self.titlesArray = [NSMutableArray array];
+    self.heightCellArray = [NSMutableArray array];
     self.currentIndex = -1;
     self.touchToLoad = NO;
     self.manager.currentChapter = 0;
@@ -47,6 +50,8 @@
     [self.dateFormaterFromString setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"];
 
     NSUInteger chaptersCount = [[[self.manager getCurrentStorie] chapters] count];
+    
+    self.view.backgroundColor = [UIColor pxColorWithHexValue:[[[self.manager getCurrentStorie] cover] color]];
     
     // Chapters View
     self.chapterScrollView = [[JAChapterScrollView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width , self.view.bounds.size.height/7)];
@@ -80,16 +85,33 @@
     self.loaderView.userInteractionEnabled = NO;
     [self.view addSubview:self.loaderView];
 }
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    int index = (int)[[self.titlesArray objectAtIndex:self.manager.currentChapter] count] - 1;
+    for (int i = index; i >= 0 ; i--) {
+        
+        //TODO DO DOUBLE BOUCLE FOR ALL TITLES
+        
+        
+//        NSArray * myDataArray = [NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:2],@"A String", nil];
+//        [self performSelector:@selector(doStuff:) withObject:myDataArray afterDelay:1.0];
+
+        [self animateTitlesView:i negativeScale:.2 negativeAlpha:.3];
+    }
+}
 -(UIView*)createTitlesBlocks:(int)index{
     // Count for Title View
     self.titleChapterCount = [[[[[self.manager getCurrentStorie] chapters] objectAtIndex:index] articles] count];
-    self.chapterHeight = self.titlesView.frame.size.height / self.titleChapterCount;
+    float chapterHeight = self.titlesView.frame.size.height / self.titleChapterCount;
+    NSLog(@"Height %f",chapterHeight);
+    
+    [self.heightCellArray addObject:[NSNumber numberWithFloat:chapterHeight]];
     
     // Instanciate all titles
     UIView *globalTitleBlock = [[UIView alloc]initWithFrame:CGRectMake(index * self.view.frame.size.width, 0, self.view.frame.size.width, self.titlesView.frame.size.height)];
     NSMutableArray *arrayOfTitle = [NSMutableArray array];
     for (int i = 0; i < self.titleChapterCount ; i++) {
-        UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, i*self.chapterHeight, self.view.frame.size.width, self.chapterHeight)];
+        UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, i * chapterHeight, self.view.frame.size.width, chapterHeight)];
 ;
         float percent = 70.0;
 
@@ -117,7 +139,7 @@
         titleLBL.tag = 1;
         
         [self setAnchorPoint:CGPointMake(0, 0.5) forView:titleLBL];
-        titleLBL.transform = CGAffineTransformMakeScale(0.8, 0.8);
+        titleLBL.transform = CGAffineTransformMakeScale(0.5, 0.5);
         
         [titleView addSubview:titleLBL];
         [globalTitleBlock addSubview:titleView];
@@ -136,7 +158,8 @@
     self.touchPosition = [sender locationInView:self.titlesView];
     self.currentStateTouch = sender.state;
     bool loadedNextView = NO;
-    int index = (int)(self.touchPosition.y/self.chapterHeight);
+    NSNumber *heightCell = [self.heightCellArray objectAtIndex:self.manager.currentChapter];
+    int index = (int)(self.touchPosition.y/heightCell.floatValue);
 
     [self animateTitlesView:index negativeScale:0.0 negativeAlpha:0.0];
     
@@ -198,6 +221,7 @@
 }
 -(void)loadNextView{
     NSLog(@"ROCKSTAR BABE");
+    [self performSegueWithIdentifier:@"JAArticlePush" sender:self];
     
 }
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset{
@@ -238,6 +262,9 @@
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
     return YES;
+}
+-(IBAction)returnFromArticleView:(UIStoryboardSegue*)segue{
+    
 }
 /*
 #pragma mark - Navigation

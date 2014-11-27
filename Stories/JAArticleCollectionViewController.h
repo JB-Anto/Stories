@@ -20,7 +20,7 @@
 #import "JAManagerData.h"
 #import "JAUILabel.h"
 
-@interface JAArticleCollectionViewController : UICollectionViewController <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface JAArticleCollectionViewController : UICollectionViewController <UICollectionViewDataSource, UICollectionViewDelegate,UIGestureRecognizerDelegate>
 @property (strong, nonatomic) NSArray *blocks;
 @property (strong, nonatomic) NSMutableArray *text;
 @property (strong, nonatomic) IBOutlet UICollectionView *articleCollectionView;

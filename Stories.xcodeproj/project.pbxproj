@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A3FB1851A272F8D00AC4362 /* JAArticleSeguePush.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A3FB1841A272F8D00AC4362 /* JAArticleSeguePush.m */; };
+		0A3FB1881A272F9800AC4362 /* JAArticleSeguePop.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A3FB1871A272F9800AC4362 /* JAArticleSeguePop.m */; };
+		0A3FB18C1A273B4800AC4362 /* JAOrganicView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A3FB18B1A273B4800AC4362 /* JAOrganicView.m */; };
+		0A3FB18F1A273D1C00AC4362 /* PocketSVG.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A3FB18E1A273D1C00AC4362 /* PocketSVG.m */; };
+		0A3FB1941A273D7B00AC4362 /* forme1.svg in Resources */ = {isa = PBXBuildFile; fileRef = 0A3FB1911A273D7B00AC4362 /* forme1.svg */; };
+		0A3FB1951A273D7B00AC4362 /* forme2.svg in Resources */ = {isa = PBXBuildFile; fileRef = 0A3FB1921A273D7B00AC4362 /* forme2.svg */; };
+		0A3FB1961A273D7B00AC4362 /* forme3.svg in Resources */ = {isa = PBXBuildFile; fileRef = 0A3FB1931A273D7B00AC4362 /* forme3.svg */; };
 		0A58C1031A24B12B0061C514 /* JACoverSeguePush.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A58C1021A24B12B0061C514 /* JACoverSeguePush.m */; };
 		0A58C1061A24BD0A0061C514 /* JACoverSeguePop.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A58C1051A24BD0A0061C514 /* JACoverSeguePop.m */; };
 		0A58C1091A24C3EA0061C514 /* JACustomNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A58C1081A24C3EA0061C514 /* JACustomNavigationController.m */; };
@@ -142,6 +149,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A3FB1831A272F8D00AC4362 /* JAArticleSeguePush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAArticleSeguePush.h; sourceTree = "<group>"; };
+		0A3FB1841A272F8D00AC4362 /* JAArticleSeguePush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAArticleSeguePush.m; sourceTree = "<group>"; };
+		0A3FB1861A272F9800AC4362 /* JAArticleSeguePop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAArticleSeguePop.h; sourceTree = "<group>"; };
+		0A3FB1871A272F9800AC4362 /* JAArticleSeguePop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAArticleSeguePop.m; sourceTree = "<group>"; };
+		0A3FB18A1A273B4800AC4362 /* JAOrganicView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAOrganicView.h; sourceTree = "<group>"; };
+		0A3FB18B1A273B4800AC4362 /* JAOrganicView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAOrganicView.m; sourceTree = "<group>"; };
+		0A3FB18D1A273D1C00AC4362 /* PocketSVG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PocketSVG.h; sourceTree = "<group>"; };
+		0A3FB18E1A273D1C00AC4362 /* PocketSVG.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PocketSVG.m; sourceTree = "<group>"; };
+		0A3FB1911A273D7B00AC4362 /* forme1.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = forme1.svg; sourceTree = "<group>"; };
+		0A3FB1921A273D7B00AC4362 /* forme2.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = forme2.svg; sourceTree = "<group>"; };
+		0A3FB1931A273D7B00AC4362 /* forme3.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = forme3.svg; sourceTree = "<group>"; };
 		0A58C1011A24B12B0061C514 /* JACoverSeguePush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JACoverSeguePush.h; sourceTree = "<group>"; };
 		0A58C1021A24B12B0061C514 /* JACoverSeguePush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JACoverSeguePush.m; sourceTree = "<group>"; };
 		0A58C1041A24BD0A0061C514 /* JACoverSeguePop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JACoverSeguePop.h; sourceTree = "<group>"; };
@@ -330,10 +348,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A3FB1821A272F5800AC4362 /* ArticleSegue */ = {
+			isa = PBXGroup;
+			children = (
+				0A3FB1831A272F8D00AC4362 /* JAArticleSeguePush.h */,
+				0A3FB1841A272F8D00AC4362 /* JAArticleSeguePush.m */,
+				0A3FB1861A272F9800AC4362 /* JAArticleSeguePop.h */,
+				0A3FB1871A272F9800AC4362 /* JAArticleSeguePop.m */,
+			);
+			name = ArticleSegue;
+			sourceTree = "<group>";
+		};
+		0A3FB1891A273B3600AC4362 /* Organic */ = {
+			isa = PBXGroup;
+			children = (
+				0A3FB18A1A273B4800AC4362 /* JAOrganicView.h */,
+				0A3FB18B1A273B4800AC4362 /* JAOrganicView.m */,
+			);
+			name = Organic;
+			sourceTree = "<group>";
+		};
+		0A3FB1901A273D7B00AC4362 /* Paths */ = {
+			isa = PBXGroup;
+			children = (
+				0A3FB1911A273D7B00AC4362 /* forme1.svg */,
+				0A3FB1921A273D7B00AC4362 /* forme2.svg */,
+				0A3FB1931A273D7B00AC4362 /* forme3.svg */,
+			);
+			name = Paths;
+			path = Stories/Paths;
+			sourceTree = "<group>";
+		};
 		0A525C5C1A116DBD00C33D2C /* Ressources */ = {
 			isa = PBXGroup;
 			children = (
 				8D54A93C1A14FE9800ABDAD2 /* Images */,
+				0A3FB1901A273D7B00AC4362 /* Paths */,
 				8D54A9481A15085600ABDAD2 /* Fonts */,
 				8D54A9111A14E9AF00ABDAD2 /* stories.json */,
 			);
@@ -373,11 +423,13 @@
 		0A8783DE1A155CFC0028437C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0A3FB1891A273B3600AC4362 /* Organic */,
 				0AC564CB1A2610DE00259418 /* ChapterScroll */,
 				0AC564CA1A2610D400259418 /* Follow */,
 				0AC564C91A2610BC00259418 /* Loader */,
 				770CB9131A232FED002817BE /* ArticleCellViews */,
 				0A58C1001A24B0BA0061C514 /* CoverSegue */,
+				0A3FB1821A272F5800AC4362 /* ArticleSegue */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -751,6 +803,8 @@
 				0A83AE331A23F52D0098F1DD /* UIColor+UIColor_PXExtentions.m */,
 				0A58C10B1A24DF470061C514 /* UIView+Easing.h */,
 				0A58C10C1A24DF470061C514 /* UIView+Easing.m */,
+				0A3FB18D1A273D1C00AC4362 /* PocketSVG.h */,
+				0A3FB18E1A273D1C00AC4362 /* PocketSVG.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -847,6 +901,8 @@
 				0AC564AC1A25FD2A00259418 /* loader_14@2x.png in Resources */,
 				0AC564A01A25FD2A00259418 /* loader_2@2x.png in Resources */,
 				0AC564BE1A25FD2A00259418 /* loader_32@2x.png in Resources */,
+				0A3FB1961A273D7B00AC4362 /* forme3.svg in Resources */,
+				0A3FB1951A273D7B00AC4362 /* forme2.svg in Resources */,
 				0AC564C21A25FD2A00259418 /* loader_36@2x.png in Resources */,
 				0AC564A41A25FD2A00259418 /* loader_6@2x.png in Resources */,
 				8D8C02E31A10CB6200904841 /* LaunchScreen.xib in Resources */,
@@ -913,6 +969,7 @@
 				777CA2841A24947E008A7FE3 /* Calibre-Regular-Italic.otf in Resources */,
 				0AC564C11A25FD2A00259418 /* loader_35@2x.png in Resources */,
 				770CB93E1A23491E002817BE /* News-Plantin-Pro-Bold-Italic.otf in Resources */,
+				0A3FB1941A273D7B00AC4362 /* forme1.svg in Resources */,
 				0AC564B41A25FD2A00259418 /* loader_22@2x.png in Resources */,
 				770CB93B1A23491E002817BE /* Circular-Std-Book.otf in Resources */,
 				777CA2861A24947E008A7FE3 /* Calibre-Semibold-Italic.otf in Resources */,
@@ -939,9 +996,11 @@
 				8D54A9341A14EB8600ABDAD2 /* JSONModel+networking.m in Sources */,
 				0AC564C81A2610A400259418 /* JAChapterScrollView.m in Sources */,
 				0A58C10D1A24DF470061C514 /* UIView+Easing.m in Sources */,
+				0A3FB18C1A273B4800AC4362 /* JAOrganicView.m in Sources */,
 				0A58C1031A24B12B0061C514 /* JACoverSeguePush.m in Sources */,
 				0A8783DD1A155CF50028437C /* JALoaderView.m in Sources */,
 				8D54A90E1A14E85E00ABDAD2 /* JAStoriesModel.m in Sources */,
+				0A3FB1851A272F8D00AC4362 /* JAArticleSeguePush.m in Sources */,
 				770CB9251A233006002817BE /* JAParagraphCollectionViewCell.m in Sources */,
 				770CB9241A233006002817BE /* JAKeyNumberCollectionViewCell.m in Sources */,
 				8D54A9021A14E00A00ABDAD2 /* JAChapterModel.m in Sources */,
@@ -957,6 +1016,7 @@
 				8D54A8FC1A14DED600ABDAD2 /* JACoverModel.m in Sources */,
 				8D54A9361A14EB8600ABDAD2 /* JSONValueTransformer.m in Sources */,
 				0A58C1091A24C3EA0061C514 /* JACustomNavigationController.m in Sources */,
+				0A3FB1881A272F9800AC4362 /* JAArticleSeguePop.m in Sources */,
 				8D54A9081A14E53700ABDAD2 /* JABlockModel.m in Sources */,
 				770CB9231A233006002817BE /* JAImageCollectionViewCell.m in Sources */,
 				8D54A92F1A14EB8600ABDAD2 /* JSONModelClassProperty.m in Sources */,
@@ -970,6 +1030,7 @@
 				8D54A93B1A14FBA000ABDAD2 /* JAManagerData.m in Sources */,
 				770CB9271A233006002817BE /* JAResumeCollectionViewCell.m in Sources */,
 				8D54A8F91A14DD9C00ABDAD2 /* JAStorieModel.m in Sources */,
+				0A3FB18F1A273D1C00AC4362 /* PocketSVG.m in Sources */,
 				8DD244561A13850800FC7683 /* JACoverCollectionViewController.m in Sources */,
 				8D54A92E1A14EB8600ABDAD2 /* JSONModelArray.m in Sources */,
 				77E758101A2469C60015EDEF /* JAUILabel.m in Sources */,

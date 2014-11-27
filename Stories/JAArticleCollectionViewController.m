@@ -45,6 +45,16 @@
             [self.resumesID addObject:[self.currentBlock id]];
         }
     }
+    
+    UITapGestureRecognizer *doubleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTap:)];
+    doubleTapGesture.numberOfTapsRequired = 2;
+    doubleTapGesture.delegate = self;
+    [self.view addGestureRecognizer:doubleTapGesture];
+
+}
+
+-(void)doubleTap:(UITapGestureRecognizer*)sender{
+    [self performSegueWithIdentifier:@"JAArticlePop" sender:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -289,6 +299,7 @@
         return CGSizeZero;
     }
 }
+
 
 #pragma mark <UICollectionViewDelegate>
 

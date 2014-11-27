@@ -13,7 +13,7 @@
 -(id)initWithFrame:(CGRect)frame
 {
     if(self = [super initWithFrame:self.frame]) {
-        NSLog(@"Init TitleCell");
+//        NSLog(@"Init TitleCell");
         
         // For better perfomance
         [self setOpaque:NO];

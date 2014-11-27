@@ -25,10 +25,21 @@
 }
 - (UIStoryboardSegue *)segueForUnwindingToViewController:(UIViewController *)toViewController fromViewController:(UIViewController *)fromViewController identifier:(NSString *)identifier {
     // Instantiate a new CustomUnwindSegue
-    JACoverSeguePop *segue = [[JACoverSeguePop alloc] initWithIdentifier:@"JACoverPop" source:fromViewController destination:toViewController];
+    if([identifier isEqualToString:@"JACoverPop"]){
+        JACoverSeguePop *segue = [[JACoverSeguePop alloc] initWithIdentifier:@"JACoverPop" source:fromViewController destination:toViewController];
+        return segue;
+    }
+    else{
+        JAArticleSeguePop *segue = [[JAArticleSeguePop alloc] initWithIdentifier:@"JAArticlePop" source:fromViewController destination:toViewController];
+        return segue;
+    }
     
-    return segue;
+    
 }
+
+
+
+    
 
 /*
 #pragma mark - Navigation

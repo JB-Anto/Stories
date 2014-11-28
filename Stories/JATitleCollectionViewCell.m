@@ -13,10 +13,6 @@
 -(id)initWithFrame:(CGRect)frame
 {
     if(self = [super initWithFrame:self.frame]) {
-        NSLog(@"Init TitleCell");
-        
-        // For better perfomance
-        [self setOpaque:NO];
         
         // Main characteristics of labels in the view
         UIFont *titleFont = [UIFont fontWithName:@"Young-Serif-Regular" size:45.0];
@@ -29,18 +25,21 @@
         [self.titleLabel setNumberOfLines:0];
         [self.titleLabel setFont:titleFont];
         [self.titleLabel setTextColor:titleColor];
+        self.titleLabel.lineHeight = 0.85;
         
         // Initial Setting - Location Label
         self.locationLabel = [JAUILabel new];
         [self.locationLabel setFont:infoFont];
         [self.locationLabel setTextColor:infoColor];
         [self.locationLabel setTextAlignment:NSTextAlignmentCenter];
+        self.locationLabel.lineHeight = 1.25;
         
         // Initial Setting - Date Label
         self.dateLabel = [JAUILabel new];
         [self.dateLabel setFont:infoFont];
         [self.dateLabel setTextColor:infoColor];
         [self.dateLabel setTextAlignment:NSTextAlignmentCenter];
+        self.dateLabel.lineHeight = 1.25;
         
         // Ready to add in parent view
         [self addSubview:self.locationLabel];

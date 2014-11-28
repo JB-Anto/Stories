@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "JAUILabel.h"
+#import "JAUITextView.h"
 
 @interface JAParagraphCollectionViewCell : UICollectionViewCell
-@property (strong, nonatomic) JAUILabel *paragraphLabel;
+@property (strong, nonatomic) JAUITextView *paragraphLabel;
+
 @end

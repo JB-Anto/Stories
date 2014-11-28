@@ -10,19 +10,25 @@
 
 @implementation JAUILabel
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
-
--(void)setLineHeightWithNumber:(CGFloat) lineHeight
+-(void)initWithString:(NSString *)text
 {
-    NSMutableAttributedString* attrString = [[NSMutableAttributedString alloc] initWithString:self.text];
+    [self setText:text];
+    
+    if(self.lineHeight) {
+        [self applyLineHeight];
+    }
+    
+    if(self.letterSpacing) {
+        [self applyLetterSpacing];
+    }
+}
+
+-(void)applyLineHeight
+{
+    NSMutableAttributedString* attrString = self.attributedText.mutableCopy;
     NSMutableParagraphStyle *style = [NSMutableParagraphStyle new];
-    [style setLineHeightMultiple:lineHeight];
+    [style setLineHeightMultiple:self.lineHeight];
+    
     [attrString addAttribute:NSParagraphStyleAttributeName
                        value:style
                        range:NSMakeRange(0, [self.text length])];
@@ -31,29 +37,15 @@
     
 }
 
--(void)setLineSpacingWithNumber:(CGFloat) lineSpacing
+-(void)applyLetterSpacing
 {
-    NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:self.text];
+    //NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:self.text];
+    NSMutableAttributedString* attrString = self.attributedText.mutableCopy;
     [attrString addAttribute:NSKernAttributeName
-                value:@(lineSpacing)
+                value:@(self.letterSpacing)
                 range:NSMakeRange(0, [self.text length])];
     
     self.attributedText = attrString;
     
 }
-
--(CGRect)calculateRectInBoundingRectWithSize:(CGSize) maximumSize
-{
-    
-    UIFont *font = [UIFont fontWithName:self.font.fontName size:self.font.lineHeight];
-    
-    CGRect labelRect = [self.text boundingRectWithSize:maximumSize
-                                  options: NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
-                                  attributes:@{NSFontAttributeName:font}
-                                  context:nil];
-    
-    return labelRect;
-    
-}
-
 @end

@@ -13,10 +13,6 @@
 -(id)initWithFrame:(CGRect)frame
 {
     if(self = [super initWithFrame:self.frame]) {
-        NSLog(@"Init imageCell");
-        
-        // For better perfomance
-        [self setOpaque:NO];
         
         // Main characteristics of labels in the view
         UIFont *paragraphFont = [UIFont fontWithName:@"News-Plantin-Pro-Regular-Italic" size:13.0];
@@ -27,6 +23,7 @@
         [self.legendLabel setNumberOfLines:0];
         [self.legendLabel setFont:paragraphFont];
         [self.legendLabel setTextColor:paragraphColor];
+        self.legendLabel.lineHeight = 1.6;
         
         self.imageView = [UIImageView new];
         [self.imageView setAlpha:.4];
@@ -44,11 +41,11 @@
         
         recognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeFrom:)];
         [recognizer setDirection:(UISwipeGestureRecognizerDirectionRight)];
-        [self.imageView addGestureRecognizer:recognizer];
+        [self addGestureRecognizer:recognizer];
         
         recognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeFrom:)];
         [recognizer setDirection:(UISwipeGestureRecognizerDirectionLeft)];
-        [self.imageView addGestureRecognizer:recognizer];
+        [self addGestureRecognizer:recognizer];
 
         
         

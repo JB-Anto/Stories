@@ -19,6 +19,7 @@
 #import "JABlockModel.h"
 #import "JAManagerData.h"
 #import "JAUILabel.h"
+#import "JAUITextView.h"
 
 @interface JAArticleCollectionViewController : UICollectionViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 @property (strong, nonatomic) NSArray *blocks;

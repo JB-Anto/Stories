@@ -12,10 +12,6 @@
 -(id)initWithFrame:(CGRect)frame
 {
     if(self = [super initWithFrame:self.frame]) {
-        NSLog(@"Init imageCell");
-        
-        // For better perfomance
-        [self setOpaque:NO];
         
         // Main characteristics of labels in the view
         UIFont *authorFont   = [UIFont fontWithName:@"News-Plantin-Pro-Regular-Italic" size:28.0];
@@ -29,11 +25,13 @@
         [self.authorLabel setFont:authorFont];
         [self.authorLabel setTextAlignment:NSTextAlignmentRight];
         [self.authorLabel setTextColor:authorColor];
+        self.authorLabel.lineHeight = 1.25;
         
         self.quoteLabel = [JAUILabel new];
         [self.quoteLabel setNumberOfLines:0];
         [self.quoteLabel setFont:quoteFont];
         [self.quoteLabel setTextColor:quoteColor];
+        self.quoteLabel.lineHeight = 1.23;
         
         // Ready to add in parent view
         [self addSubview:self.authorLabel];

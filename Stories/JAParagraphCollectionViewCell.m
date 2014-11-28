@@ -13,27 +13,25 @@
 -(id)initWithFrame:(CGRect)frame
 {
     if(self = [super initWithFrame:self.frame]) {
-        NSLog(@"Init ResumeCell");
-        
-        // For better perfomance
-        [self setOpaque:NO];
         
         // Main characteristics of labels in the view
         UIFont *paragraphFont = [UIFont fontWithName:@"News-Plantin-Pro-Regular" size:18.0];
         UIColor *paragraphColor = [UIColor colorWithHue:0.68 saturation:0.45 brightness:0.34 alpha:1];
+        UIColor *linkColor = [UIColor colorWithHue:0.08 saturation:0.74 brightness:0.93 alpha:1];
         
         // Initial Setting - Resume Label
-        self.paragraphLabel = [JAUILabel new];
-        [self.paragraphLabel setNumberOfLines:0];
+        self.paragraphLabel = [JAUITextView new];
+        [self.paragraphLabel setScrollEnabled:NO];
+        [self.paragraphLabel setEditable:NO];
+        [self.paragraphLabel setSelectable:NO];
+        //[self.paragraphLabel setNumberOfLines:0];
         [self.paragraphLabel setFont:paragraphFont];
         [self.paragraphLabel setTextColor:paragraphColor];
+        self.paragraphLabel.linkColor = linkColor;
+        self.paragraphLabel.lineHeight = 1.5;
         
         // Ready to add in parent view
         [self addSubview:self.paragraphLabel];
-        
-        // ********TEMPORARY********
-//        [self.paragraphLabel setBackgroundColor:[UIColor redColor]];
-//        [self setBackgroundColor:[UIColor greenColor]];
         
     }
     

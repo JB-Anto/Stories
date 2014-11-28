@@ -12,10 +12,6 @@
 -(id)initWithFrame:(CGRect)frame
 {
     if(self = [super initWithFrame:self.frame]) {
-        NSLog(@"Init imageCell");
-        
-        // For better perfomance
-        [self setOpaque:NO];
         
         // Main characteristics of labels in the view
         UIFont *numberFont   = [UIFont fontWithName:@"News-Plantin-Pro-Regular" size:83.0];
@@ -34,6 +30,7 @@
         [self.descriptionLabel setNumberOfLines:0];
         [self.descriptionLabel setFont:descriptionFont];
         [self.descriptionLabel setTextColor:descriptionColor];
+        self.descriptionLabel.lineHeight = 1.29;
         
         // Ready to add in parent view
         [self addSubview:self.numberLabel];

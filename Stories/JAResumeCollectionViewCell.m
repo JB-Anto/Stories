@@ -13,10 +13,6 @@
 -(id)initWithFrame:(CGRect)frame
 {
     if(self = [super initWithFrame:self.frame]) {
-        NSLog(@"Init ResumeCell");
-        
-        // For better perfomance
-        [self setOpaque:NO];
         
         // Main characteristics of labels in the view
         UIFont *resumeFont = [UIFont fontWithName:@"Circular-Std-Book" size:12.0];

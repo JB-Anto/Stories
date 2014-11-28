@@ -56,6 +56,7 @@
     // Chapters View
     self.chapterScrollView = [[JAChapterScrollView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width , self.view.bounds.size.height/7)];
     self.chapterScrollView.delegate = self;
+    self.chapterScrollView.alpha = 0;
     [self.view addSubview:self.chapterScrollView];
     
     // Titles View
@@ -84,20 +85,24 @@
     self.loaderView.delegate = self;
     self.loaderView.userInteractionEnabled = NO;
     [self.view addSubview:self.loaderView];
+
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    int index = (int)[[self.titlesArray objectAtIndex:self.manager.currentChapter] count] - 1;
-    for (int i = index; i >= 0 ; i--) {
-        
-        //TODO DO DOUBLE BOUCLE FOR ALL TITLES
-        
-        
-//        NSArray * myDataArray = [NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:2],@"A String", nil];
-//        [self performSelector:@selector(doStuff:) withObject:myDataArray afterDelay:1.0];
+    [UIView animateWithDuration:.5 animations:^{
+        self.chapterScrollView.alpha = 1;
+    }];
 
-        [self animateTitlesView:i negativeScale:.2 negativeAlpha:.3];
+    for (int j = 0; j < [[[self.manager getCurrentStorie] chapters] count]; j++) {
+
+        int index = (int)[[self.titlesArray objectAtIndex:j] count] - 1;
+
+        for (int i = index; i >= 0 ; i--) {
+            NSLog(@"i %i",i);
+            [self animateTitlesView:i forChapter:j negativeScale:.2 negativeAlpha:.3 delay:i * .05];
+        }
     }
+    
 }
 -(UIView*)createTitlesBlocks:(int)index{
     // Count for Title View
@@ -161,7 +166,7 @@
     NSNumber *heightCell = [self.heightCellArray objectAtIndex:self.manager.currentChapter];
     int index = (int)(self.touchPosition.y/heightCell.floatValue);
 
-    [self animateTitlesView:index negativeScale:0.0 negativeAlpha:0.0];
+    [self animateTitlesView:index forChapter:self.manager.currentChapter negativeScale:0.0 negativeAlpha:0.0 delay:0.0];
     
     if(self.currentIndex != index){
         NSLog(@"index %i %i",self.currentIndex,index);
@@ -182,10 +187,10 @@
     }
     
     for (int i = index - 1; i >= 0; i--) {
-        [self animateTitlesView:i negativeScale:((index-i)*((1.0 /[[self.titlesArray objectAtIndex:self.manager.currentChapter]count])/2)) negativeAlpha:((index-i) * (1.0 /[[self.titlesArray objectAtIndex:self.manager.currentChapter]count]))];
+        [self animateTitlesView:i forChapter:self.manager.currentChapter negativeScale:((index-i)*((1.0 /[[self.titlesArray objectAtIndex:self.manager.currentChapter]count])/2)) negativeAlpha:((index-i) * (1.0 /[[self.titlesArray objectAtIndex:self.manager.currentChapter]count])) delay:0.0];
     }
     for (int i = index + 1; i < [[self.titlesArray objectAtIndex:self.manager.currentChapter]count]; i++) {
-        [self animateTitlesView:i negativeScale:((i - index)*((1.0 /[[self.titlesArray objectAtIndex:self.manager.currentChapter]count])/2)) negativeAlpha:((i - index)*(1.0 /[[self.titlesArray objectAtIndex:self.manager.currentChapter]count]))];
+        [self animateTitlesView:i forChapter:self.manager.currentChapter negativeScale:((i - index)*((1.0 /[[self.titlesArray objectAtIndex:self.manager.currentChapter]count])/2)) negativeAlpha:((i - index)*(1.0 /[[self.titlesArray objectAtIndex:self.manager.currentChapter]count])) delay:0.0];
     }
 
     if(sender.state == UIGestureRecognizerStateEnded){
@@ -194,18 +199,18 @@
             self.touchToLoad = NO;
             self.currentIndex = -1;
             for (int i = 0; i < [[self.titlesArray objectAtIndex:self.manager.currentChapter]count]; i++) {
-                [self animateTitlesView:i negativeScale:.2 negativeAlpha:0.0];
+                [self animateTitlesView:i forChapter:self.manager.currentChapter negativeScale:.2 negativeAlpha:0.3 delay:0.0];
             }
         }
     }
 }
 // Animate with a negative scale and alpha value
--(void)animateTitlesView:(int)index negativeScale:(float)negativeScale negativeAlpha:(float)negativeAlpha{
+-(void)animateTitlesView:(int)index forChapter:(int)chapterIndex negativeScale:(float)negativeScale negativeAlpha:(float)negativeAlpha delay:(float)delay{
 
-    UIView *titleView = [[self.titlesArray objectAtIndex:self.manager.currentChapter] objectAtIndex:index];
+    UIView *titleView = [[self.titlesArray objectAtIndex:chapterIndex] objectAtIndex:index];
     UILabel *titleLBL = (UILabel*)[titleView viewWithTag:1];
 
-    [UIView animateWithDuration:0.2 animations:^{
+    [UIView animateWithDuration:0.2  delay:delay options:UIViewAnimationOptionCurveEaseOut animations:^{
         titleLBL.transform = CGAffineTransformMakeScale(1.0 - negativeScale, 1.0 - negativeScale);
         titleLBL.alpha = 1.0 - negativeAlpha;
     } completion:^(BOOL finished) {

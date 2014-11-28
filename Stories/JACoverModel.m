@@ -11,6 +11,9 @@
 
 @implementation JACoverModel
 
-
++(BOOL)propertyIsOptional:(NSString*)propertyName
+{
+    return YES;
+}
 
 @end

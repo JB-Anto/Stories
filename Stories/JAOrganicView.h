@@ -13,13 +13,14 @@
 
 @property (strong, nonatomic) UIView *organicView;
 @property (strong, nonatomic) CAShapeLayer *organicLayer;
-
+@property (strong, nonatomic) NSArray *paths;
 
 @property CGPathRef firstStepOrganic;
 @property CGPathRef middleStepOrganic;
 @property CGPathRef endStepOrganic;
 
--(void)animationPath;
+- (id)initWithFrame:(CGRect)frame paths:(NSArray*)paths;
+-(void)middleAnimation;
 -(void)finalAnimation:(void(^)())completion;
 -(void)resetAnimation;
 -(void)setColor:(NSString*)color;

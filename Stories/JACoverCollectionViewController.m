@@ -26,12 +26,11 @@ static NSString * const reuseIdentifier = @"Cell";
     [super viewDidLoad];
     
     self.manager = [JAManagerData sharedManager];
-    
+
     self.firstTime = YES;
     self.animatedLoader = NO;
     self.currentIndex = 0;
     self.stateLongTap = UIGestureRecognizerStatePossible;
-
     
     // Layout View
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
@@ -101,7 +100,7 @@ static NSString * const reuseIdentifier = @"Cell";
         }];
         [myCell.organicView finalAnimation:^{
             [self performSegueWithIdentifier:@"JACoverPush" sender:self];
-            [myCell.organicView animationPath];
+            [myCell.organicView middleAnimation];
             self.nameViewLBL.alpha = 1;
             myCell.titleView.frame = (CGRect){.origin=CGPointMake(myCell.titleView.frame.origin.x, myCell.titleView.frame.origin.y + 60),.size=myCell.titleView.frame.size};
             [myCell.organicView removeFromSuperview];
@@ -167,7 +166,7 @@ static NSString * const reuseIdentifier = @"Cell";
 
     if(self.firstTime){
         [cell animateEnter];
-        [cell.organicView animationPath];
+        [cell.organicView middleAnimation];
         self.firstTime = NO;
     }
     
@@ -176,7 +175,7 @@ static NSString * const reuseIdentifier = @"Cell";
     [cell resetAnimation];
 }
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
-    [self.cellToAnimate.organicView animationPath];
+    [self.cellToAnimate.organicView middleAnimation];
     self.currentIndex = (int)(scrollView.contentOffset.x/self.collectionView.frame.size.width);
     NSLog(@"INDEXXX %li",(long)self.currentIndex);
 }

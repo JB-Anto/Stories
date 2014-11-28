@@ -11,7 +11,12 @@
                 "location": "Ukraine",
                 "background": "background_cover_2",
                 "foreground": "personnage_cover_2",
-                "color": "#EC963D"
+                "color": "#EC963D",
+                "paths": [
+                        "forme1",
+                        "forme2",
+                        "forme3"
+                    ]
             },
             "chapters": [
                 {
@@ -725,7 +730,12 @@
                 "location": "Isis",
                 "background": "background_cover_1",
                 "foreground": "personnage_cover_1",
-                "color": "#9A3241"
+                "color": "#9A3241",
+                "paths": [
+                        "forme1",
+                        "forme2",
+                        "forme3"
+                    ]
             },
             "chapters": [
                 {

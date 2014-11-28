@@ -55,6 +55,8 @@
 
 -(void)doubleTap:(UITapGestureRecognizer*)sender{
     [self performSegueWithIdentifier:@"JAArticlePop" sender:self];
+//    Method to go to cover width flip
+//    [self.navigationController popToRootViewControllerAnimated:NO];
 }
 
 - (void)didReceiveMemoryWarning {

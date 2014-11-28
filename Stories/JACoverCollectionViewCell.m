@@ -16,10 +16,17 @@
     
     if(self)
     {
+        
+        self.manager = [JAManagerData sharedManager];
+        self.plistManager = [JAPlistManager sharedInstance];
+        
+        [self.plistManager getCoverFollow:@"follow"];
+//        [self.plistManager setValue:@"1" forKey:@"follow"];
+        
         self.backgroundIV = [[UIImageView alloc] initWithFrame:self.bounds];
         self.foregroundIV = [[UIImageView alloc] initWithFrame:CGRectMake(self.bounds.size.width/3, 0, self.bounds.size.width, self.bounds.size.height)];
         
-        self.organicView = [[JAOrganicView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+        self.organicView = [[JAOrganicView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height) paths:[[[self.manager getCurrentStorie]cover] paths]];
 
         self.locationLBL = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, self.bounds.size.width, 60)];
         self.locationLBL.textAlignment = NSTextAlignmentCenter;

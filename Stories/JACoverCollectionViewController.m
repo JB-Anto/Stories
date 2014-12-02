@@ -67,6 +67,11 @@ static NSString * const reuseIdentifier = @"Cell";
     self.loaderView.delegate = self;
     [self.view addSubview:self.loaderView];
     
+    // Follow View
+    self.followView = [[JAFollowView alloc]initWithFrame:CGRectMake(self.view.bounds.size.width - 75, 35, 40, 40)];
+    self.followView.delegate = self;
+    self.followView.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:self.followView];
     
 
     // Gesture recognizer
@@ -144,6 +149,10 @@ static NSString * const reuseIdentifier = @"Cell";
 
     
     return myCell;
+}
+
+-(void)followArticle:(BOOL)follow{
+    NSLog(@"BOOL Follow %d",follow);
 }
 
 #pragma mark <UICollectionViewDataSource>

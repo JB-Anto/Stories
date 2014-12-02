@@ -43,26 +43,19 @@
         self.titleView = [[UIView alloc]initWithFrame:CGRectMake(50, self.bounds.size.height/2 - 150/2, self.bounds.size.width, 200)];
         self.titleView.alpha = 0;
         
-        // Follow View
-        self.followView = [[JAFollowView alloc]initWithFrame:CGRectMake(self.bounds.size.width - 75, 35, 40, 40)];
-        self.followView.delegate = self;
-        self.followView.backgroundColor = [UIColor clearColor];
-
+        
         [self addSubview:self.backgroundIV];
         [self addSubview:self.foregroundIV];
         [self addSubview:self.organicView];
         [self.titleView addSubview:self.locationLBL];
         [self.titleView addSubview:self.titleLBL];
         [self addSubview:self.titleView];
-        [self addSubview:self.followView];
+
 
     }
         
     return self;
     
-}
--(void)followArticle:(BOOL)follow{
-    NSLog(@"BOOL Follow %d",follow);
 }
 -(void)animateEnter{
     [self.titleView setEasingFunction:easeOutExpo forKeyPath:@"transform"];

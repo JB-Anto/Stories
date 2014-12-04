@@ -20,6 +20,12 @@
 #import "JAManagerData.h"
 #import "JAUILabel.h"
 
+@protocol ScrollRead
+
+-(void)scrollRead:(float)percent;
+
+@end
+
 @interface JAArticleCollectionViewController : UICollectionViewController <UICollectionViewDataSource, UICollectionViewDelegate,UIGestureRecognizerDelegate>
 @property (strong, nonatomic) NSArray *blocks;
 @property (strong, nonatomic) NSMutableArray *text;
@@ -27,4 +33,10 @@
 @property (nonatomic,strong) JAManagerData *manager;
 @property (nonatomic,strong) JABlockModel *currentBlock;
 @property (strong, nonatomic) NSMutableArray *resumesID;
+@property (nonatomic, assign) id delegate;
 @end
+
+
+
+
+

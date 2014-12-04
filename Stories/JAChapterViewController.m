@@ -128,6 +128,7 @@
         NSString *finalDate = [self.dateFormater stringFromDate:date];
         
         NSMutableAttributedString * completeString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ %@",text,[finalDate lowercaseString]]];
+        
         [completeString addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"News-Plantin-Pro-Regular" size:32.0] range:NSMakeRange(0,[text length])];
         [completeString addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"Calibre-Thin" size:20.0] range:NSMakeRange([text length]+1,[finalDate length])];
         
@@ -226,6 +227,7 @@
 }
 -(void)loadNextView{
     NSLog(@"ROCKSTAR BABE");
+    
     [self performSegueWithIdentifier:@"JAArticlePush" sender:self];
     
 }
@@ -264,6 +266,9 @@
 -(BOOL)prefersStatusBarHidden {
     return YES;
 }
+-(void)scrollRead:(float)percent{
+    NSLog(@"Percent %f",percent);
+}
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
     return YES;
@@ -271,14 +276,12 @@
 -(IBAction)returnFromArticleView:(UIStoryboardSegue*)segue{
     
 }
+
 /*
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+// In a storyboard-based application, you will often want to do a little preparation before navigation*/
+
+
 
 @end

@@ -50,10 +50,16 @@
     doubleTapGesture.numberOfTapsRequired = 2;
     doubleTapGesture.delegate = self;
     [self.view addGestureRecognizer:doubleTapGesture];
+    
+    NSLog(@"HEIGHT %f",self.articleCollectionView.contentSize.height);
+    CGPoint bottomOffset = CGPointMake(0, self.articleCollectionView.contentSize.height);
+    [self.articleCollectionView setContentOffset:bottomOffset animated:YES];
 
 }
 
 -(void)doubleTap:(UITapGestureRecognizer*)sender{
+//       NSLog(@"Percent Scroll %f",self.articleCollectionView.contentOffset.y / (self.articleCollectionView.contentSize.height - scrollView.frame.size.height)  * 100);
+
     [self performSegueWithIdentifier:@"JAArticlePop" sender:self];
 //    Method to go to cover width flip
 //    [self.navigationController popToRootViewControllerAnimated:NO];
@@ -333,7 +339,12 @@
 	
 }
 */
-
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    [segue.sourceViewController setDelegate:[segue destinationViewController]];
+    [self.delegate scrollRead:(self.articleCollectionView.contentOffset.y / (self.articleCollectionView.contentSize.height - self.articleCollectionView.frame.size.height)  * 100)];
+    // self.delegate == A
+}
 -(BOOL)prefersStatusBarHidden
 {
     return YES;

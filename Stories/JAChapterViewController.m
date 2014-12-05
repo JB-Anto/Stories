@@ -280,7 +280,7 @@
 {
     JAArticleCollectionViewController *articleController = segue.destinationViewController;
     [articleController setDelegate:self];
-    articleController.test = @"test";
+    articleController.oldPercentScroll = 10.0;
     // self.delegate == A
 }
 

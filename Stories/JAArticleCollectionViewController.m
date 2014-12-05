@@ -45,7 +45,7 @@
             [self.resumesID addObject:[self.currentBlock id]];
         }
     }
-    NSLog(@"%@",self.test);
+    NSLog(@"%f",self.oldPercentScroll);
     UITapGestureRecognizer *doubleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTap:)];
     doubleTapGesture.numberOfTapsRequired = 2;
     doubleTapGesture.delegate = self;

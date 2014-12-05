@@ -45,18 +45,22 @@
             [self.resumesID addObject:[self.currentBlock id]];
         }
     }
-    
+    NSLog(@"%@",self.test);
     UITapGestureRecognizer *doubleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTap:)];
     doubleTapGesture.numberOfTapsRequired = 2;
     doubleTapGesture.delegate = self;
     [self.view addGestureRecognizer:doubleTapGesture];
     
-    NSLog(@"HEIGHT %f",self.articleCollectionView.contentSize.height);
-    CGPoint bottomOffset = CGPointMake(0, self.articleCollectionView.contentSize.height);
-    [self.articleCollectionView setContentOffset:bottomOffset animated:YES];
+
+
+
+   
 
 }
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
 
+}
 -(void)doubleTap:(UITapGestureRecognizer*)sender{
 //       NSLog(@"Percent Scroll %f",self.articleCollectionView.contentOffset.y / (self.articleCollectionView.contentSize.height - scrollView.frame.size.height)  * 100);
 
@@ -79,7 +83,9 @@
     // Pass the selected object to the new view controller.
 }
 */
-
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+        [self.delegate scrollRead:(self.articleCollectionView.contentOffset.y / (self.articleCollectionView.contentSize.height - self.articleCollectionView.frame.size.height)  * 100)];
+}
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -339,12 +345,7 @@
 	
 }
 */
-- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    [segue.sourceViewController setDelegate:[segue destinationViewController]];
-    [self.delegate scrollRead:(self.articleCollectionView.contentOffset.y / (self.articleCollectionView.contentSize.height - self.articleCollectionView.frame.size.height)  * 100)];
-    // self.delegate == A
-}
+
 -(BOOL)prefersStatusBarHidden
 {
     return YES;

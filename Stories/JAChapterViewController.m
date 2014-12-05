@@ -276,6 +276,13 @@
 -(IBAction)returnFromArticleView:(UIStoryboardSegue*)segue{
     
 }
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    JAArticleCollectionViewController *articleController = segue.destinationViewController;
+    [articleController setDelegate:self];
+    articleController.test = @"test";
+    // self.delegate == A
+}
 
 /*
 #pragma mark - Navigation

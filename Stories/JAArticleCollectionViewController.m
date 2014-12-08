@@ -80,38 +80,27 @@
         
         JATitleCollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"TitleCell" forIndexPath:indexPath];
         
-        maximumSizeOfLabel = CGSizeMake(256, CGFLOAT_MAX);
-        
-        // Title Label Settings
-        [cell.titleLabel setText:[self.currentBlock title]];
-        [cell.titleLabel applyLineHeight];
-        //CGRect titleLabelRect = [cell.titleLabel calculateRectInBoundingRectWithSize:maximumLabelSize];
-        optimalSizeForLabel = [cell.titleLabel sizeThatFits:maximumSizeOfLabel];
-        [cell.titleLabel setFrame:CGRectMake(20, 0, optimalSizeForLabel.width, optimalSizeForLabel.height)];
-        
-        // Location Label Settings
-        [cell.locationLabel setText:[self.currentBlock location]];
-        [cell.locationLabel applyLetterSpacing];
-        [cell.locationLabel sizeToFit];
-        [cell.locationLabel setFrame:CGRectMake(cell.center.x - cell.bounds.size.width/2, cell.center.y - cell.locationLabel.frame.size.height/2, cell.bounds.size.width, cell.locationLabel.frame.size.height)];
-        
-        // Date Label Settings
+        // Set Content
         // Date out format
         NSDateFormatter *dateFormater = [[NSDateFormatter alloc]init];
         [dateFormater setDateFormat:@"MMM\u00A0dd"];
-        
         // Date in format
         NSDateFormatter *dateFormaterFromString = [[NSDateFormatter alloc]init];
         [dateFormaterFromString setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"];
-        
         NSDate *date = [dateFormaterFromString dateFromString:[self.currentBlock createdAt]];
         NSString *finalDate = [dateFormater stringFromDate:date];
-        
-        [cell.dateLabel setText:finalDate];
-        [cell.dateLabel applyLetterSpacing];
-        
-        [cell.dateLabel sizeToFit];
-        [cell.dateLabel setFrame:CGRectMake(cell.center.x - cell.bounds.size.width/2 , cell.center.y + cell.dateLabel.frame.size.height/2, cell.bounds.size.width, cell.dateLabel.frame.size.height)];
+        [cell.titleLabel initWithString:[self.currentBlock title]];
+        [cell.locationLabel initWithString:[self.currentBlock location]];
+        [cell.dateLabel initWithString:finalDate];
+
+        // Set size hoped
+        maximumSizeOfLabel = CGSizeMake(256, CGFLOAT_MAX);
+        optimalSizeForLabel = [cell.titleLabel sizeThatFits:maximumSizeOfLabel];
+
+        // Set frames
+        [cell.titleLabel setFrame:CGRectMake(20, 0, optimalSizeForLabel.width, optimalSizeForLabel.height)];
+        [cell.locationLabel setFrame:CGRectMake(cell.center.x - CGRectGetWidth(cell.locationLabel.bounds)/2, cell.center.y - CGRectGetHeight(cell.locationLabel.bounds)/2, CGRectGetWidth(cell.locationLabel.bounds), CGRectGetHeight(cell.locationLabel.bounds))];
+        [cell.dateLabel setFrame:CGRectMake(cell.center.x - cell.dateLabel.bounds.size.width/2 , cell.center.y + cell.dateLabel.frame.size.height/2, CGRectGetWidth(cell.dateLabel.bounds), CGRectGetHeight(cell.dateLabel.bounds))];
         
         return cell;
         
@@ -119,13 +108,15 @@
     else if([[self.currentBlock type] isEqualToString:@"resume"]) {
         
         JAResumeCollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"ResumeCell" forIndexPath:indexPath];
+
+        // Set Content
+        [cell.resumeLabel initWithString:[self.currentBlock text]];
         
-        [cell.resumeLabel setText:[self.currentBlock text]];
-        
-        // Resume Label Settings
+        // Set size hoped
         maximumSizeOfLabel = CGSizeMake(160, CGFLOAT_MAX);
         optimalSizeForLabel = [cell.resumeLabel sizeThatFits:maximumSizeOfLabel];
 
+        // Set frames
         NSInteger index = [self.resumesID indexOfObject:[self.currentBlock id]];
         CGFloat positionOfLabel =  (CGRectGetWidth(self.view.bounds)*0.5-optimalSizeForLabel.width/2) - (index * (CGRectGetWidth(self.view.bounds)*0.5-optimalSizeForLabel.width/2)/([self.resumesID count]-1)/1.5) + 20;
         [cell.resumeLabel setFrame:CGRectMake(positionOfLabel, 0, optimalSizeForLabel.width, optimalSizeForLabel.height)];
@@ -137,12 +128,15 @@
         
         JAParagraphCollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"ParagraphCell" forIndexPath:indexPath];
         
+        // Set Content
+        cell.paragraphLabel.links = [self.currentBlock links];
         [cell.paragraphLabel initWithString:[self.currentBlock text]];
-        NSArray *links = [self.currentBlock links];
-        NSLog(@"%@", links[0]);
-    
+ 
+        // Set size hoped
         maximumSizeOfLabel = CGSizeMake(CGRectGetWidth(self.view.bounds)-40, CGFLOAT_MAX);
         optimalSizeForLabel = [cell.paragraphLabel sizeThatFits:maximumSizeOfLabel];
+        
+        // Set frames
         [cell.paragraphLabel setFrame:CGRectMake(20, 0, optimalSizeForLabel.width, optimalSizeForLabel.height)];
         
         return cell;
@@ -152,17 +146,16 @@
         
         JAQuotesCollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"QuoteCell" forIndexPath:indexPath];
         
-        [cell.quoteLabel setText:[self.currentBlock text]];
-        [cell.quoteLabel applyLineHeight];
+        //Set Content
+        [cell.quoteLabel initWithString:[self.currentBlock text]];
+        [cell.authorLabel initWithString:[self.currentBlock author]];
         
-        [cell.authorLabel setText:[self.currentBlock author]];
-        [cell.authorLabel applyLineHeight];
-        
+        //Set size hoped
         maximumSizeOfLabel = CGSizeMake(225, CGFLOAT_MAX);
         optimalSizeForLabel = [cell.quoteLabel sizeThatFits:maximumSizeOfLabel];
         
+        //Set frames
         [cell.quoteLabel setFrame:CGRectMake(0, 0, optimalSizeForLabel.width, optimalSizeForLabel.height)];
-        [cell.authorLabel sizeToFit];
         [cell.authorLabel setTextAlignment:NSTextAlignmentRight];
         [cell.authorLabel setFrame:CGRectMake(CGRectGetWidth(cell.bounds)-CGRectGetWidth(cell.authorLabel.bounds)-20, CGRectGetHeight(cell.quoteLabel.bounds)-CGRectGetHeight(cell.authorLabel.bounds)/1.15, CGRectGetWidth(cell.authorLabel.bounds), CGRectGetHeight(cell.authorLabel.bounds))];
         
@@ -173,15 +166,18 @@
 
         JAImageCollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"ImageCell" forIndexPath:indexPath];
         
+        //Set Content
+        [cell.legendLabel initWithString:[self.currentBlock text]];
         [cell.imageView setImage:[UIImage imageNamed:[self.currentBlock image]]];
-        [cell.imageView setFrame:CGRectMake(0, 0, cell.imageView.image.size.width, cell.imageView.image.size.height)];
-        [cell.legendLabel setText:[self.currentBlock text]];
-        [cell.legendLabel applyLineHeight];
         
+        //Set size hoped
         maximumSizeOfLabel = CGSizeMake(185, CGFLOAT_MAX);
         optimalSizeForLabel = [cell.legendLabel sizeThatFits:maximumSizeOfLabel];
+        
+        //Set frames
+        [cell.imageView setFrame:CGRectMake(0, 0, cell.imageView.image.size.width, cell.imageView.image.size.height)];
         [cell.legendLabel setFrame:CGRectMake(cell.imageView.image.size.width*0.65, CGRectGetHeight(cell.bounds)/2 - optimalSizeForLabel.height/2, optimalSizeForLabel.width, optimalSizeForLabel.height)];
-
+        
         return cell;
         
     }
@@ -189,16 +185,18 @@
         
         JAKeyNumberCollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"KeyNumberCell" forIndexPath:indexPath];
         
-        [cell.numberLabel setText:[self.currentBlock number]];
-        [cell.numberLabel sizeToFit];
+        //Set content
+        [cell.numberLabel initWithString:[self.currentBlock number]];
+        [cell.descriptionLabel initWithString:[self.currentBlock text]];
         
-        [cell.descriptionLabel setText:[self.currentBlock text]];
-        [cell.descriptionLabel applyLineHeight];
-        
+        //Set size hoped
         maximumSizeOfLabel = CGSizeMake(195, CGFLOAT_MAX);
         optimalSizeForLabel = [cell.descriptionLabel sizeThatFits:maximumSizeOfLabel];
         
-        [cell.descriptionLabel setFrame:CGRectMake(CGRectGetWidth(cell.numberLabel.bounds)/2, CGRectGetHeight(cell.numberLabel.bounds)/2 - optimalSizeForLabel.height/4, optimalSizeForLabel.width, optimalSizeForLabel.height)];
+        //Set frames
+        [cell.descriptionLabel setFrame:CGRectMake((CGRectGetWidth(cell.numberLabel.bounds)*0.9)/2, cell.numberLabel.bounds.origin.y + (CGRectGetHeight(cell.numberLabel.bounds)*0.728)/2-optimalSizeForLabel.height*0.154, optimalSizeForLabel.width, optimalSizeForLabel.height)];
+        
+//        CGRectGetHeight(cell.numberLabel.bounds)/2 - optimalSizeForLabel.height/4
         
         return cell;
         
@@ -214,25 +212,24 @@
     
     self.currentBlock = _blocks[[indexPath row]];
     
-    NSLog(@"%@", [self.articleCollectionView cellForItemAtIndexPath:0].class);
-    
     if([[self.currentBlock type] isEqualToString:@"title"]) {
-        
+
         // Calculate height of title cell in function of title label height
         JATitleCollectionViewCell *cell = [JATitleCollectionViewCell new];
         
-        [cell.titleLabel  setText:[self.currentBlock title]];
-        [cell.titleLabel applyLineHeight];
+        [cell.titleLabel  initWithString:[self.currentBlock title]];
+        
         maximumSizeOfLabel = CGSizeMake(256, CGFLOAT_MAX);
         optimalSizeForLabel = [cell.titleLabel sizeThatFits:maximumSizeOfLabel];
 
         return CGSizeMake(self.view.bounds.size.width, optimalSizeForLabel.height);
         
     } else if([[self.currentBlock type] isEqualToString:@"resume"]) {
-        
+
         // Calculate height of resume cell in function of resume label height
         JAResumeCollectionViewCell *cell = [JAResumeCollectionViewCell new];
-        [cell.resumeLabel  setText:[self.currentBlock text]];
+        
+        [cell.resumeLabel  initWithString:[self.currentBlock text]];
         
         maximumSizeOfLabel = CGSizeMake(160, CGFLOAT_MAX);
         optimalSizeForLabel = [cell.resumeLabel sizeThatFits:maximumSizeOfLabel];
@@ -240,11 +237,12 @@
         return CGSizeMake(CGRectGetWidth(self.view.bounds), optimalSizeForLabel.height-25);
         
     } else if([[self.currentBlock type] isEqualToString:@"paragraph"]) {
-    
+
         // Calculate height of paragraph cell in function of parapragh label height
         JAParagraphCollectionViewCell *cell = [JAParagraphCollectionViewCell new];
-        [cell.paragraphLabel  setText:[self.currentBlock text]];
-        //[cell.paragraphLabel setLineHeightWithNumber:1.5];
+        
+        cell.paragraphLabel.links = [self.currentBlock links];
+        [cell.paragraphLabel  initWithString:[self.currentBlock text]];
         
         maximumSizeOfLabel = CGSizeMake(self.view.bounds.size.width-40, CGFLOAT_MAX);
         optimalSizeForLabel = [cell.paragraphLabel sizeThatFits:maximumSizeOfLabel];
@@ -257,41 +255,37 @@
         UIImage *image = [UIImage imageNamed:[self.currentBlock image]];
         
         return CGSizeMake(CGRectGetWidth(self.view.bounds), image.size.height);
+    
         
     } else if([[self.currentBlock type] isEqualToString:@"quote"]) {
-        
+
         // Calculate height of quote cell in function of quote & author label height
         JAQuotesCollectionViewCell *cell = [JAQuotesCollectionViewCell new];
-        [cell.quoteLabel setText:[self.currentBlock text]];
-        [cell.quoteLabel applyLineHeight];
         
-        [cell.authorLabel setText:[self.currentBlock author]];
-        [cell.authorLabel sizeToFit];
+        [cell.quoteLabel initWithString:[self.currentBlock text]];
+        [cell.authorLabel initWithString:[self.currentBlock author]];
         
         maximumSizeOfLabel = CGSizeMake(225, CGFLOAT_MAX);
         optimalSizeForLabel = [cell.quoteLabel sizeThatFits:maximumSizeOfLabel];
         
-        
         return CGSizeMake(CGRectGetWidth(self.view.bounds)-80, optimalSizeForLabel.height + (CGRectGetHeight(cell.authorLabel.bounds)*0.15));
         
     } else if([[self.currentBlock type] isEqualToString:@"keyNumber"]) {
-        
+
         // Calculate height of quote cell in function of quote & author label height
         JAKeyNumberCollectionViewCell *cell = [JAKeyNumberCollectionViewCell new];
-        [cell.numberLabel setText:[self.currentBlock number]];
-        [cell.numberLabel sizeToFit];
         
-        [cell.descriptionLabel setText:[self.currentBlock text]];
-        [cell.descriptionLabel applyLineHeight];
+        [cell.numberLabel initWithString:[self.currentBlock number]];
+        [cell.descriptionLabel initWithString:[self.currentBlock text]];
         
         maximumSizeOfLabel = CGSizeMake(195, CGFLOAT_MAX);
         optimalSizeForLabel = [cell.descriptionLabel sizeThatFits:maximumSizeOfLabel];
-        
         
         return CGSizeMake(CGRectGetWidth(self.view.bounds)-80, (optimalSizeForLabel.height/4) + CGRectGetHeight(cell.numberLabel.bounds));
         
     }
     else {
+
         return CGSizeZero;
     }
 }

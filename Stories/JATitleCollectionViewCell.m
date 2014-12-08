@@ -32,14 +32,12 @@
         [self.locationLabel setFont:infoFont];
         [self.locationLabel setTextColor:infoColor];
         [self.locationLabel setTextAlignment:NSTextAlignmentCenter];
-        self.locationLabel.lineHeight = 1.25;
         
         // Initial Setting - Date Label
         self.dateLabel = [JAUILabel new];
         [self.dateLabel setFont:infoFont];
         [self.dateLabel setTextColor:infoColor];
         [self.dateLabel setTextAlignment:NSTextAlignmentCenter];
-        self.dateLabel.lineHeight = 1.25;
         
         // Ready to add in parent view
         [self addSubview:self.locationLabel];
@@ -47,7 +45,7 @@
         [self addSubview:self.titleLabel];
         
         // ********TEMPORARY********
-//        [self setBackgroundColor:[UIColor blueColor]];
+//        [self.locationLabel setBackgroundColor:[UIColor blueColor]];
     }
     
     return self;

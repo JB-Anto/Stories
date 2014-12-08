@@ -25,13 +25,13 @@
         [self.authorLabel setFont:authorFont];
         [self.authorLabel setTextAlignment:NSTextAlignmentRight];
         [self.authorLabel setTextColor:authorColor];
-        self.authorLabel.lineHeight = 1.25;
+        self.authorLabel.lineHeight = 1.3;
         
         self.quoteLabel = [JAUILabel new];
         [self.quoteLabel setNumberOfLines:0];
         [self.quoteLabel setFont:quoteFont];
         [self.quoteLabel setTextColor:quoteColor];
-        self.quoteLabel.lineHeight = 1.23;
+        self.quoteLabel.lineHeight = 1.08;
         
         // Ready to add in parent view
         [self addSubview:self.authorLabel];

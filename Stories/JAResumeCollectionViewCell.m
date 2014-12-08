@@ -23,7 +23,7 @@
         [self.resumeLabel setNumberOfLines:0];
         [self.resumeLabel setFont:resumeFont];
         [self.resumeLabel setTextColor:resumeColor];
-        
+        self.resumeLabel.lineHeight = 1.2;
         
         // Ready to add in parent view
         [self addSubview:self.resumeLabel];

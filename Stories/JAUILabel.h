@@ -16,5 +16,5 @@
 -(void)initWithString:(NSString *)text;
 -(void)applyLineHeight;
 -(void)applyLetterSpacing;
-
+-(void)setFrameForThisBounds:(CGRect)boundsHoped;
 @end

@@ -21,6 +21,8 @@
     if(self.letterSpacing) {
         [self applyLetterSpacing];
     }
+    
+    [self sizeToFit];
 }
 
 -(void)applyLineHeight
@@ -46,6 +48,19 @@
                 range:NSMakeRange(0, [self.text length])];
     
     self.attributedText = attrString;
+    
+}
+
+-(void)setFrameForThisBounds:(CGRect)boundsHoped {
+    
+    CGSize optimalSizeForLabel = boundsHoped.size;
+    
+    if(optimalSizeForLabel.width == 0 && optimalSizeForLabel.height == 0) {
+        optimalSizeForLabel = self.bounds.size;
+    } else {
+        optimalSizeForLabel = [self sizeThatFits:boundsHoped.size];
+    }
+    [self setFrame:CGRectMake(boundsHoped.origin.x, boundsHoped.origin.y, optimalSizeForLabel.width, optimalSizeForLabel.height)];
     
 }
 @end

@@ -24,11 +24,11 @@
         [self.paragraphLabel setScrollEnabled:NO];
         [self.paragraphLabel setEditable:NO];
         [self.paragraphLabel setSelectable:NO];
-        //[self.paragraphLabel setNumberOfLines:0];
         [self.paragraphLabel setFont:paragraphFont];
         [self.paragraphLabel setTextColor:paragraphColor];
         self.paragraphLabel.linkColor = linkColor;
-        self.paragraphLabel.lineHeight = 1.5;
+        self.paragraphLabel.lineHeight = 1.4;
+        self.paragraphLabel.letterSpacing = -0.01;
         
         // Ready to add in parent view
         [self addSubview:self.paragraphLabel];

@@ -31,11 +31,6 @@
         // User Interaction on imageView
         self.imageView.userInteractionEnabled = YES;
         UISwipeGestureRecognizer *recognizer = [UISwipeGestureRecognizer new];
-        UISwipeGestureRecognizer *recognizer2 = [UISwipeGestureRecognizer new];
-        
-        
-        //pgr.delegate = self;
-        //[self.imageView addGestureRecognizer:pgr];
         
         recognizer.delegate = self;
         
@@ -55,7 +50,7 @@
         
         // ********TEMPORARY********
 //        [self.imageView setBackgroundColor:[UIColor redColor]];
-//        [self.legendLabel setBackgroundColor:[UIColor redColor]];
+//        [self.legendLabel setBackgroundColor:[UIColor blueColor]];
 //        [self setBackgroundColor:[UIColor greenColor]];
         
     }

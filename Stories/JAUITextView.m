@@ -33,6 +33,7 @@
     [self setText:processedString];
 
     long numberOfString = [choppedString count];
+    int indexOfLinks = 0;
     
     if(numberOfString > 1) {
         
@@ -53,7 +54,10 @@
             long lengthOfBoldComponent  = [[choppedString objectAtIndex:i] length];
         
             NSRange boldRange = NSMakeRange(lengthOfFirstComponent, lengthOfBoldComponent);
-            [attributedText addAttribute:CCHLinkAttributeName value:@"viewToLoad" range:boldRange];
+            [attributedText addAttribute:CCHLinkAttributeName value:self.links[indexOfLinks] range:boldRange];
+            
+            indexOfLinks++;
+                
         }
 
         self.linkTextAttributes = boldAttributes;

@@ -12,5 +12,4 @@
 
 @interface JAParagraphCollectionViewCell : UICollectionViewCell
 @property (strong, nonatomic) JAUITextView *paragraphLabel;
-
 @end

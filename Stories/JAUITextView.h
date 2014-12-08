@@ -16,9 +16,10 @@
 @property CGFloat lineHeight;
 @property CGFloat letterSpacing;
 @property (strong, nonatomic) UIColor *linkColor;
+@property (strong, nonatomic) NSArray *links;
 
 -(void)initWithString:(NSString *)text;
 -(void)addLink;
 -(void)applyLineHeight;
--(void)applyletterSpacing;
+-(void)applyLetterSpacing;
 @end

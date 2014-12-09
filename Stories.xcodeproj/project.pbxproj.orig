@@ -50,9 +50,10 @@
 		0A87842D1A155DE80028437C /* loader_7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A8784051A155DE80028437C /* loader_7@2x.png */; };
 		0A87842E1A155DE80028437C /* loader_8@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A8784061A155DE80028437C /* loader_8@2x.png */; };
 		0A87842F1A155DE80028437C /* loader_9@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A8784071A155DE80028437C /* loader_9@2x.png */; };
+<<<<<<< HEAD
 		7705EFBA1A2374AD0015B1BD /* Young-Serif-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7705EFB91A2374AD0015B1BD /* Young-Serif-Regular.ttf */; };
 		770CB9121A232FB8002817BE /* Article.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 770CB9101A232FB8002817BE /* Article.storyboard */; };
-		770CB9221A233006002817BE /* JACreditsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 770CB9161A233006002817BE /* JACreditsView.m */; };
+		770CB9221A233006002817BE /* JACreditsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 770CB9161A233006002817BE /* JACreditsCollectionViewCell.m */; };
 		770CB9231A233006002817BE /* JAImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 770CB9181A233006002817BE /* JAImageCollectionViewCell.m */; };
 		770CB9241A233006002817BE /* JAKeyNumberCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 770CB91A1A233006002817BE /* JAKeyNumberCollectionViewCell.m */; };
 		770CB9251A233006002817BE /* JAParagraphCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 770CB91C1A233006002817BE /* JAParagraphCollectionViewCell.m */; };
@@ -72,26 +73,13 @@
 		770CB9401A23491E002817BE /* News-Plantin-Pro-Regular-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 770CB9351A23491E002817BE /* News-Plantin-Pro-Regular-Italic.otf */; };
 		770CB9411A23491E002817BE /* News-Plantin-Pro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 770CB9361A23491E002817BE /* News-Plantin-Pro-Regular.otf */; };
 		770CB9431A234A18002817BE /* Circular-Std-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 770CB9421A234A18002817BE /* Circular-Std-Bold.otf */; };
-		777CA27C1A24947E008A7FE3 /* Calibre-Black-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 777CA26E1A24947E008A7FE3 /* Calibre-Black-Italic.otf */; };
-		777CA27D1A24947E008A7FE3 /* Calibre-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 777CA26F1A24947E008A7FE3 /* Calibre-Black.otf */; };
-		777CA27E1A24947E008A7FE3 /* Calibre-Bold-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 777CA2701A24947E008A7FE3 /* Calibre-Bold-Italic.otf */; };
-		777CA27F1A24947E008A7FE3 /* Calibre-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 777CA2711A24947E008A7FE3 /* Calibre-Bold.otf */; };
-		777CA2801A24947E008A7FE3 /* Calibre-Light-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 777CA2721A24947E008A7FE3 /* Calibre-Light-Italic.otf */; };
-		777CA2811A24947E008A7FE3 /* Calibre-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 777CA2731A24947E008A7FE3 /* Calibre-Light.otf */; };
-		777CA2821A24947E008A7FE3 /* Calibre-Medium-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 777CA2741A24947E008A7FE3 /* Calibre-Medium-Italic.otf */; };
-		777CA2831A24947E008A7FE3 /* Calibre-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 777CA2751A24947E008A7FE3 /* Calibre-Medium.otf */; };
-		777CA2841A24947E008A7FE3 /* Calibre-Regular-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 777CA2761A24947E008A7FE3 /* Calibre-Regular-Italic.otf */; };
-		777CA2851A24947E008A7FE3 /* Calibre-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 777CA2771A24947E008A7FE3 /* Calibre-Regular.otf */; };
-		777CA2861A24947E008A7FE3 /* Calibre-Semibold-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 777CA2781A24947E008A7FE3 /* Calibre-Semibold-Italic.otf */; };
-		777CA2871A24947E008A7FE3 /* Calibre-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 777CA2791A24947E008A7FE3 /* Calibre-Semibold.otf */; };
-		777CA2881A24947E008A7FE3 /* Calibre-Thin-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 777CA27A1A24947E008A7FE3 /* Calibre-Thin-Italic.otf */; };
-		777CA2891A24947E008A7FE3 /* Calibre-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 777CA27B1A24947E008A7FE3 /* Calibre-Thin.otf */; };
-		77A0D8421A27303300963904 /* JAUITextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A0D8411A27303300963904 /* JAUITextView.m */; };
-		77A0D8481A27712800963904 /* CCHLinkTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A0D8441A27712800963904 /* CCHLinkTextView.m */; };
-		77A0D8491A27712800963904 /* CCHLinkGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A0D8461A27712800963904 /* CCHLinkGestureRecognizer.m */; };
 		77E758061A245C880015EDEF /* 2-0-0-poroshenko.png in Resources */ = {isa = PBXBuildFile; fileRef = 77E758041A245C880015EDEF /* 2-0-0-poroshenko.png */; };
 		77E758071A245C880015EDEF /* 2-0-0-poroshenko@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77E758051A245C880015EDEF /* 2-0-0-poroshenko@2x.png */; };
 		77E758101A2469C60015EDEF /* JAUILabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E7580F1A2469C60015EDEF /* JAUILabel.m */; };
+=======
+		0A9321731A2347E600AAED95 /* News-Plantin-Pro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0A9321721A2347E600AAED95 /* News-Plantin-Pro-Regular.otf */; };
+		0A9321771A235F7200AAED95 /* Calibre-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0A9321761A235F7200AAED95 /* Calibre-Thin.otf */; };
+>>>>>>> origin/cover
 		8D54A8F61A14DCDA00ABDAD2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D54A8F31A14DC9A00ABDAD2 /* SystemConfiguration.framework */; };
 		8D54A8F91A14DD9C00ABDAD2 /* JAStorieModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D54A8F81A14DD9C00ABDAD2 /* JAStorieModel.m */; };
 		8D54A8FC1A14DED600ABDAD2 /* JACoverModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D54A8FB1A14DED600ABDAD2 /* JACoverModel.m */; };
@@ -185,11 +173,12 @@
 		0A8784051A155DE80028437C /* loader_7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loader_7@2x.png"; sourceTree = "<group>"; };
 		0A8784061A155DE80028437C /* loader_8@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loader_8@2x.png"; sourceTree = "<group>"; };
 		0A8784071A155DE80028437C /* loader_9@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loader_9@2x.png"; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		7705EFB91A2374AD0015B1BD /* Young-Serif-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Young-Serif-Regular.ttf"; path = "Stories/Fonts/Young-Serif-Regular.ttf"; sourceTree = "<group>"; };
 		770CB9111A232FB8002817BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Article.storyboard; sourceTree = "<group>"; };
 		770CB9141A233006002817BE /* JAArticleCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JAArticleCollectionViewController.h; path = Stories/JAArticleCollectionViewController.h; sourceTree = "<group>"; };
-		770CB9151A233006002817BE /* JACreditsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JACreditsView.h; sourceTree = "<group>"; };
-		770CB9161A233006002817BE /* JACreditsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JACreditsView.m; sourceTree = "<group>"; };
+		770CB9151A233006002817BE /* JACreditsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JACreditsCollectionViewCell.h; sourceTree = "<group>"; };
+		770CB9161A233006002817BE /* JACreditsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JACreditsCollectionViewCell.m; sourceTree = "<group>"; };
 		770CB9171A233006002817BE /* JAImageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAImageCollectionViewCell.h; sourceTree = "<group>"; };
 		770CB9181A233006002817BE /* JAImageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAImageCollectionViewCell.m; sourceTree = "<group>"; };
 		770CB9191A233006002817BE /* JAKeyNumberCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAKeyNumberCollectionViewCell.h; sourceTree = "<group>"; };
@@ -215,31 +204,14 @@
 		770CB9351A23491E002817BE /* News-Plantin-Pro-Regular-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "News-Plantin-Pro-Regular-Italic.otf"; path = "Stories/Fonts/News-Plantin-Pro-Regular-Italic.otf"; sourceTree = "<group>"; };
 		770CB9361A23491E002817BE /* News-Plantin-Pro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "News-Plantin-Pro-Regular.otf"; path = "Stories/Fonts/News-Plantin-Pro-Regular.otf"; sourceTree = "<group>"; };
 		770CB9421A234A18002817BE /* Circular-Std-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Circular-Std-Bold.otf"; path = "Stories/Fonts/Circular-Std-Bold.otf"; sourceTree = "<group>"; };
-		777CA26E1A24947E008A7FE3 /* Calibre-Black-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Black-Italic.otf"; path = "Stories/Fonts/Calibre-Black-Italic.otf"; sourceTree = "<group>"; };
-		777CA26F1A24947E008A7FE3 /* Calibre-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Black.otf"; path = "Stories/Fonts/Calibre-Black.otf"; sourceTree = "<group>"; };
-		777CA2701A24947E008A7FE3 /* Calibre-Bold-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Bold-Italic.otf"; path = "Stories/Fonts/Calibre-Bold-Italic.otf"; sourceTree = "<group>"; };
-		777CA2711A24947E008A7FE3 /* Calibre-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Bold.otf"; path = "Stories/Fonts/Calibre-Bold.otf"; sourceTree = "<group>"; };
-		777CA2721A24947E008A7FE3 /* Calibre-Light-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Light-Italic.otf"; path = "Stories/Fonts/Calibre-Light-Italic.otf"; sourceTree = "<group>"; };
-		777CA2731A24947E008A7FE3 /* Calibre-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Light.otf"; path = "Stories/Fonts/Calibre-Light.otf"; sourceTree = "<group>"; };
-		777CA2741A24947E008A7FE3 /* Calibre-Medium-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Medium-Italic.otf"; path = "Stories/Fonts/Calibre-Medium-Italic.otf"; sourceTree = "<group>"; };
-		777CA2751A24947E008A7FE3 /* Calibre-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Medium.otf"; path = "Stories/Fonts/Calibre-Medium.otf"; sourceTree = "<group>"; };
-		777CA2761A24947E008A7FE3 /* Calibre-Regular-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Regular-Italic.otf"; path = "Stories/Fonts/Calibre-Regular-Italic.otf"; sourceTree = "<group>"; };
-		777CA2771A24947E008A7FE3 /* Calibre-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Regular.otf"; path = "Stories/Fonts/Calibre-Regular.otf"; sourceTree = "<group>"; };
-		777CA2781A24947E008A7FE3 /* Calibre-Semibold-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Semibold-Italic.otf"; path = "Stories/Fonts/Calibre-Semibold-Italic.otf"; sourceTree = "<group>"; };
-		777CA2791A24947E008A7FE3 /* Calibre-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Semibold.otf"; path = "Stories/Fonts/Calibre-Semibold.otf"; sourceTree = "<group>"; };
-		777CA27A1A24947E008A7FE3 /* Calibre-Thin-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Thin-Italic.otf"; path = "Stories/Fonts/Calibre-Thin-Italic.otf"; sourceTree = "<group>"; };
-		777CA27B1A24947E008A7FE3 /* Calibre-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Thin.otf"; path = "Stories/Fonts/Calibre-Thin.otf"; sourceTree = "<group>"; };
-		77A0D8401A27303300963904 /* JAUITextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAUITextView.h; sourceTree = "<group>"; };
-		77A0D8411A27303300963904 /* JAUITextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAUITextView.m; sourceTree = "<group>"; };
-		77A0D8431A27712800963904 /* CCHLinkTextViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCHLinkTextViewDelegate.h; sourceTree = "<group>"; };
-		77A0D8441A27712800963904 /* CCHLinkTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCHLinkTextView.m; sourceTree = "<group>"; };
-		77A0D8451A27712800963904 /* CCHLinkTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCHLinkTextView.h; sourceTree = "<group>"; };
-		77A0D8461A27712800963904 /* CCHLinkGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCHLinkGestureRecognizer.m; sourceTree = "<group>"; };
-		77A0D8471A27712800963904 /* CCHLinkGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCHLinkGestureRecognizer.h; sourceTree = "<group>"; };
 		77E758041A245C880015EDEF /* 2-0-0-poroshenko.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2-0-0-poroshenko.png"; sourceTree = "<group>"; };
 		77E758051A245C880015EDEF /* 2-0-0-poroshenko@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2-0-0-poroshenko@2x.png"; sourceTree = "<group>"; };
 		77E7580E1A2469C60015EDEF /* JAUILabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAUILabel.h; sourceTree = "<group>"; };
 		77E7580F1A2469C60015EDEF /* JAUILabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAUILabel.m; sourceTree = "<group>"; };
+=======
+		0A9321721A2347E600AAED95 /* News-Plantin-Pro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "News-Plantin-Pro-Regular.otf"; path = "Stories/Fonts/News-Plantin-Pro-Regular.otf"; sourceTree = "<group>"; };
+		0A9321761A235F7200AAED95 /* Calibre-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Thin.otf"; path = "Stories/Fonts/Calibre-Thin.otf"; sourceTree = "<group>"; };
+>>>>>>> origin/cover
 		8D54A8F31A14DC9A00ABDAD2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		8D54A8F71A14DD9C00ABDAD2 /* JAStorieModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAStorieModel.h; sourceTree = "<group>"; };
 		8D54A8F81A14DD9C00ABDAD2 /* JAStorieModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAStorieModel.m; sourceTree = "<group>"; };
@@ -342,7 +314,7 @@
 			name = Chapter;
 			sourceTree = "<group>";
 		};
-		0A8783DE1A155CFC0028437C /* Views */ = {
+		0A8783DE1A155CFC0028437C /* VIews */ = {
 			isa = PBXGroup;
 			children = (
 				770CB9131A232FED002817BE /* ArticleCellViews */,
@@ -351,7 +323,7 @@
 				8DB9C3D21A160BE200FBC975 /* JAFollowView.h */,
 				8DB9C3D31A160BE200FBC975 /* JAFollowView.m */,
 			);
-			name = Views;
+			name = VIews;
 			sourceTree = "<group>";
 		};
 		0A8783DF1A155DE80028437C /* Loader */ = {
@@ -417,30 +389,18 @@
 				770CB9291A233014002817BE /* JATitleCollectionViewCell.m */,
 				770CB91F1A233006002817BE /* JAResumeCollectionViewCell.h */,
 				770CB9201A233006002817BE /* JAResumeCollectionViewCell.m */,
-				770CB91B1A233006002817BE /* JAParagraphCollectionViewCell.h */,
-				770CB91C1A233006002817BE /* JAParagraphCollectionViewCell.m */,
 				770CB9171A233006002817BE /* JAImageCollectionViewCell.h */,
 				770CB9181A233006002817BE /* JAImageCollectionViewCell.m */,
-				770CB91D1A233006002817BE /* JAQuotesCollectionViewCell.h */,
-				770CB91E1A233006002817BE /* JAQuotesCollectionViewCell.m */,
 				770CB9191A233006002817BE /* JAKeyNumberCollectionViewCell.h */,
 				770CB91A1A233006002817BE /* JAKeyNumberCollectionViewCell.m */,
-				770CB9151A233006002817BE /* JACreditsView.h */,
-				770CB9161A233006002817BE /* JACreditsView.m */,
+				770CB91B1A233006002817BE /* JAParagraphCollectionViewCell.h */,
+				770CB91C1A233006002817BE /* JAParagraphCollectionViewCell.m */,
+				770CB91D1A233006002817BE /* JAQuotesCollectionViewCell.h */,
+				770CB91E1A233006002817BE /* JAQuotesCollectionViewCell.m */,
+				770CB9151A233006002817BE /* JACreditsCollectionViewCell.h */,
+				770CB9161A233006002817BE /* JACreditsCollectionViewCell.m */,
 			);
 			name = ArticleCellViews;
-			sourceTree = "<group>";
-		};
-		77A0D84A1A2870ED00963904 /* CCHLinkText */ = {
-			isa = PBXGroup;
-			children = (
-				77A0D8431A27712800963904 /* CCHLinkTextViewDelegate.h */,
-				77A0D8441A27712800963904 /* CCHLinkTextView.m */,
-				77A0D8451A27712800963904 /* CCHLinkTextView.h */,
-				77A0D8461A27712800963904 /* CCHLinkGestureRecognizer.m */,
-				77A0D8471A27712800963904 /* CCHLinkGestureRecognizer.h */,
-			);
-			name = CCHLinkText;
 			sourceTree = "<group>";
 		};
 		77E758031A245C880015EDEF /* Article */ = {
@@ -466,8 +426,6 @@
 			children = (
 				77E7580E1A2469C60015EDEF /* JAUILabel.h */,
 				77E7580F1A2469C60015EDEF /* JAUILabel.m */,
-				77A0D8401A27303300963904 /* JAUITextView.h */,
-				77A0D8411A27303300963904 /* JAUITextView.m */,
 			);
 			name = "Label Layout";
 			sourceTree = "<group>";
@@ -557,8 +515,11 @@
 		8D54A9371A14FAF400ABDAD2 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				770CB90F1A232F9B002817BE /* Article */,
+=======
 				0A7D6E761A232C180017A8C0 /* Chapter */,
+>>>>>>> origin/cover
 				8D54A9381A14FB0700ABDAD2 /* Cover */,
 			);
 			name = ViewControllers;
@@ -602,20 +563,7 @@
 		8D54A9481A15085600ABDAD2 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				777CA26E1A24947E008A7FE3 /* Calibre-Black-Italic.otf */,
-				777CA26F1A24947E008A7FE3 /* Calibre-Black.otf */,
-				777CA2701A24947E008A7FE3 /* Calibre-Bold-Italic.otf */,
-				777CA2711A24947E008A7FE3 /* Calibre-Bold.otf */,
-				777CA2721A24947E008A7FE3 /* Calibre-Light-Italic.otf */,
-				777CA2731A24947E008A7FE3 /* Calibre-Light.otf */,
-				777CA2741A24947E008A7FE3 /* Calibre-Medium-Italic.otf */,
-				777CA2751A24947E008A7FE3 /* Calibre-Medium.otf */,
-				777CA2761A24947E008A7FE3 /* Calibre-Regular-Italic.otf */,
-				777CA2771A24947E008A7FE3 /* Calibre-Regular.otf */,
-				777CA2781A24947E008A7FE3 /* Calibre-Semibold-Italic.otf */,
-				777CA2791A24947E008A7FE3 /* Calibre-Semibold.otf */,
-				777CA27A1A24947E008A7FE3 /* Calibre-Thin-Italic.otf */,
-				777CA27B1A24947E008A7FE3 /* Calibre-Thin.otf */,
+<<<<<<< HEAD
 				7705EFB91A2374AD0015B1BD /* Young-Serif-Regular.ttf */,
 				770CB92C1A23491E002817BE /* Circular-Std-Black-Italic.otf */,
 				770CB92D1A23491E002817BE /* Circular-Std-Black.otf */,
@@ -629,6 +577,19 @@
 				770CB9341A23491E002817BE /* News-Plantin-Pro-Bold.otf */,
 				770CB9351A23491E002817BE /* News-Plantin-Pro-Regular-Italic.otf */,
 				770CB9361A23491E002817BE /* News-Plantin-Pro-Regular.otf */,
+=======
+				0A9321761A235F7200AAED95 /* Calibre-Thin.otf */,
+				8D54A95B1A1508A200ABDAD2 /* Circular Std Black Italic.otf */,
+				8D54A95C1A1508A200ABDAD2 /* Circular Std Black.otf */,
+				8D54A95D1A1508A200ABDAD2 /* Circular Std Bold Italic.otf */,
+				8D54A95E1A1508A200ABDAD2 /* Circular Std Bold.otf */,
+				8D54A95F1A1508A200ABDAD2 /* Circular Std Book Italic.otf */,
+				8D54A9611A1508A200ABDAD2 /* Circular Std Medium Italic.otf */,
+				8D54A9621A1508A200ABDAD2 /* Circular Std Medium.otf */,
+				8D54A9681A150DDB00ABDAD2 /* Circular-Std-Book.otf */,
+				8D54A9651A150A3C00ABDAD2 /* Young-Serif-Regular.ttf */,
+				0A9321721A2347E600AAED95 /* News-Plantin-Pro-Regular.otf */,
+>>>>>>> origin/cover
 			);
 			name = Fonts;
 			sourceTree = "<group>";
@@ -659,7 +620,7 @@
 				8D54A8FD1A14DEEB00ABDAD2 /* Model */,
 				0A525C5C1A116DBD00C33D2C /* Ressources */,
 				8D54A9371A14FAF400ABDAD2 /* ViewControllers */,
-				0A8783DE1A155CFC0028437C /* Views */,
+				0A8783DE1A155CFC0028437C /* VIews */,
 				8D8C02D61A10CB6200904841 /* AppDelegate.h */,
 				8D8C02D71A10CB6200904841 /* AppDelegate.m */,
 				8DBB41561A10EE94006FDAD4 /* Utils */,
@@ -701,11 +662,15 @@
 		8DBB41561A10EE94006FDAD4 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				77A0D84A1A2870ED00963904 /* CCHLinkText */,
+<<<<<<< HEAD
 				77E7580D1A2469A20015EDEF /* Label Layout */,
 				77E7580C1A2469950015EDEF /* Data Manager */,
+=======
+				8D54A9391A14FBA000ABDAD2 /* JAManagerData.h */,
+				8D54A93A1A14FBA000ABDAD2 /* JAManagerData.m */,
 				0A83AE321A23F52D0098F1DD /* UIColor+UIColor_PXExtentions.h */,
 				0A83AE331A23F52D0098F1DD /* UIColor+UIColor_PXExtentions.m */,
+>>>>>>> origin/cover
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -792,9 +757,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D8C02DE1A10CB6200904841 /* Main.storyboard in Resources */,
-				777CA27E1A24947E008A7FE3 /* Calibre-Bold-Italic.otf in Resources */,
 				0A8784191A155DE80028437C /* loader_25@2x.png in Resources */,
-				777CA2891A24947E008A7FE3 /* Calibre-Thin.otf in Resources */,
 				0A87842F1A155DE80028437C /* loader_9@2x.png in Resources */,
 				770CB93C1A23491E002817BE /* Circular-Std-Medium-Italic.otf in Resources */,
 				0A87841F1A155DE80028437C /* loader_30@2x.png in Resources */,
@@ -803,23 +766,17 @@
 				0A87842A1A155DE80028437C /* loader_4@2x.png in Resources */,
 				0A87840B1A155DE80028437C /* loader_12@2x.png in Resources */,
 				8D8C02E31A10CB6200904841 /* LaunchScreen.xib in Resources */,
-				777CA2821A24947E008A7FE3 /* Calibre-Medium-Italic.otf in Resources */,
 				0A8784091A155DE80028437C /* loader_10@2x.png in Resources */,
 				0A87842C1A155DE80028437C /* loader_6@2x.png in Resources */,
 				0A8784151A155DE80028437C /* loader_21@2x.png in Resources */,
 				770CB9381A23491E002817BE /* Circular-Std-Black.otf in Resources */,
 				0A8784161A155DE80028437C /* loader_22@2x.png in Resources */,
-				777CA2811A24947E008A7FE3 /* Calibre-Light.otf in Resources */,
-				777CA2871A24947E008A7FE3 /* Calibre-Semibold.otf in Resources */,
 				0A8784261A155DE80028437C /* loader_37@2x.png in Resources */,
 				0A87842D1A155DE80028437C /* loader_7@2x.png in Resources */,
 				770CB9411A23491E002817BE /* News-Plantin-Pro-Regular.otf in Resources */,
 				0A8784081A155DE80028437C /* loader_0@2x.png in Resources */,
 				770CB93A1A23491E002817BE /* Circular-Std-Book-Italic.otf in Resources */,
-				777CA27C1A24947E008A7FE3 /* Calibre-Black-Italic.otf in Resources */,
 				0A8784141A155DE80028437C /* loader_20@2x.png in Resources */,
-				777CA27D1A24947E008A7FE3 /* Calibre-Black.otf in Resources */,
-				777CA2831A24947E008A7FE3 /* Calibre-Medium.otf in Resources */,
 				0A87842B1A155DE80028437C /* loader_5@2x.png in Resources */,
 				0A8784271A155DE80028437C /* loader_38@2x.png in Resources */,
 				0A8784251A155DE80028437C /* loader_36@2x.png in Resources */,
@@ -835,33 +792,30 @@
 				0A87841C1A155DE80028437C /* loader_28@2x.png in Resources */,
 				0A8784221A155DE80028437C /* loader_33@2x.png in Resources */,
 				77E758071A245C880015EDEF /* 2-0-0-poroshenko@2x.png in Resources */,
-				777CA2801A24947E008A7FE3 /* Calibre-Light-Italic.otf in Resources */,
 				0A87841E1A155DE80028437C /* loader_2@2x.png in Resources */,
 				8D54A9451A14FE9800ABDAD2 /* background_cover_2@2x.png in Resources */,
 				0A87840D1A155DE80028437C /* loader_14@2x.png in Resources */,
-				777CA27F1A24947E008A7FE3 /* Calibre-Bold.otf in Resources */,
 				0A8784231A155DE80028437C /* loader_34@2x.png in Resources */,
 				770CB9371A23491E002817BE /* Circular-Std-Black-Italic.otf in Resources */,
 				77E758061A245C880015EDEF /* 2-0-0-poroshenko.png in Resources */,
 				0A8784101A155DE80028437C /* loader_17@2x.png in Resources */,
 				770CB9431A234A18002817BE /* Circular-Std-Bold.otf in Resources */,
 				770CB93D1A23491E002817BE /* Circular-Std-Medium.otf in Resources */,
-				777CA2851A24947E008A7FE3 /* Calibre-Regular.otf in Resources */,
 				8D8C02E01A10CB6200904841 /* Images.xcassets in Resources */,
 				8D54A9471A14FE9800ABDAD2 /* personnage_cover_2@2x.png in Resources */,
 				8D54A9431A14FE9800ABDAD2 /* background_cover_0@2x.png in Resources */,
 				0A87842E1A155DE80028437C /* loader_8@2x.png in Resources */,
+				0A9321731A2347E600AAED95 /* News-Plantin-Pro-Regular.otf in Resources */,
 				8D54A9461A14FE9800ABDAD2 /* personnage_cover_1@2x.png in Resources */,
 				0A8784241A155DE80028437C /* loader_35@2x.png in Resources */,
-				777CA2881A24947E008A7FE3 /* Calibre-Thin-Italic.otf in Resources */,
 				0A87840F1A155DE80028437C /* loader_16@2x.png in Resources */,
 				0A8784181A155DE80028437C /* loader_24@2x.png in Resources */,
 				7705EFBA1A2374AD0015B1BD /* Young-Serif-Regular.ttf in Resources */,
 				8D54A9121A14E9AF00ABDAD2 /* stories.json in Resources */,
 				0A8784121A155DE80028437C /* loader_19@2x.png in Resources */,
 				0A87841D1A155DE80028437C /* loader_29@2x.png in Resources */,
-				777CA2841A24947E008A7FE3 /* Calibre-Regular-Italic.otf in Resources */,
 				0A87841B1A155DE80028437C /* loader_27@2x.png in Resources */,
+				0A9321771A235F7200AAED95 /* Calibre-Thin.otf in Resources */,
 				0A8784171A155DE80028437C /* loader_23@2x.png in Resources */,
 				0A8784281A155DE80028437C /* loader_39@2x.png in Resources */,
 				0A8784111A155DE80028437C /* loader_18@2x.png in Resources */,
@@ -869,7 +823,6 @@
 				0A8784131A155DE80028437C /* loader_1@2x.png in Resources */,
 				0A87841A1A155DE80028437C /* loader_26@2x.png in Resources */,
 				770CB93B1A23491E002817BE /* Circular-Std-Book.otf in Resources */,
-				777CA2861A24947E008A7FE3 /* Calibre-Semibold-Italic.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -887,10 +840,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				770CB9221A233006002817BE /* JACreditsView.m in Sources */,
+				770CB9221A233006002817BE /* JACreditsCollectionViewCell.m in Sources */,
 				8D54A9331A14EB8600ABDAD2 /* JSONHTTPClient.m in Sources */,
 				8D8C02D81A10CB6200904841 /* AppDelegate.m in Sources */,
-				77A0D8481A27712800963904 /* CCHLinkTextView.m in Sources */,
 				8D54A9341A14EB8600ABDAD2 /* JSONModel+networking.m in Sources */,
 				0A8783DD1A155CF50028437C /* JALoaderView.m in Sources */,
 				8D54A90E1A14E85E00ABDAD2 /* JAStoriesModel.m in Sources */,
@@ -918,12 +870,10 @@
 				0A7D6E791A232ED50017A8C0 /* JAChapterViewController.m in Sources */,
 				8D54A92D1A14EB8600ABDAD2 /* JSONModel.m in Sources */,
 				8D54A93B1A14FBA000ABDAD2 /* JAManagerData.m in Sources */,
-				77A0D8421A27303300963904 /* JAUITextView.m in Sources */,
 				770CB9271A233006002817BE /* JAResumeCollectionViewCell.m in Sources */,
 				8D54A8F91A14DD9C00ABDAD2 /* JAStorieModel.m in Sources */,
 				8DD244561A13850800FC7683 /* JACoverCollectionViewController.m in Sources */,
 				8D54A92E1A14EB8600ABDAD2 /* JSONModelArray.m in Sources */,
-				77A0D8491A27712800963904 /* CCHLinkGestureRecognizer.m in Sources */,
 				77E758101A2469C60015EDEF /* JAUILabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

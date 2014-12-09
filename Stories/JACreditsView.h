@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JAUILabel.h"
 
-@interface JACreditsCollectionViewCell : UICollectionViewCell
-
+@interface JACreditsView : UIView
+@property (strong, nonatomic) JAUILabel *titleLabel;
+@property (strong, nonatomic) JAUILabel *namesLabel;
 @end

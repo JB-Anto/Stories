@@ -34,6 +34,7 @@
 @property (nonatomic,strong) JABlockModel *currentBlock;
 @property (strong, nonatomic) NSMutableArray *resumesID;
 @property (nonatomic, assign) id delegate;
+@property float oldPercentScroll;
 @end
 
 

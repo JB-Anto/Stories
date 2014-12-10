@@ -13,9 +13,9 @@
                 "foreground": "personnage_cover_2",
                 "color": "#EC963D",
                 "paths": [
-                        "forme1",
-                        "forme2",
-                        "forme3"
+                        "01",
+                        "02",
+                        "03"
                     ]
             },
             "chapters": [

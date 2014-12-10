@@ -67,7 +67,7 @@
 
     [self performSelector:@selector(fireBlockAfterDelay:)
                withObject:completion
-               afterDelay:1.0];
+               afterDelay:1.2];
 }
 - (void)fireBlockAfterDelay:(void (^)(void))block {
     block();

@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "JAUILabel.h"
+#import "JAUITextView.h"
 
 @interface JAQuotesCollectionViewCell : UICollectionViewCell
+
 @property (strong, nonatomic) JAUILabel *quoteLabel;
 @property (strong, nonatomic) JAUILabel *authorLabel;
+@property (nonatomic) CGFloat maxParallaxOffset;
+
 @end

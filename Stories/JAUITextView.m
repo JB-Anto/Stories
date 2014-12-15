@@ -14,7 +14,6 @@
 {
     
     [self setText:text];
-    
     [self addLink];
     [self applyLetterSpacing];
     [self applyLineHeight];

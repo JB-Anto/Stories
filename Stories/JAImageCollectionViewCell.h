@@ -10,6 +10,9 @@
 #import "JAUILabel.h"
 
 @interface JAImageCollectionViewCell : UICollectionViewCell <UIGestureRecognizerDelegate>
+
 @property (strong, nonatomic) UIImageView *imageView;
 @property (strong, nonatomic) JAUILabel *legendLabel;
+@property (nonatomic) CGFloat maxParallaxOffset;
+
 @end

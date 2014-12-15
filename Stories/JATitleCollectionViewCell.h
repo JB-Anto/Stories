@@ -10,6 +10,7 @@
 #import "JAUILabel.h"
 
 @interface JATitleCollectionViewCell : UICollectionViewCell
+
 @property (strong, nonatomic) JAUILabel *titleLabel;
 @property (strong, nonatomic) JAUILabel *dateLabel;
 @property (strong, nonatomic) JAUILabel *locationLabel;

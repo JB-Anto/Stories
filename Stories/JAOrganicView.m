@@ -16,12 +16,11 @@
     
     if(self)
     {
-        self.paths = [NSArray arrayWithArray:paths];
-        
+
+        self.paths = paths;
         self.organicLayer = [CAShapeLayer layer];
-
-        self.firstStepOrganic = [PocketSVG pathFromSVGFileNamed:[paths objectAtIndex:0]];
-
+        self.firstStepOrganic = [PocketSVG pathFromSVGFileNamed:[self.paths objectAtIndex:0]];
+        
         NSLog(@"Pathssss %@",self.paths);
         
         self.organicLayer.path = self.firstStepOrganic;
@@ -37,6 +36,9 @@
 
     }
     return self;
+    
+}
+-(void)setLayerPath{
     
 }
 -(void)middleAnimation{

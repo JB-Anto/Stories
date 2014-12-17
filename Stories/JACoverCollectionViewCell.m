@@ -26,7 +26,7 @@
         self.backgroundIV = [[UIImageView alloc] initWithFrame:self.bounds];
         self.foregroundIV = [[UIImageView alloc] initWithFrame:CGRectMake(self.bounds.size.width/3, 0, self.bounds.size.width, self.bounds.size.height)];
         
-        self.organicView = [[JAOrganicView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height) paths:[[[self.manager getCurrentStorie]cover] paths]];
+        self.organicView = [[JAOrganicView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height) paths:[[[self.manager getCurrentStorie]cover]paths]];
 
         self.locationLBL = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, self.bounds.size.width, 60)];
         self.locationLBL.textAlignment = NSTextAlignmentCenter;
@@ -76,6 +76,7 @@
     } completion:nil];
 }
 -(void)resetAnimation{
+    
     self.titleView.transform = CGAffineTransformMakeTranslation(50, 0);
     self.titleView.alpha = 0;
     self.foregroundIV.transform = CGAffineTransformMakeTranslation(self.bounds.size.width/3, 0);

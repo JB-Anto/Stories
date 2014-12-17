@@ -140,14 +140,17 @@ static NSString * const reuseIdentifier = @"Cell";
     
     UIImage *background = [UIImage imageNamed:[[self.manager.data.stories[row] cover] background]];
     UIImage *foreground = [UIImage imageNamed:[[self.manager.data.stories[row] cover] foreground]];
-    
+    myCell.clipsToBounds = YES;
+
     myCell.backgroundIV.image = background;
     myCell.foregroundIV.image = foreground;
     myCell.titleLBL.text = [[self.manager.data.stories[row] cover] title];
     myCell.locationLBL.text = [[self.manager.data.stories[row] cover] location];
     [myCell.organicView setColor:[[self.manager.data.stories[row] cover] color]];
-
-    
+//    if (!myCell.organicView.organicLayer.path) {
+//        [myCell.organicView setPaths:[[self.manager.data.stories[row] cover] paths]];
+//        [myCell.organicView setLayerPath];
+//    }
     return myCell;
 }
 

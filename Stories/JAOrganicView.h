@@ -24,5 +24,6 @@
 -(void)finalAnimation:(void(^)())completion;
 -(void)resetAnimation;
 -(void)setColor:(NSString*)color;
+-(void)setLayerPath;
 
 @end

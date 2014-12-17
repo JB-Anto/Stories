@@ -278,9 +278,13 @@
 }
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    JAArticleCollectionViewController *articleController = segue.destinationViewController;
-    [articleController setDelegate:self];
-    articleController.oldPercentScroll = 10.0;
+
+    if ([segue.identifier isEqualToString:@"JAArticlePush"]) {
+        JAArticleCollectionViewController *articleController = segue.destinationViewController;
+        [articleController setDelegate:self];
+        articleController.oldPercentScroll = 10.0;
+    }
+    
     // self.delegate == A
 }
 

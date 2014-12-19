@@ -14,5 +14,6 @@
 @property (strong, nonatomic) JAUILabel *titleLabel;
 @property (strong, nonatomic) JAUILabel *dateLabel;
 @property (strong, nonatomic) JAUILabel *locationLabel;
+@property (nonatomic) CGFloat maxParallaxOffset;
 
 @end

@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "JAUILabel.h"
 
-@interface JACreditsView : UIView
+@interface JACreditCollectionViewCell : UICollectionViewCell
+
 @property (strong, nonatomic) JAUILabel *titleLabel;
 @property (strong, nonatomic) JAUILabel *namesLabel;
+@property (nonatomic) CGFloat maxParallaxOffset;
+
 @end

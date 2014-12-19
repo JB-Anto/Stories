@@ -51,7 +51,7 @@
 		0A87842E1A155DE80028437C /* loader_8@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A8784061A155DE80028437C /* loader_8@2x.png */; };
 		0A87842F1A155DE80028437C /* loader_9@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A8784071A155DE80028437C /* loader_9@2x.png */; };
 		7705EFBA1A2374AD0015B1BD /* Young-Serif-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7705EFB91A2374AD0015B1BD /* Young-Serif-Regular.ttf */; };
-		770CB9221A233006002817BE /* JACreditsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 770CB9161A233006002817BE /* JACreditsView.m */; };
+		770CB9221A233006002817BE /* JACreditCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 770CB9161A233006002817BE /* JACreditCollectionViewCell.m */; };
 		770CB9231A233006002817BE /* JAImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 770CB9181A233006002817BE /* JAImageCollectionViewCell.m */; };
 		770CB9241A233006002817BE /* JAKeyNumberCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 770CB91A1A233006002817BE /* JAKeyNumberCollectionViewCell.m */; };
 		770CB9251A233006002817BE /* JAParagraphCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 770CB91C1A233006002817BE /* JAParagraphCollectionViewCell.m */; };
@@ -188,8 +188,8 @@
 		0A8784071A155DE80028437C /* loader_9@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loader_9@2x.png"; sourceTree = "<group>"; };
 		7705EFB91A2374AD0015B1BD /* Young-Serif-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Young-Serif-Regular.ttf"; path = "Stories/Fonts/Young-Serif-Regular.ttf"; sourceTree = "<group>"; };
 		770CB9141A233006002817BE /* JAArticleCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JAArticleCollectionViewController.h; path = Stories/JAArticleCollectionViewController.h; sourceTree = "<group>"; };
-		770CB9151A233006002817BE /* JACreditsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JACreditsView.h; sourceTree = "<group>"; };
-		770CB9161A233006002817BE /* JACreditsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JACreditsView.m; sourceTree = "<group>"; };
+		770CB9151A233006002817BE /* JACreditCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JACreditCollectionViewCell.h; sourceTree = "<group>"; };
+		770CB9161A233006002817BE /* JACreditCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JACreditCollectionViewCell.m; sourceTree = "<group>"; };
 		770CB9171A233006002817BE /* JAImageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAImageCollectionViewCell.h; sourceTree = "<group>"; };
 		770CB9181A233006002817BE /* JAImageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAImageCollectionViewCell.m; sourceTree = "<group>"; };
 		770CB9191A233006002817BE /* JAKeyNumberCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAKeyNumberCollectionViewCell.h; sourceTree = "<group>"; };
@@ -429,8 +429,8 @@
 				770CB91E1A233006002817BE /* JAQuotesCollectionViewCell.m */,
 				770CB9191A233006002817BE /* JAKeyNumberCollectionViewCell.h */,
 				770CB91A1A233006002817BE /* JAKeyNumberCollectionViewCell.m */,
-				770CB9151A233006002817BE /* JACreditsView.h */,
-				770CB9161A233006002817BE /* JACreditsView.m */,
+				770CB9151A233006002817BE /* JACreditCollectionViewCell.h */,
+				770CB9161A233006002817BE /* JACreditCollectionViewCell.m */,
 			);
 			name = ArticleCellViews;
 			sourceTree = "<group>";
@@ -901,7 +901,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				770CB9221A233006002817BE /* JACreditsView.m in Sources */,
+				770CB9221A233006002817BE /* JACreditCollectionViewCell.m in Sources */,
 				8D54A9331A14EB8600ABDAD2 /* JSONHTTPClient.m in Sources */,
 				8D8C02D81A10CB6200904841 /* AppDelegate.m in Sources */,
 				77A0D8481A27712800963904 /* CCHLinkTextView.m in Sources */,

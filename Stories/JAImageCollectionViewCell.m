@@ -12,8 +12,10 @@
 @interface JAImageCollectionViewCell()
 
 @property (nonatomic, strong) NSLayoutConstraint *imageViewHeightConstraint;
+@property (nonatomic, strong) NSLayoutConstraint *imageViewLeftConstraint;
 @property (nonatomic, strong) NSLayoutConstraint *imageViewCenterYConstraint;
 @property (nonatomic, strong) NSLayoutConstraint *legendLabelHeightConstraint;
+@property (nonatomic, strong) NSLayoutConstraint *legendLabelLeftConstraint;
 @property (nonatomic, strong) NSLayoutConstraint *legendLabelCenterYConstraint;
 @property (nonatomic, strong) UIFont *legendFont;
 @property (nonatomic, strong) UIColor *legendColor;
@@ -96,19 +98,18 @@
     self.legendLabel.translatesAutoresizingMaskIntoConstraints = NO;
     
     // Horizontal Constraints
-    [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.imageView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeft multiplier:1 constant:0]];
+    self.imageViewLeftConstraint = [NSLayoutConstraint constraintWithItem:self.imageView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeft multiplier:1 constant:0];
+    [self.contentView addConstraint:self.imageViewLeftConstraint];
     [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.imageView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeWidth multiplier:0.4 constant:0]];
-    [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.legendLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.imageView attribute:NSLayoutAttributeRight multiplier:0.5 constant:0]];
+    self.legendLabelLeftConstraint = [NSLayoutConstraint constraintWithItem:self.legendLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.imageView attribute:NSLayoutAttributeRight multiplier:0.5 constant:0];
+    [self.contentView addConstraint:self.legendLabelLeftConstraint];
     [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.legendLabel attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeWidth multiplier:0.6 constant:0]];
     
     // Vertical Constraints
-//    self.imageViewHeightConstraint = [NSLayoutConstraint constraintWithItem:self.imageView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeHeight multiplier:1 constant:0];
-    
     self.imageViewCenterYConstraint = [NSLayoutConstraint constraintWithItem:self.imageView attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeCenterY multiplier:1 constant:0];
     
     self.legendLabelCenterYConstraint = [NSLayoutConstraint constraintWithItem:self.legendLabel attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.imageView attribute:NSLayoutAttributeCenterY multiplier:1 constant:0];
     
-//    [self addConstraint:self.imageViewHeightConstraint];
     [self.contentView addConstraint:self.imageViewCenterYConstraint];
     [self.contentView addConstraint:self.legendLabelCenterYConstraint];
     
@@ -138,12 +139,16 @@
     
     if (gesture.direction == UISwipeGestureRecognizerDirectionRight) {
         
+        [self layoutIfNeeded];
+        self.imageViewLeftConstraint.constant = CGRectGetWidth(self.contentView.bounds)/2;
+        self.legendLabelLeftConstraint.constant = -CGRectGetWidth(self.imageView.bounds);
+        
         [UIView animateWithDuration:0.2 animations:^{
-            self.imageView.center = CGPointMake(self.center.x, self.imageView.center.y);;
-            self.imageView.alpha = 1.0;
-            self.imageView.transform = CGAffineTransformMakeScale(1.4, 1.4);
             
-            self.legendLabel.center = CGPointMake(self.legendLabel.bounds.size.width/2, self.legendLabel.center.y);
+            [self layoutIfNeeded];
+            self.imageView.alpha = 1.0;
+            self.imageView.transform = CGAffineTransformMakeScale(1.2, 1.2);
+            
             self.legendLabel.alpha = 0.1;
             
         }];
@@ -152,12 +157,16 @@
     
     if ((gesture.direction == UISwipeGestureRecognizerDirectionLeft)) {
         
+        [self layoutIfNeeded];
+        self.imageViewLeftConstraint.constant = 0;
+        self.legendLabelLeftConstraint.constant = 0;
+        
         [UIView animateWithDuration:0.4 animations:^{
-            self.imageView.center = CGPointMake(self.imageView.bounds.size.width/2, self.imageView.center.y);
+            
+            [self layoutIfNeeded];
             self.imageView.alpha = 0.4;
             self.imageView.transform = CGAffineTransformMakeScale(1, 1);
             
-            self.legendLabel.center = CGPointMake((self.imageView.bounds.size.width*0.65) + self.legendLabel.bounds.size.width/2, self.legendLabel.center.y);
             self.legendLabel.alpha = 1;
         }];
     }

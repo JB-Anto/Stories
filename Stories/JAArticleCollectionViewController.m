@@ -14,6 +14,8 @@
 #import "JAQuotesCollectionViewCell.h"
 #import "JAKeyNumberCollectionViewCell.h"
 #import "JACreditCollectionViewCell.h"
+#import "JAHeaderCollectionReusableView.h"
+#import "JAFooterCollectionReusableView.h"
 #import "JAUILabel.h"
 #import "JAUITextView.h"
 #import "ParallaxFlowLayout.h"
@@ -76,6 +78,8 @@
     [self.collectionView registerClass:[JAQuotesCollectionViewCell class]    forCellWithReuseIdentifier:@"QuoteCell"];
     [self.collectionView registerClass:[JAKeyNumberCollectionViewCell class] forCellWithReuseIdentifier:@"KeyNumberCell"];
     [self.collectionView registerClass:[JACreditCollectionViewCell class]    forCellWithReuseIdentifier:@"CreditsCell"];
+    [self.collectionView registerClass:[JAHeaderCollectionReusableView class]    forCellWithReuseIdentifier:@"HeaderReusableView"];
+    [self.collectionView registerClass:[JAHeaderCollectionReusableView class]    forCellWithReuseIdentifier:@"HeaderReusableView"];
     
 }
 
@@ -103,14 +107,17 @@
     return numberOfSection;
     
 }
+
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UICollectionViewCell *cell = nil;
     
     if(indexPath.item < [self.blocks count]) {
         self.currentBlock = self.blocks[indexPath.item];
         
         if([[self.currentBlock type] isEqualToString:@"title"]) {
             
-            JATitleCollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"TitleCell" forIndexPath:indexPath];
+            JATitleCollectionViewCell *titleCell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"TitleCell" forIndexPath:indexPath];
             // Set Content
             // Date out format
             NSDateFormatter *dateFormater = [[NSDateFormatter alloc]init];
@@ -120,73 +127,75 @@
             [dateFormaterFromString setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"];
             NSDate *date = [dateFormaterFromString dateFromString:[self.currentBlock createdAt]];
             NSString *finalDate = [dateFormater stringFromDate:date];
-            [cell.titleLabel initWithString:[self.currentBlock title]];
-            [cell.locationLabel initWithString:[self.currentBlock location]];
-            [cell.dateLabel initWithString:finalDate];
-            [cell updateConstraintsIfNeeded];
-            return cell;
+            [titleCell.titleLabel initWithString:[self.currentBlock title]];
+            [titleCell.locationLabel initWithString:[self.currentBlock location]];
+            [titleCell.dateLabel initWithString:finalDate];
+            [titleCell updateConstraintsIfNeeded];
+            cell = titleCell;
             
         } else if([[self.currentBlock type] isEqualToString:@"resume"]) {
                 
-            JAResumeCollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"ResumeCell" forIndexPath:indexPath];
+            JAResumeCollectionViewCell *resumeCell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"ResumeCell" forIndexPath:indexPath];
             // Set Content
-            [cell.resumeLabel initWithString:[self.currentBlock text]];
-            cell.idx = [self.resumesID indexOfObject:[self.currentBlock id]];
-            [cell addConstraint:[NSLayoutConstraint constraintWithItem:cell.resumeLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:cell.contentView attribute:NSLayoutAttributeRight multiplier:0.3 - (0.3-(0.3/(cell.idx+1))) + 0.0000001 constant:0]];
-            [cell updateConstraintsIfNeeded];
+            [resumeCell.resumeLabel initWithString:[self.currentBlock text]];
+            resumeCell.idx = [self.resumesID indexOfObject:[self.currentBlock id]];
+            [resumeCell addConstraint:[NSLayoutConstraint constraintWithItem:resumeCell.resumeLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:resumeCell.contentView attribute:NSLayoutAttributeRight multiplier:0.3 - (0.3-(0.3/(resumeCell.idx+1))) + 0.0000001 constant:0]];
+            [resumeCell updateConstraintsIfNeeded];
 
-            return cell;
+            cell = resumeCell;
             
         } else if([[self.currentBlock type] isEqualToString:@"paragraph"]) {
             
-            JAParagraphCollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"ParagraphCell" forIndexPath:indexPath];
-            cell.paragraphLabel.links = [self.currentBlock links];
-            [cell.paragraphLabel initWithString:[self.currentBlock text]];
-            [cell updateConstraintsIfNeeded];
-            return cell;
+            JAParagraphCollectionViewCell *paragraphCell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"ParagraphCell" forIndexPath:indexPath];
+            paragraphCell.paragraphLabel.links = [self.currentBlock links];
+            if(self.currentBlock.id.integerValue == self.blocks.count-1) {
+                [paragraphCell.paragraphLabel initWithStringToFormat:[self.currentBlock text]];
+            } else {
+                [paragraphCell.paragraphLabel initWithString:[self.currentBlock text]];
+            }
+            [paragraphCell updateConstraintsIfNeeded];
+            cell = paragraphCell;
             
         } else if([[self.currentBlock type] isEqualToString:@"image"]) {
         
-            JAImageCollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"ImageCell" forIndexPath:indexPath];
+            JAImageCollectionViewCell *imageCell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"ImageCell" forIndexPath:indexPath];
             //Set Content
-            [cell.legendLabel initWithString:[self.currentBlock text]];
-            [cell.imageView setImage:[UIImage imageNamed:[self.currentBlock image]]];
-            [cell updateConstraintsIfNeeded];
-            return cell;
+            [imageCell.legendLabel initWithString:[self.currentBlock text]];
+            [imageCell.imageView setImage:[UIImage imageNamed:[self.currentBlock image]]];
+            [imageCell updateConstraintsIfNeeded];
+            cell = imageCell;
             
         } else if([[self.currentBlock type] isEqualToString:@"quote"]) {
             
-            JAQuotesCollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"QuoteCell" forIndexPath:indexPath];
+            JAQuotesCollectionViewCell *quoteCell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"QuoteCell" forIndexPath:indexPath];
             // Set Content
-            [cell.authorLabel initWithString:[self.currentBlock author]];
-            [cell.quoteLabel initWithString:[self.currentBlock text]];
-            [cell updateConstraintsIfNeeded];
-            return cell;
+            [quoteCell.authorLabel initWithString:[self.currentBlock author]];
+            [quoteCell.quoteLabel initWithString:[self.currentBlock text]];
+            [quoteCell updateConstraintsIfNeeded];
+            cell = quoteCell;
             
         } else if([[self.currentBlock type] isEqualToString:@"keyNumber"]) {
-            JAKeyNumberCollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"KeyNumberCell" forIndexPath:indexPath];
+            JAKeyNumberCollectionViewCell *keyNumberCell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"KeyNumberCell" forIndexPath:indexPath];
             // Set Content
-            [cell.numberLabel initWithString:[self.currentBlock number]];
-            [cell.descriptionLabel initWithString:[self.currentBlock text]];
-            [cell updateConstraintsIfNeeded];
-            return cell;
+            [keyNumberCell.numberLabel initWithString:[self.currentBlock number]];
+            [keyNumberCell.descriptionLabel initWithString:[self.currentBlock text]];
+            [keyNumberCell updateConstraintsIfNeeded];
+            cell = keyNumberCell;
             
-        } else {
-             
-            return nil;
-             
         }
     } else {
         
-        JACreditCollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"CreditsCell" forIndexPath:indexPath];
+        JACreditCollectionViewCell *creditCell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"CreditsCell" forIndexPath:indexPath];
         // Set Content
         self.creditBlock = self.credits[indexPath.item - [self.blocks count]];
-        [cell.titleLabel initWithString:[self.creditBlock title]];
-        [cell.namesLabel initWithString:[[self.creditBlock names] componentsJoinedByString:@"\n"]];
-        [cell updateConstraintsIfNeeded];
-        return cell;
+        [creditCell.titleLabel initWithString:[self.creditBlock title]];
+        [creditCell.namesLabel initWithString:[[self.creditBlock names] componentsJoinedByString:@"\n"]];
+        [creditCell updateConstraintsIfNeeded];
+        cell = creditCell;
         
     }
+    
+    return cell;
     
 }
 
@@ -194,6 +203,8 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    CGSize sizeOfCell = CGSizeZero;
     
     if(indexPath.item < [self.blocks count]) {
         self.currentBlock = self.blocks[indexPath.item];
@@ -206,7 +217,7 @@
             CGFloat cellWidth = CGRectGetWidth(self.collectionView.bounds) - layout.sectionInset.left - layout.sectionInset.right;
             maximumSizeOfLabel = CGSizeMake(cellWidth, CGFLOAT_MAX);
             optimalSizeForLabel = [cell.titleLabel sizeThatFits:maximumSizeOfLabel];
-            return CGSizeMake(cellWidth, optimalSizeForLabel.height);
+            sizeOfCell = CGSizeMake(cellWidth, optimalSizeForLabel.height);
             
         } else if([[self.currentBlock type] isEqualToString:@"resume"]) {
 
@@ -216,7 +227,7 @@
             CGFloat cellWidth = (CGRectGetWidth(self.collectionView.bounds) - layout.sectionInset.left - layout.sectionInset.right);
             maximumSizeOfLabel = CGSizeMake(160, CGFLOAT_MAX);
             optimalSizeForLabel = [cell.resumeLabel sizeThatFits:maximumSizeOfLabel];
-            return CGSizeMake(cellWidth, optimalSizeForLabel.height);
+            sizeOfCell = CGSizeMake(cellWidth, optimalSizeForLabel.height);
             
         } else if([[self.currentBlock type] isEqualToString:@"paragraph"]) {
             
@@ -227,14 +238,14 @@
             CGFloat cellWidth = (CGRectGetWidth(self.collectionView.bounds) - layout.sectionInset.left - layout.sectionInset.right);
             maximumSizeOfLabel = CGSizeMake(cellWidth, CGFLOAT_MAX);
             optimalSizeForLabel = [cell.paragraphLabel sizeThatFits:maximumSizeOfLabel];
-            return CGSizeMake(cellWidth, optimalSizeForLabel.height);
+            sizeOfCell = CGSizeMake(cellWidth, optimalSizeForLabel.height);
             
         } else if([[self.currentBlock type] isEqualToString:@"image"]) {
             
             UIImage *image = [UIImage imageNamed:[self.currentBlock image]];
             ParallaxFlowLayout *layout = (ParallaxFlowLayout *)self.collectionViewLayout;
             CGFloat cellWidth = (CGRectGetWidth(self.collectionView.bounds) - layout.sectionInset.left - layout.sectionInset.right);
-            return CGSizeMake(cellWidth, image.size.height);
+            sizeOfCell = CGSizeMake(cellWidth, image.size.height);
             
         } else if([[self.currentBlock type] isEqualToString:@"quote"]) {
         
@@ -244,7 +255,7 @@
             CGFloat cellWidth = (CGRectGetWidth(self.collectionView.bounds) - layout.sectionInset.left - layout.sectionInset.right - 40);
             maximumSizeOfLabel = CGSizeMake(cellWidth, CGFLOAT_MAX);
             optimalSizeForLabel = [cell.quoteLabel sizeThatFits:maximumSizeOfLabel];
-            return CGSizeMake(cellWidth, optimalSizeForLabel.height);
+            sizeOfCell = CGSizeMake(cellWidth, optimalSizeForLabel.height);
             
         } else if([[self.currentBlock type] isEqualToString:@"keyNumber"]) {
         
@@ -254,11 +265,8 @@
             CGFloat cellWidth = (CGRectGetWidth(self.collectionView.bounds) - layout.sectionInset.left - layout.sectionInset.right - 40);
             maximumSizeOfLabel = CGSizeMake(195, CGFLOAT_MAX);
             optimalSizeForLabel = [cell.numberLabel sizeThatFits:maximumSizeOfLabel];
-            return CGSizeMake(cellWidth, optimalSizeForLabel.height);
+            sizeOfCell = CGSizeMake(cellWidth, optimalSizeForLabel.height);
             
-        } else {
-            // CGSizeZero not allowed...
-            return CGSizeMake(1, 1);
         }
     } else {
 
@@ -269,9 +277,30 @@
         ParallaxFlowLayout *layout = (ParallaxFlowLayout *)self.collectionViewLayout;
         CGFloat cellWidth = (CGRectGetWidth(self.collectionView.bounds)/2 - layout.sectionInset.left/4 - layout.sectionInset.right);
         CGFloat cellHeight = CGRectGetHeight(cell.titleLabel.bounds) + CGRectGetHeight(cell.namesLabel.bounds);
-        return CGSizeMake(cellWidth, cellHeight);
+        sizeOfCell = CGSizeMake(cellWidth, cellHeight);
         
     }
+    
+    return sizeOfCell;
+    
+}
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    
+    UICollectionReusableView *reusableView = nil;
+    
+    if(kind == UICollectionElementKindSectionHeader) {
+        JAHeaderCollectionReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderReusableView" forIndexPath:indexPath];
+
+        //headerView.backgroundImage = [UIImage imageNamed:@"haut.png"];
+        headerView.titleLabel = @"HEADER";
+        reusableView = headerView;
+    } else if (kind == UICollectionElementKindSectionFooter) {
+        
+    }
+    
+    return reusableView;
     
 }
 

@@ -140,7 +140,7 @@
     if (gesture.direction == UISwipeGestureRecognizerDirectionRight) {
         
         [self layoutIfNeeded];
-        self.imageViewLeftConstraint.constant = CGRectGetWidth(self.contentView.bounds)/2;
+        self.imageViewLeftConstraint.constant = CGRectGetWidth(self.contentView.bounds)/2 - CGRectGetWidth(self.imageView.bounds)/2;
         self.legendLabelLeftConstraint.constant = -CGRectGetWidth(self.imageView.bounds);
         
         [UIView animateWithDuration:0.2 animations:^{

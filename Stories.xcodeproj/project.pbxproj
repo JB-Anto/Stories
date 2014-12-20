@@ -90,6 +90,10 @@
 		77A0D8491A27712800963904 /* CCHLinkGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A0D8461A27712800963904 /* CCHLinkGestureRecognizer.m */; };
 		77C96DED1A38E7910074E9D9 /* ParallaxLayoutAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C96DEC1A38E7910074E9D9 /* ParallaxLayoutAttributes.m */; };
 		77C96DF01A38E8B20074E9D9 /* ParallaxFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C96DEF1A38E8B20074E9D9 /* ParallaxFlowLayout.m */; };
+		77DBC2221A45819F0027B838 /* JAHeaderCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77DBC2211A45819F0027B838 /* JAHeaderCollectionReusableView.m */; };
+		77DBC2251A45839B0027B838 /* bas.png in Resources */ = {isa = PBXBuildFile; fileRef = 77DBC2231A45839B0027B838 /* bas.png */; };
+		77DBC2261A45839B0027B838 /* haut.png in Resources */ = {isa = PBXBuildFile; fileRef = 77DBC2241A45839B0027B838 /* haut.png */; };
+		77DBC2291A4585F90027B838 /* JAFooterCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77DBC2281A4585F90027B838 /* JAFooterCollectionReusableView.m */; };
 		77E758061A245C880015EDEF /* 2-0-0-poroshenko.png in Resources */ = {isa = PBXBuildFile; fileRef = 77E758041A245C880015EDEF /* 2-0-0-poroshenko.png */; };
 		77E758071A245C880015EDEF /* 2-0-0-poroshenko@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77E758051A245C880015EDEF /* 2-0-0-poroshenko@2x.png */; };
 		77E758101A2469C60015EDEF /* JAUILabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E7580F1A2469C60015EDEF /* JAUILabel.m */; };
@@ -240,6 +244,12 @@
 		77C96DEC1A38E7910074E9D9 /* ParallaxLayoutAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ParallaxLayoutAttributes.m; path = Images/ParallaxLayoutAttributes.m; sourceTree = "<group>"; };
 		77C96DEE1A38E8B20074E9D9 /* ParallaxFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParallaxFlowLayout.h; sourceTree = "<group>"; };
 		77C96DEF1A38E8B20074E9D9 /* ParallaxFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParallaxFlowLayout.m; sourceTree = "<group>"; };
+		77DBC2201A45819F0027B838 /* JAHeaderCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAHeaderCollectionReusableView.h; sourceTree = "<group>"; };
+		77DBC2211A45819F0027B838 /* JAHeaderCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAHeaderCollectionReusableView.m; sourceTree = "<group>"; };
+		77DBC2231A45839B0027B838 /* bas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bas.png; sourceTree = "<group>"; };
+		77DBC2241A45839B0027B838 /* haut.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = haut.png; sourceTree = "<group>"; };
+		77DBC2271A4585F90027B838 /* JAFooterCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAFooterCollectionReusableView.h; sourceTree = "<group>"; };
+		77DBC2281A4585F90027B838 /* JAFooterCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAFooterCollectionReusableView.m; sourceTree = "<group>"; };
 		77E758041A245C880015EDEF /* 2-0-0-poroshenko.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2-0-0-poroshenko.png"; sourceTree = "<group>"; };
 		77E758051A245C880015EDEF /* 2-0-0-poroshenko@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2-0-0-poroshenko@2x.png"; sourceTree = "<group>"; };
 		77E7580E1A2469C60015EDEF /* JAUILabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAUILabel.h; sourceTree = "<group>"; };
@@ -431,6 +441,10 @@
 				770CB91A1A233006002817BE /* JAKeyNumberCollectionViewCell.m */,
 				770CB9151A233006002817BE /* JACreditCollectionViewCell.h */,
 				770CB9161A233006002817BE /* JACreditCollectionViewCell.m */,
+				77DBC2201A45819F0027B838 /* JAHeaderCollectionReusableView.h */,
+				77DBC2211A45819F0027B838 /* JAHeaderCollectionReusableView.m */,
+				77DBC2271A4585F90027B838 /* JAFooterCollectionReusableView.h */,
+				77DBC2281A4585F90027B838 /* JAFooterCollectionReusableView.m */,
 			);
 			name = ArticleCellViews;
 			sourceTree = "<group>";
@@ -461,6 +475,8 @@
 		77E758031A245C880015EDEF /* Article */ = {
 			isa = PBXGroup;
 			children = (
+				77DBC2231A45839B0027B838 /* bas.png */,
+				77DBC2241A45839B0027B838 /* haut.png */,
 				77E758041A245C880015EDEF /* 2-0-0-poroshenko.png */,
 				77E758051A245C880015EDEF /* 2-0-0-poroshenko@2x.png */,
 			);
@@ -842,6 +858,7 @@
 				8D54A9441A14FE9800ABDAD2 /* background_cover_1@2x.png in Resources */,
 				0A87840A1A155DE80028437C /* loader_11@2x.png in Resources */,
 				0A87840E1A155DE80028437C /* loader_15@2x.png in Resources */,
+				77DBC2251A45839B0027B838 /* bas.png in Resources */,
 				0A87840C1A155DE80028437C /* loader_13@2x.png in Resources */,
 				0A8784211A155DE80028437C /* loader_32@2x.png in Resources */,
 				770CB9401A23491E002817BE /* News-Plantin-Pro-Regular-Italic.otf in Resources */,
@@ -866,6 +883,7 @@
 				8D54A9431A14FE9800ABDAD2 /* background_cover_0@2x.png in Resources */,
 				0A87842E1A155DE80028437C /* loader_8@2x.png in Resources */,
 				8D54A9461A14FE9800ABDAD2 /* personnage_cover_1@2x.png in Resources */,
+				77DBC2261A45839B0027B838 /* haut.png in Resources */,
 				0A8784241A155DE80028437C /* loader_35@2x.png in Resources */,
 				777CA2881A24947E008A7FE3 /* Calibre-Thin-Italic.otf in Resources */,
 				0A87840F1A155DE80028437C /* loader_16@2x.png in Resources */,
@@ -927,7 +945,9 @@
 				8D54A92F1A14EB8600ABDAD2 /* JSONModelClassProperty.m in Sources */,
 				8DD244591A13856000FC7683 /* JACoverCollectionViewCell.m in Sources */,
 				8D54A9351A14EB8600ABDAD2 /* JSONKeyMapper.m in Sources */,
+				77DBC2291A4585F90027B838 /* JAFooterCollectionReusableView.m in Sources */,
 				8D54A90B1A14E5DD00ABDAD2 /* JACreditModel.m in Sources */,
+				77DBC2221A45819F0027B838 /* JAHeaderCollectionReusableView.m in Sources */,
 				770CB92A1A233014002817BE /* JAArticleCollectionViewController.m in Sources */,
 				8DB9C3D41A160BE200FBC975 /* JAFollowView.m in Sources */,
 				0A7D6E791A232ED50017A8C0 /* JAChapterViewController.m in Sources */,

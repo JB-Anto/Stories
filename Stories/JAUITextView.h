@@ -19,6 +19,7 @@
 @property (strong, nonatomic) NSArray *links;
 
 -(void)initWithString:(NSString *)text;
+-(void)initWithStringToFormat:(NSString *)text;
 -(void)addLink;
 -(void)applyLineHeight;
 -(void)applyLetterSpacing;

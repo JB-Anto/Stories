@@ -10,7 +10,7 @@
 
 @implementation JAUITextView
 
--(void)initWithString:(NSString *)text
+- (void)initWithString:(NSString *)text
 {
     
     [self setText:text];
@@ -19,7 +19,20 @@
     [self applyLineHeight];
 }
 
--(void)addLink
+- (void)initWithStringToFormat:(NSString *)text
+{
+    if(text.length > 0) {
+        text = [[text substringToIndex:text.length-1] stringByAppendingString:[NSString stringWithUTF8String:" \u25a0"]];
+    }
+    
+    [self initWithString:text];
+    NSMutableAttributedString *attributedText = [self.attributedText mutableCopy];
+    NSRange lastCharacterRange = NSMakeRange(self.text.length-1, 1);
+    [attributedText setAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"Arial" size:14.0f]} range:lastCharacterRange];
+    self.attributedText = attributedText;
+}
+
+- (void)addLink
 {
     NSString *stringToProcess = self.text;
 
@@ -70,7 +83,7 @@
     NSLog(@"%@", value);
 }
 
--(void)applyLineHeight
+- (void)applyLineHeight
 {
     NSMutableAttributedString* attrString = self.attributedText.mutableCopy;
     NSMutableParagraphStyle *style = [NSMutableParagraphStyle new];
@@ -86,7 +99,6 @@
 
 -(void)applyLetterSpacing
 {
-    //NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:self.text];
     NSMutableAttributedString* attrString = self.attributedText.mutableCopy;
     [attrString addAttribute:NSKernAttributeName
                        value:@(self.letterSpacing)

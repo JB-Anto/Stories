@@ -11,7 +11,8 @@
                 "location": "Ukraine",
                 "background": "background_cover_2",
                 "foreground": "personnage_cover_2",
-                "color": "#EC963D"
+                "color": "#EB9826",
+                "textColor": "#383561"
             },
             "chapters": [
                 {

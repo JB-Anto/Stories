@@ -10,7 +10,7 @@
 
 @interface JAHeaderCollectionReusableView : UICollectionReusableView
 
-@property (strong, nonatomic) UIImage *backgroundImage;
-@property (strong, nonatomic) UILabel *titleLabel;
+@property (strong, nonatomic) UIImageView *backgroundImageView;
+@property (nonatomic) CGFloat maxParallaxOffset;
 
 @end

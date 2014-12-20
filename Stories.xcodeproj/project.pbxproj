@@ -91,9 +91,9 @@
 		77C96DED1A38E7910074E9D9 /* ParallaxLayoutAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C96DEC1A38E7910074E9D9 /* ParallaxLayoutAttributes.m */; };
 		77C96DF01A38E8B20074E9D9 /* ParallaxFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C96DEF1A38E8B20074E9D9 /* ParallaxFlowLayout.m */; };
 		77DBC2221A45819F0027B838 /* JAHeaderCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77DBC2211A45819F0027B838 /* JAHeaderCollectionReusableView.m */; };
-		77DBC2251A45839B0027B838 /* bas.png in Resources */ = {isa = PBXBuildFile; fileRef = 77DBC2231A45839B0027B838 /* bas.png */; };
-		77DBC2261A45839B0027B838 /* haut.png in Resources */ = {isa = PBXBuildFile; fileRef = 77DBC2241A45839B0027B838 /* haut.png */; };
 		77DBC2291A4585F90027B838 /* JAFooterCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77DBC2281A4585F90027B838 /* JAFooterCollectionReusableView.m */; };
+		77DBC22C1A458D430027B838 /* bas@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77DBC22A1A458D430027B838 /* bas@2x.png */; };
+		77DBC22D1A458D430027B838 /* haut@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77DBC22B1A458D430027B838 /* haut@2x.png */; };
 		77E758061A245C880015EDEF /* 2-0-0-poroshenko.png in Resources */ = {isa = PBXBuildFile; fileRef = 77E758041A245C880015EDEF /* 2-0-0-poroshenko.png */; };
 		77E758071A245C880015EDEF /* 2-0-0-poroshenko@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77E758051A245C880015EDEF /* 2-0-0-poroshenko@2x.png */; };
 		77E758101A2469C60015EDEF /* JAUILabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E7580F1A2469C60015EDEF /* JAUILabel.m */; };
@@ -246,10 +246,10 @@
 		77C96DEF1A38E8B20074E9D9 /* ParallaxFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParallaxFlowLayout.m; sourceTree = "<group>"; };
 		77DBC2201A45819F0027B838 /* JAHeaderCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAHeaderCollectionReusableView.h; sourceTree = "<group>"; };
 		77DBC2211A45819F0027B838 /* JAHeaderCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAHeaderCollectionReusableView.m; sourceTree = "<group>"; };
-		77DBC2231A45839B0027B838 /* bas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bas.png; sourceTree = "<group>"; };
-		77DBC2241A45839B0027B838 /* haut.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = haut.png; sourceTree = "<group>"; };
 		77DBC2271A4585F90027B838 /* JAFooterCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAFooterCollectionReusableView.h; sourceTree = "<group>"; };
 		77DBC2281A4585F90027B838 /* JAFooterCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAFooterCollectionReusableView.m; sourceTree = "<group>"; };
+		77DBC22A1A458D430027B838 /* bas@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bas@2x.png"; sourceTree = "<group>"; };
+		77DBC22B1A458D430027B838 /* haut@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "haut@2x.png"; sourceTree = "<group>"; };
 		77E758041A245C880015EDEF /* 2-0-0-poroshenko.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2-0-0-poroshenko.png"; sourceTree = "<group>"; };
 		77E758051A245C880015EDEF /* 2-0-0-poroshenko@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2-0-0-poroshenko@2x.png"; sourceTree = "<group>"; };
 		77E7580E1A2469C60015EDEF /* JAUILabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAUILabel.h; sourceTree = "<group>"; };
@@ -475,8 +475,8 @@
 		77E758031A245C880015EDEF /* Article */ = {
 			isa = PBXGroup;
 			children = (
-				77DBC2231A45839B0027B838 /* bas.png */,
-				77DBC2241A45839B0027B838 /* haut.png */,
+				77DBC22A1A458D430027B838 /* bas@2x.png */,
+				77DBC22B1A458D430027B838 /* haut@2x.png */,
 				77E758041A245C880015EDEF /* 2-0-0-poroshenko.png */,
 				77E758051A245C880015EDEF /* 2-0-0-poroshenko@2x.png */,
 			);
@@ -825,6 +825,7 @@
 				8D8C02DE1A10CB6200904841 /* Main.storyboard in Resources */,
 				777CA27E1A24947E008A7FE3 /* Calibre-Bold-Italic.otf in Resources */,
 				0A8784191A155DE80028437C /* loader_25@2x.png in Resources */,
+				77DBC22C1A458D430027B838 /* bas@2x.png in Resources */,
 				777CA2891A24947E008A7FE3 /* Calibre-Thin.otf in Resources */,
 				0A87842F1A155DE80028437C /* loader_9@2x.png in Resources */,
 				770CB93C1A23491E002817BE /* Circular-Std-Medium-Italic.otf in Resources */,
@@ -858,12 +859,12 @@
 				8D54A9441A14FE9800ABDAD2 /* background_cover_1@2x.png in Resources */,
 				0A87840A1A155DE80028437C /* loader_11@2x.png in Resources */,
 				0A87840E1A155DE80028437C /* loader_15@2x.png in Resources */,
-				77DBC2251A45839B0027B838 /* bas.png in Resources */,
 				0A87840C1A155DE80028437C /* loader_13@2x.png in Resources */,
 				0A8784211A155DE80028437C /* loader_32@2x.png in Resources */,
 				770CB9401A23491E002817BE /* News-Plantin-Pro-Regular-Italic.otf in Resources */,
 				770CB93F1A23491E002817BE /* News-Plantin-Pro-Bold.otf in Resources */,
 				0A87841C1A155DE80028437C /* loader_28@2x.png in Resources */,
+				77DBC22D1A458D430027B838 /* haut@2x.png in Resources */,
 				0A8784221A155DE80028437C /* loader_33@2x.png in Resources */,
 				77E758071A245C880015EDEF /* 2-0-0-poroshenko@2x.png in Resources */,
 				777CA2801A24947E008A7FE3 /* Calibre-Light-Italic.otf in Resources */,
@@ -883,7 +884,6 @@
 				8D54A9431A14FE9800ABDAD2 /* background_cover_0@2x.png in Resources */,
 				0A87842E1A155DE80028437C /* loader_8@2x.png in Resources */,
 				8D54A9461A14FE9800ABDAD2 /* personnage_cover_1@2x.png in Resources */,
-				77DBC2261A45839B0027B838 /* haut.png in Resources */,
 				0A8784241A155DE80028437C /* loader_35@2x.png in Resources */,
 				777CA2881A24947E008A7FE3 /* Calibre-Thin-Italic.otf in Resources */,
 				0A87840F1A155DE80028437C /* loader_16@2x.png in Resources */,

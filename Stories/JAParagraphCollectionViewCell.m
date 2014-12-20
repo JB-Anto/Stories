@@ -74,9 +74,9 @@
     [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.paragraphLabel attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeRight multiplier:1 constant:0]];
     
     // Vertical constraints
-    self.paragraphLabelHeightConstraint = [NSLayoutConstraint constraintWithItem:self.paragraphLabel attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeHeight multiplier:1 constant:0];
+//    self.paragraphLabelHeightConstraint = [NSLayoutConstraint constraintWithItem:self.paragraphLabel attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeHeight multiplier:1 constant:0];
     self.paragraphLabelCenterYConstraint = [NSLayoutConstraint constraintWithItem:self.paragraphLabel attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeCenterY multiplier:1 constant:0];
-    [self.contentView addConstraint:self.paragraphLabelHeightConstraint];
+//    [self.contentView addConstraint:self.paragraphLabelHeightConstraint];
     [self.contentView addConstraint:self.paragraphLabelCenterYConstraint];
     
 }
@@ -92,7 +92,7 @@
 //    _maxParallaxOffset = maxParallaxOffset;
 //    [self setNeedsUpdateConstraints];
 //}
-//
+
 //- (void)applyLayoutAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes
 //{
 //    [super applyLayoutAttributes:layoutAttributes];

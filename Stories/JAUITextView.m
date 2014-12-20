@@ -7,6 +7,13 @@
 //
 
 #import "JAUITextView.h"
+#import "JALoaderView.h"
+
+@interface JAUITextView()
+
+@property (strong, nonatomic) JALoaderView *loaderView;
+
+@end
 
 @implementation JAUITextView
 
@@ -17,19 +24,22 @@
     [self addLink];
     [self applyLetterSpacing];
     [self applyLineHeight];
+    self.loaderView = [[JALoaderView alloc]initWithFrame:CGRectMake(0, 0, 160, 160)];
+    self.loaderView.delegate = self;
+    self.loaderView.userInteractionEnabled = NO;
+    [self.superview addSubview:self.loaderView];
+    
 }
 
-- (void)initWithStringToFormat:(NSString *)text
+- (void)applyMarkOfLastParagraph
 {
-    if(text.length > 0) {
-        text = [[text substringToIndex:text.length-1] stringByAppendingString:[NSString stringWithUTF8String:" \u25a0"]];
+    if(self.text.length > 0) {
+        [self setText:[[self.text substringToIndex:self.text.length-1] stringByAppendingString:[NSString stringWithUTF8String:" \u25a0"]]];
+        NSMutableAttributedString *attributedText = [self.attributedText mutableCopy];
+        NSRange lastCharacterRange = NSMakeRange(self.text.length-1, 1);
+        [attributedText addAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"Arial" size:14.0f]} range:lastCharacterRange];
+        self.attributedText = attributedText;
     }
-    
-    [self initWithString:text];
-    NSMutableAttributedString *attributedText = [self.attributedText mutableCopy];
-    NSRange lastCharacterRange = NSMakeRange(self.text.length-1, 1);
-    [attributedText setAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"Arial" size:14.0f]} range:lastCharacterRange];
-    self.attributedText = attributedText;
 }
 
 - (void)addLink
@@ -53,7 +63,7 @@
         self.minimumPressDuration = 1.0;
         
         NSMutableAttributedString *attributedText = [self.attributedText mutableCopy];
-        NSDictionary *boldAttributes = [NSDictionary dictionaryWithObjectsAndKeys:self.linkColor, NSForegroundColorAttributeName, nil];
+        NSDictionary *linkAttributes = [NSDictionary dictionaryWithObjectsAndKeys:self.linkColor, NSForegroundColorAttributeName, nil];
 
             for(int i=1; i < numberOfString-1; i += 2) {
                 int j = i;
@@ -63,16 +73,16 @@
                     lengthOfFirstComponent += [[choppedString objectAtIndex:j] length];
                 }
                 
-            long lengthOfBoldComponent  = [[choppedString objectAtIndex:i] length];
+            long lengthOfLinkComponent  = [[choppedString objectAtIndex:i] length];
         
-            NSRange boldRange = NSMakeRange(lengthOfFirstComponent, lengthOfBoldComponent);
-            [attributedText addAttribute:CCHLinkAttributeName value:self.links[indexOfLinks] range:boldRange];
+            NSRange linkRange = NSMakeRange(lengthOfFirstComponent, lengthOfLinkComponent);
+            [attributedText addAttribute:CCHLinkAttributeName value:self.links[indexOfLinks] range:linkRange];
             
             indexOfLinks++;
                 
         }
 
-        self.linkTextAttributes = boldAttributes;
+        self.linkTextAttributes = linkAttributes;
         self.attributedText = attributedText;
         
     }
@@ -81,6 +91,9 @@
 - (void)linkTextView:(CCHLinkTextView *)linkTextView didLongPressLinkWithValue:(id)value
 {
     NSLog(@"%@", value);
+    
+
+    [self startLoader];
 }
 
 - (void)applyLineHeight
@@ -106,6 +119,20 @@
     
     self.attributedText = attrString;
     
+}
+
+-(void)startLoader{
+    // Loader View
+
+    NSLog(@"Start Loader");
+    [self.loaderView movePosition:self.center];
+    [self.loaderView setState:UIGestureRecognizerStateBegan];
+    
+}
+
+-(void)loadNextView {
+    NSLog(@"ROCKSTAR BABE");
+    [self.loaderView setState:UIGestureRecognizerStateEnded];
 }
 
 @end

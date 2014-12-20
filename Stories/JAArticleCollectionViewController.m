@@ -41,6 +41,7 @@
         return nil;
     }
     self.title = @"Article";
+
     // DATA Management
     self.manager = [JAManagerData sharedManager];
     self.manager.currentStorie  = 0;
@@ -71,15 +72,15 @@
     [super viewDidLoad];
     [self.collectionView setBackgroundColor:[UIColor whiteColor]];
     // Register cell classes
-    [self.collectionView registerClass:[JATitleCollectionViewCell class]     forCellWithReuseIdentifier:@"TitleCell"];
-    [self.collectionView registerClass:[JAResumeCollectionViewCell class]    forCellWithReuseIdentifier:@"ResumeCell"];
-    [self.collectionView registerClass:[JAParagraphCollectionViewCell class] forCellWithReuseIdentifier:@"ParagraphCell"];
-    [self.collectionView registerClass:[JAImageCollectionViewCell class]     forCellWithReuseIdentifier:@"ImageCell"];
-    [self.collectionView registerClass:[JAQuotesCollectionViewCell class]    forCellWithReuseIdentifier:@"QuoteCell"];
-    [self.collectionView registerClass:[JAKeyNumberCollectionViewCell class] forCellWithReuseIdentifier:@"KeyNumberCell"];
-    [self.collectionView registerClass:[JACreditCollectionViewCell class]    forCellWithReuseIdentifier:@"CreditsCell"];
-    [self.collectionView registerClass:[JAHeaderCollectionReusableView class]    forCellWithReuseIdentifier:@"HeaderReusableView"];
-    [self.collectionView registerClass:[JAHeaderCollectionReusableView class]    forCellWithReuseIdentifier:@"HeaderReusableView"];
+    [self.collectionView registerClass:[JATitleCollectionViewCell class]      forCellWithReuseIdentifier:@"TitleCell"];
+    [self.collectionView registerClass:[JAResumeCollectionViewCell class]     forCellWithReuseIdentifier:@"ResumeCell"];
+    [self.collectionView registerClass:[JAParagraphCollectionViewCell class]  forCellWithReuseIdentifier:@"ParagraphCell"];
+    [self.collectionView registerClass:[JAImageCollectionViewCell class]      forCellWithReuseIdentifier:@"ImageCell"];
+    [self.collectionView registerClass:[JAQuotesCollectionViewCell class]     forCellWithReuseIdentifier:@"QuoteCell"];
+    [self.collectionView registerClass:[JAKeyNumberCollectionViewCell class]  forCellWithReuseIdentifier:@"KeyNumberCell"];
+    [self.collectionView registerClass:[JACreditCollectionViewCell class]     forCellWithReuseIdentifier:@"CreditsCell"];
+    [self.collectionView registerClass:[JAHeaderCollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderReusableView"];
+    [self.collectionView registerClass:[JAFooterCollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"FooterReusableView"];
     
 }
 
@@ -148,10 +149,9 @@
             
             JAParagraphCollectionViewCell *paragraphCell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"ParagraphCell" forIndexPath:indexPath];
             paragraphCell.paragraphLabel.links = [self.currentBlock links];
+            [paragraphCell.paragraphLabel initWithString:[self.currentBlock text]];
             if(self.currentBlock.id.integerValue == self.blocks.count-1) {
-                [paragraphCell.paragraphLabel initWithStringToFormat:[self.currentBlock text]];
-            } else {
-                [paragraphCell.paragraphLabel initWithString:[self.currentBlock text]];
+                [paragraphCell.paragraphLabel applyMarkOfLastParagraph];
             }
             [paragraphCell updateConstraintsIfNeeded];
             cell = paragraphCell;
@@ -293,15 +293,29 @@
     if(kind == UICollectionElementKindSectionHeader) {
         JAHeaderCollectionReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderReusableView" forIndexPath:indexPath];
 
-        //headerView.backgroundImage = [UIImage imageNamed:@"haut.png"];
-        headerView.titleLabel = @"HEADER";
+        [headerView.backgroundImageView setImage:[UIImage imageNamed:@"haut.png"]];
+        [headerView updateConstraintsIfNeeded];
         reusableView = headerView;
     } else if (kind == UICollectionElementKindSectionFooter) {
-        
+        JAFooterCollectionReusableView *footerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"FooterReusableView" forIndexPath:indexPath];
+        [footerView.backgroundImageView setImage:[UIImage imageNamed:@"bas.png"]];
+        reusableView = footerView;
     }
     
     return reusableView;
     
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
+{
+    UIImage *image = [UIImage imageNamed:@"haut.png"];
+    return CGSizeMake(CGRectGetWidth(self.collectionView.bounds), image.size.height);
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section
+{
+    UIImage *image = [UIImage imageNamed:@"bas.png"];
+    return CGSizeMake(CGRectGetWidth(self.collectionView.bounds), image.size.height);
 }
 
 - (BOOL)prefersStatusBarHidden

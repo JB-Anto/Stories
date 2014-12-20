@@ -35,8 +35,7 @@ static const CGFloat maxParallaxOffset = 30.0;
     CGFloat baseline = -2;
     NSMutableArray *sameLineElements = [NSMutableArray array];
     for(ParallaxLayoutAttributes *layoutAttributes in layoutAttributedArray) {
-        if(layoutAttributes.representedElementCategory == UICollectionElementCategoryCell) {
-            NSIndexPath* indexPath = layoutAttributes.indexPath;
+        if(layoutAttributes.representedElementCategory == UICollectionElementCategoryCell || layoutAttributes.representedElementCategory == UICollectionElementCategorySupplementaryView) {
             CGRect frame = layoutAttributes.frame;
             CGFloat centerY = CGRectGetMidY(frame);
             if (ABS(centerY - baseline) > 1) {

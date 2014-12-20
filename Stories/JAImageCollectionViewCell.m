@@ -116,12 +116,6 @@
     
 }
 
-- (void)updateConstraints
-{
-    [super updateConstraints];
-    self.imageViewHeightConstraint.constant = 2 * self.maxParallaxOffset;
-}
-
 - (void)applyLayoutAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes
 {
     [super applyLayoutAttributes:layoutAttributes];

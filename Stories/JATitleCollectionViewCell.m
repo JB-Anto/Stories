@@ -119,11 +119,11 @@
     
 }
 
-- (void)updateConstraints
-{
-    [super updateConstraints];
-    self.titleLabelHeightConstraint.constant = 2 * self.maxParallaxOffset;
-}
+//- (void)updateConstraints
+//{
+//    [super updateConstraints];
+//    self.titleLabelHeightConstraint.constant = 2 * self.maxParallaxOffset;
+//}
 
 
 - (void)applyLayoutAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes
@@ -133,7 +133,7 @@
     NSParameterAssert(layoutAttributes != nil);
     NSParameterAssert([layoutAttributes isKindOfClass:[ParallaxLayoutAttributes class]]);
     
-    ParallaxLayoutAttributes *parallaxLayoutAttributes = (ParallaxLayoutAttributes *)layoutAttributes;
+    ParallaxLayoutAttributes *parallaxLayoutAttributes = (ParallaxLayoutAttributes *)layoutAttributes;    
     self.locationLabelCenterYConstraint.constant = parallaxLayoutAttributes.parallaxOffset.y;
     self.dateLabelCenterYConstraint.constant = parallaxLayoutAttributes.parallaxOffset.y;
     

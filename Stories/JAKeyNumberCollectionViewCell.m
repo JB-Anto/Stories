@@ -45,11 +45,6 @@
     
     [self setNeedsUpdateConstraints];
     
-    // ********TEMPORARY********
-//        [self.descriptionLabel setBackgroundColor:[UIColor redColor]];
-//        [self.numberLabel setBackgroundColor:[UIColor blueColor]];
-//        [self setBackgroundColor:[UIColor greenColor]];
-    
     return self;
     
 }

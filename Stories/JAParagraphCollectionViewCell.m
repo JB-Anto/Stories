@@ -35,16 +35,11 @@
     _paragraphColor = [UIColor colorWithHue:0.68 saturation:0.45 brightness:0.34 alpha:1];
     _linkColor = [UIColor colorWithHue:0.08 saturation:0.74 brightness:0.93 alpha:1];
     
-//    self.clipsToBounds = YES;
-    
     // Creating subviews
     [self setupParagraphLabel];
     [self setupConstraints];
     
     [self setNeedsUpdateConstraints];
-
-//    [self.paragraphLabel setBackgroundColor:[UIColor redColor]];
-//    [self setBackgroundColor:[UIColor blueColor]];
     
     return self;
 }
@@ -74,9 +69,7 @@
     [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.paragraphLabel attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeRight multiplier:1 constant:0]];
     
     // Vertical constraints
-//    self.paragraphLabelHeightConstraint = [NSLayoutConstraint constraintWithItem:self.paragraphLabel attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeHeight multiplier:1 constant:0];
     self.paragraphLabelCenterYConstraint = [NSLayoutConstraint constraintWithItem:self.paragraphLabel attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeCenterY multiplier:1 constant:0];
-//    [self.contentView addConstraint:self.paragraphLabelHeightConstraint];
     [self.contentView addConstraint:self.paragraphLabelCenterYConstraint];
     
 }

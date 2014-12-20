@@ -46,11 +46,6 @@
     
     [self setNeedsUpdateConstraints];
     
-    // ********TEMPORARY********
-//        [self.quoteLabel setBackgroundColor:[UIColor redColor]];
-//        [self.authorLabel setBackgroundColor:[UIColor redColor]];
-//        [self setBackgroundColor:[UIColor greenColor]];
-    
     return self;
     
 }

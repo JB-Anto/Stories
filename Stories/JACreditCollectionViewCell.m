@@ -37,11 +37,6 @@
     
     [self setNeedsUpdateConstraints];
     
-    /********TEMPORARY********/
-//        [self.titleLabel setBackgroundColor:[UIColor redColor]];
-//        [self.namesLabel setBackgroundColor:[UIColor blueColor]];
-//        [self setBackgroundColor:[UIColor greenColor]];
-    
     return self;
     
 }

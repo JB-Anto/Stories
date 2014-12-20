@@ -43,13 +43,6 @@
     [self setupConstraints];
     
     [self setNeedsUpdateConstraints];
-
-
-    
-    // ********TEMPORARY********
-//        [self.imageView setBackgroundColor:[UIColor redColor]];
-//        [self.legendLabel setBackgroundColor:[UIColor blueColor]];
-//        [self setBackgroundColor:[UIColor greenColor]];
     
     return self;
     

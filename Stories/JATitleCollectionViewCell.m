@@ -48,9 +48,6 @@
     
     [self setNeedsUpdateConstraints];
     
-    // ********TEMPORARY********
-//    [self setBackgroundColor:[UIColor blueColor]];
-    
     return self;
 }
 

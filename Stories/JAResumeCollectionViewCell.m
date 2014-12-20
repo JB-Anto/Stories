@@ -39,10 +39,6 @@
     
     [self setNeedsUpdateConstraints];
     
-    // ********TEMPORARY********
-//    [self.resumeLabel setBackgroundColor:[UIColor redColor]];
-//    [self setBackgroundColor:[UIColor blueColor]];
-    
     return self;
 }
 

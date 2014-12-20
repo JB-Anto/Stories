@@ -25,8 +25,11 @@
     
     CGSize optimalSizeForLabel;
     CGSize maximumSizeOfLabel;
-    
 }
+
+@property (strong, nonatomic) UIImage *headerSnapshotFragment;
+@property (strong, nonatomic) UIImage *footerSnapshotFragment;
+
 @end
 
 @implementation JAArticleCollectionViewController
@@ -41,7 +44,8 @@
         return nil;
     }
     self.title = @"Article";
-
+    self.headerSnapshotFragment = [UIImage imageNamed:@"haut.png"];
+    self.footerSnapshotFragment = [UIImage imageNamed:@"bas.png"];
     // DATA Management
     self.manager = [JAManagerData sharedManager];
     self.manager.currentStorie  = 0;
@@ -291,15 +295,18 @@
     UICollectionReusableView *reusableView = nil;
     
     if(kind == UICollectionElementKindSectionHeader) {
+        
         JAHeaderCollectionReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderReusableView" forIndexPath:indexPath];
-
-        [headerView.backgroundImageView setImage:[UIImage imageNamed:@"haut.png"]];
+        [headerView.backgroundImageView setImage:self.headerSnapshotFragment];
         [headerView updateConstraintsIfNeeded];
         reusableView = headerView;
+        
     } else if (kind == UICollectionElementKindSectionFooter) {
+        
         JAFooterCollectionReusableView *footerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"FooterReusableView" forIndexPath:indexPath];
-        [footerView.backgroundImageView setImage:[UIImage imageNamed:@"bas.png"]];
+        [footerView.backgroundImageView setImage:self.footerSnapshotFragment];
         reusableView = footerView;
+        
     }
     
     return reusableView;
@@ -308,13 +315,13 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 {
-    UIImage *image = [UIImage imageNamed:@"haut.png"];
+    UIImage *image = self.headerSnapshotFragment;
     return CGSizeMake(CGRectGetWidth(self.collectionView.bounds), image.size.height);
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section
 {
-    UIImage *image = [UIImage imageNamed:@"bas.png"];
+    UIImage *image = self.footerSnapshotFragment;
     return CGSizeMake(CGRectGetWidth(self.collectionView.bounds), image.size.height);
 }
 

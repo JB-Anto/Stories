@@ -34,15 +34,10 @@
 
 @implementation JAArticleCollectionViewController
 
-- (id)init
-{
-    ParallaxFlowLayout *layout = [ParallaxFlowLayout new];
-    layout.minimumLineSpacing = 20;
-    layout.sectionInset = UIEdgeInsetsMake(20, 20, 20, 20);
-    self = [super initWithCollectionViewLayout:layout];
-    if(self == nil) {
-        return nil;
-    }
+- (void)viewDidLoad {
+    
+    [super viewDidLoad];
+    [self.collectionView setBackgroundColor:[UIColor whiteColor]];
     self.title = @"Article";
     self.headerSnapshotFragment = [UIImage imageNamed:@"haut.png"];
     self.footerSnapshotFragment = [UIImage imageNamed:@"bas.png"];
@@ -62,19 +57,7 @@
             [self.resumesID addObject:[self.currentBlock id]];
         }
     }
-    return self;
-    
-}
 
-- (id)initWithCollectionViewLayout:(UICollectionViewLayout *)layout
-{
-    return [self init];
-}
-
-- (void)viewDidLoad {
-    
-    [super viewDidLoad];
-    [self.collectionView setBackgroundColor:[UIColor whiteColor]];
     // Register cell classes
     [self.collectionView registerClass:[JATitleCollectionViewCell class]      forCellWithReuseIdentifier:@"TitleCell"];
     [self.collectionView registerClass:[JAResumeCollectionViewCell class]     forCellWithReuseIdentifier:@"ResumeCell"];

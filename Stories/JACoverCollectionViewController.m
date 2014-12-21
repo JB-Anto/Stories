@@ -29,11 +29,9 @@ static NSString * const reuseIdentifier = @"Cell";
     
     self.firstTime = YES;
     self.animatedLoader = NO;
+    self.currentIndex = 0;
     self.stateLongTap = UIGestureRecognizerStatePossible;
 
-    // For Swipe Gestion
-//    self.currentIndex = 0;
-    
     
     // Layout View
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
@@ -55,6 +53,7 @@ static NSString * const reuseIdentifier = @"Cell";
     
     [self.collectionView registerClass:[JACoverCollectionViewCell class] forCellWithReuseIdentifier:@"CoverCell"];
     self.collectionView.pagingEnabled = YES;
+
     self.collectionView.showsHorizontalScrollIndicator = NO;
     
     // Name View
@@ -76,25 +75,6 @@ static NSString * const reuseIdentifier = @"Cell";
     longPressRecognizer.minimumPressDuration = .3;
     longPressRecognizer.numberOfTouchesRequired = 1;
     [self.view addGestureRecognizer:longPressRecognizer];
-
-
-    // For swipeGesture
-    
-//    UIView *swipeGesture = [[UIView alloc]init];
-//    swipeGesture.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds));
-//    [self.view addSubview:swipeGesture];
-//    
-//    [swipeGesture setUserInteractionEnabled:YES];
-//    UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
-//    UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
-//    
-//    // Setting the swipe direction.
-//    [swipeLeft setDirection:UISwipeGestureRecognizerDirectionLeft];
-//    [swipeRight setDirection:UISwipeGestureRecognizerDirectionRight];
-//    
-//    // Adding the swipe gesture on image view
-//    [swipeGesture addGestureRecognizer:swipeLeft];
-//    [swipeGesture addGestureRecognizer:swipeRight];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -111,21 +91,10 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 -(void)loadNextView{
     NSLog(@"Hiya!");
+    self.manager.currentStorie = (int)self.currentIndex;
+    [self performSegueWithIdentifier:@"JACoverPush" sender:self];
 }
 
-- (void)handleSwipe:(UISwipeGestureRecognizer *)swipe {
-    
-    if (swipe.direction == UISwipeGestureRecognizerDirectionLeft) {
-        NSLog(@"Left Swipe");
-        [self animateScrollView:JAAnimDirectionLeft];
-    }
-    
-    if (swipe.direction == UISwipeGestureRecognizerDirectionRight) {
-        NSLog(@"Right Swipe");
-        [self animateScrollView:JAAnimDirectionRight];
-    }
-    
-}
 -(void)animateScrollView:(JAAnimDirection)direction{
     
     if((self.currentIndex >= 3 && direction == JAAnimDirectionLeft) || (self.currentIndex == 0 && direction == JAAnimDirectionRight)){
@@ -170,20 +139,14 @@ static NSString * const reuseIdentifier = @"Cell";
     return [self.manager.data.stories count];
 }
 
-
 #pragma mark <UICollectionViewDelegate>
 - (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
-    NSLog(@"Decelerate");
     [self.cellToAnimate animateEnter];
-//    [self.cellToAnimate.followView validateFollow];
-}
-- (void)scrollViewWillEndDragging:(UICollectionView *)collectionView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
-//    NSLog(@"EndDrag");
 }
 
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(JACoverCollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
-//    NSLog(@"WillAppear %ld",(long)indexPath.row);
     self.cellToAnimate = cell;
+
     if(self.firstTime){
         [cell animateEnter];
         self.firstTime = NO;
@@ -191,13 +154,16 @@ static NSString * const reuseIdentifier = @"Cell";
     
 }
 - (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(JACoverCollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"EndAppear %ld",(long)indexPath.row);
     [cell resetAnimation];
-//    [cell.followView unValidateFollow];
-
 }
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
-    
+
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    self.currentIndex = (int)(scrollView.contentOffset.x/self.collectionView.frame.size.width);
+    NSLog(@"INDEXXX %li",(long)self.currentIndex);
+}
+
+-(IBAction)returnFromChapterView:(UIStoryboardSegue*)segue{
+
 }
 -(BOOL)prefersStatusBarHidden{
     return YES;

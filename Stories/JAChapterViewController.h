@@ -7,11 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "JAManagerData.h"
 #import "JALoaderView.h"
-#import "UIColor+UIColor_PXExtentions.h"
+#import "JAChapterScrollView.h"
 
-@interface JAChapterViewController : UIViewController <LoaderDelegate>
+@interface JAChapterViewController : UIViewController <LoaderDelegate, UIScrollViewDelegate>
 
 @property (strong, nonatomic) JAManagerData *manager;
 @property (strong, nonatomic) UIScrollView *chapterScrollView;

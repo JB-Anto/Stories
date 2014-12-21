@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "JACoverCollectionViewCell.h"
 #import "JALoaderView.h"
-#import "JAManagerData.h"
 #import "JAStoriesModel.h"
 #import "JAStorieModel.h"
+#import "JACoverSeguePop.h"
 
 typedef NS_ENUM(NSInteger, JAAnimDirection) {
     JAAnimDirectionLeft,
@@ -25,5 +25,5 @@ typedef NS_ENUM(NSInteger, JAAnimDirection) {
 @property (nonatomic,strong) JAManagerData *manager;
 @property (strong, nonatomic) JALoaderView *loaderView;
 @property (strong, nonatomic) UILabel *nameViewLBL;
-@property int currentIndex;
+@property NSInteger currentIndex;
 @end

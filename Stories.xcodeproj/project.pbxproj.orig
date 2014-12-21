@@ -92,9 +92,6 @@
 		777CA2871A24947E008A7FE3 /* Calibre-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 777CA2791A24947E008A7FE3 /* Calibre-Semibold.otf */; };
 		777CA2881A24947E008A7FE3 /* Calibre-Thin-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 777CA27A1A24947E008A7FE3 /* Calibre-Thin-Italic.otf */; };
 		777CA2891A24947E008A7FE3 /* Calibre-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 777CA27B1A24947E008A7FE3 /* Calibre-Thin.otf */; };
-		77A0D8421A27303300963904 /* JAUITextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A0D8411A27303300963904 /* JAUITextView.m */; };
-		77A0D8481A27712800963904 /* CCHLinkTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A0D8441A27712800963904 /* CCHLinkTextView.m */; };
-		77A0D8491A27712800963904 /* CCHLinkGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A0D8461A27712800963904 /* CCHLinkGestureRecognizer.m */; };
 		77E758061A245C880015EDEF /* 2-0-0-poroshenko.png in Resources */ = {isa = PBXBuildFile; fileRef = 77E758041A245C880015EDEF /* 2-0-0-poroshenko.png */; };
 		77E758071A245C880015EDEF /* 2-0-0-poroshenko@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77E758051A245C880015EDEF /* 2-0-0-poroshenko@2x.png */; };
 		77E758101A2469C60015EDEF /* JAUILabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E7580F1A2469C60015EDEF /* JAUILabel.m */; };
@@ -247,13 +244,6 @@
 		777CA2791A24947E008A7FE3 /* Calibre-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Semibold.otf"; path = "Stories/Fonts/Calibre-Semibold.otf"; sourceTree = "<group>"; };
 		777CA27A1A24947E008A7FE3 /* Calibre-Thin-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Thin-Italic.otf"; path = "Stories/Fonts/Calibre-Thin-Italic.otf"; sourceTree = "<group>"; };
 		777CA27B1A24947E008A7FE3 /* Calibre-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Thin.otf"; path = "Stories/Fonts/Calibre-Thin.otf"; sourceTree = "<group>"; };
-		77A0D8401A27303300963904 /* JAUITextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAUITextView.h; sourceTree = "<group>"; };
-		77A0D8411A27303300963904 /* JAUITextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAUITextView.m; sourceTree = "<group>"; };
-		77A0D8431A27712800963904 /* CCHLinkTextViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCHLinkTextViewDelegate.h; sourceTree = "<group>"; };
-		77A0D8441A27712800963904 /* CCHLinkTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCHLinkTextView.m; sourceTree = "<group>"; };
-		77A0D8451A27712800963904 /* CCHLinkTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCHLinkTextView.h; sourceTree = "<group>"; };
-		77A0D8461A27712800963904 /* CCHLinkGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCHLinkGestureRecognizer.m; sourceTree = "<group>"; };
-		77A0D8471A27712800963904 /* CCHLinkGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCHLinkGestureRecognizer.h; sourceTree = "<group>"; };
 		77E758041A245C880015EDEF /* 2-0-0-poroshenko.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2-0-0-poroshenko.png"; sourceTree = "<group>"; };
 		77E758051A245C880015EDEF /* 2-0-0-poroshenko@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2-0-0-poroshenko@2x.png"; sourceTree = "<group>"; };
 		77E7580E1A2469C60015EDEF /* JAUILabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAUILabel.h; sourceTree = "<group>"; };
@@ -455,7 +445,11 @@
 				8DB9C3D21A160BE200FBC975 /* JAFollowView.h */,
 				8DB9C3D31A160BE200FBC975 /* JAFollowView.m */,
 			);
+<<<<<<< HEAD
+			name = Views;
+=======
 			name = Follow;
+>>>>>>> cover
 			sourceTree = "<group>";
 		};
 		0AC564CB1A2610DE00259418 /* ChapterScroll */ = {
@@ -497,18 +491,6 @@
 			name = ArticleCellViews;
 			sourceTree = "<group>";
 		};
-		77A0D84A1A2870ED00963904 /* CCHLinkText */ = {
-			isa = PBXGroup;
-			children = (
-				77A0D8431A27712800963904 /* CCHLinkTextViewDelegate.h */,
-				77A0D8441A27712800963904 /* CCHLinkTextView.m */,
-				77A0D8451A27712800963904 /* CCHLinkTextView.h */,
-				77A0D8461A27712800963904 /* CCHLinkGestureRecognizer.m */,
-				77A0D8471A27712800963904 /* CCHLinkGestureRecognizer.h */,
-			);
-			name = CCHLinkText;
-			sourceTree = "<group>";
-		};
 		77E758031A245C880015EDEF /* Article */ = {
 			isa = PBXGroup;
 			children = (
@@ -532,8 +514,6 @@
 			children = (
 				77E7580E1A2469C60015EDEF /* JAUILabel.h */,
 				77E7580F1A2469C60015EDEF /* JAUILabel.m */,
-				77A0D8401A27303300963904 /* JAUITextView.h */,
-				77A0D8411A27303300963904 /* JAUITextView.m */,
 			);
 			name = "Label Layout";
 			sourceTree = "<group>";
@@ -769,7 +749,6 @@
 		8DBB41561A10EE94006FDAD4 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				77A0D84A1A2870ED00963904 /* CCHLinkText */,
 				77E7580D1A2469A20015EDEF /* Label Layout */,
 				77E7580C1A2469950015EDEF /* Data Manager */,
 				0A83AE321A23F52D0098F1DD /* UIColor+UIColor_PXExtentions.h */,
@@ -961,7 +940,6 @@
 				770CB9221A233006002817BE /* JACreditsCollectionViewCell.m in Sources */,
 				8D54A9331A14EB8600ABDAD2 /* JSONHTTPClient.m in Sources */,
 				8D8C02D81A10CB6200904841 /* AppDelegate.m in Sources */,
-				77A0D8481A27712800963904 /* CCHLinkTextView.m in Sources */,
 				8D54A9341A14EB8600ABDAD2 /* JSONModel+networking.m in Sources */,
 				0AC564C81A2610A400259418 /* JAChapterScrollView.m in Sources */,
 				0A58C10D1A24DF470061C514 /* UIView+Easing.m in Sources */,
@@ -994,12 +972,10 @@
 				0A7D6E791A232ED50017A8C0 /* JAChapterViewController.m in Sources */,
 				8D54A92D1A14EB8600ABDAD2 /* JSONModel.m in Sources */,
 				8D54A93B1A14FBA000ABDAD2 /* JAManagerData.m in Sources */,
-				77A0D8421A27303300963904 /* JAUITextView.m in Sources */,
 				770CB9271A233006002817BE /* JAResumeCollectionViewCell.m in Sources */,
 				8D54A8F91A14DD9C00ABDAD2 /* JAStorieModel.m in Sources */,
 				8DD244561A13850800FC7683 /* JACoverCollectionViewController.m in Sources */,
 				8D54A92E1A14EB8600ABDAD2 /* JSONModelArray.m in Sources */,
-				77A0D8491A27712800963904 /* CCHLinkGestureRecognizer.m in Sources */,
 				77E758101A2469C60015EDEF /* JAUILabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

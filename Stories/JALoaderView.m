@@ -27,7 +27,7 @@
         self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 160.0, 160.0)];
         [self.imageView setAnimationImages:images];
         [self.imageView setAnimationRepeatCount:1];
-        [self.imageView setAnimationDuration:2];
+        [self.imageView setAnimationDuration:1.5];
 
         [self.loader addSubview:self.imageView];
         [self addSubview:self.loader];

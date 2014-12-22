@@ -27,7 +27,7 @@
 
 @implementation JATitleCollectionViewCell
 
--(id)initWithFrame:(CGRect)frame
+- (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if(self == nil) {
@@ -102,9 +102,7 @@
     
     // Vertical constraints
     // Title Label
-    self.titleLabelHeightConstraint = [NSLayoutConstraint constraintWithItem:self.titleLabel attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeHeight multiplier:1 constant:0];
     self.titleLabelCenterYConstraint = [NSLayoutConstraint constraintWithItem:self.titleLabel attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeCenterY multiplier:1 constant:0];
-    [self.contentView addConstraint:self.titleLabelHeightConstraint];
     [self.contentView addConstraint:self.titleLabelCenterYConstraint];
     // Location Label
     self.locationLabelCenterYConstraint = [NSLayoutConstraint constraintWithItem:self.locationLabel attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeCenterY multiplier:1 constant:0];
@@ -115,13 +113,6 @@
 
     
 }
-
-//- (void)updateConstraints
-//{
-//    [super updateConstraints];
-//    self.titleLabelHeightConstraint.constant = 2 * self.maxParallaxOffset;
-//}
-
 
 - (void)applyLayoutAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes
 {

@@ -37,10 +37,15 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    
+    // Collection View Initialization
     [self.collectionView setBackgroundColor:[UIColor whiteColor]];
-    self.title = @"Article";
+    [self.collectionView setBounces:NO];
+    
+    [self setupFollowView];
     self.headerSnapshotFragment = [UIImage imageNamed:@"haut.png"];
     self.footerSnapshotFragment = [UIImage imageNamed:@"bas.png"];
+
     // DATA Management
     self.manager = [JAManagerData sharedManager];
     self.manager.currentStorie  = 0;
@@ -57,7 +62,7 @@
             [self.resumesID addObject:[self.currentBlock id]];
         }
     }
-
+    
     // Register cell classes
     [self.collectionView registerClass:[JATitleCollectionViewCell class]      forCellWithReuseIdentifier:@"TitleCell"];
     [self.collectionView registerClass:[JAResumeCollectionViewCell class]     forCellWithReuseIdentifier:@"ResumeCell"];
@@ -76,6 +81,30 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)setupFollowView
+{
+    _followView = [[JAFollowView alloc]initWithFrame:CGRectMake(CGRectGetWidth(self.collectionView.bounds) -75, 35, 40, 40)];
+    _followView.delegate = self;
+    _followView.backgroundColor = [UIColor clearColor];
+    [_followView setColor:[UIColor colorWithHue:0.68 saturation:0.2 brightness:0.54 alpha:1]];
+    [self.collectionView addSubview:_followView];
+
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    CGRect fixedFrame = self.followView.frame;
+    fixedFrame.origin.y = 55 + scrollView.contentOffset.y;
+    [self.followView setCenter:CGPointMake(self.followView.center.x, fixedFrame.origin.y)];
+    self.followView.centerView = self.followView.center;
+}
+
+#pragma mark - JAFollowView Delegate
+-(void)followArticle:(BOOL)follow{
+    NSLog(@"BOOL Follow %d",follow);
+}
+
 
 #pragma mark - UICollectionViewDataSource
 

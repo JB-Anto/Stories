@@ -15,11 +15,12 @@
 @property int currentStorie;
 @property int currentChapter;
 @property int currentArticle;
+@property int currentInfo;
 
 + (id)sharedManager;
 
 -(JAStorieModel*)getCurrentStorie;
 -(JAChapterModel*)getCurrentChapter;
 -(JAArticleModel*)getCurrentArticle;
-
+-(JAInfoModel*)getCurrentInfo;
 @end

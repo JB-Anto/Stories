@@ -7,6 +7,8 @@
 //
 
 #import "JAInfoCollectionViewController.h"
+#import "ParallaxFlowLayout.h"
+#import "JAResumeCollectionViewCell.h"
 
 @interface JAInfoCollectionViewController ()
 
@@ -14,18 +16,26 @@
 
 @implementation JAInfoCollectionViewController
 
-static NSString * const reuseIdentifier = @"Cell";
-
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = NO;
+    // CollectionView Initialization
+    
+    
+    // Data Management
+    self.manager = [JAManagerData sharedManager];
+    self.manager.currentStorie = 0;
+    self.manager.currentChapter = 0;
+    self.manager.currentArticle = 4;
+    self.manager.currentInfo = 0;
+    
+    JAInfoModel *info = [self.manager getCurrentInfo];
+    self.blocks = [info blocks];
     
     // Register cell classes
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    [self.collectionView registerClass:[JAResumeCollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
     
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,20 +56,20 @@ static NSString * const reuseIdentifier = @"Cell";
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-#warning Incomplete method implementation -- Return the number of sections
     return 1;
 }
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-#warning Incomplete method implementation -- Return the number of items in the section
-    return 1;
+    return [self.blocks count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    JAResumeCollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     
-    // Configure the cell
+    self.currentBlock = self.blocks[indexPath.item];
+    
+    [cell.resumeLabel initWithString:[self.currentBlock type]];
     
     return cell;
 }

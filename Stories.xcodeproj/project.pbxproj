@@ -71,6 +71,7 @@
 		770CB9401A23491E002817BE /* News-Plantin-Pro-Regular-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 770CB9351A23491E002817BE /* News-Plantin-Pro-Regular-Italic.otf */; };
 		770CB9411A23491E002817BE /* News-Plantin-Pro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 770CB9361A23491E002817BE /* News-Plantin-Pro-Regular.otf */; };
 		770CB9431A234A18002817BE /* Circular-Std-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 770CB9421A234A18002817BE /* Circular-Std-Bold.otf */; };
+		774315831A482DE300158B5D /* JAInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 774315821A482DE300158B5D /* JAInfoModel.m */; };
 		777CA27C1A24947E008A7FE3 /* Calibre-Black-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 777CA26E1A24947E008A7FE3 /* Calibre-Black-Italic.otf */; };
 		777CA27D1A24947E008A7FE3 /* Calibre-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 777CA26F1A24947E008A7FE3 /* Calibre-Black.otf */; };
 		777CA27E1A24947E008A7FE3 /* Calibre-Bold-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 777CA2701A24947E008A7FE3 /* Calibre-Bold-Italic.otf */; };
@@ -221,6 +222,8 @@
 		770CB9351A23491E002817BE /* News-Plantin-Pro-Regular-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "News-Plantin-Pro-Regular-Italic.otf"; path = "Stories/Fonts/News-Plantin-Pro-Regular-Italic.otf"; sourceTree = "<group>"; };
 		770CB9361A23491E002817BE /* News-Plantin-Pro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "News-Plantin-Pro-Regular.otf"; path = "Stories/Fonts/News-Plantin-Pro-Regular.otf"; sourceTree = "<group>"; };
 		770CB9421A234A18002817BE /* Circular-Std-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Circular-Std-Bold.otf"; path = "Stories/Fonts/Circular-Std-Bold.otf"; sourceTree = "<group>"; };
+		774315811A482DE300158B5D /* JAInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAInfoModel.h; sourceTree = "<group>"; };
+		774315821A482DE300158B5D /* JAInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAInfoModel.m; sourceTree = "<group>"; };
 		777CA26E1A24947E008A7FE3 /* Calibre-Black-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Black-Italic.otf"; path = "Stories/Fonts/Calibre-Black-Italic.otf"; sourceTree = "<group>"; };
 		777CA26F1A24947E008A7FE3 /* Calibre-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Black.otf"; path = "Stories/Fonts/Calibre-Black.otf"; sourceTree = "<group>"; };
 		777CA2701A24947E008A7FE3 /* Calibre-Bold-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Bold-Italic.otf"; path = "Stories/Fonts/Calibre-Bold-Italic.otf"; sourceTree = "<group>"; };
@@ -527,6 +530,8 @@
 				8D54A8F81A14DD9C00ABDAD2 /* JAStorieModel.m */,
 				8D54A90C1A14E85E00ABDAD2 /* JAStoriesModel.h */,
 				8D54A90D1A14E85E00ABDAD2 /* JAStoriesModel.m */,
+				774315811A482DE300158B5D /* JAInfoModel.h */,
+				774315821A482DE300158B5D /* JAInfoModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -968,6 +973,7 @@
 				8D54A8F91A14DD9C00ABDAD2 /* JAStorieModel.m in Sources */,
 				8DD244561A13850800FC7683 /* JACoverCollectionViewController.m in Sources */,
 				8D54A92E1A14EB8600ABDAD2 /* JSONModelArray.m in Sources */,
+				774315831A482DE300158B5D /* JAInfoModel.m in Sources */,
 				77C96DED1A38E7910074E9D9 /* ParallaxLayoutAttributes.m in Sources */,
 				77A0D8491A27712800963904 /* CCHLinkGestureRecognizer.m in Sources */,
 				77E758101A2469C60015EDEF /* JAUILabel.m in Sources */,

@@ -408,6 +408,65 @@
                                     "title": "Editing:",
                                     "names": ["Robin Pomeroy"]
                                 }
+                            ],
+                            "infos": [
+                                {
+                                    "id": 0,
+                                    "blocks": [
+                                      {
+                                        "id":0,
+                                        "type": "titlePortrait",
+                                        "image": "Poroshenko-portrait",
+                                        "name": "Petro Poroshenko"
+                                      },
+                                      {
+                                        "id": 1,
+                                        "type": "resume",
+                                        "text": "Business man and statesman from Ukraine."
+                                      },
+                                      {
+                                        "id": 2,
+                                        "type": "resume",
+                                        "text": "Ukraine president since 2014."
+                                      },
+                                      {
+                                        "id": 3,
+                                        "type": "resume",
+                                        "text": "Important member of Solidarity party."
+                                      },
+                                      {
+                                        "id": 4,
+                                        "type": "paragraph",
+                                        "text": "Ukrainian president Petro Poroshenko accepted on Sunday the resignation of his defence minister who has been under fire over a rout of government forces in the east which let to Kiev calling a ceasefire with pro-Russian separatists."
+                                      }
+                                    ]
+                                },
+                                {
+                                    "id": 1,
+                                    "blocks": [
+                                         {
+                                            "id":0,
+                                            "type": "titleNumber",
+                                            "number": "102",
+                                            "description":"More than Ukrainian troops and members of pro government volunteer battalions were killed"
+                                         },
+                                         {
+                                            "id": 1,
+                                            "type": "paragraph",
+                                            "text": "They were hemmed in by an unexpected attack from Russian forces supporting the separatists. Large numbers of Ukrainians were also taken prisoner by the rebels."
+                                         },
+                                         {
+                                            "id": 2,
+                                            "type": "paragraph",
+                                            "text": "Ukrainian military sources say a large number of Russian troops were also killed - a charge not acknowledged by Moscow, which denies any part in the Ukraine conflict despite what Kiev and Western governments say is incontrovertible proof."
+                                         },
+                                         {
+                                            "id": 3,
+                                            "type": "paragraph",
+                                            "text": "Analysts say the Aug. 24 attack led Poroshenko reluctantly to accept that Kiev could not beat the separatists militarily as long as they were supported by direct involvement of Russian troops and equipment."
+                                         }
+                                    ]
+                                }
                             ]
                         }
                     ]

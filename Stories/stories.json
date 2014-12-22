@@ -416,8 +416,8 @@
                                       {
                                         "id":0,
                                         "type": "titlePortrait",
-                                        "image": "Poroshenko-portrait",
-                                        "name": "Petro Poroshenko"
+                                        "image": "poroshenko-portrait",
+                                        "text": "Petro Poroshenko"
                                       },
                                       {
                                         "id": 1,
@@ -448,7 +448,7 @@
                                             "id":0,
                                             "type": "titleNumber",
                                             "number": "102",
-                                            "description":"More than Ukrainian troops and members of pro government volunteer battalions were killed"
+                                            "text": "More than\nUkrainian troops\nand members of pro\ngovernment volunteer\nbattalions were killed"
                                          },
                                          {
                                             "id": 1,

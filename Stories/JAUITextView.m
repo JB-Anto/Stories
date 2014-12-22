@@ -29,6 +29,8 @@
     self.loaderView.userInteractionEnabled = NO;
     [self.superview addSubview:self.loaderView];
     
+    [self setBackgroundColor:[UIColor clearColor]];
+    
 }
 
 - (void)applyMarkOfLastParagraph

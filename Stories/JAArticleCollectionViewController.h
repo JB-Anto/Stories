@@ -19,8 +19,5 @@
 @property (strong, nonatomic) NSArray *blocks;
 @property (strong, nonatomic) NSArray *credits;
 @property (strong, nonatomic) JAManagerData *manager;
-@property (strong, nonatomic) JABlockModel *currentBlock;
-@property (strong, nonatomic) JACreditModel *creditBlock;
-@property (strong, nonatomic) NSMutableArray *resumesID;
 @property (strong, nonatomic) JAFollowView *followView;
 @end

@@ -27,6 +27,9 @@
     CGSize maximumSizeOfLabel;
 }
 
+@property (strong, nonatomic) JABlockModel *currentBlock;
+@property (strong, nonatomic) JACreditModel *creditBlock;
+@property (strong, nonatomic) NSMutableArray *resumesID;
 @property (strong, nonatomic) UIImage *headerSnapshotFragment;
 @property (strong, nonatomic) UIImage *footerSnapshotFragment;
 
@@ -156,7 +159,7 @@
             // Set Content
             [resumeCell.resumeLabel initWithString:[self.currentBlock text]];
             resumeCell.idx = [self.resumesID indexOfObject:[self.currentBlock id]];
-            [resumeCell addConstraint:[NSLayoutConstraint constraintWithItem:resumeCell.resumeLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:resumeCell.contentView attribute:NSLayoutAttributeRight multiplier:0.3 - (0.3-(0.3/(resumeCell.idx+1))) + 0.0000001 constant:0]];
+            [resumeCell addConstraint:[NSLayoutConstraint constraintWithItem:resumeCell.resumeLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:resumeCell.contentView attribute:NSLayoutAttributeRight multiplier:0.3 - (0.3-(0.3/(resumeCell.idx+1))) + CGFLOAT_MIN constant:0]];
             [resumeCell updateConstraintsIfNeeded];
 
             cell = resumeCell;
@@ -220,7 +223,10 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    CGSize sizeOfCell = CGSizeZero;
+    // CGSizeZero not allowed
+    CGSize sizeOfCell = CGSizeMake(CGFLOAT_MIN, CGFLOAT_MIN);
+    ParallaxFlowLayout *layout = (ParallaxFlowLayout *)self.collectionViewLayout;
+    CGFloat cellWidth = (CGRectGetWidth(self.collectionView.bounds) - layout.sectionInset.left - layout.sectionInset.right);
     
     if(indexPath.item < [self.blocks count]) {
         self.currentBlock = self.blocks[indexPath.item];
@@ -229,8 +235,6 @@
             
             JATitleCollectionViewCell *cell = [JATitleCollectionViewCell new];
             [cell.titleLabel  initWithString:[self.currentBlock title]];
-            ParallaxFlowLayout *layout = (ParallaxFlowLayout *)self.collectionViewLayout;
-            CGFloat cellWidth = CGRectGetWidth(self.collectionView.bounds) - layout.sectionInset.left - layout.sectionInset.right;
             maximumSizeOfLabel = CGSizeMake(cellWidth, CGFLOAT_MAX);
             optimalSizeForLabel = [cell.titleLabel sizeThatFits:maximumSizeOfLabel];
             sizeOfCell = CGSizeMake(cellWidth, optimalSizeForLabel.height);
@@ -239,8 +243,6 @@
 
             JAResumeCollectionViewCell *cell = [JAResumeCollectionViewCell new];
             [cell.resumeLabel  initWithString:[self.currentBlock text]];
-            ParallaxFlowLayout *layout = (ParallaxFlowLayout *)self.collectionViewLayout;
-            CGFloat cellWidth = (CGRectGetWidth(self.collectionView.bounds) - layout.sectionInset.left - layout.sectionInset.right);
             maximumSizeOfLabel = CGSizeMake(160, CGFLOAT_MAX);
             optimalSizeForLabel = [cell.resumeLabel sizeThatFits:maximumSizeOfLabel];
             sizeOfCell = CGSizeMake(cellWidth, optimalSizeForLabel.height);
@@ -250,8 +252,6 @@
             JAParagraphCollectionViewCell *cell = [JAParagraphCollectionViewCell new];
             cell.paragraphLabel.links = [self.currentBlock links];
             [cell.paragraphLabel initWithString:[self.currentBlock text]];
-            ParallaxFlowLayout *layout = (ParallaxFlowLayout *)self.collectionViewLayout;
-            CGFloat cellWidth = (CGRectGetWidth(self.collectionView.bounds) - layout.sectionInset.left - layout.sectionInset.right);
             maximumSizeOfLabel = CGSizeMake(cellWidth, CGFLOAT_MAX);
             optimalSizeForLabel = [cell.paragraphLabel sizeThatFits:maximumSizeOfLabel];
             sizeOfCell = CGSizeMake(cellWidth, optimalSizeForLabel.height);
@@ -259,16 +259,13 @@
         } else if([[self.currentBlock type] isEqualToString:@"image"]) {
             
             UIImage *image = [UIImage imageNamed:[self.currentBlock image]];
-            ParallaxFlowLayout *layout = (ParallaxFlowLayout *)self.collectionViewLayout;
-            CGFloat cellWidth = (CGRectGetWidth(self.collectionView.bounds) - layout.sectionInset.left - layout.sectionInset.right);
             sizeOfCell = CGSizeMake(cellWidth, image.size.height);
             
         } else if([[self.currentBlock type] isEqualToString:@"quote"]) {
         
             JAQuotesCollectionViewCell *cell = [JAQuotesCollectionViewCell new];
             [cell.quoteLabel initWithString:[self.currentBlock text]];
-            ParallaxFlowLayout *layout = (ParallaxFlowLayout *)self.collectionViewLayout;
-            CGFloat cellWidth = (CGRectGetWidth(self.collectionView.bounds) - layout.sectionInset.left - layout.sectionInset.right - 40);
+            cellWidth -= 40;
             maximumSizeOfLabel = CGSizeMake(cellWidth, CGFLOAT_MAX);
             optimalSizeForLabel = [cell.quoteLabel sizeThatFits:maximumSizeOfLabel];
             sizeOfCell = CGSizeMake(cellWidth, optimalSizeForLabel.height);
@@ -277,8 +274,7 @@
         
             JAKeyNumberCollectionViewCell *cell = [JAKeyNumberCollectionViewCell new];
             [cell.numberLabel initWithString:[self.currentBlock number]];
-            ParallaxFlowLayout *layout = (ParallaxFlowLayout *)self.collectionViewLayout;
-            CGFloat cellWidth = (CGRectGetWidth(self.collectionView.bounds) - layout.sectionInset.left - layout.sectionInset.right - 40);
+            cellWidth -= 40;
             maximumSizeOfLabel = CGSizeMake(195, CGFLOAT_MAX);
             optimalSizeForLabel = [cell.numberLabel sizeThatFits:maximumSizeOfLabel];
             sizeOfCell = CGSizeMake(cellWidth, optimalSizeForLabel.height);
@@ -290,8 +286,7 @@
         self.creditBlock = self.credits[indexPath.item - [self.blocks count]];
         [cell.titleLabel initWithString:[self.creditBlock title]];
         [cell.namesLabel initWithString:[[self.creditBlock names] componentsJoinedByString:@"\n"]];
-        ParallaxFlowLayout *layout = (ParallaxFlowLayout *)self.collectionViewLayout;
-        CGFloat cellWidth = (CGRectGetWidth(self.collectionView.bounds)/2 - layout.sectionInset.left/4 - layout.sectionInset.right);
+        cellWidth = (CGRectGetWidth(self.collectionView.bounds)/2 - layout.sectionInset.left/4 - layout.sectionInset.right);
         CGFloat cellHeight = CGRectGetHeight(cell.titleLabel.bounds) + CGRectGetHeight(cell.namesLabel.bounds);
         sizeOfCell = CGSizeMake(cellWidth, cellHeight);
         

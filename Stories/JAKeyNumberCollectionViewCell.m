@@ -24,8 +24,9 @@
 @end
 
 @implementation JAKeyNumberCollectionViewCell
--(id)initWithFrame:(CGRect)frame
-{
+
+-(id)initWithFrame:(CGRect)frame {
+    
     self = [super initWithFrame:frame];
     
     if(self == nil) {
@@ -33,10 +34,10 @@
     }
         
     // Main characteristics of labels in the view
-    _numberFont   = [UIFont fontWithName:@"News-Plantin-Pro-Regular" size:82.5];
+    _numberFont = [UIFont fontWithName:@"News-Plantin-Pro-Regular" size:82.5];
     _numberColor = [UIColor colorWithHue:0.08 saturation:0.74 brightness:0.93 alpha:1];
-    _descriptionFont    = [UIFont fontWithName:@"Circular-Std-Book" size:24.0];
-    _descriptionColor  = [UIColor colorWithHue:0.68 saturation:0.45 brightness:0.34 alpha:.9];
+    _descriptionFont = [UIFont fontWithName:@"Circular-Std-Book" size:24.0];
+    _descriptionColor = [UIColor colorWithHue:0.68 saturation:0.45 brightness:0.34 alpha:.9];
     
     // Creating subviews
     [self setupNumberLabel];
@@ -49,11 +50,9 @@
     
 }
      
-- (void)setupNumberLabel
-{
+- (void)setupNumberLabel {
     
     _numberLabel = [JAUILabel new];
-    [_numberLabel setNumberOfLines:0];
     [_numberLabel setFont:_numberFont];
     [_numberLabel setTextColor:_numberColor];
     
@@ -61,8 +60,7 @@
     
 }
      
-- (void)setupDescriptionLabel
-{
+- (void)setupDescriptionLabel {
     
     _descriptionLabel = [JAUILabel new];
     [_descriptionLabel setNumberOfLines:0];
@@ -73,8 +71,7 @@
     
 }
      
-- (void)setupConstraints
-{
+- (void)setupConstraints {
     
     self.numberLabel.translatesAutoresizingMaskIntoConstraints = NO;
     self.descriptionLabel.translatesAutoresizingMaskIntoConstraints = NO;
@@ -95,21 +92,22 @@
     
 }
 
-- (void)updateConstraints
-{
+- (void)updateConstraints {
+    
     [super updateConstraints];
 //    self.numberLabelHeightConstraint.constant = 2 * self.maxParallaxOffset;
     
 }
 
-- (void)setMaxParallaxOffset:(CGFloat)maxParallaxOffset
-{
+- (void)setMaxParallaxOffset:(CGFloat)maxParallaxOffset {
+    
     _maxParallaxOffset = maxParallaxOffset;
     [self setNeedsUpdateConstraints];
+    
 }
 
-- (void)applyLayoutAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes
-{
+- (void)applyLayoutAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes {
+    
     [super applyLayoutAttributes:layoutAttributes];
     
     NSParameterAssert(layoutAttributes != nil);

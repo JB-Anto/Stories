@@ -19,7 +19,6 @@
 
 @property (strong, nonatomic) JAManagerData *manager;
 @property (strong, nonatomic) NSArray *blocks;
-@property (strong, nonatomic) JABlockModel *currentBlock;
 @property (strong, nonatomic) JAFollowView *followView;
 
 @end

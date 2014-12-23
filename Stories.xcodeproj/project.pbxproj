@@ -97,8 +97,8 @@
 		77A0D8491A27712800963904 /* CCHLinkGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A0D8461A27712800963904 /* CCHLinkGestureRecognizer.m */; };
 		77C96DED1A38E7910074E9D9 /* ParallaxLayoutAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C96DEC1A38E7910074E9D9 /* ParallaxLayoutAttributes.m */; };
 		77C96DF01A38E8B20074E9D9 /* ParallaxFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C96DEF1A38E8B20074E9D9 /* ParallaxFlowLayout.m */; };
-		77DBC2221A45819F0027B838 /* JAHeaderCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77DBC2211A45819F0027B838 /* JAHeaderCollectionReusableView.m */; };
-		77DBC2291A4585F90027B838 /* JAFooterCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77DBC2281A4585F90027B838 /* JAFooterCollectionReusableView.m */; };
+		77DBC2221A45819F0027B838 /* JAHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77DBC2211A45819F0027B838 /* JAHeaderView.m */; };
+		77DBC2291A4585F90027B838 /* JAFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77DBC2281A4585F90027B838 /* JAFooterView.m */; };
 		77DBC22C1A458D430027B838 /* bas@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77DBC22A1A458D430027B838 /* bas@2x.png */; };
 		77DBC22D1A458D430027B838 /* haut@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77DBC22B1A458D430027B838 /* haut@2x.png */; };
 		77DBC2301A470BDE0027B838 /* JAInfoCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77DBC22F1A470BDE0027B838 /* JAInfoCollectionViewController.m */; };
@@ -263,10 +263,10 @@
 		77C96DEC1A38E7910074E9D9 /* ParallaxLayoutAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ParallaxLayoutAttributes.m; path = Images/ParallaxLayoutAttributes.m; sourceTree = "<group>"; };
 		77C96DEE1A38E8B20074E9D9 /* ParallaxFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParallaxFlowLayout.h; sourceTree = "<group>"; };
 		77C96DEF1A38E8B20074E9D9 /* ParallaxFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParallaxFlowLayout.m; sourceTree = "<group>"; };
-		77DBC2201A45819F0027B838 /* JAHeaderCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAHeaderCollectionReusableView.h; sourceTree = "<group>"; };
-		77DBC2211A45819F0027B838 /* JAHeaderCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAHeaderCollectionReusableView.m; sourceTree = "<group>"; };
-		77DBC2271A4585F90027B838 /* JAFooterCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAFooterCollectionReusableView.h; sourceTree = "<group>"; };
-		77DBC2281A4585F90027B838 /* JAFooterCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAFooterCollectionReusableView.m; sourceTree = "<group>"; };
+		77DBC2201A45819F0027B838 /* JAHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAHeaderView.h; sourceTree = "<group>"; };
+		77DBC2211A45819F0027B838 /* JAHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAHeaderView.m; sourceTree = "<group>"; };
+		77DBC2271A4585F90027B838 /* JAFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAFooterView.h; sourceTree = "<group>"; };
+		77DBC2281A4585F90027B838 /* JAFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAFooterView.m; sourceTree = "<group>"; };
 		77DBC22A1A458D430027B838 /* bas@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bas@2x.png"; sourceTree = "<group>"; };
 		77DBC22B1A458D430027B838 /* haut@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "haut@2x.png"; sourceTree = "<group>"; };
 		77DBC22E1A470BDE0027B838 /* JAInfoCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAInfoCollectionViewController.h; sourceTree = "<group>"; };
@@ -465,10 +465,10 @@
 				770CB91A1A233006002817BE /* JAKeyNumberCollectionViewCell.m */,
 				770CB9151A233006002817BE /* JACreditCollectionViewCell.h */,
 				770CB9161A233006002817BE /* JACreditCollectionViewCell.m */,
-				77DBC2201A45819F0027B838 /* JAHeaderCollectionReusableView.h */,
-				77DBC2211A45819F0027B838 /* JAHeaderCollectionReusableView.m */,
-				77DBC2271A4585F90027B838 /* JAFooterCollectionReusableView.h */,
-				77DBC2281A4585F90027B838 /* JAFooterCollectionReusableView.m */,
+				77DBC2201A45819F0027B838 /* JAHeaderView.h */,
+				77DBC2211A45819F0027B838 /* JAHeaderView.m */,
+				77DBC2271A4585F90027B838 /* JAFooterView.h */,
+				77DBC2281A4585F90027B838 /* JAFooterView.m */,
 				774315911A4839E400158B5D /* JANumberTitleCollectionViewCell.h */,
 				774315921A4839E400158B5D /* JANumberTitleCollectionViewCell.m */,
 				774315941A4839FE00158B5D /* JAPortraitTitleCollectionViewCell.h */,
@@ -995,9 +995,9 @@
 				8D54A92F1A14EB8600ABDAD2 /* JSONModelClassProperty.m in Sources */,
 				8DD244591A13856000FC7683 /* JACoverCollectionViewCell.m in Sources */,
 				8D54A9351A14EB8600ABDAD2 /* JSONKeyMapper.m in Sources */,
-				77DBC2291A4585F90027B838 /* JAFooterCollectionReusableView.m in Sources */,
+				77DBC2291A4585F90027B838 /* JAFooterView.m in Sources */,
 				8D54A90B1A14E5DD00ABDAD2 /* JACreditModel.m in Sources */,
-				77DBC2221A45819F0027B838 /* JAHeaderCollectionReusableView.m in Sources */,
+				77DBC2221A45819F0027B838 /* JAHeaderView.m in Sources */,
 				770CB92A1A233014002817BE /* JAArticleCollectionViewController.m in Sources */,
 				8DB9C3D41A160BE200FBC975 /* JAFollowView.m in Sources */,
 				774315931A4839E400158B5D /* JANumberTitleCollectionViewCell.m in Sources */,

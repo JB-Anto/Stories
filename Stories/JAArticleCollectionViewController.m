@@ -14,8 +14,8 @@
 #import "JAQuotesCollectionViewCell.h"
 #import "JAKeyNumberCollectionViewCell.h"
 #import "JACreditCollectionViewCell.h"
-#import "JAHeaderCollectionReusableView.h"
-#import "JAFooterCollectionReusableView.h"
+#import "JAHeaderView.h"
+#import "JAFooterView.h"
 #import "JAUILabel.h"
 #import "JAUITextView.h"
 #import "ParallaxFlowLayout.h"
@@ -74,8 +74,6 @@
     [self.collectionView registerClass:[JAQuotesCollectionViewCell class]     forCellWithReuseIdentifier:@"QuoteCell"];
     [self.collectionView registerClass:[JAKeyNumberCollectionViewCell class]  forCellWithReuseIdentifier:@"KeyNumberCell"];
     [self.collectionView registerClass:[JACreditCollectionViewCell class]     forCellWithReuseIdentifier:@"CreditsCell"];
-    [self.collectionView registerClass:[JAHeaderCollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderReusableView"];
-    [self.collectionView registerClass:[JAFooterCollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"FooterReusableView"];
     
 }
 
@@ -196,7 +194,9 @@
         } else if([[self.currentBlock type] isEqualToString:@"keyNumber"]) {
             JAKeyNumberCollectionViewCell *keyNumberCell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"KeyNumberCell" forIndexPath:indexPath];
             // Set Content
+            keyNumberCell.numberLabel.links = [self.currentBlock links];
             [keyNumberCell.numberLabel initWithString:[self.currentBlock number]];
+            [keyNumberCell.numberLabel sizeToFit];
             [keyNumberCell.descriptionLabel initWithString:[self.currentBlock text]];
             [keyNumberCell updateConstraintsIfNeeded];
             cell = keyNumberCell;
@@ -273,11 +273,12 @@
         } else if([[self.currentBlock type] isEqualToString:@"keyNumber"]) {
         
             JAKeyNumberCollectionViewCell *cell = [JAKeyNumberCollectionViewCell new];
+            cell.numberLabel.links = [self.currentBlock links];
             [cell.numberLabel initWithString:[self.currentBlock number]];
             cellWidth -= 40;
-            maximumSizeOfLabel = CGSizeMake(195, CGFLOAT_MAX);
-            optimalSizeForLabel = [cell.numberLabel sizeThatFits:maximumSizeOfLabel];
-            sizeOfCell = CGSizeMake(cellWidth, optimalSizeForLabel.height);
+            [cell.numberLabel sizeToFit];
+            // Factor 0.7 - Dirty solution to delete blank space 
+            sizeOfCell = CGSizeMake(cellWidth, CGRectGetHeight(cell.numberLabel.bounds)*0.7);
             
         }
     } else {
@@ -294,42 +295,6 @@
     
     return sizeOfCell;
     
-}
-
-- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
-{
-    
-    UICollectionReusableView *reusableView = nil;
-    
-    if(kind == UICollectionElementKindSectionHeader) {
-        
-        JAHeaderCollectionReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderReusableView" forIndexPath:indexPath];
-        [headerView.backgroundImageView setImage:self.headerSnapshotFragment];
-        [headerView updateConstraintsIfNeeded];
-        reusableView = headerView;
-        
-    } else if (kind == UICollectionElementKindSectionFooter) {
-        
-        JAFooterCollectionReusableView *footerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"FooterReusableView" forIndexPath:indexPath];
-        [footerView.backgroundImageView setImage:self.footerSnapshotFragment];
-        reusableView = footerView;
-        
-    }
-    
-    return reusableView;
-    
-}
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
-{
-    UIImage *image = self.headerSnapshotFragment;
-    return CGSizeMake(CGRectGetWidth(self.collectionView.bounds), image.size.height);
-}
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section
-{
-    UIImage *image = self.footerSnapshotFragment;
-    return CGSizeMake(CGRectGetWidth(self.collectionView.bounds), image.size.height);
 }
 
 - (BOOL)prefersStatusBarHidden

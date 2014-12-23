@@ -1,5 +1,5 @@
 //
-//  JAHeaderCollectionReusableView.h
+//  JAFooterCollectionReusableView.h
 //  Stories
 //
 //  Created by Jean-baptiste PENRATH on 20/12/2014.
@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface JAHeaderCollectionReusableView : UICollectionReusableView
+@interface JAFooterView : UIImageView
 
-@property (strong, nonatomic) UIImageView *backgroundImageView;
+@property (strong, nonatomic) UIImage *backgroundImage;
+@property (nonatomic) CGPoint initialCenter;
 @property (nonatomic) CGFloat maxParallaxOffset;
+
+-(void)animateEnter;
 
 @end

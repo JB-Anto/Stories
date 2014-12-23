@@ -370,7 +370,7 @@
                                 {
                                     "id": 8,
                                     "type": "paragraph",
-                                       "text": "<link>Heletey</link> who formerly led a presidential bodyguard unit, had drawn criticism since the crushing defeat of Ukrainian forces at Ilovaisk, east of the main rebel held eastern city of Donetsk, in late August.",
+                                    "text": "<link>Heletey</link> who formerly led a presidential bodyguard unit, had drawn criticism since the crushing defeat of Ukrainian forces at Ilovaisk, east of the main rebel held eastern city of Donetsk, in late August.",
                                     "links": ["HeleteyView"]
                                 },
                                 {
@@ -382,8 +382,9 @@
                                 {
                                     "id": 10,
                                     "type": "keyNumber",
-                                    "number": "102",
-                                    "text": "Ukrainian troops Were killed"
+                                    "number": "<link>102</link>",
+                                    "text": "Ukrainian troops Were killed",
+                                    "links": ["1"]
                                 },
                                 {
                                     "id": 11,

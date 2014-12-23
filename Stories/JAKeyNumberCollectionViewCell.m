@@ -52,10 +52,13 @@
      
 - (void)setupNumberLabel {
     
-    _numberLabel = [JAUILabel new];
+    _numberLabel = [JAUITextView new];
+    [_numberLabel setScrollEnabled:NO];
+    [_numberLabel setEditable:NO];
+    [_numberLabel setSelectable:NO];
     [_numberLabel setFont:_numberFont];
     [_numberLabel setTextColor:_numberColor];
-    
+    _numberLabel.linkColor = _numberColor;
     [self.contentView addSubview:_numberLabel];
     
 }
@@ -78,14 +81,13 @@
     
     // Horizontal constraint
     [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.numberLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeft multiplier:1 constant:0]];
-//    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.numberLabel attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeRight multiplier:1 constant:0]];
-    
-    [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.descriptionLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.numberLabel attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
+    [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.descriptionLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.numberLabel attribute:NSLayoutAttributeCenterX multiplier:1 constant:-10]];
     [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.descriptionLabel attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeRight multiplier:1 constant:0]];
     
     // Vertical constraint
     [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.numberLabel attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeCenterY multiplier:1 constant:0]];
-    
+    // Factor 0.7 - Dirty solution to delete blank space 
+    [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.numberLabel attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeHeight multiplier:1 constant:0]];
     self.descriptionLabelCenterYConstraint = [NSLayoutConstraint constraintWithItem:self.descriptionLabel attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.numberLabel attribute:NSLayoutAttributeCenterY multiplier:1 constant:0];
     
     [self.contentView addConstraint:self.descriptionLabelCenterYConstraint];
@@ -95,7 +97,7 @@
 - (void)updateConstraints {
     
     [super updateConstraints];
-//    self.numberLabelHeightConstraint.constant = 2 * self.maxParallaxOffset;
+    self.numberLabelHeightConstraint.constant = 2 * self.maxParallaxOffset;
     
 }
 

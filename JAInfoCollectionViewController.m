@@ -12,8 +12,8 @@
 #import "JAPortraitTitleCollectionViewCell.h"
 #import "JAParagraphCollectionViewCell.h"
 #import "JAResumeCollectionViewCell.h"
-#import "JAHeaderCollectionReusableView.h"
-#import "JAFooterCollectionReusableView.h"
+#import "JAHeaderView.h"
+#import "JAFooterView.h"
 #import "JAUILabel.h"
 #import "JAUITextView.h"
 
@@ -40,12 +40,12 @@
     
     // CollectionView Initialization
     [self.collectionView setBackgroundColor:[UIColor colorWithHue:0 saturation:0 brightness:0.97 alpha:1]];
-    [self.collectionView setBounces:NO];
-    [self setupHeaderView];
-    [self setupFollowView];
     self.headerSnapshotFragment = [UIImage imageNamed:@"hautBlank.png"];
     self.footerSnapshotFragment = [UIImage imageNamed:@"basBlank.png"];
-    
+    [self setupHeaderView];
+    [self setupFooterView];
+    [self setupFollowView];
+
     // Data Management
     self.manager = [JAManagerData sharedManager];
     self.manager.currentStorie = 0;
@@ -69,8 +69,6 @@
     [self.collectionView registerClass:[JAPortraitTitleCollectionViewCell class] forCellWithReuseIdentifier:@"PortraitTitleCell"];
     [self.collectionView registerClass:[JAParagraphCollectionViewCell class] forCellWithReuseIdentifier:@"ParagraphCell"];
     [self.collectionView registerClass:[JAResumeCollectionViewCell class] forCellWithReuseIdentifier:@"ResumeCell"];
-    [self.collectionView registerClass:[JAHeaderCollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderReusableView"];
-    [self.collectionView registerClass:[JAFooterCollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"FooterReusableView"];
     
 }
 
@@ -80,8 +78,20 @@
 }
 
 - (void)setupHeaderView {
+    self.headerView = [[JAHeaderView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.collectionView.bounds), CGRectGetHeight(self.collectionView.bounds)/2)];
+    [self.headerView setImage:self.headerSnapshotFragment];
+    [self.headerView updateConstraintsIfNeeded];
+    [self.collectionView addSubview:self.headerView];
+    [self.headerView animateEnter];
     
-    
+}
+
+- (void)setupFooterView {
+    self.footerView = [[JAFooterView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.collectionView.bounds)/2, CGRectGetWidth(self.collectionView.bounds), CGRectGetHeight(self.collectionView.bounds)/2)];
+    [self.footerView setImage:self.footerSnapshotFragment];
+    [self.footerView updateConstraintsIfNeeded];
+    [self.collectionView addSubview:self.footerView];
+    [self.footerView animateEnter];
     
 }
 
@@ -97,10 +107,28 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
-    CGRect fixedFrame = self.followView.frame;
-    fixedFrame.origin.y = 55 + scrollView.contentOffset.y;
-    [self.followView setCenter:CGPointMake(self.followView.center.x, fixedFrame.origin.y)];
+    // Header "Parallax Effect"
+    CGPoint headerCenter = self.headerView.center;
+    if(scrollView.contentOffset.y < 150) {
+        headerCenter.y = self.headerView.initialCenter.y + scrollView.contentOffset.y*0.5;
+        [self.headerView setCenter:CGPointMake(self.headerView.center.x, headerCenter.y)];
+    }
+    
+    // Footer "Parallax Effect"
+    CGPoint footerCenter = self.footerView.center;
+    CGFloat maxScroll = scrollView.contentSize.height - scrollView.bounds.size.height;
+
+    if(maxScroll - scrollView.contentOffset.y < 28) {
+        footerCenter.y = self.footerView.initialCenter.y + (maxScroll - scrollView.contentOffset.y)*3;
+//        [self.footerView setCenter:CGPointMake(self.footerView.center.x, footerCenter.y)];
+    }
+    
+    // Follow View fixed position
+    CGPoint followViewCenter = self.followView.center;
+    followViewCenter.y = 55 + scrollView.contentOffset.y;
+    [self.followView setCenter:CGPointMake(self.followView.center.x, followViewCenter.y)];
     self.followView.centerView = self.followView.center;
+    
 }
 
 /*
@@ -192,7 +220,7 @@
         [cell.textLabel initWithString:[self.currentBlock text]];
         maximumSizeOfLabel = CGSizeMake(cellWidth*0.9, CGFLOAT_MAX);
         optimalSizeForLabel = [cell.textLabel sizeThatFits:maximumSizeOfLabel];
-        sizeOfCell = CGSizeMake(cellWidth, optimalSizeForLabel.height+20);
+        sizeOfCell = CGSizeMake(cellWidth, optimalSizeForLabel.height+100);
         
     } else if([[self.currentBlock type] isEqualToString:@"titlePortrait"]) {
         
@@ -218,39 +246,7 @@
     }
     
     return sizeOfCell;
-}
-
-- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
     
-    UICollectionReusableView *reusableView = nil;
-    
-    if(kind == UICollectionElementKindSectionHeader) {
-        
-        JAHeaderCollectionReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderReusableView" forIndexPath:indexPath];
-        [headerView.backgroundImageView setImage:self.headerSnapshotFragment];
-        [headerView updateConstraintsIfNeeded];
-        reusableView = headerView;
-        
-    } else if (kind == UICollectionElementKindSectionFooter) {
-        
-        JAFooterCollectionReusableView *footerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"FooterReusableView" forIndexPath:indexPath];
-        [footerView.backgroundImageView setImage:self.footerSnapshotFragment];
-        reusableView = footerView;
-        
-    }
-    
-    return reusableView;
-    
-}
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-    UIImage *image = self.headerSnapshotFragment;
-    return CGSizeMake(CGRectGetWidth(self.collectionView.bounds), image.size.height);
-}
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
-    UIImage *image = self.footerSnapshotFragment;
-    return CGSizeMake(CGRectGetWidth(self.collectionView.bounds), image.size.height);
 }
 
 - (BOOL)prefersStatusBarHidden {

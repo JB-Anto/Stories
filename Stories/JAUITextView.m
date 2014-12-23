@@ -21,9 +21,16 @@
 {
     
     [self setText:text];
-    [self addLink];
-    [self applyLetterSpacing];
-    [self applyLineHeight];
+    if(self.links) {
+        [self addLink];
+    }
+    if(self.letterSpacing) {
+        [self applyLetterSpacing];
+    }
+    if(self.lineHeight) {
+        [self applyLineHeight];
+    }
+    
     self.loaderView = [[JALoaderView alloc]initWithFrame:CGRectMake(0, 0, 160, 160)];
     self.loaderView.delegate = self;
     self.loaderView.userInteractionEnabled = NO;
@@ -90,16 +97,15 @@
     }
 }
 
-- (void)linkTextView:(CCHLinkTextView *)linkTextView didLongPressLinkWithValue:(id)value
-{
-    NSLog(@"%@", value);
+- (void)linkTextView:(CCHLinkTextView *)linkTextView didLongPressLinkWithValue:(id)value {
     
-
+    NSLog(@"%@", value);
     [self startLoader];
+    
 }
 
-- (void)applyLineHeight
-{
+- (void)applyLineHeight {
+    
     NSMutableAttributedString* attrString = self.attributedText.mutableCopy;
     NSMutableParagraphStyle *style = [NSMutableParagraphStyle new];
     [style setLineHeightMultiple:self.lineHeight];
@@ -112,8 +118,8 @@
     
 }
 
--(void)applyLetterSpacing
-{
+-(void)applyLetterSpacing {
+    
     NSMutableAttributedString* attrString = self.attributedText.mutableCopy;
     [attrString addAttribute:NSKernAttributeName
                        value:@(self.letterSpacing)
@@ -123,9 +129,9 @@
     
 }
 
--(void)startLoader{
+-(void)startLoader {
+    
     // Loader View
-
     NSLog(@"Start Loader");
     [self.loaderView movePosition:self.center];
     [self.loaderView setState:UIGestureRecognizerStateBegan];
@@ -133,8 +139,10 @@
 }
 
 -(void)loadNextView {
+    
     NSLog(@"ROCKSTAR BABE");
     [self.loaderView setState:UIGestureRecognizerStateEnded];
+    
 }
 
 @end

@@ -14,11 +14,15 @@
 #import "JAArticleModel.h"
 #import "JABlockModel.h"
 #import "JAFollowView.h"
+#import "JAHeaderView.h"
+#import "JAFooterView.h"
 
 @interface JAInfoCollectionViewController : UICollectionViewController <UICollectionViewDataSource, UICollectionViewDelegate, FollowDelegate>
 
 @property (strong, nonatomic) JAManagerData *manager;
 @property (strong, nonatomic) NSArray *blocks;
 @property (strong, nonatomic) JAFollowView *followView;
+@property (strong, nonatomic) JAHeaderView *headerView;
+@property (strong, nonatomic) JAFooterView *footerView;
 
 @end

@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JAUITextView.h"
 #import "JAUILabel.h"
 
 @interface JAKeyNumberCollectionViewCell : UICollectionViewCell
 
-@property (strong, nonatomic) JAUILabel *numberLabel;
+@property (strong, nonatomic) JAUITextView *numberLabel;
 @property (strong, nonatomic) JAUILabel *descriptionLabel;
 @property (nonatomic) CGFloat maxParallaxOffset;
 

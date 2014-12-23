@@ -78,6 +78,7 @@
 		774315901A48397500158B5D /* poroshenko-portrait@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7743158C1A48397500158B5D /* poroshenko-portrait@2x.png */; };
 		774315931A4839E400158B5D /* JANumberTitleCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 774315921A4839E400158B5D /* JANumberTitleCollectionViewCell.m */; };
 		774315961A4839FE00158B5D /* JAPortraitTitleCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 774315951A4839FE00158B5D /* JAPortraitTitleCollectionViewCell.m */; };
+		7773DBB41A49808900545F27 /* JAInfoCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7773DBB31A49808900545F27 /* JAInfoCollectionViewController.m */; };
 		777CA27C1A24947E008A7FE3 /* Calibre-Black-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 777CA26E1A24947E008A7FE3 /* Calibre-Black-Italic.otf */; };
 		777CA27D1A24947E008A7FE3 /* Calibre-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 777CA26F1A24947E008A7FE3 /* Calibre-Black.otf */; };
 		777CA27E1A24947E008A7FE3 /* Calibre-Bold-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 777CA2701A24947E008A7FE3 /* Calibre-Bold-Italic.otf */; };
@@ -101,7 +102,6 @@
 		77DBC2291A4585F90027B838 /* JAFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77DBC2281A4585F90027B838 /* JAFooterView.m */; };
 		77DBC22C1A458D430027B838 /* bas@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77DBC22A1A458D430027B838 /* bas@2x.png */; };
 		77DBC22D1A458D430027B838 /* haut@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77DBC22B1A458D430027B838 /* haut@2x.png */; };
-		77DBC2301A470BDE0027B838 /* JAInfoCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77DBC22F1A470BDE0027B838 /* JAInfoCollectionViewController.m */; };
 		77DBC2351A470DAB0027B838 /* Article.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77DBC2331A470DAB0027B838 /* Article.storyboard */; };
 		77E758061A245C880015EDEF /* 2-0-0-poroshenko.png in Resources */ = {isa = PBXBuildFile; fileRef = 77E758041A245C880015EDEF /* 2-0-0-poroshenko.png */; };
 		77E758071A245C880015EDEF /* 2-0-0-poroshenko@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77E758051A245C880015EDEF /* 2-0-0-poroshenko@2x.png */; };
@@ -238,6 +238,8 @@
 		774315921A4839E400158B5D /* JANumberTitleCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JANumberTitleCollectionViewCell.m; sourceTree = "<group>"; };
 		774315941A4839FE00158B5D /* JAPortraitTitleCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAPortraitTitleCollectionViewCell.h; sourceTree = "<group>"; };
 		774315951A4839FE00158B5D /* JAPortraitTitleCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAPortraitTitleCollectionViewCell.m; sourceTree = "<group>"; };
+		7773DBB21A49808900545F27 /* JAInfoCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JAInfoCollectionViewController.h; path = Stories/JAInfoCollectionViewController.h; sourceTree = "<group>"; };
+		7773DBB31A49808900545F27 /* JAInfoCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JAInfoCollectionViewController.m; path = Stories/JAInfoCollectionViewController.m; sourceTree = "<group>"; };
 		777CA26E1A24947E008A7FE3 /* Calibre-Black-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Black-Italic.otf"; path = "Stories/Fonts/Calibre-Black-Italic.otf"; sourceTree = "<group>"; };
 		777CA26F1A24947E008A7FE3 /* Calibre-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Black.otf"; path = "Stories/Fonts/Calibre-Black.otf"; sourceTree = "<group>"; };
 		777CA2701A24947E008A7FE3 /* Calibre-Bold-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Bold-Italic.otf"; path = "Stories/Fonts/Calibre-Bold-Italic.otf"; sourceTree = "<group>"; };
@@ -269,8 +271,6 @@
 		77DBC2281A4585F90027B838 /* JAFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAFooterView.m; sourceTree = "<group>"; };
 		77DBC22A1A458D430027B838 /* bas@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bas@2x.png"; sourceTree = "<group>"; };
 		77DBC22B1A458D430027B838 /* haut@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "haut@2x.png"; sourceTree = "<group>"; };
-		77DBC22E1A470BDE0027B838 /* JAInfoCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAInfoCollectionViewController.h; sourceTree = "<group>"; };
-		77DBC22F1A470BDE0027B838 /* JAInfoCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAInfoCollectionViewController.m; sourceTree = "<group>"; };
 		77DBC2341A470DAB0027B838 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Article.storyboard; sourceTree = "<group>"; };
 		77E758041A245C880015EDEF /* 2-0-0-poroshenko.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2-0-0-poroshenko.png"; sourceTree = "<group>"; };
 		77E758051A245C880015EDEF /* 2-0-0-poroshenko@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2-0-0-poroshenko@2x.png"; sourceTree = "<group>"; };
@@ -442,8 +442,8 @@
 			children = (
 				770CB9141A233006002817BE /* JAArticleCollectionViewController.h */,
 				770CB9281A233014002817BE /* JAArticleCollectionViewController.m */,
-				77DBC22E1A470BDE0027B838 /* JAInfoCollectionViewController.h */,
-				77DBC22F1A470BDE0027B838 /* JAInfoCollectionViewController.m */,
+				7773DBB21A49808900545F27 /* JAInfoCollectionViewController.h */,
+				7773DBB31A49808900545F27 /* JAInfoCollectionViewController.m */,
 			);
 			name = Article;
 			sourceTree = "<group>";
@@ -975,7 +975,6 @@
 				0A8783DD1A155CF50028437C /* JALoaderView.m in Sources */,
 				8D54A90E1A14E85E00ABDAD2 /* JAStoriesModel.m in Sources */,
 				770CB9251A233006002817BE /* JAParagraphCollectionViewCell.m in Sources */,
-				77DBC2301A470BDE0027B838 /* JAInfoCollectionViewController.m in Sources */,
 				770CB9241A233006002817BE /* JAKeyNumberCollectionViewCell.m in Sources */,
 				8D54A9021A14E00A00ABDAD2 /* JAChapterModel.m in Sources */,
 				77C96DF01A38E8B20074E9D9 /* ParallaxFlowLayout.m in Sources */,
@@ -1012,6 +1011,7 @@
 				774315831A482DE300158B5D /* JAInfoModel.m in Sources */,
 				77C96DED1A38E7910074E9D9 /* ParallaxLayoutAttributes.m in Sources */,
 				77A0D8491A27712800963904 /* CCHLinkGestureRecognizer.m in Sources */,
+				7773DBB41A49808900545F27 /* JAInfoCollectionViewController.m in Sources */,
 				77E758101A2469C60015EDEF /* JAUILabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

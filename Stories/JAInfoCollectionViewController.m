@@ -51,7 +51,7 @@
     self.manager.currentStorie = 0;
     self.manager.currentChapter = 0;
     self.manager.currentArticle = 4;
-    self.manager.currentInfo = 0;
+    self.manager.currentInfo = 1;
     
     JAInfoModel *info = [self.manager getCurrentInfo];
     self.blocks = [info blocks];
@@ -119,8 +119,8 @@
     CGFloat maxScroll = scrollView.contentSize.height - scrollView.bounds.size.height;
 
     if(maxScroll - scrollView.contentOffset.y < 28) {
-        footerCenter.y = self.footerView.initialCenter.y + (maxScroll - scrollView.contentOffset.y)*3;
-//        [self.footerView setCenter:CGPointMake(self.footerView.center.x, footerCenter.y)];
+        footerCenter.y = self.footerView.initialCenter.y + (maxScroll - scrollView.contentOffset.y);
+        [self.footerView setCenter:CGPointMake(self.footerView.center.x, footerCenter.y)];
     }
     
     // Follow View fixed position

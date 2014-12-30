@@ -91,7 +91,7 @@
     self.legendLabel.translatesAutoresizingMaskIntoConstraints = NO;
     
     // Horizontal Constraints
-    self.imageViewLeftConstraint = [NSLayoutConstraint constraintWithItem:self.imageView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeft multiplier:1 constant:0];
+    self.imageViewLeftConstraint = [NSLayoutConstraint constraintWithItem:self.imageView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeft multiplier:1 constant:-10];
     [self.contentView addConstraint:self.imageViewLeftConstraint];
     [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:self.imageView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeWidth multiplier:0.4 constant:0]];
     self.legendLabelLeftConstraint = [NSLayoutConstraint constraintWithItem:self.legendLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.imageView attribute:NSLayoutAttributeRight multiplier:0.5 constant:0];
@@ -145,7 +145,7 @@
     if ((gesture.direction == UISwipeGestureRecognizerDirectionLeft)) {
         
         [self layoutIfNeeded];
-        self.imageViewLeftConstraint.constant = 0;
+        self.imageViewLeftConstraint.constant = -10;
         self.legendLabelLeftConstraint.constant = 0;
         
         [UIView animateWithDuration:0.4 animations:^{

@@ -43,11 +43,12 @@
     
     // Collection View Initialization
     [self.collectionView setBackgroundColor:[UIColor whiteColor]];
-    [self.collectionView setBounces:NO];
     
     [self setupFollowView];
     self.headerSnapshotFragment = [UIImage imageNamed:@"haut.png"];
     self.footerSnapshotFragment = [UIImage imageNamed:@"bas.png"];
+    [self setupHeaderView];
+    [self setupFooterView];
 
     // DATA Management
     self.manager = [JAManagerData sharedManager];
@@ -83,6 +84,24 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)setupHeaderView {
+    self.headerView = [[JAHeaderView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.collectionView.bounds), CGRectGetHeight(self.collectionView.bounds)/2)];
+    [self.headerView setImage:self.headerSnapshotFragment];
+    [self.headerView updateConstraintsIfNeeded];
+    [self.collectionView addSubview:self.headerView];
+    [self.headerView animateEnter];
+    
+}
+
+- (void)setupFooterView {
+    self.footerView = [[JAFooterView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.collectionView.bounds)/2, CGRectGetWidth(self.collectionView.bounds), CGRectGetHeight(self.collectionView.bounds)/2)];
+    [self.footerView setImage:self.footerSnapshotFragment];
+    [self.footerView updateConstraintsIfNeeded];
+    [self.collectionView addSubview:self.footerView];
+    [self.footerView animateEnter];
+    
+}
+
 - (void)setupFollowView
 {
     _followView = [[JAFollowView alloc]initWithFrame:CGRectMake(CGRectGetWidth(self.collectionView.bounds) -75, 35, 40, 40)];
@@ -95,6 +114,23 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
+    // Header "Parallax Effect"
+    CGPoint headerCenter = self.headerView.center;
+    if(scrollView.contentOffset.y < 150) {
+        headerCenter.y = self.headerView.initialCenter.y + scrollView.contentOffset.y*0.5;
+        [self.headerView setCenter:CGPointMake(self.headerView.center.x, headerCenter.y)];
+    }
+    
+    // Footer "Parallax Effect"
+    CGPoint footerCenter = self.footerView.center;
+    CGFloat maxScroll = scrollView.contentSize.height - scrollView.bounds.size.height;
+    
+    if(maxScroll - scrollView.contentOffset.y < 28) {
+        footerCenter.y = self.footerView.initialCenter.y + (maxScroll - scrollView.contentOffset.y);
+        [self.footerView setCenter:CGPointMake(self.footerView.center.x, footerCenter.y)];
+    }
+    
+    // Follow View fixed position
     CGRect fixedFrame = self.followView.frame;
     fixedFrame.origin.y = 55 + scrollView.contentOffset.y;
     [self.followView setCenter:CGPointMake(self.followView.center.x, fixedFrame.origin.y)];
@@ -237,7 +273,7 @@
             [cell.titleLabel  initWithString:[self.currentBlock title]];
             maximumSizeOfLabel = CGSizeMake(cellWidth, CGFLOAT_MAX);
             optimalSizeForLabel = [cell.titleLabel sizeThatFits:maximumSizeOfLabel];
-            sizeOfCell = CGSizeMake(cellWidth, optimalSizeForLabel.height);
+            sizeOfCell = CGSizeMake(cellWidth, optimalSizeForLabel.height+100);
             
         } else if([[self.currentBlock type] isEqualToString:@"resume"]) {
 

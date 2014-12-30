@@ -15,7 +15,6 @@
 		0A58C1061A24BD0A0061C514 /* JACoverSeguePop.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A58C1051A24BD0A0061C514 /* JACoverSeguePop.m */; };
 		0A58C1091A24C3EA0061C514 /* JACustomNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A58C1081A24C3EA0061C514 /* JACustomNavigationController.m */; };
 		0A58C10D1A24DF470061C514 /* UIView+Easing.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A58C10C1A24DF470061C514 /* UIView+Easing.m */; };
-		0A63B8111A2D1DBD0032A73F /* .DS_Store in Resources */ = {isa = PBXBuildFile; fileRef = 0A63B7DD1A2D1DBD0032A73F /* .DS_Store */; };
 		0A63B8121A2D1DBD0032A73F /* loader_0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A63B7DE1A2D1DBD0032A73F /* loader_0@2x.png */; };
 		0A63B8131A2D1DBD0032A73F /* loader_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A63B7DF1A2D1DBD0032A73F /* loader_1@2x.png */; };
 		0A63B8141A2D1DBD0032A73F /* loader_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A63B7E01A2D1DBD0032A73F /* loader_2@2x.png */; };
@@ -72,7 +71,6 @@
 		0A8783DD1A155CF50028437C /* JALoaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8783DC1A155CF50028437C /* JALoaderView.m */; };
 		0A97B2D51A290400005596C3 /* JAPlistManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A97B2D41A290400005596C3 /* JAPlistManager.m */; };
 		0A97B2D81A29092E005596C3 /* stories.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A97B2D71A29092E005596C3 /* stories.plist */; };
-		0AC5649D1A25FD2A00259418 /* .DS_Store in Resources */ = {isa = PBXBuildFile; fileRef = 0AC564741A25FD2A00259418 /* .DS_Store */; };
 		0AC564C81A2610A400259418 /* JAChapterScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC564C71A2610A400259418 /* JAChapterScrollView.m */; };
 		0AEC801B1A3B1906004F0B1C /* 1-1.svg in Resources */ = {isa = PBXBuildFile; fileRef = 0AEC80151A3B1906004F0B1C /* 1-1.svg */; };
 		0AEC801C1A3B1906004F0B1C /* 1-2.svg in Resources */ = {isa = PBXBuildFile; fileRef = 0AEC80161A3B1906004F0B1C /* 1-2.svg */; };
@@ -135,6 +133,8 @@
 		777CA2871A24947E008A7FE3 /* Calibre-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 777CA2791A24947E008A7FE3 /* Calibre-Semibold.otf */; };
 		777CA2881A24947E008A7FE3 /* Calibre-Thin-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 777CA27A1A24947E008A7FE3 /* Calibre-Thin-Italic.otf */; };
 		777CA2891A24947E008A7FE3 /* Calibre-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 777CA27B1A24947E008A7FE3 /* Calibre-Thin.otf */; };
+		777E45871A52B5C50059E36C /* JAInfoSeguePush.m in Sources */ = {isa = PBXBuildFile; fileRef = 777E45861A52B5C50059E36C /* JAInfoSeguePush.m */; };
+		777E458A1A52B5D20059E36C /* JAInfoSeguePop.m in Sources */ = {isa = PBXBuildFile; fileRef = 777E45891A52B5D20059E36C /* JAInfoSeguePop.m */; };
 		77A0D8421A27303300963904 /* JAUITextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A0D8411A27303300963904 /* JAUITextView.m */; };
 		77A0D8481A27712800963904 /* CCHLinkTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A0D8441A27712800963904 /* CCHLinkTextView.m */; };
 		77A0D8491A27712800963904 /* CCHLinkGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A0D8461A27712800963904 /* CCHLinkGestureRecognizer.m */; };
@@ -207,7 +207,6 @@
 		0A58C1081A24C3EA0061C514 /* JACustomNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JACustomNavigationController.m; path = Stories/JACustomNavigationController.m; sourceTree = "<group>"; };
 		0A58C10B1A24DF470061C514 /* UIView+Easing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Easing.h"; sourceTree = "<group>"; };
 		0A58C10C1A24DF470061C514 /* UIView+Easing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Easing.m"; sourceTree = "<group>"; };
-		0A63B7DD1A2D1DBD0032A73F /* .DS_Store */ = {isa = PBXFileReference; lastKnownFileType = file; path = .DS_Store; sourceTree = "<group>"; };
 		0A63B7DE1A2D1DBD0032A73F /* loader_0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loader_0@2x.png"; sourceTree = "<group>"; };
 		0A63B7DF1A2D1DBD0032A73F /* loader_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loader_1@2x.png"; sourceTree = "<group>"; };
 		0A63B7E01A2D1DBD0032A73F /* loader_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loader_2@2x.png"; sourceTree = "<group>"; };
@@ -268,7 +267,6 @@
 		0A97B2D41A290400005596C3 /* JAPlistManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAPlistManager.m; sourceTree = "<group>"; };
 		0A97B2D71A29092E005596C3 /* stories.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = stories.plist; sourceTree = "<group>"; };
 		0ABFEEB21A24E0F2002271AF /* JAPrefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAPrefix.pch; sourceTree = "<group>"; };
-		0AC564741A25FD2A00259418 /* .DS_Store */ = {isa = PBXFileReference; lastKnownFileType = file; path = .DS_Store; sourceTree = "<group>"; };
 		0AC564C61A2610A400259418 /* JAChapterScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAChapterScrollView.h; sourceTree = "<group>"; };
 		0AC564C71A2610A400259418 /* JAChapterScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAChapterScrollView.m; sourceTree = "<group>"; };
 		0AEC80151A3B1906004F0B1C /* 1-1.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "1-1.svg"; sourceTree = "<group>"; };
@@ -344,6 +342,10 @@
 		777CA2791A24947E008A7FE3 /* Calibre-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Semibold.otf"; path = "Stories/Fonts/Calibre-Semibold.otf"; sourceTree = "<group>"; };
 		777CA27A1A24947E008A7FE3 /* Calibre-Thin-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Thin-Italic.otf"; path = "Stories/Fonts/Calibre-Thin-Italic.otf"; sourceTree = "<group>"; };
 		777CA27B1A24947E008A7FE3 /* Calibre-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Thin.otf"; path = "Stories/Fonts/Calibre-Thin.otf"; sourceTree = "<group>"; };
+		777E45851A52B5C50059E36C /* JAInfoSeguePush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAInfoSeguePush.h; sourceTree = "<group>"; };
+		777E45861A52B5C50059E36C /* JAInfoSeguePush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAInfoSeguePush.m; sourceTree = "<group>"; };
+		777E45881A52B5D20059E36C /* JAInfoSeguePop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAInfoSeguePop.h; sourceTree = "<group>"; };
+		777E45891A52B5D20059E36C /* JAInfoSeguePop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAInfoSeguePop.m; sourceTree = "<group>"; };
 		77A0D8401A27303300963904 /* JAUITextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAUITextView.h; sourceTree = "<group>"; };
 		77A0D8411A27303300963904 /* JAUITextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAUITextView.m; sourceTree = "<group>"; };
 		77A0D8431A27712800963904 /* CCHLinkTextViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCHLinkTextViewDelegate.h; sourceTree = "<group>"; };
@@ -534,6 +536,7 @@
 				770CB9131A232FED002817BE /* ArticleCellViews */,
 				0A58C1001A24B0BA0061C514 /* CoverSegue */,
 				0A3FB1821A272F5800AC4362 /* ArticleSegue */,
+				777E45841A52B5910059E36C /* InfoSegue */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -541,7 +544,6 @@
 		0A8783DF1A155DE80028437C /* Loader */ = {
 			isa = PBXGroup;
 			children = (
-				0A63B7DD1A2D1DBD0032A73F /* .DS_Store */,
 				0A63B7DE1A2D1DBD0032A73F /* loader_0@2x.png */,
 				0A63B7DF1A2D1DBD0032A73F /* loader_1@2x.png */,
 				0A63B7E01A2D1DBD0032A73F /* loader_2@2x.png */,
@@ -593,7 +595,6 @@
 				0A63B80E1A2D1DBD0032A73F /* loader_48@2x.png */,
 				0A63B80F1A2D1DBD0032A73F /* loader_49@2x.png */,
 				0A63B8101A2D1DBD0032A73F /* loader_50@2x.png */,
-				0AC564741A25FD2A00259418 /* .DS_Store */,
 			);
 			path = Loader;
 			sourceTree = "<group>";
@@ -696,6 +697,17 @@
 				7743158C1A48397500158B5D /* poroshenko-portrait@2x.png */,
 			);
 			name = Info;
+			sourceTree = "<group>";
+		};
+		777E45841A52B5910059E36C /* InfoSegue */ = {
+			isa = PBXGroup;
+			children = (
+				777E45851A52B5C50059E36C /* JAInfoSeguePush.h */,
+				777E45861A52B5C50059E36C /* JAInfoSeguePush.m */,
+				777E45881A52B5D20059E36C /* JAInfoSeguePop.h */,
+				777E45891A52B5D20059E36C /* JAInfoSeguePop.m */,
+			);
+			name = InfoSegue;
 			sourceTree = "<group>";
 		};
 		77A0D84A1A2870ED00963904 /* CCHLinkText */ = {
@@ -1082,7 +1094,6 @@
 				0AEC802D1A3B20EB004F0B1C /* background_cover_1@2x.png in Resources */,
 				0A63B8311A2D1DBD0032A73F /* loader_31@2x.png in Resources */,
 				8D8C02DE1A10CB6200904841 /* Main.storyboard in Resources */,
-				0A63B8111A2D1DBD0032A73F /* .DS_Store in Resources */,
 				777CA27E1A24947E008A7FE3 /* Calibre-Bold-Italic.otf in Resources */,
 				0A63B8431A2D1DBD0032A73F /* loader_49@2x.png in Resources */,
 				777CA2891A24947E008A7FE3 /* Calibre-Thin.otf in Resources */,
@@ -1161,7 +1172,6 @@
 				770CB9431A234A18002817BE /* Circular-Std-Bold.otf in Resources */,
 				0A63B8301A2D1DBD0032A73F /* loader_30@2x.png in Resources */,
 				0A63B8291A2D1DBD0032A73F /* loader_23@2x.png in Resources */,
-				0AC5649D1A25FD2A00259418 /* .DS_Store in Resources */,
 				0A97B2D81A29092E005596C3 /* stories.plist in Resources */,
 				0A63B8241A2D1DBD0032A73F /* loader_18@2x.png in Resources */,
 				770CB93D1A23491E002817BE /* Circular-Std-Medium.otf in Resources */,
@@ -1221,6 +1231,7 @@
 				0A58C10D1A24DF470061C514 /* UIView+Easing.m in Sources */,
 				0A3FB18C1A273B4800AC4362 /* JAOrganicView.m in Sources */,
 				0A58C1031A24B12B0061C514 /* JACoverSeguePush.m in Sources */,
+				777E45871A52B5C50059E36C /* JAInfoSeguePush.m in Sources */,
 				0A8783DD1A155CF50028437C /* JALoaderView.m in Sources */,
 				8D54A90E1A14E85E00ABDAD2 /* JAStoriesModel.m in Sources */,
 				0A3FB1851A272F8D00AC4362 /* JAArticleSeguePush.m in Sources */,
@@ -1265,6 +1276,7 @@
 				8D54A92E1A14EB8600ABDAD2 /* JSONModelArray.m in Sources */,
 				774315831A482DE300158B5D /* JAInfoModel.m in Sources */,
 				77C96DED1A38E7910074E9D9 /* ParallaxLayoutAttributes.m in Sources */,
+				777E458A1A52B5D20059E36C /* JAInfoSeguePop.m in Sources */,
 				77A0D8491A27712800963904 /* CCHLinkGestureRecognizer.m in Sources */,
 				7773DBB41A49808900545F27 /* JAInfoCollectionViewController.m in Sources */,
 				77E758101A2469C60015EDEF /* JAUILabel.m in Sources */,

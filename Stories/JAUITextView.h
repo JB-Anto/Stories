@@ -11,12 +11,18 @@
 #import "CCHLinkTextViewDelegate.h"
 #import "CCHLinkGestureRecognizer.h"
 
+@protocol JAUITextViewDelegate <NSObject>
+- (void)linkDidPressed;
+@end
+
+
 
 @interface JAUITextView : CCHLinkTextView <CCHLinkTextViewDelegate>
 @property CGFloat lineHeight;
 @property CGFloat letterSpacing;
 @property (strong, nonatomic) UIColor *linkColor;
 @property (strong, nonatomic) NSArray *links;
+@property (assign) id <JAUITextViewDelegate> delegate;
 
 -(void)initWithString:(NSString *)text;
 -(void)addLink;

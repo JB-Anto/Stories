@@ -42,9 +42,6 @@
     [self.collectionView setBackgroundColor:[UIColor colorWithHue:0 saturation:0 brightness:0.97 alpha:1]];
     self.headerSnapshotFragment = [UIImage imageNamed:@"hautBlank.png"];
     self.footerSnapshotFragment = [UIImage imageNamed:@"basBlank.png"];
-    [self setupHeaderView];
-    [self setupFooterView];
-    [self setupFollowView];
 
     // Data Management
     self.manager = [JAManagerData sharedManager];
@@ -72,6 +69,13 @@
     
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self setupHeaderView];
+    [self setupFooterView];
+    [self setupFollowView];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -87,11 +91,12 @@
 }
 
 - (void)setupFooterView {
+    CGFloat collectionViewHeight = self.collectionViewLayout.collectionViewContentSize.height;
     self.footerView = [[JAFooterView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.collectionView.bounds)/2, CGRectGetWidth(self.collectionView.bounds), CGRectGetHeight(self.collectionView.bounds)/2)];
     [self.footerView setImage:self.footerSnapshotFragment];
     [self.footerView updateConstraintsIfNeeded];
     [self.collectionView addSubview:self.footerView];
-    [self.footerView animateEnter];
+    [self.footerView animateEnterWithValue:collectionViewHeight];
     
 }
 

@@ -285,7 +285,6 @@
         articleController.oldPercentScroll = 10.0;
     }
     
-    // self.delegate == A
 }
 
 /*

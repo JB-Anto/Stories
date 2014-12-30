@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="iw1-Fa-2yo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="iw1-Fa-2yo">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
@@ -40,7 +39,7 @@
                 <viewController id="QyJ-ZR-5gp" customClass="JAChapterViewController" sceneMemberID="viewController">
                     <connections>
                         <segue destination="BiS-7t-T8R" kind="unwind" identifier="JACoverPop" unwindAction="returnFromChapterView:" id="W7J-Ti-06Y"/>
-                        <segue destination="ETW-Ho-87M" kind="custom" identifier="JAArticlePush" customClass="JAArticleSeguePush" id="WwZ-pg-kNk"/>
+                        <segue destination="Im1-Ux-GJZ" kind="custom" identifier="JAArticlePush" customClass="JAArticleSeguePush" id="gVB-PH-wnk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uF6-fg-cz9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -49,52 +48,32 @@
             <point key="canvasLocation" x="1009" y="-287"/>
         </scene>
         <!--Article Collection View Controller-->
-        <scene sceneID="mpR-YO-k7W">
+        <scene sceneID="Yj3-4B-ONT">
             <objects>
-                <collectionViewController id="ETW-Ho-87M" customClass="JAArticleCollectionViewController" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="oDh-j7-gtO">
+                <collectionViewController id="Im1-Ux-GJZ" customClass="JAArticleCollectionViewController" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="a9X-eQ-o1E">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="50" minimumInteritemSpacing="50" id="NOl-ka-0fu">
-                            <size key="itemSize" width="319" height="146"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="0.0" id="XAk-Kk-Gvo" customClass="ParallaxFlowLayout">
+                            <size key="itemSize" width="50" height="50"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="50" maxX="0.0" maxY="50"/>
+                            <inset key="sectionInset" minX="20" minY="20" maxX="20" maxY="20"/>
                         </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CreditsCell" id="7JP-NH-Chr" customClass="JACreditsCollectionViewCell">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="319" height="146"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t8H-xr-9uW">
-                                            <rect key="frame" x="8" y="0.0" width="303" height="71"/>
-                                            <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
-                                            <color key="textColor" red="0.064701115370000006" green="0.1848305864" blue="0.39204738449999998" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                            </collectionViewCell>
-                        </cells>
+                        <cells/>
                         <connections>
-                            <outlet property="dataSource" destination="ETW-Ho-87M" id="BM8-fL-2ZE"/>
-                            <outlet property="delegate" destination="ETW-Ho-87M" id="lxa-ur-lCS"/>
+                            <outlet property="dataSource" destination="Im1-Ux-GJZ" id="uOh-U8-WgP"/>
+                            <outlet property="delegate" destination="Im1-Ux-GJZ" id="aY5-XT-wb8"/>
                         </connections>
                     </collectionView>
                     <connections>
-                        <outlet property="articleCollectionView" destination="oDh-j7-gtO" id="JdB-fM-XDF"/>
-                        <segue destination="34i-94-Nqo" kind="unwind" identifier="JAArticlePop" unwindAction="returnFromArticleView:" id="STt-pk-Krw"/>
+                        <segue destination="4vb-sE-hT2" kind="unwind" identifier="JAArticlePop" unwindAction="returnFromArticleView:" id="46o-4L-MBA"/>
                     </connections>
                 </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qxO-46-V7D" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="34i-94-Nqo" userLabel="Exit" sceneMemberID="exit"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6u7-2Q-ddz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="4vb-sE-hT2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1512" y="-287"/>
+            <point key="canvasLocation" x="1520" y="-287"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

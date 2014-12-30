@@ -29,9 +29,11 @@
 
 - (id)initWithFrame:(CGRect)frame
 {
+
     self = [super initWithFrame:frame];
     if(self == nil) {
         return nil;
+
     }
     
     // Main characteristics of labels in the view

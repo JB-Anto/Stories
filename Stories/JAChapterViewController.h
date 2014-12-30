@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "JALoaderView.h"
 #import "JAChapterScrollView.h"
+#import "JAArticleCollectionViewController.h"
 
-@interface JAChapterViewController : UIViewController <LoaderDelegate, UIScrollViewDelegate>
+@interface JAChapterViewController : UIViewController <LoaderDelegate, UIScrollViewDelegate, ScrollRead>
 
 @property (strong, nonatomic) JAManagerData *manager;
 @property (strong, nonatomic) UIScrollView *chapterScrollView;

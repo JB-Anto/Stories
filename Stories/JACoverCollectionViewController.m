@@ -24,12 +24,11 @@ static NSString * const reuseIdentifier = @"Cell";
     [super viewDidLoad];
     
     self.manager = [JAManagerData sharedManager];
-    
+
     self.firstTime = YES;
     self.animatedLoader = NO;
     self.currentIndex = 0;
     self.stateLongTap = UIGestureRecognizerStatePossible;
-
     
     // Layout View
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
@@ -66,6 +65,11 @@ static NSString * const reuseIdentifier = @"Cell";
     self.loaderView.delegate = self;
     [self.view addSubview:self.loaderView];
     
+    // Follow View
+    self.followView = [[JAFollowView alloc]initWithFrame:CGRectMake(self.view.bounds.size.width - 75, 35, 40, 40)];
+    self.followView.delegate = self;
+    self.followView.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:self.followView];
     
 
     // Gesture recognizer
@@ -89,8 +93,25 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 -(void)loadNextView{
     NSLog(@"Hiya!");
+    JACoverCollectionViewCell *myCell = [[self.collectionView visibleCells] firstObject];
+    [UIView animateWithDuration:.5 animations:^{
+        myCell.titleView.frame = (CGRect){.origin=CGPointMake(myCell.titleView.frame.origin.x, myCell.titleView.frame.origin.y - 60),.size=myCell.titleView.frame.size};
+    } completion:^(BOOL finished) {
+        [myCell bringSubviewToFront:myCell.organicView];
+        [UIView animateWithDuration:.7 animations:^{
+            self.nameViewLBL.alpha = 0;
+        }];
+        [myCell.organicView finalAnimation:^{
+            [self performSegueWithIdentifier:@"JACoverPush" sender:self];
+            [myCell.organicView middleAnimation];
+            self.nameViewLBL.alpha = 1;
+            myCell.titleView.frame = (CGRect){.origin=CGPointMake(myCell.titleView.frame.origin.x, myCell.titleView.frame.origin.y + 60),.size=myCell.titleView.frame.size};
+            [myCell.organicView removeFromSuperview];
+            [myCell insertSubview:myCell.organicView aboveSubview:myCell.foregroundIV];
+        }];
+    }];
     self.manager.currentStorie = (int)self.currentIndex;
-    [self performSegueWithIdentifier:@"JACoverPush" sender:self];
+
 }
 
 -(void)animateScrollView:(JAAnimDirection)direction{
@@ -117,13 +138,22 @@ static NSString * const reuseIdentifier = @"Cell";
     
     UIImage *background = [UIImage imageNamed:[[self.manager.data.stories[row] cover] background]];
     UIImage *foreground = [UIImage imageNamed:[[self.manager.data.stories[row] cover] foreground]];
-    
+    myCell.clipsToBounds = YES;
+
     myCell.backgroundIV.image = background;
     myCell.foregroundIV.image = foreground;
     myCell.titleLBL.text = [[self.manager.data.stories[row] cover] title];
     myCell.locationLBL.text = [[self.manager.data.stories[row] cover] location];
-
+    [myCell.organicView setColor:[[self.manager.data.stories[row] cover] color]];
+//    if (!myCell.organicView.organicLayer.path) {
+//        [myCell.organicView setPaths:[[self.manager.data.stories[row] cover] paths]];
+//        [myCell.organicView setLayerPath];
+//    }
     return myCell;
+}
+
+-(void)followArticle:(BOOL)follow{
+    NSLog(@"BOOL Follow %d",follow);
 }
 
 #pragma mark <UICollectionViewDataSource>
@@ -141,12 +171,12 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
     [self.cellToAnimate animateEnter];
 }
-
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(JACoverCollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
     self.cellToAnimate = cell;
 
     if(self.firstTime){
         [cell animateEnter];
+        [cell.organicView middleAnimation];
         self.firstTime = NO;
     }
     
@@ -154,8 +184,8 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(JACoverCollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
     [cell resetAnimation];
 }
-
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    [self.cellToAnimate.organicView middleAnimation];
     self.currentIndex = (int)(scrollView.contentOffset.x/self.collectionView.frame.size.width);
     NSLog(@"INDEXXX %li",(long)self.currentIndex);
 }

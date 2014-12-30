@@ -11,8 +11,13 @@
                 "location": "Ukraine",
                 "background": "background_cover_2",
                 "foreground": "personnage_cover_2",
-                "color": "#EB9826",
-                "textColor": "#383561"
+                "color": "#EC963D",
+                "textColor": "#383561",
+                "paths": [
+                        "1-1",
+                        "1-2",
+                        "1-3"
+                    ]
             },
             "chapters": [
                 {
@@ -786,7 +791,127 @@
                 "location": "Isis",
                 "background": "background_cover_1",
                 "foreground": "personnage_cover_1",
-                "color": "#9A3241"
+                "color": "#9A3241",
+                "paths": [
+                        "2-1",
+                        "2-2",
+                        "2-3"
+                    ]
+            },
+            "chapters": [
+                {
+                    "id": 0,
+                    "title": "Chapitre 1",
+                    "articles": [
+                        {
+                            "id": 0,
+                            "title": "Ukraine president accepts embattled defence minister's resignation",
+                            "createdAt": "Sun, 12 Oct 2014 20:24 GMT",
+                            "imageLoading": "",
+                            "blocks": [
+                                {
+                                    "id": 0,
+                                    "type": "title",
+                                    "title": "Ukraine president accepts embattled defence minister's resignation",
+                                    "createdAt": "Sun, 12 Oct 2014 20:24 GMT",
+                                    "location": "Kiev"
+                                },
+                                {
+                                    "id": 1 ,
+                                    "type": "resumes",
+                                    "resumes": [
+                                        "Defence minister criticised over August rout of troops.",
+                                        "President hopes to nominate successor on Monday.",
+                                        "Fragile ceasefire in eastern Ukraine broadly holding."
+                                    ]
+                                },
+                                {
+                                    "id": 2,
+                                    "type": "paragraph",
+                                    "text": "Ukrainian president Petro Poroshenko accepted on Sunday the resignation of his defence minister who has been under fire over a rout of government forces in the east which let to Kiev calling a ceasefire with pro-Russian separatists.",
+                                    "links": ["","",""]
+                                },
+                                {
+                                    "id": 3,
+                                    "type": "image",
+                                    "text": "US Attorney General Eric Holder speaks at the opening of the Ukraine Forum of Asset Recovery at Lancaster House in Central London, April 29, 2014.",
+                                    "image": "2-0-0-poroshenko"
+                                },
+                                {
+                                    "id": 4,
+                                    "type": "paragraph",
+                                    "text": "Poroshenko’s website said the president had accepted the offer of resignation from Valery Heletey, 47, whom he appointed only in July. It said Poroshenko hoped to present a new ministerial candidate to parliament on Monday.",
+                                    "links": ["","",""]
+                                },
+                                {
+                                    "id": 5,
+                                    "type": "quotes",
+                                    "author": "Petro Poroshenko",
+                                    "text": "“I don’t have illusion. These will be difficult talks. But I am.”"
+                                },
+                                {
+                                    "id": 6,
+                                    "type": "paragraph",
+                                       "text": "Heletey who formerly led a presidential bodyguard unit, had drawn criticism since the crushing defeat of Ukrainian forces at Ilovaisk, east of the main rebel held eastern city of Donetsk, in late August.",
+                                    "links": ["","",""]
+                                },
+                                {
+                                    "id": 7,
+                                    "type": "paragraph",
+                                    "text": "Ukrainian military sources say a large number of Russian troops were also killed - a charge not acknowledged by Moscow, which denies any part in the Ukraine Conflict despite what Kiev and Western governements say is incontrovertible proof.",
+                                    "links": ["","",""]
+                                },
+                                {
+                                    "id": 8,
+                                    "type": "keyNumber",
+                                    "number": "102",
+                                    "text": "Ukrainian troops \n Were killed"
+                                },
+                                {
+                                    "id": 9,
+                                    "type": "paragraph",
+                                    "text": "Analysts say the Aug. 24 attack led Poroshenko reluctantly to accept that Kiev could not beat the separatists militarily as long as they were sypported by direct involvement of Russian troops and equipment.",
+                                    "links": ["","",""]
+                                },
+                            ],
+                            "credits": [
+                                {
+                                    "id": 0,
+                                    "type": "editor",
+                                    "title": "Authors:",
+                                    "names": [
+                                        "Richard Balmforth",
+                                        "Natalia Zinets"
+                                    ]
+                                },
+                                {
+                                    "id": 1,
+                                    "type": "publishing",
+                                    "title": "Editing:",
+                                    "names": ["Robin Pomeroy"]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "isFollow": 0,
+            "createdAt": "12-10-2014",
+            "cover": {
+                "id": 0,
+                "title": "The fight of the \n Kurd Rebels",
+                "location": "Isis",
+                "background": "background_cover_3",
+                "foreground": "personnage_cover_3",
+                "color": "#40a8f1",
+                "paths": [
+                        "3-1",
+                        "3-2",
+                        "3-3"
+                    ]
             },
             "chapters": [
                 {

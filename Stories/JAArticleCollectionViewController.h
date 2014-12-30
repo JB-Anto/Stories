@@ -17,7 +17,14 @@
 #import "JAHeaderView.h"
 #import "JAFooterView.h"
 
-@interface JAArticleCollectionViewController : UICollectionViewController <UICollectionViewDataSource, UICollectionViewDelegate, FollowDelegate>
+@protocol ScrollRead
+
+-(void)scrollRead:(float)percent;
+
+@end
+
+@interface JAArticleCollectionViewController : UICollectionViewController <UICollectionViewDataSource, UICollectionViewDelegate, FollowDelegate,UIGestureRecognizerDelegate>
+
 
 @property (strong, nonatomic) NSArray *blocks;
 @property (strong, nonatomic) NSArray *credits;
@@ -25,5 +32,13 @@
 @property (strong, nonatomic) JAFollowView *followView;
 @property (strong, nonatomic) JAHeaderView *headerView;
 @property (strong, nonatomic) JAFooterView *footerView;
+@property (nonatomic, assign) id delegate;
+@property float oldPercentScroll;
+
 
 @end
+
+
+
+
+

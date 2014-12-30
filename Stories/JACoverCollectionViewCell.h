@@ -7,16 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "JAFollowView.h"
+#import "JAOrganicView.h"
 
-@interface JACoverCollectionViewCell : UICollectionViewCell <FollowDelegate>
+
+@interface JACoverCollectionViewCell : UICollectionViewCell 
 
 @property (strong, nonatomic) UIImageView *backgroundIV;
 @property (strong, nonatomic) UIImageView *foregroundIV;
+@property (strong, nonatomic) JAOrganicView *organicView;
 @property (strong, nonatomic) UIView *titleView;
 @property (strong, nonatomic) UILabel *titleLBL;
 @property (strong, nonatomic) UILabel *locationLBL;
-@property (strong, nonatomic) JAFollowView *followView;
+@property (strong, nonatomic) JAManagerData *manager;
+@property (strong, nonatomic) JAPlistManager *plistManager;
 
 -(void)animateEnter;
 -(void)resetAnimation;

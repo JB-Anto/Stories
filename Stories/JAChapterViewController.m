@@ -13,8 +13,9 @@
 @property (strong, nonatomic) NSMutableArray *titlesArray;
 @property (strong, nonatomic) NSDateFormatter *dateFormater;
 @property (strong, nonatomic) NSDateFormatter *dateFormaterFromString;
+@property (strong, nonatomic) NSMutableArray *heightCellArray;
+
 @property NSUInteger titleChapterCount;
-@property float chapterHeight;
 @property int currentIndex;
 @property CGPoint touchPosition;
 @property CGPoint positionLoader;
@@ -22,6 +23,7 @@
 @property NSTimer *timerForLoader;
 @property BOOL touchToLoad;
 @property float currentTranslation;
+
 
 @end
 
@@ -33,6 +35,7 @@
     self.manager = [JAManagerData sharedManager];
     
     self.titlesArray = [NSMutableArray array];
+    self.heightCellArray = [NSMutableArray array];
     self.currentIndex = -1;
     self.touchToLoad = NO;
     self.manager.currentChapter = 0;
@@ -48,9 +51,12 @@
 
     NSUInteger chaptersCount = [[[self.manager getCurrentStorie] chapters] count];
     
+    self.view.backgroundColor = [UIColor pxColorWithHexValue:[[[self.manager getCurrentStorie] cover] color]];
+    
     // Chapters View
     self.chapterScrollView = [[JAChapterScrollView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width , self.view.bounds.size.height/7)];
     self.chapterScrollView.delegate = self;
+    self.chapterScrollView.alpha = 0;
     [self.view addSubview:self.chapterScrollView];
     
     // Titles View
@@ -79,17 +85,38 @@
     self.loaderView.delegate = self;
     self.loaderView.userInteractionEnabled = NO;
     [self.view addSubview:self.loaderView];
+
+}
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [UIView animateWithDuration:.5 animations:^{
+        self.chapterScrollView.alpha = 1;
+    }];
+
+    for (int j = 0; j < [[[self.manager getCurrentStorie] chapters] count]; j++) {
+
+        int index = (int)[[self.titlesArray objectAtIndex:j] count] - 1;
+
+        for (int i = index; i >= 0 ; i--) {
+            NSLog(@"i %i",i);
+            [self animateTitlesView:i forChapter:j negativeScale:.2 negativeAlpha:.3 delay:i * .05];
+        }
+    }
+    
 }
 -(UIView*)createTitlesBlocks:(int)index{
     // Count for Title View
     self.titleChapterCount = [[[[[self.manager getCurrentStorie] chapters] objectAtIndex:index] articles] count];
-    self.chapterHeight = self.titlesView.frame.size.height / self.titleChapterCount;
+    float chapterHeight = self.titlesView.frame.size.height / self.titleChapterCount;
+    NSLog(@"Height %f",chapterHeight);
+    
+    [self.heightCellArray addObject:[NSNumber numberWithFloat:chapterHeight]];
     
     // Instanciate all titles
     UIView *globalTitleBlock = [[UIView alloc]initWithFrame:CGRectMake(index * self.view.frame.size.width, 0, self.view.frame.size.width, self.titlesView.frame.size.height)];
     NSMutableArray *arrayOfTitle = [NSMutableArray array];
     for (int i = 0; i < self.titleChapterCount ; i++) {
-        UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, i*self.chapterHeight, self.view.frame.size.width, self.chapterHeight)];
+        UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, i * chapterHeight, self.view.frame.size.width, chapterHeight)];
 ;
         float percent = 70.0;
 
@@ -101,6 +128,7 @@
         NSString *finalDate = [self.dateFormater stringFromDate:date];
         
         NSMutableAttributedString * completeString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ %@",text,[finalDate lowercaseString]]];
+        
         [completeString addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"News-Plantin-Pro-Regular" size:32.0] range:NSMakeRange(0,[text length])];
         [completeString addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"Calibre-Thin" size:20.0] range:NSMakeRange([text length]+1,[finalDate length])];
         
@@ -117,7 +145,7 @@
         titleLBL.tag = 1;
         
         [self setAnchorPoint:CGPointMake(0, 0.5) forView:titleLBL];
-        titleLBL.transform = CGAffineTransformMakeScale(0.8, 0.8);
+        titleLBL.transform = CGAffineTransformMakeScale(0.5, 0.5);
         
         [titleView addSubview:titleLBL];
         [globalTitleBlock addSubview:titleView];
@@ -136,9 +164,10 @@
     self.touchPosition = [sender locationInView:self.titlesView];
     self.currentStateTouch = sender.state;
     bool loadedNextView = NO;
-    int index = (int)(self.touchPosition.y/self.chapterHeight);
+    NSNumber *heightCell = [self.heightCellArray objectAtIndex:self.manager.currentChapter];
+    int index = (int)(self.touchPosition.y/heightCell.floatValue);
 
-    [self animateTitlesView:index negativeScale:0.0 negativeAlpha:0.0];
+    [self animateTitlesView:index forChapter:self.manager.currentChapter negativeScale:0.0 negativeAlpha:0.0 delay:0.0];
     
     if(self.currentIndex != index){
         NSLog(@"index %i %i",self.currentIndex,index);
@@ -159,10 +188,10 @@
     }
     
     for (int i = index - 1; i >= 0; i--) {
-        [self animateTitlesView:i negativeScale:((index-i)*((1.0 /[[self.titlesArray objectAtIndex:self.manager.currentChapter]count])/2)) negativeAlpha:((index-i) * (1.0 /[[self.titlesArray objectAtIndex:self.manager.currentChapter]count]))];
+        [self animateTitlesView:i forChapter:self.manager.currentChapter negativeScale:((index-i)*((1.0 /[[self.titlesArray objectAtIndex:self.manager.currentChapter]count])/2)) negativeAlpha:((index-i) * (1.0 /[[self.titlesArray objectAtIndex:self.manager.currentChapter]count])) delay:0.0];
     }
     for (int i = index + 1; i < [[self.titlesArray objectAtIndex:self.manager.currentChapter]count]; i++) {
-        [self animateTitlesView:i negativeScale:((i - index)*((1.0 /[[self.titlesArray objectAtIndex:self.manager.currentChapter]count])/2)) negativeAlpha:((i - index)*(1.0 /[[self.titlesArray objectAtIndex:self.manager.currentChapter]count]))];
+        [self animateTitlesView:i forChapter:self.manager.currentChapter negativeScale:((i - index)*((1.0 /[[self.titlesArray objectAtIndex:self.manager.currentChapter]count])/2)) negativeAlpha:((i - index)*(1.0 /[[self.titlesArray objectAtIndex:self.manager.currentChapter]count])) delay:0.0];
     }
 
     if(sender.state == UIGestureRecognizerStateEnded){
@@ -171,18 +200,18 @@
             self.touchToLoad = NO;
             self.currentIndex = -1;
             for (int i = 0; i < [[self.titlesArray objectAtIndex:self.manager.currentChapter]count]; i++) {
-                [self animateTitlesView:i negativeScale:.2 negativeAlpha:0.0];
+                [self animateTitlesView:i forChapter:self.manager.currentChapter negativeScale:.2 negativeAlpha:0.3 delay:0.0];
             }
         }
     }
 }
 // Animate with a negative scale and alpha value
--(void)animateTitlesView:(int)index negativeScale:(float)negativeScale negativeAlpha:(float)negativeAlpha{
+-(void)animateTitlesView:(int)index forChapter:(int)chapterIndex negativeScale:(float)negativeScale negativeAlpha:(float)negativeAlpha delay:(float)delay{
 
-    UIView *titleView = [[self.titlesArray objectAtIndex:self.manager.currentChapter] objectAtIndex:index];
+    UIView *titleView = [[self.titlesArray objectAtIndex:chapterIndex] objectAtIndex:index];
     UILabel *titleLBL = (UILabel*)[titleView viewWithTag:1];
 
-    [UIView animateWithDuration:0.2 animations:^{
+    [UIView animateWithDuration:0.2  delay:delay options:UIViewAnimationOptionCurveEaseOut animations:^{
         titleLBL.transform = CGAffineTransformMakeScale(1.0 - negativeScale, 1.0 - negativeScale);
         titleLBL.alpha = 1.0 - negativeAlpha;
     } completion:^(BOOL finished) {
@@ -198,6 +227,8 @@
 }
 -(void)loadNextView{
     NSLog(@"ROCKSTAR BABE");
+    
+    [self performSegueWithIdentifier:@"JAArticlePush" sender:self];
     
 }
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset{
@@ -235,18 +266,33 @@
 -(BOOL)prefersStatusBarHidden {
     return YES;
 }
+-(void)scrollRead:(float)percent{
+    NSLog(@"Percent %f",percent);
+}
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
     return YES;
 }
+-(IBAction)returnFromArticleView:(UIStoryboardSegue*)segue{
+    
+}
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+
+    if ([segue.identifier isEqualToString:@"JAArticlePush"]) {
+        JAArticleCollectionViewController *articleController = segue.destinationViewController;
+        [articleController setDelegate:self];
+        articleController.oldPercentScroll = 10.0;
+    }
+    
+    // self.delegate == A
+}
+
 /*
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+// In a storyboard-based application, you will often want to do a little preparation before navigation*/
+
+
 
 @end

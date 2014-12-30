@@ -21,5 +21,6 @@
 @property (strong, nonatomic) NSString *background;
 @property (strong, nonatomic) NSString *foreground;
 @property (strong, nonatomic) NSString *color;
+@property (strong, nonatomic) NSArray *paths;
 
 @end

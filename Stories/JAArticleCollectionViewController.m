@@ -66,6 +66,7 @@
             [self.resumesID addObject:[self.currentBlock id]];
         }
     }
+
     
     // Register cell classes
     [self.collectionView registerClass:[JATitleCollectionViewCell class]      forCellWithReuseIdentifier:@"TitleCell"];
@@ -76,6 +77,26 @@
     [self.collectionView registerClass:[JAKeyNumberCollectionViewCell class]  forCellWithReuseIdentifier:@"KeyNumberCell"];
     [self.collectionView registerClass:[JACreditCollectionViewCell class]     forCellWithReuseIdentifier:@"CreditsCell"];
     
+
+    NSLog(@"%f",self.oldPercentScroll);
+    UITapGestureRecognizer *doubleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTap:)];
+    doubleTapGesture.numberOfTapsRequired = 2;
+    doubleTapGesture.delegate = self;
+    [self.view addGestureRecognizer:doubleTapGesture];
+    
+   
+
+}
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+
+}
+-(void)doubleTap:(UITapGestureRecognizer*)sender{
+//       NSLog(@"Percent Scroll %f",self.articleCollectionView.contentOffset.y / (self.articleCollectionView.contentSize.height - scrollView.frame.size.height)  * 100);
+
+    [self performSegueWithIdentifier:@"JAArticlePop" sender:self];
+//    Method to go to cover width flip
+//    [self.navigationController popToRootViewControllerAnimated:NO];
 }
 
 
@@ -102,6 +123,7 @@
     
 }
 
+
 - (void)setupFollowView
 {
     _followView = [[JAFollowView alloc]initWithFrame:CGRectMake(CGRectGetWidth(self.collectionView.bounds) -75, 35, 40, 40)];
@@ -111,6 +133,7 @@
     [self.collectionView addSubview:_followView];
 
 }
+#pragma mark <UICollectionViewDataSource>
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
@@ -135,6 +158,8 @@
     fixedFrame.origin.y = 55 + scrollView.contentOffset.y;
     [self.followView setCenter:CGPointMake(self.followView.center.x, fixedFrame.origin.y)];
     self.followView.centerView = self.followView.center;
+    
+     [self.delegate scrollRead:(self.collectionView.contentOffset.y / (self.collectionView.contentSize.height - self.collectionView.frame.size.height)  * 100)];
 }
 
 #pragma mark - JAFollowView Delegate
@@ -249,10 +274,20 @@
         cell = creditCell;
         
     }
+
     
     return cell;
-    
+
 }
+
+
+#pragma mark <UICollectionViewDelegate>
+
+
+// Uncomment this method to specify if the specified item should be highlighted during tracking
+//- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
+//	return YES;
+//}
 
 #pragma mark - UICollectionViewDelegateFlowLayout
 

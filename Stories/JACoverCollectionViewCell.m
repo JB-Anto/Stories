@@ -16,8 +16,17 @@
     
     if(self)
     {
+        
+        self.manager = [JAManagerData sharedManager];
+        self.plistManager = [JAPlistManager sharedInstance];
+        
+        [self.plistManager getCoverFollow:@"follow"];
+//        [self.plistManager setValue:@"1" forKey:@"follow"];
+        
         self.backgroundIV = [[UIImageView alloc] initWithFrame:self.bounds];
         self.foregroundIV = [[UIImageView alloc] initWithFrame:CGRectMake(self.bounds.size.width/3, 0, self.bounds.size.width, self.bounds.size.height)];
+        
+        self.organicView = [[JAOrganicView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height) paths:[[[self.manager getCurrentStorie]cover]paths]];
 
         self.locationLBL = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, self.bounds.size.width, 60)];
         self.locationLBL.textAlignment = NSTextAlignmentCenter;
@@ -34,25 +43,19 @@
         self.titleView = [[UIView alloc]initWithFrame:CGRectMake(50, self.bounds.size.height/2 - 150/2, self.bounds.size.width, 200)];
         self.titleView.alpha = 0;
         
-        // Follow View
-        self.followView = [[JAFollowView alloc]initWithFrame:CGRectMake(self.bounds.size.width - 75, 35, 40, 40)];
-        self.followView.delegate = self;
-        self.followView.backgroundColor = [UIColor clearColor];
-
+        
         [self addSubview:self.backgroundIV];
         [self addSubview:self.foregroundIV];
+        [self addSubview:self.organicView];
         [self.titleView addSubview:self.locationLBL];
         [self.titleView addSubview:self.titleLBL];
         [self addSubview:self.titleView];
-        [self addSubview:self.followView];
+
 
     }
         
     return self;
     
-}
--(void)followArticle:(BOOL)follow{
-    NSLog(@"BOOL Follow %d",follow);
 }
 -(void)animateEnter{
     [self.titleView setEasingFunction:easeOutExpo forKeyPath:@"transform"];
@@ -73,8 +76,10 @@
     } completion:nil];
 }
 -(void)resetAnimation{
+    
     self.titleView.transform = CGAffineTransformMakeTranslation(50, 0);
     self.titleView.alpha = 0;
     self.foregroundIV.transform = CGAffineTransformMakeTranslation(self.bounds.size.width/3, 0);
+    [self.organicView resetAnimation];
 }
 @end

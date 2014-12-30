@@ -18,16 +18,20 @@
 
 typedef NS_ENUM(NSInteger, JAAnimationEntry) {
     JAAnimEntryIn,
-    JAAnimEntryOut
+    JAAnimEntryOut,
+    JAAnimEntryNone
 };
 
-
+@property BOOL validate;
 @property (nonatomic, assign) id delegate;
 @property (nonatomic) CGPoint centerView;
+@property JAAnimationEntry lastEntry;
 
 -(void)rotateSquare:(float)angle;
 -(void)setColor:(UIColor *)color;
 -(void)validateFollow;
 -(void)unValidateFollow;
+-(void)animationBorder:(JAAnimationEntry)entry;
+
 
 @end

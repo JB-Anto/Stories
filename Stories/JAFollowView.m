@@ -12,7 +12,7 @@
 
 @property (strong,nonatomic) CAShapeLayer *maskWithHole;
 @property (strong,nonatomic) CAShapeLayer *maskWithHole2;
-@property BOOL validate;
+
 
 @end
 
@@ -28,7 +28,7 @@
         self.maskWithHole = [CAShapeLayer layer];
         self.centerView = self.center;
         self.validate = NO;
-        
+        self.lastEntry = JAAnimEntryNone;
         self.layer.transform = CATransform3DMakeRotation(45*M_PI/180, 0, 0, 1.0);
         
         UIBezierPath *maskPath = [UIBezierPath bezierPath];
@@ -112,15 +112,19 @@
     self.validate = NO;
 }
 -(void)animationBorder:(JAAnimationEntry)entry{
-    CABasicAnimation *animation =
-    [CABasicAnimation animationWithKeyPath:@"lineWidth"];
-    animation.fromValue = entry==JAAnimEntryIn?@(8.0f):@(30.0f);
-    animation.toValue = entry==JAAnimEntryIn?@(30.0f):@(8.0f);
-    animation.removedOnCompletion = NO;
-    animation.fillMode = kCAFillModeForwards;
-    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
-    [animation setDuration:.5];
-    [self.maskWithHole addAnimation:animation forKey:@"tesst"];
+//    NSLog(@"Scintillement %ld || %ld",self.lastEntry,entry);
+    if(entry != self.lastEntry){
+        CABasicAnimation *animation =
+        [CABasicAnimation animationWithKeyPath:@"lineWidth"];
+        animation.fromValue = entry==JAAnimEntryIn?@(8.0f):@(30.0f);
+        animation.toValue = entry==JAAnimEntryIn?@(30.0f):@(8.0f);
+        animation.removedOnCompletion = NO;
+        animation.fillMode = kCAFillModeForwards;
+        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+        [animation setDuration:.3];
+        [self.maskWithHole addAnimation:animation forKey:@"tesst"];
+    }
+    self.lastEntry = entry;
 }
 
 

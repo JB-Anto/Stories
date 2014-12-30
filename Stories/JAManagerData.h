@@ -16,8 +16,10 @@
 @property int currentArticle;
 @property int currentInfo;
 
+
 + (id)sharedManager;
 
+-(NSUInteger)getNumberOfStories;
 -(JAStorieModel*)getCurrentStorie;
 -(JAChapterModel*)getCurrentChapter;
 -(JAArticleModel*)getCurrentArticle;

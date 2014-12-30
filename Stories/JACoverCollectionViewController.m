@@ -24,6 +24,7 @@ static NSString * const reuseIdentifier = @"Cell";
     [super viewDidLoad];
     
     self.manager = [JAManagerData sharedManager];
+    self.plistManager = [JAPlistManager sharedInstance];
 
     self.firstTime = YES;
     self.animatedLoader = NO;
@@ -153,7 +154,9 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 -(void)followArticle:(BOOL)follow{
-    NSLog(@"BOOL Follow %d",follow);
+    NSLog(@"BOOL Follow %@",[NSNumber numberWithBool:follow]);
+    [self.plistManager setValueForKey:@"follow" value:[NSNumber numberWithBool:follow] index:self.currentIndex];
+    
 }
 
 #pragma mark <UICollectionViewDataSource>
@@ -177,16 +180,29 @@ static NSString * const reuseIdentifier = @"Cell";
     if(self.firstTime){
         [cell animateEnter];
         [cell.organicView middleAnimation];
+        [self animateFollow];
         self.firstTime = NO;
+
     }
     
 }
 - (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(JACoverCollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
     [cell resetAnimation];
 }
+-(void)animateFollow{
+    self.followView.validate = [[[self.plistManager getObject:@"follow"] objectAtIndex:self.currentIndex] boolValue];
+    NSLog(@"validate %d", self.followView.validate);
+    if([[self.plistManager getObject:@"follow"] objectAtIndex:self.currentIndex] == [NSNumber numberWithBool:true]){
+        [self.followView animationBorder:JAAnimEntryIn];
+    }
+    else{
+        [self.followView animationBorder:JAAnimEntryOut];
+    }
+}
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     [self.cellToAnimate.organicView middleAnimation];
     self.currentIndex = (int)(scrollView.contentOffset.x/self.collectionView.frame.size.width);
+    [self animateFollow];
     NSLog(@"INDEXXX %li",(long)self.currentIndex);
 }
 

@@ -41,6 +41,9 @@
     // Manager
     self.data = [[JAStoriesModel alloc] initWithString:jsonString error:nil];
 }
+-(NSUInteger)getNumberOfStories{
+    return [[self.data stories] count];
+}
 -(JAStorieModel*)getCurrentStorie{
     
     return [[self.data stories] objectAtIndex:self.currentStorie];

@@ -32,6 +32,7 @@ static JAPlistManager *sharedInstance = nil;
 {
     if(self = [super init])
     {
+        self.manager = [JAManagerData sharedManager];
         // Search if the plist already exist
         NSString *destinationPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
         destinationPath = [destinationPath stringByAppendingPathComponent:@"stories.plist"];
@@ -47,28 +48,58 @@ static JAPlistManager *sharedInstance = nil;
         }
         
         self.plistPath = destinationPath;
+        
+        NSMutableDictionary *plistData = [self getPlistData];
+        
+        if ([[self getObject:@"follow"] count] == 0) {
+            
+            NSMutableArray *stories = [NSMutableArray array];
+            for (int i = 0; i < [self.manager getNumberOfStories]; i++) {
+                [stories addObject:@0];
+            }
+            [plistData setObject:stories forKey:@"follow"];
+            [self writeDataToPlist:plistData];
+        }
+        if([[self getObject:@"percent"]count] == 0){
+            
+        }
+//        for (int v = 0; v < [[[self.manager getCurrentStorie] chapters] count]; v++) {
+//            for (int w = 0; w < [[self.titlesArray objectAtIndex:v] count] ; w++) {
+//                [self.percentArray addObject:[NSNumber numberWithFloat:0.0]];
+//            }
+//        }
+
     }
     return self;
 }
 
 #pragma mark - User info value handlers
 
-- (NSString *)getCoverFollow:(NSString*)follow
+- (NSMutableArray *)getObject:(NSString*)key
 {
     NSLog(@"stories %@", [self getPlistData]);
-    return [[[self getPlistData] objectForKey:@"cover"] objectForKey:follow];
+//    NSLog(@"ARRAY %lu",(unsigned long)[[[[self getPlistData] objectForKey:@"cover"] objectForKey:follow] count]);
+    NSMutableArray *array = [NSMutableArray arrayWithArray:[[self getPlistData] objectForKey:key]];
+    return array;
 
 }
 
-- (void)setCoverFollowing:(NSString *)key value:(NSString *)value
+- (void)setValueForKey:(NSString *)key value:(NSNumber*)value index:(NSInteger)index
 {
+    
+    
     NSMutableDictionary *plistData = [self getPlistData];
     
-    [[plistData objectForKey:@"cover"] setObject:value forKey:key];
+    NSMutableArray *follow = [self getObject:key];
+    
+//    NSLog(@"index %li || value %@ || follow %@",(long)index,value,follow);
+    [follow removeObjectAtIndex:index];
+    [follow insertObject:value atIndex:index];
+    [plistData setObject:follow forKey:key];
     
     [self writeDataToPlist:plistData];
     
-    NSLog(@" %@ - %@ ",key, [self getCoverFollow:key] );
+    NSLog(@" %@ - %@ ",key, [self getObject:key] );
 
 }
 

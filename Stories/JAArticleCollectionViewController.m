@@ -66,7 +66,7 @@
             [self.resumesID addObject:[self.currentBlock id]];
         }
     }
-
+    
     
     // Register cell classes
     [self.collectionView registerClass:[JATitleCollectionViewCell class]      forCellWithReuseIdentifier:@"TitleCell"];
@@ -78,7 +78,7 @@
     [self.collectionView registerClass:[JACreditCollectionViewCell class]     forCellWithReuseIdentifier:@"CreditsCell"];
     
 
-    NSLog(@"%f",self.oldPercentScroll);
+    NSLog(@"old %f",self.oldPercentScroll);
     UITapGestureRecognizer *doubleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTap:)];
     doubleTapGesture.numberOfTapsRequired = 2;
     doubleTapGesture.delegate = self;

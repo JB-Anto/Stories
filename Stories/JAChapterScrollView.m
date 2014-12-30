@@ -18,7 +18,6 @@
     {
         self.manager = [JAManagerData sharedManager];
         self.pagingEnabled = YES;
-//        self.bounces = NO;
         self.backgroundColor = [UIColor pxColorWithHexValue:[[[self.manager getCurrentStorie] cover] color]];
         self.showsHorizontalScrollIndicator = NO;
         NSUInteger chaptersCount = [[[self.manager getCurrentStorie] chapters] count];
@@ -36,7 +35,6 @@
     }
     
     return self;
-    
 }
 
 

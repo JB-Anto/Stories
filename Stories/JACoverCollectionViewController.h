@@ -27,5 +27,6 @@ typedef NS_ENUM(NSInteger, JAAnimDirection) {
 @property (nonatomic,strong) JAManagerData *manager;
 @property (strong, nonatomic) JALoaderView *loaderView;
 @property (strong, nonatomic) UILabel *nameViewLBL;
+@property (strong, nonatomic) JAPlistManager *plistManager;
 @property NSInteger currentIndex;
 @end

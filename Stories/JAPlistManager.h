@@ -7,13 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "JAManagerData.h"
 @interface JAPlistManager : NSObject
+
+@property (strong,nonatomic) JAManagerData *manager;
 
 + (id)sharedInstance;
 
-- (NSString *)getCoverFollow:(NSString*)follow;
+- (NSMutableArray *)getObject:(NSString*)key;
 
-- (void)setCoverFollowing:(NSString *)key value:(NSString *)value;
+- (void)setValueForKey:(NSString *)key value:(NSNumber*)value index:(NSInteger)index;
 
 @end

@@ -19,7 +19,6 @@
 @property (strong, nonatomic) UILabel *titleLBL;
 @property (strong, nonatomic) UILabel *locationLBL;
 @property (strong, nonatomic) JAManagerData *manager;
-@property (strong, nonatomic) JAPlistManager *plistManager;
 
 -(void)animateEnter;
 -(void)resetAnimation;

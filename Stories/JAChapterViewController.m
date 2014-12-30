@@ -11,6 +11,7 @@
 @interface JAChapterViewController () <UIGestureRecognizerDelegate>
 
 @property (strong, nonatomic) NSMutableArray *titlesArray;
+@property (strong, nonatomic) NSMutableArray *percentArray;
 @property (strong, nonatomic) NSDateFormatter *dateFormater;
 @property (strong, nonatomic) NSDateFormatter *dateFormaterFromString;
 @property (strong, nonatomic) NSMutableArray *heightCellArray;
@@ -35,6 +36,7 @@
     self.manager = [JAManagerData sharedManager];
     
     self.titlesArray = [NSMutableArray array];
+    self.percentArray = [NSMutableArray array];
     self.heightCellArray = [NSMutableArray array];
     self.currentIndex = -1;
     self.touchToLoad = NO;
@@ -67,6 +69,8 @@
     for (int i = 0; i < chaptersCount; i++) {
         [self.titlesView addSubview:[self createTitlesBlocks:i]];
     }
+    
+    
     
     UITapGestureRecognizer *doubleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTap:)];
     doubleTapGesture.numberOfTapsRequired = 2;
@@ -128,7 +132,7 @@
         NSString *finalDate = [self.dateFormater stringFromDate:date];
         
         NSMutableAttributedString * completeString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ %@",text,[finalDate lowercaseString]]];
-        
+
         [completeString addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"News-Plantin-Pro-Regular" size:32.0] range:NSMakeRange(0,[text length])];
         [completeString addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"Calibre-Thin" size:20.0] range:NSMakeRange([text length]+1,[finalDate length])];
         
@@ -278,13 +282,12 @@
 }
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-
     if ([segue.identifier isEqualToString:@"JAArticlePush"]) {
         JAArticleCollectionViewController *articleController = segue.destinationViewController;
         [articleController setDelegate:self];
+
         articleController.oldPercentScroll = 10.0;
     }
-    
 }
 
 /*

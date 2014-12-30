@@ -22,4 +22,5 @@
 -(void)addLink;
 -(void)applyLineHeight;
 -(void)applyLetterSpacing;
+-(void)applyMarkOfLastParagraph;
 @end

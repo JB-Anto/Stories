@@ -1,5 +1,5 @@
 //
-//  TitleCollectionViewCell.h
+//  CreditsCollectionViewCell.h
 //  Stories
 //
 //  Created by PENRATH Jean-baptiste on 14/11/2014.
@@ -9,11 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "JAUILabel.h"
 
-@interface JATitleCollectionViewCell : UICollectionViewCell
+@interface JACreditCollectionViewCell : UICollectionViewCell
 
 @property (strong, nonatomic) JAUILabel *titleLabel;
-@property (strong, nonatomic) JAUILabel *dateLabel;
-@property (strong, nonatomic) JAUILabel *locationLabel;
+@property (strong, nonatomic) JAUILabel *namesLabel;
 @property (nonatomic) CGFloat maxParallaxOffset;
 
 @end

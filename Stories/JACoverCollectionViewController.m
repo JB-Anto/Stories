@@ -18,8 +18,6 @@
 
 @implementation JACoverCollectionViewController
 
-
-
 static NSString * const reuseIdentifier = @"Cell";
 
 - (void)viewDidLoad {

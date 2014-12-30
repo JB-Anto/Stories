@@ -23,8 +23,10 @@ typedef NS_ENUM(NSInteger, JAAnimationEntry) {
 
 
 @property (nonatomic, assign) id delegate;
+@property (nonatomic) CGPoint centerView;
 
 -(void)rotateSquare:(float)angle;
+-(void)setColor:(UIColor *)color;
 -(void)validateFollow;
 -(void)unValidateFollow;
 

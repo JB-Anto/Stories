@@ -10,6 +10,7 @@
 #import "JSONModel.h"
 #import "JABlockModel.h"
 #import "JACreditModel.h"
+#import "JAInfoModel.h"
 
 @protocol JAArticleModel <NSObject>
 
@@ -23,5 +24,5 @@
 @property (strong, nonatomic) NSString *imageLoading;
 @property (strong, nonatomic) NSArray <JABlockModel> *blocks;
 @property (strong, nonatomic) NSArray <JACreditModel> *credits;
-
+@property (strong, nonatomic) NSArray <JAInfoModel, Optional> *infos;
 @end

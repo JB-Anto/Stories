@@ -11,5 +11,8 @@
 #import "JAUITextView.h"
 
 @interface JAParagraphCollectionViewCell : UICollectionViewCell
+
 @property (strong, nonatomic) JAUITextView *paragraphLabel;
+@property (nonatomic) CGFloat maxParallaxOffset;
+
 @end

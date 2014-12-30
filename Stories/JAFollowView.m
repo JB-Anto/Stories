@@ -12,7 +12,6 @@
 
 @property (strong,nonatomic) CAShapeLayer *maskWithHole;
 @property (strong,nonatomic) CAShapeLayer *maskWithHole2;
-@property CGPoint centerView;
 @property BOOL validate;
 
 @end
@@ -63,6 +62,11 @@
     }
     return self;
     
+}
+
+- (void)setColor:(UIColor *)color
+{
+    [self.maskWithHole setStrokeColor:[color CGColor]];
 }
 
 -(void)rotateSquare:(float)angle{

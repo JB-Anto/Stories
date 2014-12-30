@@ -7,44 +7,74 @@
 //
 
 #import "JAArticleCollectionViewController.h"
+#import "JATitleCollectionViewCell.h"
+#import "JAResumeCollectionViewCell.h"
+#import "JAParagraphCollectionViewCell.h"
+#import "JAImageCollectionViewCell.h"
+#import "JAQuotesCollectionViewCell.h"
+#import "JAKeyNumberCollectionViewCell.h"
+#import "JACreditCollectionViewCell.h"
+#import "JAHeaderView.h"
+#import "JAFooterView.h"
+#import "JAUILabel.h"
+#import "JAUITextView.h"
+#import "ParallaxFlowLayout.h"
 
 @interface JAArticleCollectionViewController ()
 {
+    
     CGSize optimalSizeForLabel;
     CGSize maximumSizeOfLabel;
 }
+
+@property (strong, nonatomic) JABlockModel *currentBlock;
+@property (strong, nonatomic) JACreditModel *creditBlock;
+@property (strong, nonatomic) NSMutableArray *resumesID;
+@property (strong, nonatomic) UIImage *headerSnapshotFragment;
+@property (strong, nonatomic) UIImage *footerSnapshotFragment;
+
 @end
 
 @implementation JAArticleCollectionViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     
-    // Register cell classes
-    [self.articleCollectionView registerClass:[JATitleCollectionViewCell class]     forCellWithReuseIdentifier:@"TitleCell"];
-    [self.articleCollectionView registerClass:[JAResumeCollectionViewCell class]    forCellWithReuseIdentifier:@"ResumeCell"];
-    [self.articleCollectionView registerClass:[JAParagraphCollectionViewCell class] forCellWithReuseIdentifier:@"ParagraphCell"];
-    [self.articleCollectionView registerClass:[JAImageCollectionViewCell class]     forCellWithReuseIdentifier:@"ImageCell"];
-    [self.articleCollectionView registerClass:[JAQuotesCollectionViewCell class]    forCellWithReuseIdentifier:@"QuoteCell"];
-    [self.articleCollectionView registerClass:[JAKeyNumberCollectionViewCell class] forCellWithReuseIdentifier:@"KeyNumberCell"];
+    // Collection View Initialization
+    [self.collectionView setBackgroundColor:[UIColor whiteColor]];
     
+    [self setupFollowView];
+    self.headerSnapshotFragment = [UIImage imageNamed:@"haut.png"];
+    self.footerSnapshotFragment = [UIImage imageNamed:@"bas.png"];
+    [self setupHeaderView];
+    [self setupFooterView];
+
     // DATA Management
     self.manager = [JAManagerData sharedManager];
     self.manager.currentStorie  = 0;
     self.manager.currentChapter = 0;
     self.manager.currentArticle = 4;
-    
-    _blocks = [[self.manager getCurrentArticle] blocks];
-    
+    JAArticleModel *article = [self.manager getCurrentArticle];
+    self.blocks = [article blocks];
+    self.credits = [article credits];
     // NSArray of each resume block ids
     self.resumesID = [NSMutableArray new];
-    
     for(int i=0; i<[_blocks count]; i++) {
         self.currentBlock = _blocks[i];
         if([[self.currentBlock type] isEqualToString:@"resume"]) {
             [self.resumesID addObject:[self.currentBlock id]];
         }
     }
+    
+    // Register cell classes
+    [self.collectionView registerClass:[JATitleCollectionViewCell class]      forCellWithReuseIdentifier:@"TitleCell"];
+    [self.collectionView registerClass:[JAResumeCollectionViewCell class]     forCellWithReuseIdentifier:@"ResumeCell"];
+    [self.collectionView registerClass:[JAParagraphCollectionViewCell class]  forCellWithReuseIdentifier:@"ParagraphCell"];
+    [self.collectionView registerClass:[JAImageCollectionViewCell class]      forCellWithReuseIdentifier:@"ImageCell"];
+    [self.collectionView registerClass:[JAQuotesCollectionViewCell class]     forCellWithReuseIdentifier:@"QuoteCell"];
+    [self.collectionView registerClass:[JAKeyNumberCollectionViewCell class]  forCellWithReuseIdentifier:@"KeyNumberCell"];
+    [self.collectionView registerClass:[JACreditCollectionViewCell class]     forCellWithReuseIdentifier:@"CreditsCell"];
     
 }
 
@@ -54,274 +84,256 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)setupHeaderView {
+    self.headerView = [[JAHeaderView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.collectionView.bounds), CGRectGetHeight(self.collectionView.bounds)/2)];
+    [self.headerView setImage:self.headerSnapshotFragment];
+    [self.headerView updateConstraintsIfNeeded];
+    [self.collectionView addSubview:self.headerView];
+    [self.headerView animateEnter];
+    
 }
-*/
 
-#pragma mark <UICollectionViewDataSource>
+- (void)setupFooterView {
+    self.footerView = [[JAFooterView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.collectionView.bounds)/2, CGRectGetWidth(self.collectionView.bounds), CGRectGetHeight(self.collectionView.bounds)/2)];
+    [self.footerView setImage:self.footerSnapshotFragment];
+    [self.footerView updateConstraintsIfNeeded];
+    [self.collectionView addSubview:self.footerView];
+    [self.footerView animateEnter];
+    
+}
+
+- (void)setupFollowView
+{
+    _followView = [[JAFollowView alloc]initWithFrame:CGRectMake(CGRectGetWidth(self.collectionView.bounds) -75, 35, 40, 40)];
+    _followView.delegate = self;
+    _followView.backgroundColor = [UIColor clearColor];
+    [_followView setColor:[UIColor colorWithHue:0.68 saturation:0.2 brightness:0.54 alpha:1]];
+    [self.collectionView addSubview:_followView];
+
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    // Header "Parallax Effect"
+    CGPoint headerCenter = self.headerView.center;
+    if(scrollView.contentOffset.y < 150) {
+        headerCenter.y = self.headerView.initialCenter.y + scrollView.contentOffset.y*0.5;
+        [self.headerView setCenter:CGPointMake(self.headerView.center.x, headerCenter.y)];
+    }
+    
+    // Footer "Parallax Effect"
+    CGPoint footerCenter = self.footerView.center;
+    CGFloat maxScroll = scrollView.contentSize.height - scrollView.bounds.size.height;
+    
+    if(maxScroll - scrollView.contentOffset.y < 28) {
+        footerCenter.y = self.footerView.initialCenter.y + (maxScroll - scrollView.contentOffset.y);
+        [self.footerView setCenter:CGPointMake(self.footerView.center.x, footerCenter.y)];
+    }
+    
+    // Follow View fixed position
+    CGRect fixedFrame = self.followView.frame;
+    fixedFrame.origin.y = 55 + scrollView.contentOffset.y;
+    [self.followView setCenter:CGPointMake(self.followView.center.x, fixedFrame.origin.y)];
+    self.followView.centerView = self.followView.center;
+}
+
+#pragma mark - JAFollowView Delegate
+-(void)followArticle:(BOOL)follow{
+    NSLog(@"BOOL Follow %d",follow);
+}
+
+
+#pragma mark - UICollectionViewDataSource
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return 1;
+}
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return _blocks.count;
+    
+    NSInteger numberOfSection = [self.blocks count];
+    
+    if(self.credits) {
+        numberOfSection += [self.credits count];
+    }
+    
+    return numberOfSection;
+    
 }
+
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
+    UICollectionViewCell *cell = nil;
     
-    long row = [indexPath row];
+    if(indexPath.item < [self.blocks count]) {
+        self.currentBlock = self.blocks[indexPath.item];
+        
+        if([[self.currentBlock type] isEqualToString:@"title"]) {
+            
+            JATitleCollectionViewCell *titleCell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"TitleCell" forIndexPath:indexPath];
+            // Set Content
+            // Date out format
+            NSDateFormatter *dateFormater = [[NSDateFormatter alloc]init];
+            [dateFormater setDateFormat:@"MMM\u00A0dd"];
+            // Date in format
+            NSDateFormatter *dateFormaterFromString = [[NSDateFormatter alloc]init];
+            [dateFormaterFromString setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"];
+            NSDate *date = [dateFormaterFromString dateFromString:[self.currentBlock createdAt]];
+            NSString *finalDate = [dateFormater stringFromDate:date];
+            [titleCell.titleLabel initWithString:[self.currentBlock title]];
+            [titleCell.locationLabel initWithString:[self.currentBlock location]];
+            [titleCell.dateLabel initWithString:finalDate];
+            [titleCell updateConstraintsIfNeeded];
+            cell = titleCell;
+            
+        } else if([[self.currentBlock type] isEqualToString:@"resume"]) {
+                
+            JAResumeCollectionViewCell *resumeCell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"ResumeCell" forIndexPath:indexPath];
+            // Set Content
+            [resumeCell.resumeLabel initWithString:[self.currentBlock text]];
+            resumeCell.idx = [self.resumesID indexOfObject:[self.currentBlock id]];
+            [resumeCell addConstraint:[NSLayoutConstraint constraintWithItem:resumeCell.resumeLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:resumeCell.contentView attribute:NSLayoutAttributeRight multiplier:0.3 - (0.3-(0.3/(resumeCell.idx+1))) + CGFLOAT_MIN constant:0]];
+            [resumeCell updateConstraintsIfNeeded];
+
+            cell = resumeCell;
+            
+        } else if([[self.currentBlock type] isEqualToString:@"paragraph"]) {
+            
+            JAParagraphCollectionViewCell *paragraphCell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"ParagraphCell" forIndexPath:indexPath];
+            paragraphCell.paragraphLabel.links = [self.currentBlock links];
+            [paragraphCell.paragraphLabel initWithString:[self.currentBlock text]];
+            if(self.currentBlock.id.integerValue == self.blocks.count-1) {
+                [paragraphCell.paragraphLabel applyMarkOfLastParagraph];
+            }
+            [paragraphCell updateConstraintsIfNeeded];
+            cell = paragraphCell;
+            
+        } else if([[self.currentBlock type] isEqualToString:@"image"]) {
+        
+            JAImageCollectionViewCell *imageCell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"ImageCell" forIndexPath:indexPath];
+            //Set Content
+            [imageCell.legendLabel initWithString:[self.currentBlock text]];
+            [imageCell.imageView setImage:[UIImage imageNamed:[self.currentBlock image]]];
+            [imageCell updateConstraintsIfNeeded];
+            cell = imageCell;
+            
+        } else if([[self.currentBlock type] isEqualToString:@"quote"]) {
+            
+            JAQuotesCollectionViewCell *quoteCell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"QuoteCell" forIndexPath:indexPath];
+            // Set Content
+            [quoteCell.authorLabel initWithString:[self.currentBlock author]];
+            [quoteCell.quoteLabel initWithString:[self.currentBlock text]];
+            [quoteCell updateConstraintsIfNeeded];
+            cell = quoteCell;
+            
+        } else if([[self.currentBlock type] isEqualToString:@"keyNumber"]) {
+            JAKeyNumberCollectionViewCell *keyNumberCell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"KeyNumberCell" forIndexPath:indexPath];
+            // Set Content
+            keyNumberCell.numberLabel.links = [self.currentBlock links];
+            [keyNumberCell.numberLabel initWithString:[self.currentBlock number]];
+            [keyNumberCell.numberLabel sizeToFit];
+            [keyNumberCell.descriptionLabel initWithString:[self.currentBlock text]];
+            [keyNumberCell updateConstraintsIfNeeded];
+            cell = keyNumberCell;
+            
+        }
+    } else {
+        
+        JACreditCollectionViewCell *creditCell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"CreditsCell" forIndexPath:indexPath];
+        // Set Content
+        self.creditBlock = self.credits[indexPath.item - [self.blocks count]];
+        [creditCell.titleLabel initWithString:[self.creditBlock title]];
+        [creditCell.namesLabel initWithString:[[self.creditBlock names] componentsJoinedByString:@"\n"]];
+        [creditCell updateConstraintsIfNeeded];
+        cell = creditCell;
+        
+    }
     
-    self.currentBlock = _blocks[row];
-    
-    if([[self.currentBlock type] isEqualToString:@"title"]) {
-        
-        JATitleCollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"TitleCell" forIndexPath:indexPath];
-        
-        // Set Content
-        // Date out format
-        NSDateFormatter *dateFormater = [[NSDateFormatter alloc]init];
-        [dateFormater setDateFormat:@"MMM\u00A0dd"];
-        // Date in format
-        NSDateFormatter *dateFormaterFromString = [[NSDateFormatter alloc]init];
-        [dateFormaterFromString setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"];
-        NSDate *date = [dateFormaterFromString dateFromString:[self.currentBlock createdAt]];
-        NSString *finalDate = [dateFormater stringFromDate:date];
-        [cell.titleLabel initWithString:[self.currentBlock title]];
-        [cell.locationLabel initWithString:[self.currentBlock location]];
-        [cell.dateLabel initWithString:finalDate];
-
-        // Set size hoped
-        maximumSizeOfLabel = CGSizeMake(256, CGFLOAT_MAX);
-        optimalSizeForLabel = [cell.titleLabel sizeThatFits:maximumSizeOfLabel];
-
-        // Set frames
-        [cell.titleLabel setFrame:CGRectMake(20, 0, optimalSizeForLabel.width, optimalSizeForLabel.height)];
-        [cell.locationLabel setFrame:CGRectMake(cell.center.x - CGRectGetWidth(cell.locationLabel.bounds)/2, cell.center.y - CGRectGetHeight(cell.locationLabel.bounds)/2, CGRectGetWidth(cell.locationLabel.bounds), CGRectGetHeight(cell.locationLabel.bounds))];
-        [cell.dateLabel setFrame:CGRectMake(cell.center.x - cell.dateLabel.bounds.size.width/2 , cell.center.y + cell.dateLabel.frame.size.height/2, CGRectGetWidth(cell.dateLabel.bounds), CGRectGetHeight(cell.dateLabel.bounds))];
-        
-        return cell;
-        
-    }
-    else if([[self.currentBlock type] isEqualToString:@"resume"]) {
-        
-        JAResumeCollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"ResumeCell" forIndexPath:indexPath];
-
-        // Set Content
-        [cell.resumeLabel initWithString:[self.currentBlock text]];
-        
-        // Set size hoped
-        maximumSizeOfLabel = CGSizeMake(160, CGFLOAT_MAX);
-        optimalSizeForLabel = [cell.resumeLabel sizeThatFits:maximumSizeOfLabel];
-
-        // Set frames
-        NSInteger index = [self.resumesID indexOfObject:[self.currentBlock id]];
-        CGFloat positionOfLabel =  (CGRectGetWidth(self.view.bounds)*0.5-optimalSizeForLabel.width/2) - (index * (CGRectGetWidth(self.view.bounds)*0.5-optimalSizeForLabel.width/2)/([self.resumesID count]-1)/1.5) + 20;
-        [cell.resumeLabel setFrame:CGRectMake(positionOfLabel, 0, optimalSizeForLabel.width, optimalSizeForLabel.height)];
-        
-        return cell;
-        
-    }
-    else if([[self.currentBlock type] isEqualToString:@"paragraph"]) {
-        
-        JAParagraphCollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"ParagraphCell" forIndexPath:indexPath];
-        
-        // Set Content
-        cell.paragraphLabel.links = [self.currentBlock links];
-        [cell.paragraphLabel initWithString:[self.currentBlock text]];
- 
-        // Set size hoped
-        maximumSizeOfLabel = CGSizeMake(CGRectGetWidth(self.view.bounds)-40, CGFLOAT_MAX);
-        optimalSizeForLabel = [cell.paragraphLabel sizeThatFits:maximumSizeOfLabel];
-        
-        // Set frames
-        [cell.paragraphLabel setFrame:CGRectMake(20, 0, optimalSizeForLabel.width, optimalSizeForLabel.height)];
-        
-        return cell;
-        
-    }
-    else if([[self.currentBlock type] isEqualToString:@"quote"]) {
-        
-        JAQuotesCollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"QuoteCell" forIndexPath:indexPath];
-        
-        //Set Content
-        [cell.quoteLabel initWithString:[self.currentBlock text]];
-        [cell.authorLabel initWithString:[self.currentBlock author]];
-        
-        //Set size hoped
-        maximumSizeOfLabel = CGSizeMake(225, CGFLOAT_MAX);
-        optimalSizeForLabel = [cell.quoteLabel sizeThatFits:maximumSizeOfLabel];
-        
-        //Set frames
-        [cell.quoteLabel setFrame:CGRectMake(0, 0, optimalSizeForLabel.width, optimalSizeForLabel.height)];
-        [cell.authorLabel setTextAlignment:NSTextAlignmentRight];
-        [cell.authorLabel setFrame:CGRectMake(CGRectGetWidth(cell.bounds)-CGRectGetWidth(cell.authorLabel.bounds)-20, CGRectGetHeight(cell.quoteLabel.bounds)-CGRectGetHeight(cell.authorLabel.bounds)/1.15, CGRectGetWidth(cell.authorLabel.bounds), CGRectGetHeight(cell.authorLabel.bounds))];
-        
-        return cell;
-        
-    }
-    else if([[self.currentBlock type] isEqualToString:@"image"]) {
-
-        JAImageCollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"ImageCell" forIndexPath:indexPath];
-        
-        //Set Content
-        [cell.legendLabel initWithString:[self.currentBlock text]];
-        [cell.imageView setImage:[UIImage imageNamed:[self.currentBlock image]]];
-        
-        //Set size hoped
-        maximumSizeOfLabel = CGSizeMake(185, CGFLOAT_MAX);
-        optimalSizeForLabel = [cell.legendLabel sizeThatFits:maximumSizeOfLabel];
-        
-        //Set frames
-        [cell.imageView setFrame:CGRectMake(0, 0, cell.imageView.image.size.width, cell.imageView.image.size.height)];
-        [cell.legendLabel setFrame:CGRectMake(cell.imageView.image.size.width*0.65, CGRectGetHeight(cell.bounds)/2 - optimalSizeForLabel.height/2, optimalSizeForLabel.width, optimalSizeForLabel.height)];
-        
-        return cell;
-        
-    }
-    else if([[self.currentBlock type] isEqualToString:@"keyNumber"]) {
-        
-        JAKeyNumberCollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"KeyNumberCell" forIndexPath:indexPath];
-        
-        //Set content
-        [cell.numberLabel initWithString:[self.currentBlock number]];
-        [cell.descriptionLabel initWithString:[self.currentBlock text]];
-        
-        //Set size hoped
-        maximumSizeOfLabel = CGSizeMake(195, CGFLOAT_MAX);
-        optimalSizeForLabel = [cell.descriptionLabel sizeThatFits:maximumSizeOfLabel];
-        
-        //Set frames
-        [cell.descriptionLabel setFrame:CGRectMake((CGRectGetWidth(cell.numberLabel.bounds)*0.9)/2, cell.numberLabel.bounds.origin.y + (CGRectGetHeight(cell.numberLabel.bounds)*0.728)/2-optimalSizeForLabel.height*0.154, optimalSizeForLabel.width, optimalSizeForLabel.height)];
-        
-//        CGRectGetHeight(cell.numberLabel.bounds)/2 - optimalSizeForLabel.height/4
-        
-        return cell;
-        
-    }
-    else {
-        return nil;
-    }
+    return cell;
     
 }
+
+#pragma mark - UICollectionViewDelegateFlowLayout
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    self.currentBlock = _blocks[[indexPath row]];
+    // CGSizeZero not allowed
+    CGSize sizeOfCell = CGSizeMake(CGFLOAT_MIN, CGFLOAT_MIN);
+    ParallaxFlowLayout *layout = (ParallaxFlowLayout *)self.collectionViewLayout;
+    CGFloat cellWidth = (CGRectGetWidth(self.collectionView.bounds) - layout.sectionInset.left - layout.sectionInset.right);
     
-    if([[self.currentBlock type] isEqualToString:@"title"]) {
+    if(indexPath.item < [self.blocks count]) {
+        self.currentBlock = self.blocks[indexPath.item];
+        
+        if([[self.currentBlock type] isEqualToString:@"title"]) {
+            
+            JATitleCollectionViewCell *cell = [JATitleCollectionViewCell new];
+            [cell.titleLabel  initWithString:[self.currentBlock title]];
+            maximumSizeOfLabel = CGSizeMake(cellWidth, CGFLOAT_MAX);
+            optimalSizeForLabel = [cell.titleLabel sizeThatFits:maximumSizeOfLabel];
+            sizeOfCell = CGSizeMake(cellWidth, optimalSizeForLabel.height+100);
+            
+        } else if([[self.currentBlock type] isEqualToString:@"resume"]) {
 
-        // Calculate height of title cell in function of title label height
-        JATitleCollectionViewCell *cell = [JATitleCollectionViewCell new];
+            JAResumeCollectionViewCell *cell = [JAResumeCollectionViewCell new];
+            [cell.resumeLabel  initWithString:[self.currentBlock text]];
+            maximumSizeOfLabel = CGSizeMake(160, CGFLOAT_MAX);
+            optimalSizeForLabel = [cell.resumeLabel sizeThatFits:maximumSizeOfLabel];
+            sizeOfCell = CGSizeMake(cellWidth, optimalSizeForLabel.height);
+            
+        } else if([[self.currentBlock type] isEqualToString:@"paragraph"]) {
+            
+            JAParagraphCollectionViewCell *cell = [JAParagraphCollectionViewCell new];
+            cell.paragraphLabel.links = [self.currentBlock links];
+            [cell.paragraphLabel initWithString:[self.currentBlock text]];
+            maximumSizeOfLabel = CGSizeMake(cellWidth, CGFLOAT_MAX);
+            optimalSizeForLabel = [cell.paragraphLabel sizeThatFits:maximumSizeOfLabel];
+            sizeOfCell = CGSizeMake(cellWidth, optimalSizeForLabel.height);
+            
+        } else if([[self.currentBlock type] isEqualToString:@"image"]) {
+            
+            UIImage *image = [UIImage imageNamed:[self.currentBlock image]];
+            sizeOfCell = CGSizeMake(cellWidth, image.size.height);
+            
+        } else if([[self.currentBlock type] isEqualToString:@"quote"]) {
         
-        [cell.titleLabel  initWithString:[self.currentBlock title]];
+            JAQuotesCollectionViewCell *cell = [JAQuotesCollectionViewCell new];
+            [cell.quoteLabel initWithString:[self.currentBlock text]];
+            cellWidth -= 40;
+            maximumSizeOfLabel = CGSizeMake(cellWidth, CGFLOAT_MAX);
+            optimalSizeForLabel = [cell.quoteLabel sizeThatFits:maximumSizeOfLabel];
+            sizeOfCell = CGSizeMake(cellWidth, optimalSizeForLabel.height);
+            
+        } else if([[self.currentBlock type] isEqualToString:@"keyNumber"]) {
         
-        maximumSizeOfLabel = CGSizeMake(256, CGFLOAT_MAX);
-        optimalSizeForLabel = [cell.titleLabel sizeThatFits:maximumSizeOfLabel];
+            JAKeyNumberCollectionViewCell *cell = [JAKeyNumberCollectionViewCell new];
+            cell.numberLabel.links = [self.currentBlock links];
+            [cell.numberLabel initWithString:[self.currentBlock number]];
+            cellWidth -= 40;
+            [cell.numberLabel sizeToFit];
+            // Factor 0.7 - Dirty solution to delete blank space 
+            sizeOfCell = CGSizeMake(cellWidth, CGRectGetHeight(cell.numberLabel.bounds)*0.7);
+            
+        }
+    } else {
 
-        return CGSizeMake(self.view.bounds.size.width, optimalSizeForLabel.height);
-        
-    } else if([[self.currentBlock type] isEqualToString:@"resume"]) {
-
-        // Calculate height of resume cell in function of resume label height
-        JAResumeCollectionViewCell *cell = [JAResumeCollectionViewCell new];
-        
-        [cell.resumeLabel  initWithString:[self.currentBlock text]];
-        
-        maximumSizeOfLabel = CGSizeMake(160, CGFLOAT_MAX);
-        optimalSizeForLabel = [cell.resumeLabel sizeThatFits:maximumSizeOfLabel];
-        
-        return CGSizeMake(CGRectGetWidth(self.view.bounds), optimalSizeForLabel.height-25);
-        
-    } else if([[self.currentBlock type] isEqualToString:@"paragraph"]) {
-
-        // Calculate height of paragraph cell in function of parapragh label height
-        JAParagraphCollectionViewCell *cell = [JAParagraphCollectionViewCell new];
-        
-        cell.paragraphLabel.links = [self.currentBlock links];
-        [cell.paragraphLabel  initWithString:[self.currentBlock text]];
-        
-        maximumSizeOfLabel = CGSizeMake(self.view.bounds.size.width-40, CGFLOAT_MAX);
-        optimalSizeForLabel = [cell.paragraphLabel sizeThatFits:maximumSizeOfLabel];
-        
-        return CGSizeMake(CGRectGetWidth(self.view.bounds), optimalSizeForLabel.height);
-        
-    } else if([[self.currentBlock type] isEqualToString:@"image"]) {
-        
-        // Calculate height of image cell in function of image view height
-        UIImage *image = [UIImage imageNamed:[self.currentBlock image]];
-        
-        return CGSizeMake(CGRectGetWidth(self.view.bounds), image.size.height);
-    
-        
-    } else if([[self.currentBlock type] isEqualToString:@"quote"]) {
-
-        // Calculate height of quote cell in function of quote & author label height
-        JAQuotesCollectionViewCell *cell = [JAQuotesCollectionViewCell new];
-        
-        [cell.quoteLabel initWithString:[self.currentBlock text]];
-        [cell.authorLabel initWithString:[self.currentBlock author]];
-        
-        maximumSizeOfLabel = CGSizeMake(225, CGFLOAT_MAX);
-        optimalSizeForLabel = [cell.quoteLabel sizeThatFits:maximumSizeOfLabel];
-        
-        return CGSizeMake(CGRectGetWidth(self.view.bounds)-80, optimalSizeForLabel.height + (CGRectGetHeight(cell.authorLabel.bounds)*0.15));
-        
-    } else if([[self.currentBlock type] isEqualToString:@"keyNumber"]) {
-
-        // Calculate height of quote cell in function of quote & author label height
-        JAKeyNumberCollectionViewCell *cell = [JAKeyNumberCollectionViewCell new];
-        
-        [cell.numberLabel initWithString:[self.currentBlock number]];
-        [cell.descriptionLabel initWithString:[self.currentBlock text]];
-        
-        maximumSizeOfLabel = CGSizeMake(195, CGFLOAT_MAX);
-        optimalSizeForLabel = [cell.descriptionLabel sizeThatFits:maximumSizeOfLabel];
-        
-        return CGSizeMake(CGRectGetWidth(self.view.bounds)-80, (optimalSizeForLabel.height/4) + CGRectGetHeight(cell.numberLabel.bounds));
+        JACreditCollectionViewCell *cell = [JACreditCollectionViewCell new];
+        self.creditBlock = self.credits[indexPath.item - [self.blocks count]];
+        [cell.titleLabel initWithString:[self.creditBlock title]];
+        [cell.namesLabel initWithString:[[self.creditBlock names] componentsJoinedByString:@"\n"]];
+        cellWidth = (CGRectGetWidth(self.collectionView.bounds)/2 - layout.sectionInset.left/4 - layout.sectionInset.right);
+        CGFloat cellHeight = CGRectGetHeight(cell.titleLabel.bounds) + CGRectGetHeight(cell.namesLabel.bounds);
+        sizeOfCell = CGSizeMake(cellWidth, cellHeight);
         
     }
-    else {
-
-        return CGSizeZero;
-    }
+    
+    return sizeOfCell;
+    
 }
 
-#pragma mark <UICollectionViewDelegate>
-
-/*
-// Uncomment this method to specify if the specified item should be highlighted during tracking
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-	return YES;
-}
-*/
-
-/*
-// Uncomment this method to specify if the specified item should be selected
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
-*/
-
-/*
-// Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath {
-	return NO;
-}
-
-- (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	return NO;
-}
-
-- (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	
-}
-*/
-
--(BOOL)prefersStatusBarHidden
+- (BOOL)prefersStatusBarHidden
 {
     return YES;
 }

@@ -10,5 +10,11 @@
 #import "JAUILabel.h"
 
 @interface JAResumeCollectionViewCell : UICollectionViewCell
+
 @property (strong, nonatomic) JAUILabel *resumeLabel;
+@property (nonatomic) CGFloat maxParallaxOffset;
+@property (nonatomic) NSInteger idx;
+
+-(void)setupConstraints;
+
 @end

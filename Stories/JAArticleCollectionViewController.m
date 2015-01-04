@@ -17,8 +17,9 @@
 #import "JAHeaderView.h"
 #import "JAFooterView.h"
 #import "JAUILabel.h"
-#import "JAUITextView.h"
+#import "JALoaderView.h"
 #import "ParallaxFlowLayout.h"
+#import "PocketSVG.h"
 
 @interface JAArticleCollectionViewController ()
 {
@@ -30,8 +31,7 @@
 @property (strong, nonatomic) JABlockModel *currentBlock;
 @property (strong, nonatomic) JACreditModel *creditBlock;
 @property (strong, nonatomic) NSMutableArray *resumesID;
-@property (strong, nonatomic) UIImage *headerSnapshotFragment;
-@property (strong, nonatomic) UIImage *footerSnapshotFragment;
+@property (strong, nonatomic) JALoaderView *loaderView;
 
 @end
 
@@ -43,18 +43,14 @@
     
     // Collection View Initialization
     [self.collectionView setBackgroundColor:[UIColor whiteColor]];
-    
-    [self setupFollowView];
-    self.headerSnapshotFragment = [UIImage imageNamed:@"haut.png"];
-    self.footerSnapshotFragment = [UIImage imageNamed:@"bas.png"];
-    [self setupHeaderView];
-    [self setupFooterView];
 
     // DATA Management
     self.manager = [JAManagerData sharedManager];
     self.manager.currentStorie  = 0;
     self.manager.currentChapter = 1;
-    self.manager.currentArticle = 0;
+
+    self.manager.currentArticle = 4;
+
     JAArticleModel *article = [self.manager getCurrentArticle];
     self.blocks = [article blocks];
     self.credits = [article credits];
@@ -66,8 +62,7 @@
             [self.resumesID addObject:[self.currentBlock id]];
         }
     }
-    
-    
+
     // Register cell classes
     [self.collectionView registerClass:[JATitleCollectionViewCell class]      forCellWithReuseIdentifier:@"TitleCell"];
     [self.collectionView registerClass:[JAResumeCollectionViewCell class]     forCellWithReuseIdentifier:@"ResumeCell"];
@@ -76,24 +71,28 @@
     [self.collectionView registerClass:[JAQuotesCollectionViewCell class]     forCellWithReuseIdentifier:@"QuoteCell"];
     [self.collectionView registerClass:[JAKeyNumberCollectionViewCell class]  forCellWithReuseIdentifier:@"KeyNumberCell"];
     [self.collectionView registerClass:[JACreditCollectionViewCell class]     forCellWithReuseIdentifier:@"CreditsCell"];
-    
 
     NSLog(@"old %f",self.oldPercentScroll);
+
     UITapGestureRecognizer *doubleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTap:)];
     doubleTapGesture.numberOfTapsRequired = 2;
     doubleTapGesture.delegate = self;
     [self.view addGestureRecognizer:doubleTapGesture];
-    
-   
 
 }
+
 -(void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-
+    if(self.headerView == nil) {
+        [super viewDidAppear:animated];
+        [self setupHeaderView];
+        [self setupFooterView];
+        [self setupFollowView];
+        [self setupLoaderView];
+    }
 }
+
 -(void)doubleTap:(UITapGestureRecognizer*)sender{
 //       NSLog(@"Percent Scroll %f",self.articleCollectionView.contentOffset.y / (self.articleCollectionView.contentSize.height - scrollView.frame.size.height)  * 100);
-
     [self performSegueWithIdentifier:@"JAArticlePop" sender:self];
 //    Method to go to cover width flip
 //    [self.navigationController popToRootViewControllerAnimated:NO];
@@ -106,26 +105,51 @@
 }
 
 - (void)setupHeaderView {
-    self.headerView = [[JAHeaderView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.collectionView.bounds), CGRectGetHeight(self.collectionView.bounds)/2)];
-    [self.headerView setImage:self.headerSnapshotFragment];
+    self.headerView = [[JAHeaderView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.collectionView.bounds), CGRectGetHeight(self.collectionView.bounds))];
+    [self.headerView setImage:self.snapshot];
     [self.headerView updateConstraintsIfNeeded];
+    //    [self.collectionView addSubview:self.headerView];
+    
+    // Mask
+    CGPathRef maskPath = [PocketSVG pathFromSVGFileNamed:@"top"];
+    CAShapeLayer *maskLayer = [CAShapeLayer layer];
+    maskLayer.path = maskPath;
+    if(IS_IPHONE_6){
+        maskLayer.transform = CATransform3DMakeScale(1.175, 1.175, 1);
+    }
+    else if(IS_IPHONE_6P){
+        maskLayer.transform = CATransform3DMakeScale(1.3, 1.3, 1);
+    }
+    
+    self.headerView.layer.mask = maskLayer;
     [self.collectionView addSubview:self.headerView];
     [self.headerView animateEnter];
     
 }
 
 - (void)setupFooterView {
-    self.footerView = [[JAFooterView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.collectionView.bounds)/2, CGRectGetWidth(self.collectionView.bounds), CGRectGetHeight(self.collectionView.bounds)/2)];
-    [self.footerView setImage:self.footerSnapshotFragment];
+    CGFloat collectionViewHeight = self.collectionViewLayout.collectionViewContentSize.height;
+    self.footerView = [[JAFooterView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.collectionView.bounds), CGRectGetHeight(self.collectionView.bounds))];
+    [self.footerView setImage:self.snapshot];
     [self.footerView updateConstraintsIfNeeded];
+    
+    //Mask
+    CGPathRef maskPath = [PocketSVG pathFromSVGFileNamed:@"bottom"];
+    CAShapeLayer *maskLayer = [CAShapeLayer layer];
+    maskLayer.path = maskPath;
+    if(IS_IPHONE_6){
+        maskLayer.transform = CATransform3DMakeScale(1.175, 1.175, 1);
+    }
+    else if(IS_IPHONE_6P){
+        maskLayer.transform = CATransform3DMakeScale(1.3, 1.3, 1);
+    }
+    self.footerView.layer.mask = maskLayer;
     [self.collectionView addSubview:self.footerView];
-    [self.footerView animateEnter];
+    [self.footerView animateEnterWithValue:collectionViewHeight];
     
 }
 
-
-- (void)setupFollowView
-{
+- (void)setupFollowView {
     _followView = [[JAFollowView alloc]initWithFrame:CGRectMake(CGRectGetWidth(self.collectionView.bounds) -75, 35, 40, 40)];
     _followView.delegate = self;
     _followView.backgroundColor = [UIColor clearColor];
@@ -133,6 +157,39 @@
     [self.collectionView addSubview:_followView];
 
 }
+
+- (void)setupLoaderView {
+    self.loaderView = [[JALoaderView alloc]initWithFrame:CGRectMake(0, 0, 160, 160)];
+    self.loaderView.delegate = self;
+    self.loaderView.userInteractionEnabled = NO;
+    [self.collectionView addSubview:self.loaderView];
+}
+
+- (void)linkDidPressed {
+    NSLog(@"Pressed");
+    [self startLoader];
+}
+
+- (void)startLoader {
+    
+    // Loader View
+    NSLog(@"Start Loader");
+    //[self.loaderView movePosition:self.collectionView.center];
+    [self.loaderView setState:UIGestureRecognizerStateBegan];
+    
+}
+
+- (void)loadNextView {
+    
+    NSLog(@"ROCKSTAR BABE");
+    [self performSegueWithIdentifier:@"JAInfoPush" sender:self];
+    
+}
+
+- (IBAction)returnFromInfoView:(UIStoryboardSegue*)segue{
+    
+}
+
 #pragma mark <UICollectionViewDataSource>
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -160,10 +217,13 @@
     self.followView.centerView = self.followView.center;
     
      [self.delegate scrollRead:(self.collectionView.contentOffset.y / (self.collectionView.contentSize.height - self.collectionView.frame.size.height)  * 100)];
+    
+    // Loader View fixed position
+    [self.loaderView movePosition:CGPointMake(self.collectionView.center.x, scrollView.contentOffset.y + self.collectionView.bounds.size.height/2)];
 }
 
 #pragma mark - JAFollowView Delegate
--(void)followArticle:(BOOL)follow{
+- (void)followArticle:(BOOL)follow {
     NSLog(@"BOOL Follow %d",follow);
 }
 
@@ -228,6 +288,7 @@
             JAParagraphCollectionViewCell *paragraphCell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"ParagraphCell" forIndexPath:indexPath];
             paragraphCell.paragraphLabel.links = [self.currentBlock links];
             [paragraphCell.paragraphLabel initWithString:[self.currentBlock text]];
+            paragraphCell.paragraphLabel.delegate = self;
             if(self.currentBlock.id.integerValue == self.blocks.count-1) {
                 [paragraphCell.paragraphLabel applyMarkOfLastParagraph];
             }
@@ -257,6 +318,7 @@
             // Set Content
             keyNumberCell.numberLabel.links = [self.currentBlock links];
             [keyNumberCell.numberLabel initWithString:[self.currentBlock number]];
+            keyNumberCell.numberLabel.delegate = self;
             [keyNumberCell.numberLabel sizeToFit];
             [keyNumberCell.descriptionLabel initWithString:[self.currentBlock text]];
             [keyNumberCell updateConstraintsIfNeeded];

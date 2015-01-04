@@ -7,15 +7,10 @@
 //
 
 #import "JAUITextView.h"
-#import "JALoaderView.h"
-
-@interface JAUITextView()
-
-@property (strong, nonatomic) JALoaderView *loaderView;
-
-@end
 
 @implementation JAUITextView
+
+@synthesize delegate;
 
 - (void)initWithString:(NSString *)text
 {
@@ -30,11 +25,6 @@
     if(self.lineHeight) {
         [self applyLineHeight];
     }
-    
-    self.loaderView = [[JALoaderView alloc]initWithFrame:CGRectMake(0, 0, 160, 160)];
-    self.loaderView.delegate = self;
-    self.loaderView.userInteractionEnabled = NO;
-    [self.superview addSubview:self.loaderView];
     
     [self setBackgroundColor:[UIColor clearColor]];
     
@@ -100,7 +90,7 @@
 - (void)linkTextView:(CCHLinkTextView *)linkTextView didLongPressLinkWithValue:(id)value {
     
     NSLog(@"%@", value);
-    [self startLoader];
+    [self.delegate linkDidPressed];
     
 }
 
@@ -126,22 +116,6 @@
                        range:NSMakeRange(0, [self.text length])];
     
     self.attributedText = attrString;
-    
-}
-
--(void)startLoader {
-    
-    // Loader View
-    NSLog(@"Start Loader");
-    [self.loaderView movePosition:self.center];
-    [self.loaderView setState:UIGestureRecognizerStateBegan];
-    
-}
-
--(void)loadNextView {
-    
-    NSLog(@"ROCKSTAR BABE");
-    [self.loaderView setState:UIGestureRecognizerStateEnded];
     
 }
 

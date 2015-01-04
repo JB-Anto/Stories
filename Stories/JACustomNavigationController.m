@@ -24,16 +24,24 @@
     // Dispose of any resources that can be recreated.
 }
 - (UIStoryboardSegue *)segueForUnwindingToViewController:(UIViewController *)toViewController fromViewController:(UIViewController *)fromViewController identifier:(NSString *)identifier {
+    
+    UIStoryboardSegue *segue = nil;
+    
     // Instantiate a new CustomUnwindSegue
     if([identifier isEqualToString:@"JACoverPop"]){
-        JACoverSeguePop *segue = [[JACoverSeguePop alloc] initWithIdentifier:@"JACoverPop" source:fromViewController destination:toViewController];
-        return segue;
+        JACoverSeguePop *coverSegue = [[JACoverSeguePop alloc] initWithIdentifier:@"JACoverPop" source:fromViewController destination:toViewController];
+        segue = coverSegue;
     }
-    else{
-        JAArticleSeguePop *segue = [[JAArticleSeguePop alloc] initWithIdentifier:@"JAArticlePop" source:fromViewController destination:toViewController];
-        return segue;
+    else if([identifier isEqualToString:@"JAArticlePop"]) {
+        JAArticleSeguePop *articleSegue = [[JAArticleSeguePop alloc] initWithIdentifier:@"JAArticlePop" source:fromViewController destination:toViewController];
+        segue = articleSegue;
+    }
+    else if([identifier isEqualToString:@"JAInfoPop"]) {
+        JAInfoSeguePop *infoSegue = [[JAInfoSeguePop alloc] initWithIdentifier:@"JAInfoPop" source:fromViewController destination:toViewController];
+        segue = infoSegue;
     }
     
+    return segue;
     
 }
 

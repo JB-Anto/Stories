@@ -53,8 +53,8 @@
     // DATA Management
     self.manager = [JAManagerData sharedManager];
     self.manager.currentStorie  = 0;
-    self.manager.currentChapter = 0;
-    self.manager.currentArticle = 4;
+    self.manager.currentChapter = 1;
+    self.manager.currentArticle = 0;
     JAArticleModel *article = [self.manager getCurrentArticle];
     self.blocks = [article blocks];
     self.credits = [article credits];

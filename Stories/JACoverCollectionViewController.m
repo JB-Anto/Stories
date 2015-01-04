@@ -146,6 +146,8 @@ static NSString * const reuseIdentifier = @"Cell";
     myCell.titleLBL.text = [[self.manager.data.stories[row] cover] title];
     myCell.locationLBL.text = [[self.manager.data.stories[row] cover] location];
     [myCell.organicView setColor:[[self.manager.data.stories[row] cover] color]];
+    NSLog(@"Test %@",[[self.manager.data.stories[row] cover] paths]);
+    myCell.organicView.paths = [[self.manager.data.stories[row] cover] paths];
 //    if (!myCell.organicView.organicLayer.path) {
 //        [myCell.organicView setPaths:[[self.manager.data.stories[row] cover] paths]];
 //        [myCell.organicView setLayerPath];

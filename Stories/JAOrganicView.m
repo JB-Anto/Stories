@@ -17,9 +17,12 @@
     if(self)
     {
 
-        self.paths = paths;
+//        self.paths = paths;
         self.organicLayer = [CAShapeLayer layer];
+        
         self.firstStepOrganic = [PocketSVG pathFromSVGFileNamed:[self.paths objectAtIndex:0]];
+        self.middleStepOrganic = [PocketSVG pathFromSVGFileNamed:[self.paths objectAtIndex:1]];
+        self.endStepOrganic = [PocketSVG pathFromSVGFileNamed:[self.paths objectAtIndex:2]];
         
         NSLog(@"Pathssss %@",self.paths);
         
@@ -38,11 +41,9 @@
     return self;
     
 }
--(void)setLayerPath{
-    
-}
+
 -(void)middleAnimation{
-    self.middleStepOrganic = [PocketSVG pathFromSVGFileNamed:[self.paths objectAtIndex:1]];
+
     CABasicAnimation *pathAnimation = [CABasicAnimation animationWithKeyPath:@"path"];
     pathAnimation.duration = 1.2;
     pathAnimation.removedOnCompletion = NO;
@@ -55,7 +56,7 @@
 }
 -(void)finalAnimation:(void (^)())completion{
 
-    self.endStepOrganic = [PocketSVG pathFromSVGFileNamed:[self.paths objectAtIndex:2]];
+
     CABasicAnimation *pathAnimation = [CABasicAnimation animationWithKeyPath:@"path"];
     pathAnimation.duration = 1.2;
     pathAnimation.removedOnCompletion = NO;

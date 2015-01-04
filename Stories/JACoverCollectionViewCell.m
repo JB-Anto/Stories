@@ -21,8 +21,8 @@
 
         self.backgroundIV = [[UIImageView alloc] initWithFrame:self.bounds];
         self.foregroundIV = [[UIImageView alloc] initWithFrame:CGRectMake(self.bounds.size.width/3, 0, self.bounds.size.width, self.bounds.size.height)];
-        
-        self.organicView = [[JAOrganicView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height) paths:[[[self.manager getCurrentStorie]cover]paths]];
+//        NSArray *test = [NSArray arrayWithObjects:@"1-1",@"1-2",@"1-3", nil];
+        self.organicView = [[JAOrganicView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
 
         self.locationLBL = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, self.bounds.size.width, 60)];
         self.locationLBL.textAlignment = NSTextAlignmentCenter;
@@ -38,7 +38,7 @@
 
         self.titleView = [[UIView alloc]initWithFrame:CGRectMake(50, self.bounds.size.height/2 - 150/2, self.bounds.size.width, 200)];
         self.titleView.alpha = 0;
-        
+
         
         [self addSubview:self.backgroundIV];
         [self addSubview:self.foregroundIV];

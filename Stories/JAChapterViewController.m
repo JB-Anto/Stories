@@ -99,9 +99,7 @@
 
     for (int j = 0; j < [[[self.manager getCurrentStorie] chapters] count]; j++) {
 
-        int index = (int)[[self.titlesArray objectAtIndex:j] count] - 1;
-
-        for (int i = index; i >= 0 ; i--) {
+        for (int i = 0; i < [[self.titlesArray objectAtIndex:j] count] ; i++) {
             NSLog(@"i %i",i);
             [self animateTitlesView:i forChapter:j negativeScale:.2 negativeAlpha:.3 delay:i * .05];
         }

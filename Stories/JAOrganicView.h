@@ -15,11 +15,7 @@
 @property (strong, nonatomic) CAShapeLayer *organicLayer;
 @property (strong, nonatomic) NSArray *paths;
 
-@property CGPathRef firstStepOrganic;
-@property CGPathRef middleStepOrganic;
-@property CGPathRef endStepOrganic;
-
-- (id)initWithFrame:(CGRect)frame paths:(NSArray*)paths;
+//- (id)initWithFrame:(CGRect)frame paths:(NSArray*)paths;
 -(void)middleAnimation;
 -(void)finalAnimation:(void(^)())completion;
 -(void)resetAnimation;

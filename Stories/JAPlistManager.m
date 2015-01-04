@@ -63,11 +63,6 @@ static JAPlistManager *sharedInstance = nil;
         if([[self getObject:@"percent"]count] == 0){
             
         }
-//        for (int v = 0; v < [[[self.manager getCurrentStorie] chapters] count]; v++) {
-//            for (int w = 0; w < [[self.titlesArray objectAtIndex:v] count] ; w++) {
-//                [self.percentArray addObject:[NSNumber numberWithFloat:0.0]];
-//            }
-//        }
 
     }
     return self;
@@ -77,8 +72,7 @@ static JAPlistManager *sharedInstance = nil;
 
 - (NSMutableArray *)getObject:(NSString*)key
 {
-    NSLog(@"stories %@", [self getPlistData]);
-//    NSLog(@"ARRAY %lu",(unsigned long)[[[[self getPlistData] objectForKey:@"cover"] objectForKey:follow] count]);
+//    NSLog(@"stories %@", [self getPlistData]);
     NSMutableArray *array = [NSMutableArray arrayWithArray:[[self getPlistData] objectForKey:key]];
     return array;
 

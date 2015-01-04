@@ -146,8 +146,9 @@ static NSString * const reuseIdentifier = @"Cell";
     myCell.titleLBL.text = [[self.manager.data.stories[row] cover] title];
     myCell.locationLBL.text = [[self.manager.data.stories[row] cover] location];
     [myCell.organicView setColor:[[self.manager.data.stories[row] cover] color]];
-    NSLog(@"Test %@",[[self.manager.data.stories[row] cover] paths]);
-    myCell.organicView.paths = [[self.manager.data.stories[row] cover] paths];
+    NSLog(@"Paths %@",[[self.manager.data.stories[row] cover] paths]);
+//    myCell.organicView.paths = [[self.manager.data.stories[row] cover] paths];
+    [myCell.organicView setPaths:[[self.manager.data.stories[row] cover] paths]];
 //    if (!myCell.organicView.organicLayer.path) {
 //        [myCell.organicView setPaths:[[self.manager.data.stories[row] cover] paths]];
 //        [myCell.organicView setLayerPath];
@@ -175,10 +176,13 @@ static NSString * const reuseIdentifier = @"Cell";
 #pragma mark <UICollectionViewDelegate>
 - (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
     [self.cellToAnimate animateEnter];
+//    [self.cellToAnimate.organicView middleAnimation];
 }
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(JACoverCollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
     self.cellToAnimate = cell;
-
+    for(JACoverCollectionViewCell *cell in [self.collectionView visibleCells]){
+        [cell resetAnimation];
+    }
     if(self.firstTime){
         [cell animateEnter];
         [cell.organicView middleAnimation];
@@ -189,9 +193,10 @@ static NSString * const reuseIdentifier = @"Cell";
     
 }
 - (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(JACoverCollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
-    [cell resetAnimation];
+//    [cell resetAnimation];
 }
 -(void)animateFollow{
+    
     self.followView.validate = [[[self.plistManager getObject:@"follow"] objectAtIndex:self.currentIndex] boolValue];
     NSLog(@"validate %d", self.followView.validate);
     if([[self.plistManager getObject:@"follow"] objectAtIndex:self.currentIndex] == [NSNumber numberWithBool:true]){
@@ -202,8 +207,9 @@ static NSString * const reuseIdentifier = @"Cell";
     }
 }
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
-    [self.cellToAnimate.organicView middleAnimation];
+
     self.currentIndex = (int)(scrollView.contentOffset.x/self.collectionView.frame.size.width);
+    [self.cellToAnimate.organicView middleAnimation];
     [self animateFollow];
     NSLog(@"INDEXXX %li",(long)self.currentIndex);
 }

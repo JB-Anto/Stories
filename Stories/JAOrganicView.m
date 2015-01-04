@@ -8,9 +8,13 @@
 
 #import "JAOrganicView.h"
 
-@implementation JAOrganicView
+@implementation JAOrganicView{
+    NSString *firstStepOrganic;
+    NSString *middleStepOrganic;
+    NSString *endStepOrganic;
+}
 
-- (id)initWithFrame:(CGRect)frame paths:(NSArray*)paths
+- (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     
@@ -18,15 +22,12 @@
     {
 
 //        self.paths = paths;
+
         self.organicLayer = [CAShapeLayer layer];
         
-        self.firstStepOrganic = [PocketSVG pathFromSVGFileNamed:[self.paths objectAtIndex:0]];
-        self.middleStepOrganic = [PocketSVG pathFromSVGFileNamed:[self.paths objectAtIndex:1]];
-        self.endStepOrganic = [PocketSVG pathFromSVGFileNamed:[self.paths objectAtIndex:2]];
         
-        NSLog(@"Pathssss %@",self.paths);
         
-        self.organicLayer.path = self.firstStepOrganic;
+        
         
         if(IS_IPHONE_6){
             self.organicLayer.transform = CATransform3DMakeScale(1.175, 1.175, 1);
@@ -41,29 +42,41 @@
     return self;
     
 }
+-(void)setPaths:(NSArray *)paths{
+    
+    firstStepOrganic = [paths objectAtIndex:0];
+    middleStepOrganic = [paths objectAtIndex:1];
+    endStepOrganic = [paths objectAtIndex:2];
 
+//    self.paths = paths;
+    NSLog(@"Middle %@ || end %@",middleStepOrganic, endStepOrganic);
+    self.organicLayer.path = [PocketSVG pathFromSVGFileNamed:firstStepOrganic];
+}
 -(void)middleAnimation{
-
+    NSLog(@"Animation");
+    CGPathRef first = [PocketSVG pathFromSVGFileNamed:firstStepOrganic];
+    CGPathRef middle = [PocketSVG pathFromSVGFileNamed:middleStepOrganic];
     CABasicAnimation *pathAnimation = [CABasicAnimation animationWithKeyPath:@"path"];
     pathAnimation.duration = 1.2;
     pathAnimation.removedOnCompletion = NO;
     pathAnimation.timingFunction = CreateCAMediaTimingFunction(0.19, 1, 0.22, 1);
     pathAnimation.fillMode = kCAFillModeForwards;
-    pathAnimation.fromValue = (__bridge id)(self.firstStepOrganic);
-    pathAnimation.toValue = (__bridge id)(self.middleStepOrganic);
+    pathAnimation.fromValue = (__bridge id)(first);
+    pathAnimation.toValue = (__bridge id)(middle);
     
     [self.organicLayer addAnimation:pathAnimation forKey:@"pathAnimation"];
 }
 -(void)finalAnimation:(void (^)())completion{
 
-
+    CGPathRef middle = [PocketSVG pathFromSVGFileNamed:middleStepOrganic];
+    CGPathRef final = [PocketSVG pathFromSVGFileNamed:endStepOrganic];
     CABasicAnimation *pathAnimation = [CABasicAnimation animationWithKeyPath:@"path"];
     pathAnimation.duration = 1.2;
     pathAnimation.removedOnCompletion = NO;
     pathAnimation.fillMode = kCAFillModeForwards;
     pathAnimation.timingFunction = CreateCAMediaTimingFunction(0.19, 1, 0.22, 1);
-    pathAnimation.fromValue = (__bridge id)(self.middleStepOrganic);
-    pathAnimation.toValue = (__bridge id)(self.endStepOrganic);
+    pathAnimation.fromValue = (__bridge id)(middle);
+    pathAnimation.toValue = (__bridge id)(final);
 
     [self.organicLayer addAnimation:pathAnimation forKey:@"pathAnimation"];
     
@@ -77,14 +90,16 @@
 }
 -(void)resetAnimation{
 
-    
+    CGPathRef first = [PocketSVG pathFromSVGFileNamed:firstStepOrganic];
+//    self.organicLayer.path = first;
+    CGPathRef middle = [PocketSVG pathFromSVGFileNamed:middleStepOrganic];
     CABasicAnimation *pathAnimation = [CABasicAnimation animationWithKeyPath:@"path"];
     pathAnimation.duration = 0.1;
     pathAnimation.removedOnCompletion = NO;
     pathAnimation.fillMode = kCAFillModeForwards;
     pathAnimation.timingFunction = CreateCAMediaTimingFunction(0.19, 1, 0.22, 1);
-    pathAnimation.fromValue = (__bridge id)(self.middleStepOrganic);
-    pathAnimation.toValue = (__bridge id)(self.firstStepOrganic);
+    pathAnimation.fromValue = (__bridge id)(middle);
+    pathAnimation.toValue = (__bridge id)(first);
     
     [self.organicLayer addAnimation:pathAnimation forKey:@"pathAnimation"];
 

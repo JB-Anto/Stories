@@ -7,16 +7,23 @@
 //
 
 #import "JAArticleSeguePush.h"
+#import "JAArticleCollectionViewController.h"
 
 @implementation JAArticleSeguePush
 
 - (void)perform {
     UIViewController *sourceViewController = self.sourceViewController;
-    UIViewController *destinationViewController = self.destinationViewController;
+    JAArticleCollectionViewController *destinationViewController = self.destinationViewController;
+    
+    UIGraphicsBeginImageContext(sourceViewController.view.window.bounds.size);
+    [sourceViewController.view.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *snapshot = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    destinationViewController.snapshot = snapshot;
     
     // Add the destination view as a subview, temporarily
     [sourceViewController.view addSubview:destinationViewController.view];
-    
     
     [sourceViewController.navigationController pushViewController:destinationViewController animated:NO];
 }

@@ -27,7 +27,7 @@
 
 -(void)animateEnter{
     [UIView animateWithDuration:1 delay:0.5 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        self.transform = CGAffineTransformMakeTranslation(0, -CGRectGetHeight(self.bounds));
+        self.transform = CGAffineTransformMakeTranslation(0, -CGRectGetHeight(self.bounds)/2);
     } completion:nil];
 }
 

@@ -33,6 +33,7 @@
 @property (strong, nonatomic) JAFollowView *followView;
 @property (strong, nonatomic) JAHeaderView *headerView;
 @property (strong, nonatomic) JAFooterView *footerView;
+@property (strong, nonatomic) UIImage *snapshot;
 @property (nonatomic, assign) id delegate;
 @property float oldPercentScroll;
 

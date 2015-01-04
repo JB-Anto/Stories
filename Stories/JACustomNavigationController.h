@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "JACoverSeguePop.h"
 #import "JAArticleSeguePop.h"
+#import "JAInfoSeguePop.h"
 
 @interface JACustomNavigationController : UINavigationController
 

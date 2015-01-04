@@ -1,0 +1,53 @@
+
+{ 
+    "stories" : [
+        {
+            "id": 0,
+            "createdAt": "12-10-2014",
+            "isFollow": 0,
+            "cover": {
+                "id": 0,
+                "title": "The Russian\nIntervention",
+                "location": "Ukraine",
+                "background": "background_cover_2",
+                "foreground": "personnage_cover_2",
+                "color": "#EB9826",
+                "textColor": "#383561",
+                "paths": ["1-1", "1-2", "1-3"]
+            },
+            "chapters": []
+        },
+        {
+            "id": 1,
+            "createdAt": "12-10-2014",
+            "isFollow": 0,
+            "cover": {
+                "id": 0,
+                "title": "The fight of the\nKurd Rebels",
+                "location": "Isis",
+                "background": "background_cover_1",
+                "foreground": "personnage_cover_1",
+                "color": "#C23847",
+                "textColor": "#390E2A", 
+                "paths": ["2-1", "2-2", "2-3"]
+            },
+            "chapters": []
+        },
+        {
+            "id": 2,
+            "createdAt": "12-10-2014",
+            "isFollow": 0,
+            "cover": {
+                "id": 0,
+                "title": "The Umbrella\nRevolution",
+                "location": "Hong Kong",
+                "background": "background_cover_3",
+                "foreground": "personnage_cover_3",
+                "color": "#40A8f1",
+                "textColor": "#152950",
+                "paths": ["3-1", "3-2", "3-3"]
+            },
+            "chapters": []
+        }
+    ]
+}

@@ -95,8 +95,12 @@
                             <outlet property="delegate" destination="t2g-qO-UXo" id="don-Xk-ZTB"/>
                         </connections>
                     </collectionView>
+                    <connections>
+                        <segue destination="a29-km-qvg" kind="unwind" identifier="JAInfoPop" unwindAction="returnFromInfoView:" id="qgs-X5-lB4"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Khy-qw-Y4I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="a29-km-qvg" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1995" y="-287"/>
         </scene>

@@ -19,6 +19,7 @@
 #import "JAUILabel.h"
 #import "JALoaderView.h"
 #import "ParallaxFlowLayout.h"
+#import "PocketSVG.h"
 
 @interface JAArticleCollectionViewController ()
 {
@@ -30,8 +31,6 @@
 @property (strong, nonatomic) JABlockModel *currentBlock;
 @property (strong, nonatomic) JACreditModel *creditBlock;
 @property (strong, nonatomic) NSMutableArray *resumesID;
-@property (strong, nonatomic) UIImage *headerSnapshotFragment;
-@property (strong, nonatomic) UIImage *footerSnapshotFragment;
 @property (strong, nonatomic) JALoaderView *loaderView;
 
 @end
@@ -44,14 +43,11 @@
     
     // Collection View Initialization
     [self.collectionView setBackgroundColor:[UIColor whiteColor]];
-    
-    self.headerSnapshotFragment = [UIImage imageNamed:@"haut.png"];
-    self.footerSnapshotFragment = [UIImage imageNamed:@"bas.png"];
 
     // DATA Management
     self.manager = [JAManagerData sharedManager];
     self.manager.currentStorie  = 0;
-    self.manager.currentChapter = 0;
+    self.manager.currentChapter = 1;
     self.manager.currentArticle = 4;
     JAArticleModel *article = [self.manager getCurrentArticle];
     self.blocks = [article blocks];
@@ -75,8 +71,8 @@
     [self.collectionView registerClass:[JACreditCollectionViewCell class]     forCellWithReuseIdentifier:@"CreditsCell"];
     
     NSLog(@"%f",self.oldPercentScroll);
-    UITapGestureRecognizer *doubleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTap:)];
     
+    UITapGestureRecognizer *doubleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTap:)];
     doubleTapGesture.numberOfTapsRequired = 2;
     doubleTapGesture.delegate = self;
     [self.view addGestureRecognizer:doubleTapGesture];
@@ -84,11 +80,13 @@
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    [self setupHeaderView];
-    [self setupFooterView];
-    [self setupFollowView];
-    [self setupLoaderView];
+    if(self.headerView == nil) {
+        [super viewDidAppear:animated];
+        [self setupHeaderView];
+        [self setupFooterView];
+        [self setupFollowView];
+        [self setupLoaderView];
+    }
 }
 
 -(void)doubleTap:(UITapGestureRecognizer*)sender{
@@ -105,9 +103,23 @@
 }
 
 - (void)setupHeaderView {
-    self.headerView = [[JAHeaderView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.collectionView.bounds), CGRectGetHeight(self.collectionView.bounds)/2)];
-    [self.headerView setImage:self.headerSnapshotFragment];
+    self.headerView = [[JAHeaderView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.collectionView.bounds), CGRectGetHeight(self.collectionView.bounds))];
+    [self.headerView setImage:self.snapshot];
     [self.headerView updateConstraintsIfNeeded];
+    //    [self.collectionView addSubview:self.headerView];
+    
+    // Mask
+    CGPathRef maskPath = [PocketSVG pathFromSVGFileNamed:@"top"];
+    CAShapeLayer *maskLayer = [CAShapeLayer layer];
+    maskLayer.path = maskPath;
+    if(IS_IPHONE_6){
+        maskLayer.transform = CATransform3DMakeScale(1.175, 1.175, 1);
+    }
+    else if(IS_IPHONE_6P){
+        maskLayer.transform = CATransform3DMakeScale(1.3, 1.3, 1);
+    }
+    
+    self.headerView.layer.mask = maskLayer;
     [self.collectionView addSubview:self.headerView];
     [self.headerView animateEnter];
     
@@ -115,9 +127,21 @@
 
 - (void)setupFooterView {
     CGFloat collectionViewHeight = self.collectionViewLayout.collectionViewContentSize.height;
-    self.footerView = [[JAFooterView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.collectionView.bounds)/2, CGRectGetWidth(self.collectionView.bounds), CGRectGetHeight(self.collectionView.bounds)/2)];
-    [self.footerView setImage:self.footerSnapshotFragment];
+    self.footerView = [[JAFooterView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.collectionView.bounds), CGRectGetHeight(self.collectionView.bounds))];
+    [self.footerView setImage:self.snapshot];
     [self.footerView updateConstraintsIfNeeded];
+    
+    //Mask
+    CGPathRef maskPath = [PocketSVG pathFromSVGFileNamed:@"bottom"];
+    CAShapeLayer *maskLayer = [CAShapeLayer layer];
+    maskLayer.path = maskPath;
+    if(IS_IPHONE_6){
+        maskLayer.transform = CATransform3DMakeScale(1.175, 1.175, 1);
+    }
+    else if(IS_IPHONE_6P){
+        maskLayer.transform = CATransform3DMakeScale(1.3, 1.3, 1);
+    }
+    self.footerView.layer.mask = maskLayer;
     [self.collectionView addSubview:self.footerView];
     [self.footerView animateEnterWithValue:collectionViewHeight];
     
@@ -144,7 +168,7 @@
     [self startLoader];
 }
 
--(void)startLoader {
+- (void)startLoader {
     
     // Loader View
     NSLog(@"Start Loader");
@@ -153,10 +177,14 @@
     
 }
 
--(void)loadNextView {
+- (void)loadNextView {
     
     NSLog(@"ROCKSTAR BABE");
-    [self.loaderView setState:UIGestureRecognizerStateEnded];
+    [self performSegueWithIdentifier:@"JAInfoPush" sender:self];
+    
+}
+
+- (IBAction)returnFromInfoView:(UIStoryboardSegue*)segue{
     
 }
 
@@ -193,7 +221,7 @@
 }
 
 #pragma mark - JAFollowView Delegate
--(void)followArticle:(BOOL)follow{
+- (void)followArticle:(BOOL)follow {
     NSLog(@"BOOL Follow %d",follow);
 }
 

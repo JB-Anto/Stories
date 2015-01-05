@@ -59,7 +59,7 @@
             [self.resumesID addObject:[self.currentBlock id]];
         }
     }
-
+    
     // Register cell classes
     [self.collectionView registerClass:[JATitleCollectionViewCell class]      forCellWithReuseIdentifier:@"TitleCell"];
     [self.collectionView registerClass:[JAResumeCollectionViewCell class]     forCellWithReuseIdentifier:@"ResumeCell"];
@@ -81,8 +81,8 @@
 -(void)viewDidAppear:(BOOL)animated{
     if(self.headerView == nil) {
         [super viewDidAppear:animated];
-        collectionViewHeight = self.collectionViewLayout.collectionViewContentSize.height;
-        [self.collectionView setContentOffset:CGPointMake(0, (collectionViewHeight-CGRectGetHeight(self.collectionView.bounds))) animated:NO];
+        collectionViewHeight = self.collectionViewLayout.collectionViewContentSize.height - CGRectGetHeight(self.collectionView.bounds);
+        [self.collectionView setContentOffset:CGPointMake(0, collectionViewHeight*self.oldPercentScroll) animated:NO];
         [self setupHeaderView];
         [self setupFooterView];
         [self setupFollowView];
@@ -143,7 +143,7 @@
     }
     self.footerView.layer.mask = maskLayer;
     [self.collectionView addSubview:self.footerView];
-    [self.footerView animateEnterWithValue:collectionViewHeight];
+    [self.footerView animateEnterWithValue:self.collectionViewLayout.collectionViewContentSize.height];
     
 }
 
@@ -191,18 +191,21 @@
 
 #pragma mark <UICollectionViewDataSource>
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    NSLog(@"%.f, %.f", scrollView.contentOffset.y, self.collectionViewLayout.collectionViewContentSize.height);
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+//    NSLog(@"%.f, %.f", scrollView.contentOffset.y, scrollView.contentSize.height-CGRectGetHeight(self.collectionView.bounds));
     
-//    if(scrollView.contentOffset.y > scrollView.contentSize.height-500) {
-//        [scrollView setContentOffset:CGPointMake(0, scrollView.contentSize.height + CGRectGetHeight(self.collectionView.bounds)/2)];
-//    }
-//    
-//    if(scrollView.contentOffset.y < -CGRectGetHeight(self.collectionView.bounds)/2) {
-//        [scrollView setContentOffset:CGPointMake(0, -CGRectGetHeight(self.collectionView.bounds)/2)];
+//    if(scrollView.contentOffset.y > scrollView.contentSize.height-CGRectGetHeight(self.collectionView.bounds)-200) {
+//        [scrollView setContentOffset:CGPointMake(0, scrollView.contentSize.height-CGRectGetHeight(self.collectionView.bounds)-200) animated:NO];
 //    }
     
+    if(scrollView.contentOffset.y < -CGRectGetHeight(self.collectionView.bounds)/8) {
+//    	[scrollView setContentOffset:CGPointMake(0, -CGRectGetHeight(self.collectionView.bounds)/8) animated:NO];
+    }
+    
+    if(scrollView.contentOffset.y > collectionViewHeight + CGRectGetHeight(self.collectionView.bounds)/8) {
+//        [scrollView setContentOffset:CGPointMake(0, collectionViewHeight + CGRectGetHeight(self.collectionView.bounds)/8) animated:NO];
+    }
+
     // Header "Parallax Effect"
     CGPoint headerCenter = self.headerView.center;
     if(scrollView.contentOffset.y < 150) {
@@ -225,7 +228,7 @@
     [self.followView setCenter:CGPointMake(self.followView.center.x, fixedFrame.origin.y)];
     self.followView.centerView = self.followView.center;
     
-    [self.delegate scrollRead:(self.collectionView.contentOffset.y / (self.collectionView.contentSize.height - self.collectionView.frame.size.height)  * 100)];
+    [self.delegate scrollRead:(self.collectionView.contentOffset.y / (self.collectionView.contentSize.height - self.collectionView.frame.size.height))];
     
     // Loader View fixed position
     [self.loaderView movePosition:CGPointMake(self.collectionView.center.x, scrollView.contentOffset.y + self.collectionView.bounds.size.height/2)];
@@ -297,10 +300,10 @@
             JAParagraphCollectionViewCell *paragraphCell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"ParagraphCell" forIndexPath:indexPath];
             paragraphCell.paragraphLabel.links = [self.currentBlock links];
             [paragraphCell.paragraphLabel initWithString:[self.currentBlock text]];
-            paragraphCell.paragraphLabel.delegate = self;
             if(self.currentBlock.id.integerValue == self.blocks.count-1) {
                 [paragraphCell.paragraphLabel applyMarkOfLastParagraph];
             }
+            paragraphCell.paragraphLabel.delegate = self;
             [paragraphCell updateConstraintsIfNeeded];
             cell = paragraphCell;
             

@@ -62,6 +62,7 @@
     [_titleLabel setFont:_titleFont];
     [_titleLabel setTextColor:_titleColor];
     _titleLabel.lineHeight = 0.85;
+    [_titleLabel setAlpha:0.85];
     
     [self.contentView addSubview:_titleLabel];
     

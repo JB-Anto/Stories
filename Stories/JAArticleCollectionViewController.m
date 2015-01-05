@@ -214,7 +214,7 @@
     [self.followView setCenter:CGPointMake(self.followView.center.x, fixedFrame.origin.y)];
     self.followView.centerView = self.followView.center;
     
-    [self.delegate scrollRead:(self.collectionView.contentOffset.y / (self.collectionView.contentSize.height - self.collectionView.frame.size.height)  * 100)];
+    [self.delegate scrollRead:(self.collectionView.contentOffset.y / (self.collectionView.contentSize.height - self.collectionView.frame.size.height)  * 100) indexArticle:self.manager.currentArticle];
     
     // Loader View fixed position
     [self.loaderView movePosition:CGPointMake(self.collectionView.center.x, scrollView.contentOffset.y + self.collectionView.bounds.size.height/2)];

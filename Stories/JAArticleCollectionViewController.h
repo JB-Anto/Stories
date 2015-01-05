@@ -20,7 +20,7 @@
 
 @protocol ScrollRead
 
--(void)scrollRead:(float)percent;
+-(void)scrollRead:(float)percent indexArticle:(int)index;
 
 @end
 

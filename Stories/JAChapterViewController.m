@@ -34,6 +34,7 @@
     [super viewDidLoad];
     
     self.manager = [JAManagerData sharedManager];
+    self.plistManager = [JAPlistManager sharedInstance];
     
     self.titlesArray = [NSMutableArray array];
     self.percentArray = [NSMutableArray array];
@@ -227,10 +228,7 @@
     
 }
 -(void)loadNextView{
-    NSLog(@"ROCKSTAR BABE");
-    
     [self performSegueWithIdentifier:@"JAArticlePush" sender:self];
-    
 }
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset{
     int index = (int)(targetContentOffset->x / (self.view.frame.size.width/2));
@@ -267,8 +265,10 @@
 -(BOOL)prefersStatusBarHidden {
     return YES;
 }
--(void)scrollRead:(float)percent{
-    NSLog(@"Percent %f",percent);
+-(void)scrollRead:(float)percent indexArticle:(int)index{
+    NSLog(@"Percent %f index %i",percent,index);
+    NSNumber *percentNumber = [NSNumber numberWithFloat:percent];
+    [self.plistManager setPercentRead:percentNumber storie:self.manager.currentStorie chapter:self.manager.currentChapter article:index];
 }
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
@@ -282,8 +282,8 @@
     if ([segue.identifier isEqualToString:@"JAArticlePush"]) {
         JAArticleCollectionViewController *articleController = segue.destinationViewController;
         [articleController setDelegate:self];
-
-        articleController.oldPercentScroll = 10.0;
+        NSLog(@"TESTTT %@",[self.plistManager getPercentRead]);
+        articleController.oldPercentScroll = [[self.plistManager getPercentRead] floatValue];
     }
 }
 

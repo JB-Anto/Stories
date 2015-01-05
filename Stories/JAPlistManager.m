@@ -60,23 +60,23 @@ static JAPlistManager *sharedInstance = nil;
             [plistData setObject:stories forKey:@"follow"];
             [self writeDataToPlist:plistData];
         }
-//        if([[self getObject:@"percentRead"]count] == 0){
-//            NSMutableArray *percent = [NSMutableArray array];
-//            for (int i = 0; i < [self.manager getNumberOfStories]; i++) {
-//                NSMutableArray *storie = [NSMutableArray array];
-//                for (int j = 0; j < [self.manager getNumberOfChapter:i]; j++) {
-//                    NSMutableArray *chapter = [NSMutableArray array];
-//                    for (int k = 0; k < [self.manager getNumberOfArticle:i chapter:j]; k++) {
-//                        [chapter addObject:@0];
-//                    }
-//                    [storie addObject:chapter];
-//                }
-//                [percent addObject:storie];
-//            }
-//            [plistData setObject:percent forKey:@"follow"];
-//            [self writeDataToPlist:plistData];
-//            NSLog(@"PERCENT %@", percent);
-//        }
+        if([[self getPercentReadArray]count] == 0){
+            NSMutableArray *percent = [NSMutableArray array];
+            for (int i = 0; i < [self.manager getNumberOfStories]; i++) {
+                NSMutableArray *storie = [NSMutableArray array];
+                for (int j = 0; j < [self.manager getNumberOfChapter:i]; j++) {
+                    NSMutableArray *chapter = [NSMutableArray array];
+                    for (int k = 0; k < [self.manager getNumberOfArticle:i chapter:j]; k++) {
+                        [chapter addObject:@0];
+                    }
+                    [storie addObject:chapter];
+                }
+                [percent addObject:storie];
+            }
+            [plistData setObject:percent forKey:@"percentRead"];
+            [self writeDataToPlist:plistData];
+            NSLog(@"PERCENT %@", percent);
+        }
 
     }
     return self;
@@ -125,11 +125,17 @@ static JAPlistManager *sharedInstance = nil;
     NSLog(@" %@ - %@ ",key, [self getObject:key] );
 
 }
-- (NSMutableArray *)getPercentRead
+- (NSMutableArray *)getPercentReadArray
 {
     //    NSLog(@"stories %@", [self getPlistData]);
     NSMutableArray *array = [NSMutableArray arrayWithArray:[[self getPlistData] objectForKey:@"percentRead"]];
     return array;
+    
+}
+- (NSNumber *)getPercentRead
+{
+
+    return [[[[[self getPlistData] objectForKey:@"percentRead"] objectAtIndex:self.manager.currentStorie] objectAtIndex:self.manager.currentChapter] objectAtIndex:self.manager.currentArticle];
     
 }
 - (void)setPercentRead:(NSNumber*)value storie:(NSInteger)storie chapter:(NSInteger)chapter article:(NSInteger)article

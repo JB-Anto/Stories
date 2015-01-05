@@ -14,6 +14,7 @@
 @interface JAChapterViewController : UIViewController <LoaderDelegate, UIScrollViewDelegate, ScrollRead>
 
 @property (strong, nonatomic) JAManagerData *manager;
+@property (strong, nonatomic) JAPlistManager *plistManager;
 @property (strong, nonatomic) UIScrollView *chapterScrollView;
 @property (strong, nonatomic) UIView *titlesView;
 @property (strong, nonatomic) JALoaderView *loaderView;

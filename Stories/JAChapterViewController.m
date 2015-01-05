@@ -176,6 +176,7 @@
         self.touchToLoad = NO;
         [self.loaderView setState:UIGestureRecognizerStateEnded];
         self.currentIndex = index;
+        self.manager.currentArticle = index;
         if(self.timerForLoader){
             [self.timerForLoader invalidate];
         }

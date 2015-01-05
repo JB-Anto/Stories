@@ -44,10 +44,10 @@
 
     // Data Management
     self.manager = [JAManagerData sharedManager];
-    self.manager.currentStorie = 0;
-    self.manager.currentChapter = 1;
-    self.manager.currentArticle = 4;
-    self.manager.currentInfo = 1;
+//    self.manager.currentStorie = 0;
+//    self.manager.currentChapter = 1;
+//    self.manager.currentArticle = 4;
+//    self.manager.currentInfo = 1;
     
     JAInfoModel *info = [self.manager getCurrentInfo];
     self.blocks = [info blocks];

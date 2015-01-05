@@ -46,10 +46,10 @@
 
     // DATA Management
     self.manager = [JAManagerData sharedManager];
-    self.manager.currentStorie  = 0;
-    self.manager.currentChapter = 1;
-
-    self.manager.currentArticle = 4;
+    NSLog(@"Story: %d\nChapter: %d\nArticle: %d", self.manager.currentStorie, self.manager.currentChapter, self.manager.currentArticle);
+//    self.manager.currentStorie  = 0;
+//    self.manager.currentChapter = 1;
+//    self.manager.currentArticle = 4;
 
     JAArticleModel *article = [self.manager getCurrentArticle];
     self.blocks = [article blocks];
@@ -175,6 +175,7 @@
     // Loader View
     NSLog(@"Start Loader");
     //[self.loaderView movePosition:self.collectionView.center];
+    
     [self.loaderView setState:UIGestureRecognizerStateBegan];
     
 }

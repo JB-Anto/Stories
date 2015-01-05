@@ -14,7 +14,7 @@
 
 - (void)initWithString:(NSString *)text
 {
-    
+    self.manager = [JAManagerData sharedManager];
     [self setText:text];
     if(self.links) {
         [self addLink];
@@ -88,8 +88,7 @@
 }
 
 - (void)linkTextView:(CCHLinkTextView *)linkTextView didLongPressLinkWithValue:(id)value {
-    
-    NSLog(@"%@", value);
+    self.manager.currentInfo = [value integerValue];
     [self.delegate linkDidPressed];
     
 }

@@ -10,6 +10,7 @@
 #import "CCHLinkTextView.h"
 #import "CCHLinkTextViewDelegate.h"
 #import "CCHLinkGestureRecognizer.h"
+#import "JAManagerData.h"
 
 @protocol JAUITextViewDelegate <NSObject>
 - (void)linkDidPressed;
@@ -23,6 +24,7 @@
 @property (strong, nonatomic) UIColor *linkColor;
 @property (strong, nonatomic) NSArray *links;
 @property (assign) id <JAUITextViewDelegate> delegate;
+@property (strong, nonatomic) JAManagerData *manager;
 
 -(void)initWithString:(NSString *)text;
 -(void)addLink;

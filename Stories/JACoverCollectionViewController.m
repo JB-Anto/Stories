@@ -67,44 +67,55 @@ static NSString * const reuseIdentifier = @"Cell";
     self.loaderView = [[JALoaderView alloc]initWithFrame:CGRectMake(0, 0, 160, 160)];
     self.loaderView.delegate = self;
     [self.view addSubview:self.loaderView];
-        
+    
+    // Follow View
     self.followView = [[JAFollowView alloc]initWithFrame:CGRectMake(self.view.bounds.size.width - 75, 35, 40, 40)];
     self.followView.delegate = self;
     self.followView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:self.followView];
     
-    // Follow View
-//    if([[self.plistManager getObject:@"tuto"] isEqualToString:@"1"]){
-//        [self.plistManager setValueForKey:@"tuto" value:@"0"];
-//        NSArray *tutoArray = @[@{ @"title" : @"Swipe to discover more leaflet",
-//                                  @"image" :  @"tuto1.png",
-//                                  @"custom" :  @0},
-//                               @{ @"title" : @"Hold to get in a story",
-//                                  @"image" :  @"tuto2.png",
-//                                  @"custom" :  @0},
-//                               @{ @"title" : @"Drag to follow a new story",
-//                                  @"image" :  @"tuto3.png",
-//                                  @"custom" :  @1},
-//                               @{ @"title" : @"Flip the phone to switch between your library and the shelf",
-//                                  @"image" :  @"tuto4.png",
-//                                  @"custom" :  @0,
-//                                  @"button" :  @1}
-//                               ];
-//        
-//        tutorialVC = [[JATutorialViewController alloc]initWithBlocks:tutoArray delegate:self];
-//        [self.view addSubview:tutorialVC.view];
-//        tutorialVC.view.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.75];
-//    }
-    
-    [[NSNotificationCenter defaultCenter] addObserverForName:@"leaveTuto" object:nil queue:nil usingBlock:^(NSNotification *note) {
+    // Tuto View
+    if([[self.plistManager getTuto] isEqualToString:@"1"]){
+        [self.plistManager setTuto:@"0"];
+        NSArray *tutoArray = @[@{ @"title" : @"Swipe to discover more leaflet",
+                                  @"image" :  @"tuto1.png",
+                                  @"custom" :  @0},
+                               @{ @"title" : @"Hold to get in a story",
+                                  @"image" :  @"tuto2.png",
+                                  @"custom" :  @0},
+                               @{ @"title" : @"Drag to follow a new story",
+                                  @"image" :  @"tuto3.png",
+                                  @"custom" :  @1},
+                               @{ @"title" : @"Flip the phone to switch between your library and the shelf",
+                                  @"image" :  @"tuto4.png",
+                                  @"custom" :  @0,
+                                  @"button" :  @1}
+                               ];
         
-//        [tutorialVC removeFromParentViewController];
-    }];
-    // Gesture recognizer
-    UILongPressGestureRecognizer *longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressDetected:)];
-    longPressRecognizer.minimumPressDuration = .3;
-    longPressRecognizer.numberOfTouchesRequired = 1;
-    [self.view addGestureRecognizer:longPressRecognizer];
+        tutorialVC = [[JATutorialViewController alloc]initWithBlocks:tutoArray delegate:self];
+        [self.view addSubview:tutorialVC.view];
+        
+        tutorialVC.view.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.75];
+        
+        [[NSNotificationCenter defaultCenter] addObserverForName:@"leaveTuto" object:nil queue:nil usingBlock:^(NSNotification *note) {
+            
+            [tutorialVC.view removeFromSuperview];
+            // Gesture recognizer
+            UILongPressGestureRecognizer *longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressDetected:)];
+            longPressRecognizer.minimumPressDuration = .3;
+            longPressRecognizer.numberOfTouchesRequired = 1;
+            [self.view addGestureRecognizer:longPressRecognizer];
+        }];
+    }
+    else{
+        // Gesture recognizer
+        UILongPressGestureRecognizer *longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressDetected:)];
+        longPressRecognizer.minimumPressDuration = .3;
+        longPressRecognizer.numberOfTouchesRequired = 1;
+        [self.view addGestureRecognizer:longPressRecognizer];
+    }
+
+   
 }
 - (void)dealloc
 {

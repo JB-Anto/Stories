@@ -83,14 +83,21 @@ static JAPlistManager *sharedInstance = nil;
 }
 
 #pragma mark - User info value handlers
-//- (NSString*)getObject:(NSString*)key
-//{
-//    //    NSLog(@"stories %@", [self getPlistData]);
-//    NSLog(@"test get %@",[[self getPlistData] objectForKey:key]);
-//    return [[self getPlistData] objectForKey:key];
-//    
-//}
+- (NSString*)getTuto
+{
+    NSLog(@"test get %@",[[self getPlistData] objectForKey:@"tuto"]);
+    return [[self getPlistData] objectForKey:@"tuto"];
+}
 
+- (void)setTuto:(NSString *)value{
+    NSMutableDictionary *plistData = [self getPlistData];
+
+    [plistData setObject:value forKey:@"tuto"];
+
+    [self writeDataToPlist:plistData];
+
+    NSLog(@" %@ - %@ ",@"tuto", [self getTuto]);
+}
 - (NSMutableArray *)getObject:(NSString*)key
 {
 //    NSLog(@"stories %@", [self getPlistData]);
@@ -134,9 +141,7 @@ static JAPlistManager *sharedInstance = nil;
 }
 - (NSNumber *)getPercentRead
 {
-
-    return [[[[[self getPlistData] objectForKey:@"percentRead"] objectAtIndex:self.manager.currentStorie] objectAtIndex:self.manager.currentChapter] objectAtIndex:self.manager.currentArticle];
-    
+    return [[[[[self getPlistData] objectForKey:@"percentRead"] objectAtIndex:self.manager.currentStorie] objectAtIndex:self.manager.currentChapter] objectAtIndex:self.manager.currentArticle];    
 }
 - (void)setPercentRead:(NSNumber*)value storie:(NSInteger)storie chapter:(NSInteger)chapter article:(NSInteger)article
 {

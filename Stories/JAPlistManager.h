@@ -17,7 +17,10 @@
 //- (NSString*)getObject:(NSString*)key;
 - (NSMutableArray *)getObject:(NSString*)key;
 - (NSNumber *)getPercentRead;
+- (NSString*)getTuto;
+
 //- (void)setValueForKey:(NSString *)key value:(NSString *)value;
+- (void)setTuto:(NSString *)value;
 - (void)setValueForKey:(NSString *)key value:(NSNumber*)value index:(NSInteger)index;
 - (void)setPercentRead:(NSNumber*)value storie:(NSInteger)storie chapter:(NSInteger)chapter article:(NSInteger)article;
 

@@ -11,6 +11,8 @@
 @interface JATutorialPageViewController : UIViewController
 
 @property (strong, nonatomic) NSDictionary *dico;
+@property (assign, nonatomic) NSInteger index;
+
 
 -(id)init:(NSDictionary*)dico;
 

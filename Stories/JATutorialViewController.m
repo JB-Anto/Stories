@@ -16,23 +16,13 @@
 
 @implementation JATutorialViewController
 
-//-(id)init:(NSArray*)blocks{
-//    self = [super init];
-//    
-//    if(self)
-//    {
-//        self.blocks = [NSArray arrayWithArray:blocks];
-//    }
-//    
-//    return self;
-//}
--(id)initWithBlocks:(NSArray*)blocks delegate:(id<UIScrollViewDelegate>)scrollDelegate{
+-(id)initWithBlocks:(NSArray*)blocks delegate:(id)scrollDelegate{
     self = [super init];
     
     if(self)
     {
         self.blocks = blocks;
-//        NSLog(@"blocks %@",blocks);
+
         self.scrollDelegate = scrollDelegate;
         
         [[NSNotificationCenter defaultCenter] addObserverForName:@"myTestNotification" object:nil queue:nil usingBlock:^(NSNotification *note) {
@@ -54,31 +44,69 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-    self.scrollView.contentSize = CGSizeMake([self.blocks count] * self.view.frame.size.width, self.view.frame.size.height);
-    self.scrollView.pagingEnabled = YES;
-    [self.view addSubview:self.scrollView];
     
-    self.scrollView.delegate = self.scrollDelegate;
+    self.pageController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
     
-    for (int i = 0; i < [self.blocks count]; i++) {
-        JATutorialPageViewController *page = [[JATutorialPageViewController alloc] init:[self.blocks objectAtIndex:i]];
-        [page.view setFrame:CGRectMake(i * self.view.frame.size.width, 0, self.view.frame.size.width, self.view.frame.size.height)];
-        [self.scrollView addSubview:page.view];
-    }
+    self.pageController.dataSource = self;
+    [[self.pageController view] setFrame:[[self view] bounds]];
     
-    sectionWidth = 30;
-    sectionHeight = 30;
+    JATutorialPageViewController *initialViewController = [self viewControllerAtIndex:0];
     
-    self.pagerBar = [[JAPagerBar alloc] initWithNbSection:(int)[self.blocks count] sectionWidth:sectionWidth sectionHeight:sectionHeight];
-    self.pagerBar.backgroundColor = [UIColor redColor];
-    [self.pagerBar setFrame:CGRectMake(self.view.frame.size.width /2 - [self.blocks count] * sectionWidth / 2, self.view.bounds.size.height - 100, self.pagerBar.frame.size.width, self.pagerBar.frame.size.height)];
-    [self.view addSubview:self.pagerBar];
-
-
+    NSArray *viewControllers = [NSArray arrayWithObject:initialViewController];
+    
+    [self.pageController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+    
+    [self addChildViewController:self.pageController];
+    [[self view] addSubview:[self.pageController view]];
+    [self.pageController didMoveToParentViewController:self];
     
 }
+- (JATutorialPageViewController *)viewControllerAtIndex:(NSUInteger)index {
+    
+    JATutorialPageViewController *childViewController = [[JATutorialPageViewController alloc] init:[self.blocks objectAtIndex:index]];
+    childViewController.index = index;
+    
+    return childViewController;
+    
+}
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
+    
+    NSUInteger index = [(JATutorialPageViewController *)viewController index];
+    
+    if (index == 0) {
+        return nil;
+    }
+    
+    index--;
+    
+    return [self viewControllerAtIndex:index];
+    
+}
+
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
+    
+    NSUInteger index = [(JATutorialPageViewController *)viewController index];
+    
+    
+    index++;
+    
+    if (index == [self.blocks count]) {
+        return nil;
+    }
+    
+    return [self viewControllerAtIndex:index];
+    
+}
+- (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController {
+    // The number of items reflected in the page indicator.
+    return [self.blocks count];
+}
+
+- (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController {
+    // The selected item reflected in the page indicator.
+    return 0;
+}
+
 -(void)delegateScroll{
     for (int i = 0; i<[self.blocks count]; i++) {
         if( self.scrollView.contentOffset.x ==  (float)self.view.frame.size.width * i ){
@@ -90,7 +118,9 @@
     }
 }
 
-
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    [self delegateScroll];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

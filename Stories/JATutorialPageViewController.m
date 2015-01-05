@@ -53,7 +53,7 @@
     
     
     if([[self.dico objectForKey:@"button"] isEqual: @1]){
-        UIButton *leaveBTN = [[UIButton alloc]initWithFrame:CGRectMake(0, 160, self.view.frame.size.width, 40)];
+        UIButton *leaveBTN = [[UIButton alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height - 160, self.view.frame.size.width, 40)];
 
         leaveBTN.titleLabel.font = [UIFont fontWithName:@"News-Plantin-Pro-Regular-Italic" size:15.0];
         leaveBTN.titleLabel.textColor = [UIColor whiteColor];
@@ -81,7 +81,7 @@
     
 }
 -(void)leaveView:(UIButton*)sender{
-//    [[NSNotificationCenter defaultCenter] postNotificationName:@"leaveTuto" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"leaveTuto" object:nil];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

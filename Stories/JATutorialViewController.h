@@ -10,13 +10,14 @@
 #import "JAPagerBar.h"
 #import "JATutorialPageViewController.h"
 
-@interface JATutorialViewController : UIViewController
+@interface JATutorialViewController : UIViewController<UIScrollViewDelegate,UIPageViewControllerDataSource>
 
 @property (strong, nonatomic) UIScrollView *scrollView;
-@property (strong, nonatomic) NSArray *blocks;
+@property (strong, nonatomic) UIPageViewController *pageController;
 @property (strong, nonatomic) JAPagerBar *pagerBar;
-@property (strong, nonatomic) id<UIScrollViewDelegate> scrollDelegate;
+@property (strong, nonatomic) NSArray *blocks;
+@property (strong, nonatomic) id scrollDelegate;
 
--(id)initWithBlocks:(NSArray*)blocks delegate:(id<UIScrollViewDelegate>)scrollDelegate;
+-(id)initWithBlocks:(NSArray*)blocks delegate:(id)scrollDelegate;
 
 @end

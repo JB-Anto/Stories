@@ -99,7 +99,7 @@
     for (int j = 0; j < [[[self.manager getCurrentStorie] chapters] count]; j++) {
 
         for (int i = 0; i < [[self.titlesArray objectAtIndex:j] count] ; i++) {
-            NSLog(@"i %i",i);
+//            NSLog(@"i %i",i);
             [self animateTitlesView:i forChapter:j negativeScale:.2 negativeAlpha:.3 delay:i * .05];
         }
     }
@@ -109,7 +109,7 @@
     // Count for Title View
     self.titleChapterCount = [[[[[self.manager getCurrentStorie] chapters] objectAtIndex:index] articles] count];
     float chapterHeight = self.titlesView.frame.size.height / self.titleChapterCount;
-    NSLog(@"Height %f",chapterHeight);
+//    NSLog(@"Height %f",chapterHeight);
     
     [self.heightCellArray addObject:[NSNumber numberWithFloat:chapterHeight]];
     
@@ -236,7 +236,7 @@
     
 }
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    self.titlesView.frame = CGRectMake(-scrollView.contentOffset.x * 2, self.titlesView.frame.origin.y, self.titlesView.frame.size.width, self.titlesView.frame.size.height);
+    self.titlesView.frame = CGRectMake(-scrollView.contentOffset.x , self.titlesView.frame.origin.y, self.titlesView.frame.size.width, self.titlesView.frame.size.height);
 }
 -(void)setAnchorPoint:(CGPoint)anchorPoint forView:(UIView *)view
 {

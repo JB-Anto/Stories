@@ -88,7 +88,7 @@
         
         [self.circlePaginations addObject:shapeLayer];
     }
-    [[self.circlePaginations objectAtIndex:0] setFillColor:[[UIColor whiteColor] CGColor]];
+    [[self.circlePaginations firstObject] setFillColor:[[UIColor whiteColor] CGColor]];
 }
 
 // Create circle

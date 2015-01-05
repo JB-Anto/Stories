@@ -12,6 +12,7 @@
 
 @interface JAKeyNumberCollectionViewCell : UICollectionViewCell
 
+@property (strong, nonatomic) JAManagerData* manager;
 @property (strong, nonatomic) JAUITextView *numberLabel;
 @property (strong, nonatomic) JAUILabel *descriptionLabel;
 @property (nonatomic) CGFloat maxParallaxOffset;

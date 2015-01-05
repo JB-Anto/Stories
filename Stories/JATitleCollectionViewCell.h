@@ -11,6 +11,7 @@
 
 @interface JATitleCollectionViewCell : UICollectionViewCell
 
+@property (strong, nonatomic) JAManagerData* manager;
 @property (strong, nonatomic) JAUILabel *titleLabel;
 @property (strong, nonatomic) JAUILabel *dateLabel;
 @property (strong, nonatomic) JAUILabel *locationLabel;

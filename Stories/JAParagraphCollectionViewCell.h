@@ -12,6 +12,7 @@
 
 @interface JAParagraphCollectionViewCell : UICollectionViewCell
 
+@property (strong, nonatomic) JAManagerData* manager;
 @property (strong, nonatomic) JAUITextView *paragraphLabel;
 @property (nonatomic) CGFloat maxParallaxOffset;
 

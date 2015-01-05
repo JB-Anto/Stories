@@ -36,11 +36,13 @@
 
     }
     
+    self.manager = [JAManagerData sharedManager];
+    
     // Main characteristics of labels in the view
     _titleFont = [UIFont fontWithName:@"Young-Serif-Regular" size:45.0];
     _infoFont = [UIFont fontWithName:@"Circular-Std-Medium" size:48.0];
-    _titleColor = [UIColor colorWithHue:0.68 saturation:0.45 brightness:0.34 alpha:.9];
-    _infoColor = [UIColor colorWithHue:0.08 saturation:0.74 brightness:0.93 alpha:1];
+    _titleColor = [self.manager getCurrentTextColor];
+    _infoColor = [self.manager getCurrentColor];
     
     // Creating subviews
     [self setupLocationLabel];

@@ -39,15 +39,9 @@
     
     // CollectionView Initialization
     [self.collectionView setBackgroundColor:[UIColor colorWithHue:0 saturation:0 brightness:0.97 alpha:1]];
-//    self.headerSnapshotFragment = self.snapshot;
-//    self.footerSnapshotFragment = [UIImage imageNamed:@"basBlank.png"];
 
     // Data Management
     self.manager = [JAManagerData sharedManager];
-//    self.manager.currentStorie = 0;
-//    self.manager.currentChapter = 1;
-//    self.manager.currentArticle = 4;
-//    self.manager.currentInfo = 1;
     
     JAInfoModel *info = [self.manager getCurrentInfo];
     self.blocks = [info blocks];

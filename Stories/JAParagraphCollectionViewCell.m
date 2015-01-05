@@ -31,10 +31,12 @@
         return nil;
     }
     
+    self.manager = [JAManagerData sharedManager];
+    
     // Main characteristics of labels in the view
     _paragraphFont = [UIFont fontWithName:@"News-Plantin-Pro-Regular" size:18.0];
-    _paragraphColor = [UIColor colorWithHue:0.68 saturation:0.45 brightness:0.34 alpha:1];
-    _linkColor = [UIColor colorWithHue:0.08 saturation:0.74 brightness:0.93 alpha:1];
+    _paragraphColor = [self.manager getCurrentTextColor];
+    _linkColor = [self.manager getCurrentColor];
     
     // Creating subviews
     [self setupParagraphLabel];

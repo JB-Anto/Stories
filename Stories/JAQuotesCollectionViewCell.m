@@ -34,11 +34,13 @@
         return nil;
     }
     
+    self.manager = [JAManagerData sharedManager];
+    
     // Main characteristics of labels in the view
     _authorFont = [UIFont fontWithName:@"News-Plantin-Pro-Regular-Italic" size:28.0];
-    _authorColor = [UIColor colorWithHue:0.08 saturation:0.74 brightness:0.93 alpha:1];
+    _authorColor = [self.manager getCurrentColor];
     _quoteFont = [UIFont fontWithName:@"Circular-Std-Book" size:26.0];
-    _quoteColor  = [UIColor colorWithHue:0.68 saturation:0.45 brightness:0.34 alpha:.9];
+    _quoteColor  = [self.manager getCurrentTextColor];
     
     // Creating subviews
     [self setupAuthorLabel];

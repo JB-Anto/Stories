@@ -12,6 +12,7 @@
 
 @interface JAQuotesCollectionViewCell : UICollectionViewCell
 
+@property (strong, nonatomic) JAManagerData* manager;
 @property (strong, nonatomic) JAUILabel *quoteLabel;
 @property (strong, nonatomic) JAUILabel *authorLabel;
 @property (nonatomic) CGFloat maxParallaxOffset;

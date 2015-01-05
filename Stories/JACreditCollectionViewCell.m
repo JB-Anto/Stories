@@ -26,10 +26,11 @@
         return nil;
     }
     
+    self.manager = [JAManagerData sharedManager];
     
     // Main characteristics of labels in the view
     _font   = [UIFont fontWithName:@"Circular-Std-Book" size:11.0];
-    _color = [UIColor colorWithHue:0.68 saturation:0.45 brightness:0.34 alpha:1];
+    _color = [self.manager getCurrentTextColor];
     
     [self setupTitleLabel];
     [self setupNamesLabel];

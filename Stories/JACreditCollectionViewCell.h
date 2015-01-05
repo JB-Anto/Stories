@@ -11,6 +11,7 @@
 
 @interface JACreditCollectionViewCell : UICollectionViewCell
 
+@property (strong, nonatomic) JAManagerData* manager;
 @property (strong, nonatomic) JAUILabel *titleLabel;
 @property (strong, nonatomic) JAUILabel *namesLabel;
 @property (nonatomic) CGFloat maxParallaxOffset;

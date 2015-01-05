@@ -29,10 +29,12 @@
     if(self == nil) {
         return nil;
     }
-
+    
+    self.manager = [JAManagerData sharedManager];
+    
     // Main characteristics of labels in the view
     _resumeFont = [UIFont fontWithName:@"Circular-Std-Book" size:12.0];
-    _resumeColor = [UIColor colorWithHue:0.68 saturation:0.45 brightness:0.34 alpha:1];
+    _resumeColor = [self.manager getCurrentTextColor];
     
     // Creating subviews
     [self setupResumeLabel];

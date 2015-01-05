@@ -63,4 +63,14 @@
     return [[[[[[self.data.stories[self.currentStorie] chapters] objectAtIndex:self.currentChapter] articles] objectAtIndex:self.currentArticle] infos] objectAtIndex:self.currentInfo];
 }
 
+-(UIColor *)getCurrentColor {
+    NSString *hexCode = [[[self.data stories] objectAtIndex:self.currentStorie] cover].color;
+    return [UIColor pxColorWithHexValue:hexCode];
+}
+
+-(UIColor *)getCurrentTextColor {
+    NSString *hexCode = [[[self.data stories] objectAtIndex:self.currentStorie] cover].textColor;
+    return [UIColor pxColorWithHexValue:hexCode];
+}
+
 @end

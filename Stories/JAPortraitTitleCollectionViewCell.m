@@ -31,10 +31,12 @@
         return nil;
     }
     
+    self.manager = [JAManagerData sharedManager];
+    
     _nameFont = [UIFont fontWithName:@"Young-Serif-Regular" size:45.0];
     _portraitFont = [UIFont fontWithName:@"Circular-Std-Medium" size:38.0];
-    _nameColor = [UIColor colorWithHue:0.68 saturation:0.45 brightness:0.34 alpha:1];
-    _portraitColor = [UIColor colorWithHue:0.08 saturation:0.74 brightness:0.93 alpha:1];
+    _nameColor = [self.manager getCurrentTextColor];
+    _portraitColor = [self.manager getCurrentColor];
     
     [self setupPortraitImageView];
     [self setupPortraitLabel];

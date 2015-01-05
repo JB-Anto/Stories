@@ -46,11 +46,7 @@
 
     // DATA Management
     self.manager = [JAManagerData sharedManager];
-    NSLog(@"Story: %d\nChapter: %d\nArticle: %d", self.manager.currentStorie, self.manager.currentChapter, self.manager.currentArticle);
-//    self.manager.currentStorie  = 0;
-//    self.manager.currentChapter = 1;
-//    self.manager.currentArticle = 4;
-
+    
     JAArticleModel *article = [self.manager getCurrentArticle];
     self.blocks = [article blocks];
     self.credits = [article credits];
@@ -74,6 +70,7 @@
 
     NSLog(@"old %f",self.oldPercentScroll);
 
+    
     UITapGestureRecognizer *doubleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTap:)];
     doubleTapGesture.numberOfTapsRequired = 2;
     doubleTapGesture.delegate = self;
@@ -88,6 +85,7 @@
         [self setupFooterView];
         [self setupFollowView];
         [self setupLoaderView];
+        [self.collectionView setContentOffset:CGPointMake(0, self.oldPercentScroll)];
     }
 }
 
@@ -217,7 +215,7 @@
     [self.followView setCenter:CGPointMake(self.followView.center.x, fixedFrame.origin.y)];
     self.followView.centerView = self.followView.center;
     
-     [self.delegate scrollRead:(self.collectionView.contentOffset.y / (self.collectionView.contentSize.height - self.collectionView.frame.size.height)  * 100)];
+    [self.delegate scrollRead:(self.collectionView.contentOffset.y / (self.collectionView.contentSize.height - self.collectionView.frame.size.height)  * 100)];
     
     // Loader View fixed position
     [self.loaderView movePosition:CGPointMake(self.collectionView.center.x, scrollView.contentOffset.y + self.collectionView.bounds.size.height/2)];

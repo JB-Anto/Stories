@@ -11,6 +11,7 @@
 
 @interface JAPortraitTitleCollectionViewCell : UICollectionViewCell
 
+@property (strong, nonatomic) JAManagerData* manager;
 @property (strong, nonatomic) UIImageView *portraitImageView;
 @property (strong, nonatomic) JAUILabel *nameLabel;
 @property (strong, nonatomic) JAUILabel *portraitLabel;

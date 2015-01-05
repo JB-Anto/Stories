@@ -11,6 +11,7 @@
 
 @interface JANumberTitleCollectionViewCell : UICollectionViewCell
 
+@property (strong, nonatomic) JAManagerData* manager;
 @property (strong, nonatomic) JAUILabel *numberLabel;
 @property (strong, nonatomic) JAUILabel *textLabel;
 @property (nonatomic) CGFloat maxParallaxOffset;

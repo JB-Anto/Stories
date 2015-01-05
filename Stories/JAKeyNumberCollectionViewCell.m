@@ -33,12 +33,14 @@
     if(self == nil) {
         return nil;
     }
-        
+    
+    self.manager = [JAManagerData sharedManager];
+    
     // Main characteristics of labels in the view
     _numberFont = [UIFont fontWithName:@"News-Plantin-Pro-Regular" size:82.5];
-    _numberColor = [UIColor colorWithHue:0.08 saturation:0.74 brightness:0.93 alpha:1];
+    _numberColor = [self.manager getCurrentColor];
     _descriptionFont = [UIFont fontWithName:@"Circular-Std-Book" size:24.0];
-    _descriptionColor = [UIColor colorWithHue:0.68 saturation:0.45 brightness:0.34 alpha:.9];
+    _descriptionColor = [self.manager getCurrentTextColor];
     
     // Creating subviews
     [self setupNumberLabel];

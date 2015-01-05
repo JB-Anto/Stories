@@ -29,10 +29,12 @@
         return nil;
     }
     
+    self.manager = [JAManagerData sharedManager];
+    
     _numberFont = [UIFont fontWithName:@"News-Plantin-Pro-Regular" size:90];
-    _numberColor = [UIColor colorWithHue:0.08 saturation:0.74 brightness:0.93 alpha:1];
+    _numberColor = [self.manager getCurrentColor];
     _textFont = [UIFont fontWithName:@"Circular-Std-Book" size:24.0];
-    _textColor = [UIColor colorWithHue:0.68 saturation:0.45 brightness:0.34 alpha:.9];
+    _textColor = [self.manager getCurrentTextColor];
     
     // Creating subviews
     [self setupNumberLabel];

@@ -24,4 +24,6 @@
 -(JAChapterModel*)getCurrentChapter;
 -(JAArticleModel*)getCurrentArticle;
 -(JAInfoModel*)getCurrentInfo;
+-(UIColor*)getCurrentColor;
+-(UIColor*)getCurrentTextColor;
 @end

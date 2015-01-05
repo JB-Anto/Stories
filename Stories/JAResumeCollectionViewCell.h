@@ -11,6 +11,7 @@
 
 @interface JAResumeCollectionViewCell : UICollectionViewCell
 
+@property (strong, nonatomic) JAManagerData* manager;
 @property (strong, nonatomic) JAUILabel *resumeLabel;
 @property (nonatomic) CGFloat maxParallaxOffset;
 @property (nonatomic) NSInteger idx;

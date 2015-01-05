@@ -11,6 +11,7 @@
 
 @interface JAImageCollectionViewCell : UICollectionViewCell <UIGestureRecognizerDelegate>
 
+@property (strong, nonatomic) JAManagerData* manager;
 @property (strong, nonatomic) UIImageView *imageView;
 @property (strong, nonatomic) JAUILabel *legendLabel;
 @property (nonatomic) CGFloat maxParallaxOffset;

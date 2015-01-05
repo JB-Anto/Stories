@@ -32,10 +32,12 @@
     if(self == nil) {
         return nil;
     }
-        
+    
+    self.manager = [JAManagerData sharedManager];
+    
     // Main characteristics of labels in the view
     _legendFont = [UIFont fontWithName:@"News-Plantin-Pro-Regular-Italic" size:13.0];
-    _legendColor = [UIColor colorWithHue:0.68 saturation:0.45 brightness:0.34 alpha:1];
+    _legendColor = [self.manager getCurrentTextColor];
     
     // Initial Setting - Resume Label
     [self setupImageView];

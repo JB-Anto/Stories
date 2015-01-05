@@ -112,7 +112,7 @@
     self.locationLabelCenterYConstraint = [NSLayoutConstraint constraintWithItem:self.locationLabel attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.titleLabel attribute:NSLayoutAttributeCenterY multiplier:1 constant:0];
     [self.contentView addConstraint:self.locationLabelCenterYConstraint];
     // Date Label
-    self.dateLabelCenterYConstraint = [NSLayoutConstraint constraintWithItem:self.dateLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.locationLabel attribute:NSLayoutAttributeBottom multiplier:0.9 constant:0];
+    self.dateLabelCenterYConstraint = [NSLayoutConstraint constraintWithItem:self.dateLabel attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.locationLabel attribute:NSLayoutAttributeBottom multiplier:1 constant:0];
     [self.contentView addConstraint:self.dateLabelCenterYConstraint];
 
     

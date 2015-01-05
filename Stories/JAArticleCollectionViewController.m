@@ -26,6 +26,7 @@
     
     CGSize optimalSizeForLabel;
     CGSize maximumSizeOfLabel;
+    CGFloat collectionViewHeight;
 }
 
 @property (strong, nonatomic) JABlockModel *currentBlock;
@@ -69,7 +70,6 @@
     [self.collectionView registerClass:[JACreditCollectionViewCell class]     forCellWithReuseIdentifier:@"CreditsCell"];
 
     NSLog(@"old %f",self.oldPercentScroll);
-
     
     UITapGestureRecognizer *doubleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTap:)];
     doubleTapGesture.numberOfTapsRequired = 2;
@@ -81,6 +81,8 @@
 -(void)viewDidAppear:(BOOL)animated{
     if(self.headerView == nil) {
         [super viewDidAppear:animated];
+        collectionViewHeight = self.collectionViewLayout.collectionViewContentSize.height;
+        [self.collectionView setContentOffset:CGPointMake(0, (collectionViewHeight-CGRectGetHeight(self.collectionView.bounds))) animated:NO];
         [self setupHeaderView];
         [self setupFooterView];
         [self setupFollowView];
@@ -102,7 +104,7 @@
 }
 
 - (void)setupHeaderView {
-    self.headerView = [[JAHeaderView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.collectionView.bounds), CGRectGetHeight(self.collectionView.bounds))];
+    self.headerView = [[JAHeaderView alloc] initWithFrame:CGRectMake(0, self.collectionView.contentOffset.y, CGRectGetWidth(self.collectionView.bounds), CGRectGetHeight(self.collectionView.bounds))];
     [self.headerView setImage:self.snapshot];
     [self.headerView updateConstraintsIfNeeded];
     //    [self.collectionView addSubview:self.headerView];
@@ -125,8 +127,7 @@
 }
 
 - (void)setupFooterView {
-    CGFloat collectionViewHeight = self.collectionViewLayout.collectionViewContentSize.height;
-    self.footerView = [[JAFooterView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.collectionView.bounds), CGRectGetHeight(self.collectionView.bounds))];
+    self.footerView = [[JAFooterView alloc] initWithFrame:CGRectMake(0, self.collectionView.contentOffset.y, CGRectGetWidth(self.collectionView.bounds), CGRectGetHeight(self.collectionView.bounds))];
     [self.footerView setImage:self.snapshot];
     [self.footerView updateConstraintsIfNeeded];
     
@@ -192,6 +193,16 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
+    NSLog(@"%.f, %.f", scrollView.contentOffset.y, self.collectionViewLayout.collectionViewContentSize.height);
+    
+//    if(scrollView.contentOffset.y > scrollView.contentSize.height-500) {
+//        [scrollView setContentOffset:CGPointMake(0, scrollView.contentSize.height + CGRectGetHeight(self.collectionView.bounds)/2)];
+//    }
+//    
+//    if(scrollView.contentOffset.y < -CGRectGetHeight(self.collectionView.bounds)/2) {
+//        [scrollView setContentOffset:CGPointMake(0, -CGRectGetHeight(self.collectionView.bounds)/2)];
+//    }
+    
     // Header "Parallax Effect"
     CGPoint headerCenter = self.headerView.center;
     if(scrollView.contentOffset.y < 150) {
@@ -368,7 +379,7 @@
             [cell.titleLabel  initWithString:[self.currentBlock title]];
             maximumSizeOfLabel = CGSizeMake(cellWidth, CGFLOAT_MAX);
             optimalSizeForLabel = [cell.titleLabel sizeThatFits:maximumSizeOfLabel];
-            sizeOfCell = CGSizeMake(cellWidth, optimalSizeForLabel.height+100);
+            sizeOfCell = CGSizeMake(cellWidth, optimalSizeForLabel.height+125);
             
         } else if([[self.currentBlock type] isEqualToString:@"resume"]) {
 

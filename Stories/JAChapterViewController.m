@@ -270,7 +270,7 @@
     return YES;
 }
 -(void)scrollRead:(float)percent{
-    NSLog(@"Percent %f",percent);
+    //NSLog(@"Percent %f",percent);
 }
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {

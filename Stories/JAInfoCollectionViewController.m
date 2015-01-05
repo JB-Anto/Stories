@@ -143,6 +143,17 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
+    NSLog(@"%.f, %.f", scrollView.contentOffset.y, self.collectionViewLayout.collectionViewContentSize.height);
+    
+    if(scrollView.contentOffset.y > scrollView.contentSize.height) {
+        NSLog(@"UP");
+        [scrollView setContentOffset:CGPointMake(0, scrollView.contentSize.height + CGRectGetHeight(self.collectionView.bounds)/2)];
+    }
+    
+    if(scrollView.contentOffset.y < -CGRectGetHeight(self.collectionView.bounds)/2) {
+        [scrollView setContentOffset:CGPointMake(0, -CGRectGetHeight(self.collectionView.bounds)/2)];
+    }
+    
     // Header "Parallax Effect"
     CGPoint headerCenter = self.headerView.center;
     if(scrollView.contentOffset.y < 150) {

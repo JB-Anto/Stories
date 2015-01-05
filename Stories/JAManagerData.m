@@ -44,6 +44,12 @@
 -(NSUInteger)getNumberOfStories{
     return [[self.data stories] count];
 }
+-(NSUInteger)getNumberOfChapter:(NSInteger)storie{
+    return [[[[self.data stories] objectAtIndex:storie]chapters]count];
+}
+-(NSUInteger)getNumberOfArticle:(NSInteger)storie chapter:(NSInteger)chapter{
+    return [[[[[[self.data stories] objectAtIndex:storie]chapters] objectAtIndex:chapter] articles] count];
+}
 -(JAStorieModel*)getCurrentStorie{
     
     return [[self.data stories] objectAtIndex:self.currentStorie];

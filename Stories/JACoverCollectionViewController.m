@@ -8,7 +8,9 @@
 
 #import "JACoverCollectionViewController.h"
 
-@interface JACoverCollectionViewController ()
+@interface JACoverCollectionViewController (){
+    JATutorialViewController *tutorialVC;
+}
 
 @property UIGestureRecognizerState stateLongTap;
 @property BOOL animatedLoader;
@@ -30,7 +32,7 @@ static NSString * const reuseIdentifier = @"Cell";
     self.animatedLoader = NO;
     self.currentIndex = 0;
     self.stateLongTap = UIGestureRecognizerStatePossible;
-    
+
     // Layout View
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     layout.itemSize = CGSizeMake(CGRectGetWidth(self.view.bounds),  CGRectGetHeight(self.view.bounds));
@@ -65,19 +67,48 @@ static NSString * const reuseIdentifier = @"Cell";
     self.loaderView = [[JALoaderView alloc]initWithFrame:CGRectMake(0, 0, 160, 160)];
     self.loaderView.delegate = self;
     [self.view addSubview:self.loaderView];
-    
-    // Follow View
+        
     self.followView = [[JAFollowView alloc]initWithFrame:CGRectMake(self.view.bounds.size.width - 75, 35, 40, 40)];
     self.followView.delegate = self;
     self.followView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:self.followView];
     
-
+    // Follow View
+//    if([[self.plistManager getObject:@"tuto"] isEqualToString:@"1"]){
+//        [self.plistManager setValueForKey:@"tuto" value:@"0"];
+//        NSArray *tutoArray = @[@{ @"title" : @"Swipe to discover more leaflet",
+//                                  @"image" :  @"tuto1.png",
+//                                  @"custom" :  @0},
+//                               @{ @"title" : @"Hold to get in a story",
+//                                  @"image" :  @"tuto2.png",
+//                                  @"custom" :  @0},
+//                               @{ @"title" : @"Drag to follow a new story",
+//                                  @"image" :  @"tuto3.png",
+//                                  @"custom" :  @1},
+//                               @{ @"title" : @"Flip the phone to switch between your library and the shelf",
+//                                  @"image" :  @"tuto4.png",
+//                                  @"custom" :  @0,
+//                                  @"button" :  @1}
+//                               ];
+//        
+//        tutorialVC = [[JATutorialViewController alloc]initWithBlocks:tutoArray delegate:self];
+//        [self.view addSubview:tutorialVC.view];
+//        tutorialVC.view.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.75];
+//    }
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"leaveTuto" object:nil queue:nil usingBlock:^(NSNotification *note) {
+        
+//        [tutorialVC removeFromParentViewController];
+    }];
     // Gesture recognizer
     UILongPressGestureRecognizer *longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressDetected:)];
     longPressRecognizer.minimumPressDuration = .3;
     longPressRecognizer.numberOfTouchesRequired = 1;
     [self.view addGestureRecognizer:longPressRecognizer];
+}
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -175,7 +206,9 @@ static NSString * const reuseIdentifier = @"Cell";
 
 #pragma mark <UICollectionViewDelegate>
 - (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
-    [self.cellToAnimate animateEnter];
+    if (scrollView == self.collectionView) {
+        [self.cellToAnimate animateEnter];
+    }
 //    [self.cellToAnimate.organicView middleAnimation];
 }
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(JACoverCollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -207,11 +240,16 @@ static NSString * const reuseIdentifier = @"Cell";
     }
 }
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    if (scrollView == self.collectionView) {
+        self.currentIndex = (int)(scrollView.contentOffset.x/self.collectionView.frame.size.width);
+        [self.cellToAnimate.organicView middleAnimation];
+        [self animateFollow];
+        NSLog(@"INDEXXX %li",(long)self.currentIndex);
+    }
+    else{
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"myTestNotification" object:nil];
+    }
 
-    self.currentIndex = (int)(scrollView.contentOffset.x/self.collectionView.frame.size.width);
-    [self.cellToAnimate.organicView middleAnimation];
-    [self animateFollow];
-    NSLog(@"INDEXXX %li",(long)self.currentIndex);
 }
 
 -(IBAction)returnFromChapterView:(UIStoryboardSegue*)segue{

@@ -14,8 +14,10 @@
 
 + (id)sharedInstance;
 
+//- (NSString*)getObject:(NSString*)key;
 - (NSMutableArray *)getObject:(NSString*)key;
 
+//- (void)setValueForKey:(NSString *)key value:(NSString *)value;
 - (void)setValueForKey:(NSString *)key value:(NSNumber*)value index:(NSInteger)index;
 
 @end

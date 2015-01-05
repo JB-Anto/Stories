@@ -20,6 +20,8 @@
 + (id)sharedManager;
 
 -(NSUInteger)getNumberOfStories;
+-(NSUInteger)getNumberOfChapter:(NSInteger)storie;
+-(NSUInteger)getNumberOfArticle:(NSInteger)storie chapter:(NSInteger)chapter;
 -(JAStorieModel*)getCurrentStorie;
 -(JAChapterModel*)getCurrentChapter;
 -(JAArticleModel*)getCurrentArticle;

@@ -70,8 +70,6 @@
         [self.titlesView addSubview:[self createTitlesBlocks:i]];
     }
     
-    
-    
     UITapGestureRecognizer *doubleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTap:)];
     doubleTapGesture.numberOfTapsRequired = 2;
     doubleTapGesture.delegate = self;

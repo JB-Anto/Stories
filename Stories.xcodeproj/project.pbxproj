@@ -174,12 +174,19 @@
 		8D54A9351A14EB8600ABDAD2 /* JSONKeyMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D54A92A1A14EB8600ABDAD2 /* JSONKeyMapper.m */; };
 		8D54A9361A14EB8600ABDAD2 /* JSONValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D54A92C1A14EB8600ABDAD2 /* JSONValueTransformer.m */; };
 		8D54A93B1A14FBA000ABDAD2 /* JAManagerData.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D54A93A1A14FBA000ABDAD2 /* JAManagerData.m */; };
+		8D78D6E91A5A949400A7E1FA /* JATutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D78D6E81A5A949400A7E1FA /* JATutorialViewController.m */; };
+		8D78D6ED1A5A9F2200A7E1FA /* JAPagerBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D78D6EC1A5A9F2200A7E1FA /* JAPagerBar.m */; };
+		8D78D6F01A5AA2A400A7E1FA /* JATutorialPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D78D6EF1A5AA2A400A7E1FA /* JATutorialPageViewController.m */; };
 		8D8C02D51A10CB6200904841 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D8C02D41A10CB6200904841 /* main.m */; };
 		8D8C02D81A10CB6200904841 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D8C02D71A10CB6200904841 /* AppDelegate.m */; };
 		8D8C02DE1A10CB6200904841 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D8C02DC1A10CB6200904841 /* Main.storyboard */; };
 		8D8C02E01A10CB6200904841 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D8C02DF1A10CB6200904841 /* Images.xcassets */; };
 		8D8C02E31A10CB6200904841 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D8C02E11A10CB6200904841 /* LaunchScreen.xib */; };
 		8D8C02EF1A10CB6300904841 /* StoriesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D8C02EE1A10CB6300904841 /* StoriesTests.m */; };
+		8DA7D34B1A5AD6FD000A6EB7 /* tuto1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DA7D3471A5AD6FD000A6EB7 /* tuto1@2x.png */; };
+		8DA7D34C1A5AD6FD000A6EB7 /* tuto2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DA7D3481A5AD6FD000A6EB7 /* tuto2@2x.png */; };
+		8DA7D34D1A5AD6FD000A6EB7 /* tuto3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DA7D3491A5AD6FD000A6EB7 /* tuto3@2x.png */; };
+		8DA7D34E1A5AD6FD000A6EB7 /* tuto4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DA7D34A1A5AD6FD000A6EB7 /* tuto4@2x.png */; };
 		8DB9C3D41A160BE200FBC975 /* JAFollowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DB9C3D31A160BE200FBC975 /* JAFollowView.m */; };
 		8DD244561A13850800FC7683 /* JACoverCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD244551A13850800FC7683 /* JACoverCollectionViewController.m */; };
 		8DD244591A13856000FC7683 /* JACoverCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD244581A13856000FC7683 /* JACoverCollectionViewCell.m */; };
@@ -419,6 +426,12 @@
 		8D54A92C1A14EB8600ABDAD2 /* JSONValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONValueTransformer.m; sourceTree = "<group>"; };
 		8D54A9391A14FBA000ABDAD2 /* JAManagerData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAManagerData.h; sourceTree = "<group>"; };
 		8D54A93A1A14FBA000ABDAD2 /* JAManagerData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAManagerData.m; sourceTree = "<group>"; };
+		8D78D6E71A5A949400A7E1FA /* JATutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JATutorialViewController.h; path = Stories/JATutorialViewController.h; sourceTree = "<group>"; };
+		8D78D6E81A5A949400A7E1FA /* JATutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JATutorialViewController.m; path = Stories/JATutorialViewController.m; sourceTree = "<group>"; };
+		8D78D6EB1A5A9F2200A7E1FA /* JAPagerBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAPagerBar.h; sourceTree = "<group>"; };
+		8D78D6EC1A5A9F2200A7E1FA /* JAPagerBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAPagerBar.m; sourceTree = "<group>"; };
+		8D78D6EE1A5AA2A400A7E1FA /* JATutorialPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JATutorialPageViewController.h; path = Stories/JATutorialPageViewController.h; sourceTree = "<group>"; };
+		8D78D6EF1A5AA2A400A7E1FA /* JATutorialPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JATutorialPageViewController.m; path = Stories/JATutorialPageViewController.m; sourceTree = "<group>"; };
 		8D8C02CF1A10CB6200904841 /* Stories.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stories.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D8C02D31A10CB6200904841 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D8C02D41A10CB6200904841 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -430,6 +443,10 @@
 		8D8C02E81A10CB6300904841 /* StoriesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StoriesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D8C02ED1A10CB6300904841 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D8C02EE1A10CB6300904841 /* StoriesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoriesTests.m; sourceTree = "<group>"; };
+		8DA7D3471A5AD6FD000A6EB7 /* tuto1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tuto1@2x.png"; sourceTree = "<group>"; };
+		8DA7D3481A5AD6FD000A6EB7 /* tuto2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tuto2@2x.png"; sourceTree = "<group>"; };
+		8DA7D3491A5AD6FD000A6EB7 /* tuto3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tuto3@2x.png"; sourceTree = "<group>"; };
+		8DA7D34A1A5AD6FD000A6EB7 /* tuto4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tuto4@2x.png"; sourceTree = "<group>"; };
 		8DB9C3D21A160BE200FBC975 /* JAFollowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAFollowView.h; sourceTree = "<group>"; };
 		8DB9C3D31A160BE200FBC975 /* JAFollowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAFollowView.m; sourceTree = "<group>"; };
 		8DD244541A13850800FC7683 /* JACoverCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JACoverCollectionViewController.h; path = Stories/JACoverCollectionViewController.h; sourceTree = "<group>"; };
@@ -544,6 +561,7 @@
 		0A8783DE1A155CFC0028437C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8D78D6EA1A5A9F0A00A7E1FA /* Pager */,
 				0A3FB1891A273B3600AC4362 /* Organic */,
 				0AC564CB1A2610DE00259418 /* ChapterScroll */,
 				0AC564CA1A2610D400259418 /* Follow */,
@@ -877,6 +895,7 @@
 		8D54A9371A14FAF400ABDAD2 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				8D78D6E61A5A947100A7E1FA /* Tutorial */,
 				0A58C10A1A24C3F20061C514 /* Navigation */,
 				770CB90F1A232F9B002817BE /* Article */,
 				0A7D6E761A232C180017A8C0 /* Chapter */,
@@ -904,6 +923,7 @@
 				77E758031A245C880015EDEF /* Article */,
 				0A8783DF1A155DE80028437C /* Loader */,
 				8D54A93D1A14FE9800ABDAD2 /* Cover */,
+				8DA7D3461A5AD6FD000A6EB7 /* Tuto */,
 			);
 			name = Images;
 			path = Stories/Images;
@@ -954,6 +974,26 @@
 				770CB9361A23491E002817BE /* News-Plantin-Pro-Regular.otf */,
 			);
 			name = Fonts;
+			sourceTree = "<group>";
+		};
+		8D78D6E61A5A947100A7E1FA /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				8D78D6E71A5A949400A7E1FA /* JATutorialViewController.h */,
+				8D78D6E81A5A949400A7E1FA /* JATutorialViewController.m */,
+				8D78D6EE1A5AA2A400A7E1FA /* JATutorialPageViewController.h */,
+				8D78D6EF1A5AA2A400A7E1FA /* JATutorialPageViewController.m */,
+			);
+			name = Tutorial;
+			sourceTree = "<group>";
+		};
+		8D78D6EA1A5A9F0A00A7E1FA /* Pager */ = {
+			isa = PBXGroup;
+			children = (
+				8D78D6EB1A5A9F2200A7E1FA /* JAPagerBar.h */,
+				8D78D6EC1A5A9F2200A7E1FA /* JAPagerBar.m */,
+			);
+			name = Pager;
 			sourceTree = "<group>";
 		};
 		8D8C02C61A10CB6200904841 = {
@@ -1021,6 +1061,17 @@
 				8D8C02ED1A10CB6300904841 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8DA7D3461A5AD6FD000A6EB7 /* Tuto */ = {
+			isa = PBXGroup;
+			children = (
+				8DA7D3471A5AD6FD000A6EB7 /* tuto1@2x.png */,
+				8DA7D3481A5AD6FD000A6EB7 /* tuto2@2x.png */,
+				8DA7D3491A5AD6FD000A6EB7 /* tuto3@2x.png */,
+				8DA7D34A1A5AD6FD000A6EB7 /* tuto4@2x.png */,
+			);
+			path = Tuto;
 			sourceTree = "<group>";
 		};
 		8DBB41561A10EE94006FDAD4 /* Utils */ = {
@@ -1130,6 +1181,7 @@
 				0A63B8441A2D1DBD0032A73F /* loader_50@2x.png in Resources */,
 				0AEC802F1A3B20EB004F0B1C /* background_cover_3@2x.png in Resources */,
 				0A63B8141A2D1DBD0032A73F /* loader_2@2x.png in Resources */,
+				8DA7D34E1A5AD6FD000A6EB7 /* tuto4@2x.png in Resources */,
 				770CB93C1A23491E002817BE /* Circular-Std-Medium-Italic.otf in Resources */,
 				0A63B8371A2D1DBD0032A73F /* loader_37@2x.png in Resources */,
 				0A63B8411A2D1DBD0032A73F /* loader_47@2x.png in Resources */,
@@ -1156,6 +1208,7 @@
 				777CA2871A24947E008A7FE3 /* Calibre-Semibold.otf in Resources */,
 				770CB9411A23491E002817BE /* News-Plantin-Pro-Regular.otf in Resources */,
 				0A63B8221A2D1DBD0032A73F /* loader_16@2x.png in Resources */,
+				8DA7D34C1A5AD6FD000A6EB7 /* tuto2@2x.png in Resources */,
 				0A63B82B1A2D1DBD0032A73F /* loader_25@2x.png in Resources */,
 				770CB93A1A23491E002817BE /* Circular-Std-Book-Italic.otf in Resources */,
 				0A63B8341A2D1DBD0032A73F /* loader_34@2x.png in Resources */,
@@ -1172,6 +1225,7 @@
 				774315901A48397500158B5D /* poroshenko-portrait@2x.png in Resources */,
 				770CB9401A23491E002817BE /* News-Plantin-Pro-Regular-Italic.otf in Resources */,
 				770CB93F1A23491E002817BE /* News-Plantin-Pro-Bold.otf in Resources */,
+				8DA7D34D1A5AD6FD000A6EB7 /* tuto3@2x.png in Resources */,
 				77DBC22D1A458D430027B838 /* haut@2x.png in Resources */,
 				0A63B81F1A2D1DBD0032A73F /* loader_13@2x.png in Resources */,
 				77E758071A245C880015EDEF /* 2-0-0-poroshenko@2x.png in Resources */,
@@ -1204,6 +1258,7 @@
 				770254631A53E79800C6FB98 /* 1-0-2-school@2x.png in Resources */,
 				0A63B8291A2D1DBD0032A73F /* loader_23@2x.png in Resources */,
 				0A97B2D81A29092E005596C3 /* stories.plist in Resources */,
+				8DA7D34B1A5AD6FD000A6EB7 /* tuto1@2x.png in Resources */,
 				0A63B8241A2D1DBD0032A73F /* loader_18@2x.png in Resources */,
 				770CB93D1A23491E002817BE /* Circular-Std-Medium.otf in Resources */,
 				777CA2851A24947E008A7FE3 /* Calibre-Regular.otf in Resources */,
@@ -1264,6 +1319,7 @@
 				0A3FB18C1A273B4800AC4362 /* JAOrganicView.m in Sources */,
 				0A58C1031A24B12B0061C514 /* JACoverSeguePush.m in Sources */,
 				777E45871A52B5C50059E36C /* JAInfoSeguePush.m in Sources */,
+				8D78D6E91A5A949400A7E1FA /* JATutorialViewController.m in Sources */,
 				0A8783DD1A155CF50028437C /* JALoaderView.m in Sources */,
 				8D54A90E1A14E85E00ABDAD2 /* JAStoriesModel.m in Sources */,
 				0A3FB1851A272F8D00AC4362 /* JAArticleSeguePush.m in Sources */,
@@ -1273,6 +1329,7 @@
 				77C96DF01A38E8B20074E9D9 /* ParallaxFlowLayout.m in Sources */,
 				8D54A9301A14EB8600ABDAD2 /* JSONModelError.m in Sources */,
 				770CB92B1A233014002817BE /* JATitleCollectionViewCell.m in Sources */,
+				8D78D6F01A5AA2A400A7E1FA /* JATutorialPageViewController.m in Sources */,
 				8D54A9311A14EB8600ABDAD2 /* NSArray+JSONModel.m in Sources */,
 				0A58C1061A24BD0A0061C514 /* JACoverSeguePop.m in Sources */,
 				0A83AE341A23F52D0098F1DD /* UIColor+UIColor_PXExtentions.m in Sources */,
@@ -1307,6 +1364,7 @@
 				8DD244561A13850800FC7683 /* JACoverCollectionViewController.m in Sources */,
 				8D54A92E1A14EB8600ABDAD2 /* JSONModelArray.m in Sources */,
 				774315831A482DE300158B5D /* JAInfoModel.m in Sources */,
+				8D78D6ED1A5A9F2200A7E1FA /* JAPagerBar.m in Sources */,
 				77C96DED1A38E7910074E9D9 /* ParallaxLayoutAttributes.m in Sources */,
 				777E458A1A52B5D20059E36C /* JAInfoSeguePop.m in Sources */,
 				77A0D8491A27712800963904 /* CCHLinkGestureRecognizer.m in Sources */,

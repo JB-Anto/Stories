@@ -91,10 +91,9 @@
 -(void)resetAnimation{
 
     CGPathRef first = [PocketSVG pathFromSVGFileNamed:firstStepOrganic];
-//    self.organicLayer.path = first;
     CGPathRef middle = [PocketSVG pathFromSVGFileNamed:middleStepOrganic];
     CABasicAnimation *pathAnimation = [CABasicAnimation animationWithKeyPath:@"path"];
-    pathAnimation.duration = 0.1;
+    pathAnimation.duration = 0.01;
     pathAnimation.removedOnCompletion = NO;
     pathAnimation.fillMode = kCAFillModeForwards;
     pathAnimation.timingFunction = CreateCAMediaTimingFunction(0.19, 1, 0.22, 1);

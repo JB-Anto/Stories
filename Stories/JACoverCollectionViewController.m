@@ -180,9 +180,9 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(JACoverCollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
     self.cellToAnimate = cell;
-    for(JACoverCollectionViewCell *cell in [self.collectionView visibleCells]){
-        [cell resetAnimation];
-    }
+//    for(JACoverCollectionViewCell *cell in [self.collectionView visibleCells]){
+//        [cell resetAnimation];
+//    }
     if(self.firstTime){
         [cell animateEnter];
         [cell.organicView middleAnimation];
@@ -193,7 +193,7 @@ static NSString * const reuseIdentifier = @"Cell";
     
 }
 - (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(JACoverCollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
-//    [cell resetAnimation];
+    [cell resetAnimation];
 }
 -(void)animateFollow{
     

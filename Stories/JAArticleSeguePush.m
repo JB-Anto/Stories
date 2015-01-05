@@ -15,7 +15,7 @@
     UIViewController *sourceViewController = self.sourceViewController;
     JAArticleCollectionViewController *destinationViewController = self.destinationViewController;
     
-    UIGraphicsBeginImageContext(sourceViewController.view.window.bounds.size);
+    UIGraphicsBeginImageContextWithOptions(sourceViewController.view.window.bounds.size, YES, 0.0f);
     [sourceViewController.view.layer renderInContext:UIGraphicsGetCurrentContext()];
     UIImage *snapshot = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();

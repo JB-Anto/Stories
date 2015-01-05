@@ -27,8 +27,7 @@
 
 -(void)animateEnterWithValue:(CGFloat)superViewHeight {
     [UIView animateWithDuration:1.5 delay:0.5 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        //NSLog(@"%.f", self.superview.superview.bounds.size.height);
-        self.transform = CGAffineTransformMakeTranslation(0, superViewHeight-CGRectGetHeight(self.bounds)/4-125);
+        self.transform = CGAffineTransformMakeTranslation(0, superViewHeight-CGRectGetHeight(self.bounds)/2-self.frame.origin.y+50);
     } completion:nil];
 }
 

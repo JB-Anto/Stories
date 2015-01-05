@@ -26,6 +26,7 @@
     
     CGSize optimalSizeForLabel;
     CGSize maximumSizeOfLabel;
+    CGFloat collectionViewHeight;
 }
 
 @property (strong, nonatomic) JABlockModel *currentBlock;
@@ -58,7 +59,7 @@
             [self.resumesID addObject:[self.currentBlock id]];
         }
     }
-
+    
     // Register cell classes
     [self.collectionView registerClass:[JATitleCollectionViewCell class]      forCellWithReuseIdentifier:@"TitleCell"];
     [self.collectionView registerClass:[JAResumeCollectionViewCell class]     forCellWithReuseIdentifier:@"ResumeCell"];
@@ -69,7 +70,6 @@
     [self.collectionView registerClass:[JACreditCollectionViewCell class]     forCellWithReuseIdentifier:@"CreditsCell"];
 
     NSLog(@"old %f",self.oldPercentScroll);
-
     
     UITapGestureRecognizer *doubleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTap:)];
     doubleTapGesture.numberOfTapsRequired = 2;
@@ -81,6 +81,8 @@
 -(void)viewDidAppear:(BOOL)animated{
     if(self.headerView == nil) {
         [super viewDidAppear:animated];
+        collectionViewHeight = self.collectionViewLayout.collectionViewContentSize.height - CGRectGetHeight(self.collectionView.bounds);
+        [self.collectionView setContentOffset:CGPointMake(0, collectionViewHeight*self.oldPercentScroll) animated:NO];
         [self setupHeaderView];
         [self setupFooterView];
         [self setupFollowView];
@@ -102,7 +104,7 @@
 }
 
 - (void)setupHeaderView {
-    self.headerView = [[JAHeaderView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.collectionView.bounds), CGRectGetHeight(self.collectionView.bounds))];
+    self.headerView = [[JAHeaderView alloc] initWithFrame:CGRectMake(0, self.collectionView.contentOffset.y, CGRectGetWidth(self.collectionView.bounds), CGRectGetHeight(self.collectionView.bounds))];
     [self.headerView setImage:self.snapshot];
     [self.headerView updateConstraintsIfNeeded];
     //    [self.collectionView addSubview:self.headerView];
@@ -125,8 +127,7 @@
 }
 
 - (void)setupFooterView {
-    CGFloat collectionViewHeight = self.collectionViewLayout.collectionViewContentSize.height;
-    self.footerView = [[JAFooterView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.collectionView.bounds), CGRectGetHeight(self.collectionView.bounds))];
+    self.footerView = [[JAFooterView alloc] initWithFrame:CGRectMake(0, self.collectionView.contentOffset.y, CGRectGetWidth(self.collectionView.bounds), CGRectGetHeight(self.collectionView.bounds))];
     [self.footerView setImage:self.snapshot];
     [self.footerView updateConstraintsIfNeeded];
     
@@ -142,7 +143,7 @@
     }
     self.footerView.layer.mask = maskLayer;
     [self.collectionView addSubview:self.footerView];
-    [self.footerView animateEnterWithValue:collectionViewHeight];
+    [self.footerView animateEnterWithValue:self.collectionViewLayout.collectionViewContentSize.height];
     
 }
 
@@ -190,8 +191,21 @@
 
 #pragma mark <UICollectionViewDataSource>
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+//    NSLog(@"%.f, %.f", scrollView.contentOffset.y, scrollView.contentSize.height-CGRectGetHeight(self.collectionView.bounds));
+    
+//    if(scrollView.contentOffset.y > scrollView.contentSize.height-CGRectGetHeight(self.collectionView.bounds)-200) {
+//        [scrollView setContentOffset:CGPointMake(0, scrollView.contentSize.height-CGRectGetHeight(self.collectionView.bounds)-200) animated:NO];
+//    }
+    
+    if(scrollView.contentOffset.y < -CGRectGetHeight(self.collectionView.bounds)/8) {
+//    	[scrollView setContentOffset:CGPointMake(0, -CGRectGetHeight(self.collectionView.bounds)/8) animated:NO];
+    }
+    
+    if(scrollView.contentOffset.y > collectionViewHeight + CGRectGetHeight(self.collectionView.bounds)/8) {
+//        [scrollView setContentOffset:CGPointMake(0, collectionViewHeight + CGRectGetHeight(self.collectionView.bounds)/8) animated:NO];
+    }
+
     // Header "Parallax Effect"
     CGPoint headerCenter = self.headerView.center;
     if(scrollView.contentOffset.y < 150) {
@@ -214,7 +228,8 @@
     [self.followView setCenter:CGPointMake(self.followView.center.x, fixedFrame.origin.y)];
     self.followView.centerView = self.followView.center;
     
-    [self.delegate scrollRead:(self.collectionView.contentOffset.y / (self.collectionView.contentSize.height - self.collectionView.frame.size.height)  * 100) indexArticle:self.manager.currentArticle];
+    [self.delegate scrollRead:(self.collectionView.contentOffset.y / (self.collectionView.contentSize.height - self.collectionView.frame.size.height)) indexArticle:self.manager.currentArticle];
+
     
     // Loader View fixed position
     [self.loaderView movePosition:CGPointMake(self.collectionView.center.x, scrollView.contentOffset.y + self.collectionView.bounds.size.height/2)];
@@ -286,10 +301,10 @@
             JAParagraphCollectionViewCell *paragraphCell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"ParagraphCell" forIndexPath:indexPath];
             paragraphCell.paragraphLabel.links = [self.currentBlock links];
             [paragraphCell.paragraphLabel initWithString:[self.currentBlock text]];
-            paragraphCell.paragraphLabel.delegate = self;
             if(self.currentBlock.id.integerValue == self.blocks.count-1) {
                 [paragraphCell.paragraphLabel applyMarkOfLastParagraph];
             }
+            paragraphCell.paragraphLabel.delegate = self;
             [paragraphCell updateConstraintsIfNeeded];
             cell = paragraphCell;
             
@@ -368,7 +383,7 @@
             [cell.titleLabel  initWithString:[self.currentBlock title]];
             maximumSizeOfLabel = CGSizeMake(cellWidth, CGFLOAT_MAX);
             optimalSizeForLabel = [cell.titleLabel sizeThatFits:maximumSizeOfLabel];
-            sizeOfCell = CGSizeMake(cellWidth, optimalSizeForLabel.height+100);
+            sizeOfCell = CGSizeMake(cellWidth, optimalSizeForLabel.height+125);
             
         } else if([[self.currentBlock type] isEqualToString:@"resume"]) {
 

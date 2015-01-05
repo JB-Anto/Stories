@@ -12,8 +12,7 @@
 
 @synthesize delegate;
 
-- (void)initWithString:(NSString *)text
-{
+- (void)initWithString:(NSString *)text {
     self.manager = [JAManagerData sharedManager];
     [self setText:text];
     if(self.links) {
@@ -30,19 +29,19 @@
     
 }
 
-- (void)applyMarkOfLastParagraph
-{
+- (void)applyMarkOfLastParagraph {
     if(self.text.length > 0) {
         [self setText:[[self.text substringToIndex:self.text.length-1] stringByAppendingString:[NSString stringWithUTF8String:" \u25a0"]]];
         NSMutableAttributedString *attributedText = [self.attributedText mutableCopy];
         NSRange lastCharacterRange = NSMakeRange(self.text.length-1, 1);
         [attributedText addAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"Arial" size:14.0f]} range:lastCharacterRange];
         self.attributedText = attributedText;
+        [self applyLetterSpacing];
+        [self applyLineHeight];
     }
 }
 
-- (void)addLink
-{
+- (void)addLink {
     NSString *stringToProcess = self.text;
 
     //First remove the "/" from the string.  This will make two instances of <b> in the string

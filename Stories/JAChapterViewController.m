@@ -266,6 +266,7 @@
     return YES;
 }
 -(void)scrollRead:(float)percent indexArticle:(int)index{
+
     NSLog(@"Percent %f index %i",percent,index);
     NSNumber *percentNumber = [NSNumber numberWithFloat:percent];
     [self.plistManager setPercentRead:percentNumber storie:self.manager.currentStorie chapter:self.manager.currentChapter article:index];

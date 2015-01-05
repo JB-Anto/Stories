@@ -85,7 +85,6 @@
         [self setupFooterView];
         [self setupFollowView];
         [self setupLoaderView];
-        [self.collectionView setContentOffset:CGPointMake(0, self.oldPercentScroll)];
     }
 }
 

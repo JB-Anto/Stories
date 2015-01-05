@@ -236,7 +236,7 @@
     
 }
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    self.titlesView.frame = CGRectMake(-scrollView.contentOffset.x , self.titlesView.frame.origin.y, self.titlesView.frame.size.width, self.titlesView.frame.size.height);
+    self.titlesView.frame = CGRectMake(-scrollView.contentOffset.x * 2 , self.titlesView.frame.origin.y, self.titlesView.frame.size.width, self.titlesView.frame.size.height);
 }
 -(void)setAnchorPoint:(CGPoint)anchorPoint forView:(UIView *)view
 {

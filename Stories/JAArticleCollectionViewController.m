@@ -44,7 +44,7 @@
     
     // Collection View Initialization
     [self.collectionView setBackgroundColor:[UIColor whiteColor]];
-
+    
     // DATA Management
     self.manager = [JAManagerData sharedManager];
     
@@ -91,12 +91,27 @@
     }
 }
 
--(void)doubleTap:(UITapGestureRecognizer*)sender{
+-(void)doubleTap:(UITapGestureRecognizer*)sender {
 //       NSLog(@"Percent Scroll %f",self.articleCollectionView.contentOffset.y / (self.articleCollectionView.contentSize.height - scrollView.frame.size.height)  * 100);
+
+    NSLog(@"Content Offset: %.f\nPosition Of Header: %.f", self.collectionView.contentOffset.y, self.collectionView.transform.ty);
+    CGFloat scrollTo;
+    self.headerView.center = self.headerView.initialCenter;
+    self.footerView.center = self.footerView.initialCenter;
+    scrollTo = self.collectionView.contentOffset.y - collectionViewHeight*self.oldPercentScroll;
+    [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        self.headerView.transform = CGAffineTransformMakeTranslation(0, scrollTo);
+        self.footerView.transform = CGAffineTransformMakeTranslation(0, scrollTo);
+    } completion:nil];
+    [self performSelector:@selector(goToChapter) withObject:nil afterDelay:1.1];
     [self.delegate scrollRead:(self.collectionView.contentOffset.y / (self.collectionViewLayout.collectionViewContentSize.height - self.collectionView.frame.size.height)) indexArticle:self.manager.currentArticle];
-    [self performSegueWithIdentifier:@"JAArticlePop" sender:self];
+
 //    Method to go to cover width flip
 //    [self.navigationController popToRootViewControllerAnimated:NO];
+}
+
+-(void)goToChapter {
+	[self performSegueWithIdentifier:@"JAArticlePop" sender:self];
 }
 
 
@@ -146,7 +161,6 @@
     self.footerView.layer.mask = maskLayer;
     [self.collectionView addSubview:self.footerView];
     [self.footerView animateEnterWithValue:self.collectionViewLayout.collectionViewContentSize.height];
-    
 }
 
 - (void)setupFollowView {
@@ -171,21 +185,16 @@
 }
 
 - (void)startLoader {
-    
     // Loader View
     NSLog(@"Start Loader");
     //[self.loaderView movePosition:self.collectionView.center];
-    
     [self.loaderView setState:UIGestureRecognizerStateBegan];
-    
 }
 
 - (void)loadNextView {
-    
     NSLog(@"ROCKSTAR BABE");
     [self.delegate scrollRead:(self.collectionView.contentOffset.y / (self.collectionViewLayout.collectionViewContentSize.height - self.collectionView.frame.size.height)) indexArticle:self.manager.currentArticle];
     [self performSegueWithIdentifier:@"JAInfoPush" sender:self];
-    
 }
 
 - (IBAction)returnFromInfoView:(UIStoryboardSegue*)segue{
@@ -195,23 +204,17 @@
 #pragma mark <UICollectionViewDataSource>
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-//    NSLog(@"%.f, %.f", scrollView.contentOffset.y, scrollView.contentSize.height-CGRectGetHeight(self.collectionView.bounds));
-    
-//    if(scrollView.contentOffset.y > scrollView.contentSize.height-CGRectGetHeight(self.collectionView.bounds)-200) {
-//        [scrollView setContentOffset:CGPointMake(0, scrollView.contentSize.height-CGRectGetHeight(self.collectionView.bounds)-200) animated:NO];
-//    }
-    
+	
     if(scrollView.contentOffset.y < -CGRectGetHeight(self.collectionView.bounds)/8) {
-//    	[scrollView setContentOffset:CGPointMake(0, -CGRectGetHeight(self.collectionView.bounds)/8) animated:NO];
+        [scrollView setContentOffset:CGPointMake(0, -CGRectGetHeight(self.collectionView.bounds)/8)];
+    }
+    else if(scrollView.contentOffset.y > collectionViewHeight + CGRectGetHeight(self.collectionView.bounds)/8) {
+        [scrollView setContentOffset:CGPointMake(0, collectionViewHeight + CGRectGetHeight(self.collectionView.bounds)/8)];
     }
     
-    if(scrollView.contentOffset.y > collectionViewHeight + CGRectGetHeight(self.collectionView.bounds)/8) {
-//        [scrollView setContentOffset:CGPointMake(0, collectionViewHeight + CGRectGetHeight(self.collectionView.bounds)/8) animated:NO];
-    }
-
     // Header "Parallax Effect"
     CGPoint headerCenter = self.headerView.center;
-    if(scrollView.contentOffset.y < 150) {
+    if(scrollView.contentOffset.y < 300) {
         headerCenter.y = self.headerView.initialCenter.y + scrollView.contentOffset.y*0.5;
         [self.headerView setCenter:CGPointMake(self.headerView.center.x, headerCenter.y)];
     }
@@ -220,7 +223,7 @@
     CGPoint footerCenter = self.footerView.center;
     CGFloat maxScroll = scrollView.contentSize.height - scrollView.bounds.size.height;
     
-    if(maxScroll - scrollView.contentOffset.y < 28) {
+    if(maxScroll - scrollView.contentOffset.y < 100) {
         footerCenter.y = self.footerView.initialCenter.y + (maxScroll - scrollView.contentOffset.y);
         [self.footerView setCenter:CGPointMake(self.footerView.center.x, footerCenter.y)];
     }
@@ -235,6 +238,10 @@
     [self.loaderView movePosition:CGPointMake(self.collectionView.center.x, scrollView.contentOffset.y + self.collectionView.bounds.size.height/2)];
 }
 
+-(void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
+    NSLog(@"Begin Decelerating");
+}
+
 #pragma mark - JAFollowView Delegate
 - (void)followArticle:(BOOL)follow {
     NSLog(@"BOOL Follow %d",follow);
@@ -243,8 +250,7 @@
 
 #pragma mark - UICollectionViewDataSource
 
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
-{
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
 }
 

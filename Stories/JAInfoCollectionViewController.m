@@ -75,10 +75,21 @@
 }
 
 -(void)doubleTap:(UITapGestureRecognizer*)sender{
-    //       NSLog(@"Percent Scroll %f",self.articleCollectionView.contentOffset.y / (self.articleCollectionView.contentSize.height - scrollView.frame.size.height)  * 100);
-    [self performSegueWithIdentifier:@"JAInfoPop" sender:self];
+    CGFloat scrollTo;
+    self.headerView.center = self.headerView.initialCenter;
+    self.footerView.center = self.footerView.initialCenter;
+    scrollTo = self.collectionView.contentOffset.y - self.collectionViewLayout.collectionViewContentSize.height-CGRectGetHeight(self.collectionView.bounds);
+    [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        self.headerView.transform = CGAffineTransformMakeTranslation(0, scrollTo);
+        self.footerView.transform = CGAffineTransformMakeTranslation(0, scrollTo);
+    } completion:nil];
+    [self performSelector:@selector(goToArticle) withObject:nil afterDelay:1.5];
     //    Method to go to cover width flip
     //    [self.navigationController popToRootViewControllerAnimated:NO];
+}
+
+-(void)goToArticle {
+    [self performSegueWithIdentifier:@"JAArticlePop" sender:self];
 }
 
 - (void)didReceiveMemoryWarning {

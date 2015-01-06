@@ -91,11 +91,24 @@
     }
 }
 
--(void)doubleTap:(UITapGestureRecognizer*)sender{
+-(void)doubleTap:(UITapGestureRecognizer*)sender {
 //       NSLog(@"Percent Scroll %f",self.articleCollectionView.contentOffset.y / (self.articleCollectionView.contentSize.height - scrollView.frame.size.height)  * 100);
-    [self performSegueWithIdentifier:@"JAArticlePop" sender:self];
+    NSLog(@"Content Offset: %.f\nPosition Of Header: %.f", self.collectionView.contentOffset.y, self.collectionView.transform.ty);
+    CGFloat scrollTo;
+    self.headerView.center = self.headerView.initialCenter;
+    self.footerView.center = self.footerView.initialCenter;
+    scrollTo = self.collectionView.contentOffset.y - collectionViewHeight*self.oldPercentScroll;
+    [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        self.headerView.transform = CGAffineTransformMakeTranslation(0, scrollTo);
+        self.footerView.transform = CGAffineTransformMakeTranslation(0, scrollTo);
+    } completion:nil];
+    [self performSelector:@selector(goToChapter) withObject:nil afterDelay:1.1];
 //    Method to go to cover width flip
 //    [self.navigationController popToRootViewControllerAnimated:NO];
+}
+
+-(void)goToChapter {
+	[self performSegueWithIdentifier:@"JAArticlePop" sender:self];
 }
 
 
@@ -145,7 +158,6 @@
     self.footerView.layer.mask = maskLayer;
     [self.collectionView addSubview:self.footerView];
     [self.footerView animateEnterWithValue:self.collectionViewLayout.collectionViewContentSize.height];
-    
 }
 
 - (void)setupFollowView {

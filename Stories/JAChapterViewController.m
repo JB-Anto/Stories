@@ -229,9 +229,10 @@
         if (x > -1 && x < 1 ) {
             label.alpha = alpha;
         } else {
-            label.alpha = .5;
+            label.alpha = .3;
         }
     }
+
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

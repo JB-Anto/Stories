@@ -19,6 +19,7 @@
 -(void)middleAnimation;
 -(void)finalAnimation:(void(^)())completion;
 -(void)resetAnimation;
+-(void)reverseAnimation:(void (^)(void))block;
 -(void)setColor:(NSString*)color;
 
 

@@ -117,6 +117,10 @@ static NSString * const reuseIdentifier = @"Cell";
 
    
 }
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self reverseAnimation];
+}
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
@@ -143,20 +147,28 @@ static NSString * const reuseIdentifier = @"Cell";
         [myCell bringSubviewToFront:myCell.organicView];
         [UIView animateWithDuration:.7 animations:^{
             self.nameViewLBL.alpha = 0;
+            myCell.titleView.alpha = 0;
         }];
         [myCell.organicView finalAnimation:^{
             [self performSegueWithIdentifier:@"JACoverPush" sender:self];
-            [myCell.organicView middleAnimation];
-            self.nameViewLBL.alpha = 1;
-            myCell.titleView.frame = (CGRect){.origin=CGPointMake(myCell.titleView.frame.origin.x, myCell.titleView.frame.origin.y + 60),.size=myCell.titleView.frame.size};
-            [myCell.organicView removeFromSuperview];
-            [myCell insertSubview:myCell.organicView aboveSubview:myCell.foregroundIV];
         }];
     }];
     self.manager.currentStorie = (int)self.currentIndex;
 
 }
-
+-(void)reverseAnimation{
+    JACoverCollectionViewCell *myCell = [[self.collectionView visibleCells] firstObject];
+    [myCell.organicView reverseAnimation:^{
+        [UIView animateWithDuration:.5 animations:^{
+            self.nameViewLBL.alpha = 1;
+            myCell.titleView.alpha = 1;
+            myCell.titleView.frame = (CGRect){.origin=CGPointMake(myCell.titleView.frame.origin.x, myCell.titleView.frame.origin.y + 60),.size=myCell.titleView.frame.size};
+            [myCell.organicView removeFromSuperview];
+            [myCell insertSubview:myCell.organicView aboveSubview:myCell.foregroundIV];
+        }];
+    }];
+    
+}
 -(void)animateScrollView:(JAAnimDirection)direction{
     
     if((self.currentIndex >= 3 && direction == JAAnimDirectionLeft) || (self.currentIndex == 0 && direction == JAAnimDirectionRight)){

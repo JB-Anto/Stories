@@ -89,7 +89,7 @@
     block();
 }
 -(void)resetAnimation{
-
+  
     CGPathRef first = [PocketSVG pathFromSVGFileNamed:firstStepOrganic];
     CGPathRef middle = [PocketSVG pathFromSVGFileNamed:middleStepOrganic];
     CABasicAnimation *pathAnimation = [CABasicAnimation animationWithKeyPath:@"path"];
@@ -101,6 +101,26 @@
     pathAnimation.toValue = (__bridge id)(first);
     
     [self.organicLayer addAnimation:pathAnimation forKey:@"pathAnimation"];
+
+}
+-(void)reverseAnimation:(void (^)(void))block {
+    
+    
+    [CATransaction begin]; {
+        [CATransaction setCompletionBlock:^{
+            block();
+        }];
+        CGPathRef final = [PocketSVG pathFromSVGFileNamed:endStepOrganic];
+        CGPathRef middle = [PocketSVG pathFromSVGFileNamed:middleStepOrganic];
+        CABasicAnimation *pathAnimation = [CABasicAnimation animationWithKeyPath:@"path"];
+        pathAnimation.duration = 1.0;
+        pathAnimation.removedOnCompletion = NO;
+        pathAnimation.fillMode = kCAFillModeForwards;
+        pathAnimation.timingFunction = CreateCAMediaTimingFunction(0.19, 1, 0.22, 1);
+        pathAnimation.fromValue = (__bridge id)(final);
+        pathAnimation.toValue = (__bridge id)(middle);
+        [self.organicLayer addAnimation:pathAnimation forKey:@"pathAnimation"];
+    } [CATransaction commit];
 
 }
 -(void)setColor:(NSString *)color{

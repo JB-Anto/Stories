@@ -12,7 +12,6 @@
 #import "JAChapterModel.h"
 #import "JABlockModel.h"
 #import "JACreditModel.h"
-#import "JAManagerData.h"
 #import "JAFollowView.h"
 #import "JAHeaderView.h"
 #import "JAFooterView.h"
@@ -30,6 +29,7 @@
 @property (strong, nonatomic) NSArray *blocks;
 @property (strong, nonatomic) NSArray *credits;
 @property (strong, nonatomic) JAManagerData *manager;
+@property (strong, nonatomic) JAPlistManager *plistManager;
 @property (strong, nonatomic) JAFollowView *followView;
 @property (strong, nonatomic) JAHeaderView *headerView;
 @property (strong, nonatomic) JAFooterView *footerView;

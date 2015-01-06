@@ -32,6 +32,7 @@ typedef NS_ENUM(NSInteger, JAAnimationEntry) {
 -(void)validateFollow;
 -(void)unValidateFollow;
 -(void)animationBorder:(JAAnimationEntry)entry;
-
+-(void)fadeIn;
+-(void)fadeOut;
 
 @end

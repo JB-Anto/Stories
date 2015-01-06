@@ -43,6 +43,7 @@
 
     // Data Management
     self.manager = [JAManagerData sharedManager];
+    self.plistManager = [JAPlistManager sharedInstance];
     
     JAInfoModel *info = [self.manager getCurrentInfo];
     self.blocks = [info blocks];
@@ -71,12 +72,13 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     collectionViewHeight = self.collectionViewLayout.collectionViewContentSize.height - CGRectGetHeight(self.collectionView.bounds);
+    [self setupFollowView];
     [self setupHeaderView];
     [self setupFooterView];
-    [self setupFollowView];
 }
 
 -(void)doubleTap:(UITapGestureRecognizer*)sender{
+    [self.followView fadeOut];
     CGFloat scrollTo;
     self.headerView.center = self.headerView.initialCenter;
     self.footerView.center = self.footerView.initialCenter;
@@ -145,12 +147,12 @@
 
 - (void)setupFollowView {
     
-    _followView = [[JAFollowView alloc]initWithFrame:CGRectMake(CGRectGetWidth(self.collectionView.bounds) -75, 35, 40, 40)];
+    _followView = [[JAFollowView alloc]initWithFrame:CGRectMake(CGRectGetWidth(self.collectionView.bounds) -75, self.collectionView.contentOffset.y + 35, 40, 40)];
     _followView.delegate = self;
     _followView.backgroundColor = [UIColor clearColor];
     [_followView setColor:[UIColor colorWithHue:0.68 saturation:0.2 brightness:0.54 alpha:1]];
     [self.collectionView addSubview:_followView];
-    
+	[self animateFollow];    
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -208,6 +210,19 @@
 #pragma mark - JAFollowView Delegate
 -(void)followArticle:(BOOL)follow {
     NSLog(@"BOOL Follow %d",follow);
+    [self.plistManager setValueForKey:@"follow" value:[NSNumber numberWithBool:follow] index:self.manager.currentStorie];
+}
+
+-(void)animateFollow{
+    
+    self.followView.validate = [[[self.plistManager getObject:@"follow"] objectAtIndex:self.manager.currentStorie] boolValue];
+    NSLog(@"validate %d", self.followView.validate);
+    if([[self.plistManager getObject:@"follow"] objectAtIndex:self.manager.currentStorie] == [NSNumber numberWithBool:true]){
+        [self.followView animationBorder:JAAnimEntryIn];
+    }
+    else{
+        [self.followView animationBorder:JAAnimEntryOut];
+    }
 }
 
 #pragma mark <UICollectionViewDataSource>

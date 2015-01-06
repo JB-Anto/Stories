@@ -119,6 +119,8 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [self animateFollow];
+    [self.followView fadeIn];
     [self reverseAnimation];
 }
 - (void)dealloc
@@ -140,6 +142,7 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 -(void)loadNextView{
     NSLog(@"Hiya!");
+    [self.followView fadeOut];
     JACoverCollectionViewCell *myCell = [[self.collectionView visibleCells] firstObject];
     [UIView animateWithDuration:.5 animations:^{
         myCell.titleView.frame = (CGRect){.origin=CGPointMake(myCell.titleView.frame.origin.x, myCell.titleView.frame.origin.y - 60),.size=myCell.titleView.frame.size};

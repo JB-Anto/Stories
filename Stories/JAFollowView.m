@@ -142,6 +142,18 @@
     }];
 }
 
+-(void)fadeIn {
+    [UIView animateWithDuration:.2 animations:^{
+        self.alpha = 1;
+    }];
+}
+
+-(void)fadeOut {
+    [UIView animateWithDuration:.2 animations:^{
+        self.alpha = 0;
+    }];
+}
+
 @end
 
 

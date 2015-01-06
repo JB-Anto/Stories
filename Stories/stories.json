@@ -557,7 +557,7 @@
                         },
                         {
                             "id": 1,
-                            "title": "Thirty U.S.—led strikes hit Islamic State",
+                            "title": "Thirty U.S. led strikes hit Islamic State",
                             "createdAt": "2014-11-22T19:00:00.000Z",
                             "blocks": [],
                             "credits": [],
@@ -715,7 +715,7 @@
                 "articles": [
                     {
                         "id": 0,
-                        "title": "Dismantles protest camp",
+                        "title": "Dismantles protest\ncamp",
                         "createdAt": "2014-12-11T19:00:00.000Z",
                         "blocks": [
                             {
@@ -807,7 +807,7 @@
                     },
                     {
                         "id": 1,
-                        "title": "Arrest student leaders",
+                        "title": "Arrest student\nleaders",
                         "createdAt": "2014-11-26T19:00:00.000Z",
                         "blocks": [],
                         "credits": [],

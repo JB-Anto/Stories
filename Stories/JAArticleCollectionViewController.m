@@ -83,6 +83,7 @@
         [super viewDidAppear:animated];
         collectionViewHeight = self.collectionViewLayout.collectionViewContentSize.height - CGRectGetHeight(self.collectionView.bounds);
         [self.collectionView setContentOffset:CGPointMake(0, collectionViewHeight*self.oldPercentScroll) animated:NO];
+        [self.delegate scrollRead:(self.collectionView.contentOffset.y / (self.collectionViewLayout.collectionViewContentSize.height - self.collectionView.frame.size.height)) indexArticle:self.manager.currentArticle];
         [self setupHeaderView];
         [self setupFooterView];
         [self setupFollowView];
@@ -228,7 +229,7 @@
     [self.followView setCenter:CGPointMake(self.followView.center.x, fixedFrame.origin.y)];
     self.followView.centerView = self.followView.center;
     
-    [self.delegate scrollRead:(self.collectionView.contentOffset.y / (self.collectionView.contentSize.height - self.collectionView.frame.size.height)) indexArticle:self.manager.currentArticle];
+    [self.delegate scrollRead:(self.collectionView.contentOffset.y / (self.collectionViewLayout.collectionViewContentSize.height - self.collectionView.frame.size.height)) indexArticle:self.manager.currentArticle];
 
     
     // Loader View fixed position

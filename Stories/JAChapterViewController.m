@@ -11,9 +11,6 @@
 @interface JAChapterViewController () <UIGestureRecognizerDelegate>
 
 @property (strong, nonatomic) NSMutableArray *titlesArray;
-@property (strong, nonatomic) NSMutableArray *percentArray;
-@property (strong, nonatomic) NSDateFormatter *dateFormater;
-@property (strong, nonatomic) NSDateFormatter *dateFormaterFromString;
 @property (strong, nonatomic) NSMutableArray *heightCellArray;
 
 @property NSUInteger titleChapterCount;
@@ -37,20 +34,13 @@
     self.plistManager = [JAPlistManager sharedInstance];
     
     self.titlesArray = [NSMutableArray array];
-    self.percentArray = [NSMutableArray array];
+
     self.heightCellArray = [NSMutableArray array];
     self.currentIndex = -1;
     self.touchToLoad = NO;
     self.manager.currentChapter = 0;
     self.currentTranslation = 0;
     
-    // Date out format
-    self.dateFormater = [[NSDateFormatter alloc]init];
-    [self.dateFormater setDateFormat:@"MMM,\u00A0dd"];
-
-    // Date in format
-    self.dateFormaterFromString = [[NSDateFormatter alloc]init];
-    [self.dateFormaterFromString setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"];
 
     NSUInteger chaptersCount = [[[self.manager getCurrentStorie] chapters] count];
     
@@ -64,6 +54,10 @@
     self.titlesView = [[UIView alloc]initWithFrame:CGRectMake(0, self.view.bounds.size.height/7, self.view.bounds.size.width  * chaptersCount, self.view.bounds.size.height*6/7)];
     self.titlesView.backgroundColor = [UIColor pxColorWithHexValue:[[[self.manager getCurrentStorie] cover] color]];
     [self.view addSubview:self.titlesView];
+
+    for (int i = 0; i < chaptersCount; i++) {
+        [self.titlesView addSubview:[self createTitlesBlocks:i]];
+    }
     
     UITapGestureRecognizer *doubleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTap:)];
     doubleTapGesture.numberOfTapsRequired = 2;  
@@ -86,17 +80,19 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    NSUInteger chaptersCount = [[[self.manager getCurrentStorie] chapters] count];
+//    NSUInteger chaptersCount = [[[self.manager getCurrentStorie] chapters] count];
     
-    for(UIView *subview in [self.titlesView subviews]) {
-        if([subview isKindOfClass:[UIView class]]) {
-            [subview removeFromSuperview];
-        }
-    }
-    [self.titlesArray removeAllObjects];
-    for (int i = 0; i < chaptersCount; i++) {
-        [self.titlesView addSubview:[self createTitlesBlocks:i]];
-    }
+//    for(UIView *subview in [self.titlesView subviews]) {
+//        if([subview isKindOfClass:[UIView class]]) {
+//            [subview removeFromSuperview];
+//        }
+//    }
+//    [self.titlesArray removeAllObjects];
+//    for (int i = 0; i < chaptersCount; i++) {
+//        [self.titlesView addSubview:[self createTitlesBlocks:i]];
+//    }
+
+    [self updatePercentChapters];
     
     [UIView animateWithDuration:.5 animations:^{
         self.containerChapterScrollView.alpha = 1;
@@ -105,17 +101,24 @@
     for (int j = 0; j < [[[self.manager getCurrentStorie] chapters] count]; j++) {
 
         for (int i = 0; i < [[self.titlesArray objectAtIndex:j] count] ; i++) {
-//            NSLog(@"i %i",i);
             [self animateTitlesView:i forChapter:j negativeScale:.2 negativeAlpha:.3 delay:i * .05];
         }
     }
     
 }
+-(void)updatePercentChapters{
+    for (int i = 0; i < [self.titlesArray count]; i++) {
+        for (int k = 0; k < [[self.titlesArray objectAtIndex:i] count]; k++) {
+            JAChapterView *chapterView = [[self.titlesArray objectAtIndex:i] objectAtIndex:k];
+            float percent = [[self.plistManager getPercentRead:i article:k] floatValue]*100;
+            [chapterView updatePercent:percent];
+        }
+    }
+}
 -(UIView*)createTitlesBlocks:(int)index{
     // Count for Title View
     self.titleChapterCount = [[[[[self.manager getCurrentStorie] chapters] objectAtIndex:index] articles] count];
     float chapterHeight = self.titlesView.frame.size.height / self.titleChapterCount;
-//    NSLog(@"Height %f",chapterHeight);
     
     [self.heightCellArray addObject:[NSNumber numberWithFloat:chapterHeight]];
     
@@ -123,41 +126,14 @@
     UIView *globalTitleBlock = [[UIView alloc]initWithFrame:CGRectMake(index * self.view.frame.size.width, 0, self.view.frame.size.width, self.titlesView.frame.size.height)];
     NSMutableArray *arrayOfTitle = [NSMutableArray array];
     for (int i = 0; i < self.titleChapterCount ; i++) {
-        UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, i * chapterHeight, self.view.frame.size.width, chapterHeight)];
-
+        
         float percent = [[self.plistManager getPercentRead:index article:i] floatValue]*100;
-
-        NSString *text = [[[[[[self.manager getCurrentStorie] chapters]objectAtIndex:index] articles] objectAtIndex:i] title];
         
-        NSString *dateString = [[[[[[self.manager getCurrentStorie] chapters] objectAtIndex:index] articles] objectAtIndex:i] createdAt];
+        JAChapterView *chapterView = [[JAChapterView alloc] initWithFrame:CGRectMake(0, i * chapterHeight, self.view.frame.size.width, chapterHeight) blocks:[[[[[self.manager getCurrentStorie] chapters]objectAtIndex:index] articles] objectAtIndex:i] percent:percent];
         
-        NSDate *date = [self.dateFormaterFromString dateFromString:dateString];
-        NSString *finalDate = [self.dateFormater stringFromDate:date];
+        [globalTitleBlock addSubview:chapterView];
         
-        NSMutableAttributedString * completeString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ %@",text,[finalDate lowercaseString]]];
-
-        [completeString addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"News-Plantin-Pro-Regular" size:32.0] range:NSMakeRange(0,[text length])];
-        [completeString addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"Calibre-Thin" size:20.0] range:NSMakeRange([text length]+1,[finalDate length])];
-        
-        [completeString addAttribute:NSBaselineOffsetAttributeName value:@(10) range:NSMakeRange([text length]+1,[finalDate length])];
-        int rangeFinalUnderline = (int)(percent * [text length] / 100);
-        
-        [completeString addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInt:NSUnderlineStyleSingle] range:NSMakeRange(0,rangeFinalUnderline)];
-        
-        UILabel *titleLBL = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, titleView.frame.size.width - 40, titleView.frame.size.height)];
-        titleLBL.lineBreakMode = NSLineBreakByWordWrapping;
-        titleLBL.numberOfLines = 0;
-        titleLBL.textColor = [UIColor whiteColor];
-        titleLBL.attributedText = completeString;
-        titleLBL.tag = 1;
-        
-        [self setAnchorPoint:CGPointMake(0, 0.5) forView:titleLBL];
-        titleLBL.transform = CGAffineTransformMakeScale(0.5, 0.5);
-        
-        [titleView addSubview:titleLBL];
-        [globalTitleBlock addSubview:titleView];
-        
-        [arrayOfTitle addObject:titleView];
+        [arrayOfTitle addObject:chapterView];
     }
     [self.titlesArray addObject:arrayOfTitle];
     return globalTitleBlock;
@@ -177,7 +153,7 @@
     [self animateTitlesView:index forChapter:self.manager.currentChapter negativeScale:0.0 negativeAlpha:0.0 delay:0.0];
     
     if(self.currentIndex != index){
-        NSLog(@"index %i %i",self.currentIndex,index);
+//        NSLog(@"index %i %i",self.currentIndex,index);
         self.touchToLoad = NO;
         [self.loaderView setState:UIGestureRecognizerStateEnded];
         self.currentIndex = index;
@@ -224,10 +200,10 @@
         titleLBL.alpha = 1.0 - negativeAlpha;
     } completion:^(BOOL finished) {
     }];
-
 }
+
 -(void)startLoader{
-    NSLog(@"Start Loader");
+//    NSLog(@"Start Loader");
     self.touchToLoad = YES;
     [self.loaderView movePosition:self.positionLoader];
     [self.loaderView setState:UIGestureRecognizerStateBegan];
@@ -244,27 +220,6 @@
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
     self.titlesView.frame = CGRectMake(-scrollView.contentOffset.x * 2 , self.titlesView.frame.origin.y, self.titlesView.frame.size.width, self.titlesView.frame.size.height);
 }
--(void)setAnchorPoint:(CGPoint)anchorPoint forView:(UIView *)view
-{
-    CGPoint newPoint = CGPointMake(view.bounds.size.width * anchorPoint.x,
-                                   view.bounds.size.height * anchorPoint.y);
-    CGPoint oldPoint = CGPointMake(view.bounds.size.width * view.layer.anchorPoint.x,
-                                   view.bounds.size.height * view.layer.anchorPoint.y);
-    
-    newPoint = CGPointApplyAffineTransform(newPoint, view.transform);
-    oldPoint = CGPointApplyAffineTransform(oldPoint, view.transform);
-    
-    CGPoint position = view.layer.position;
-    
-    position.x -= oldPoint.x;
-    position.x += newPoint.x;
-    
-    position.y -= oldPoint.y;
-    position.y += newPoint.y;
-    
-    view.layer.position = position;
-    view.layer.anchorPoint = anchorPoint;
-}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
@@ -273,7 +228,7 @@
 }
 -(void)scrollRead:(float)percent indexArticle:(int)index{
 
-    NSLog(@"Percent %f index %i",percent,index);
+//    NSLog(@"Percent %f index %i",percent,index);
     NSNumber *percentNumber = [NSNumber numberWithFloat:percent];
     [self.plistManager setPercentRead:percentNumber storie:self.manager.currentStorie chapter:self.manager.currentChapter article:index];
 }
@@ -289,7 +244,7 @@
     if ([segue.identifier isEqualToString:@"JAArticlePush"]) {
         JAArticleCollectionViewController *articleController = segue.destinationViewController;
         [articleController setDelegate:self];
-        NSLog(@"TESTTT %@",[self.plistManager getPercentRead]);
+//        NSLog(@"TESTTT %@",[self.plistManager getPercentRead]);
         articleController.oldPercentScroll = [[self.plistManager getPercentRead] floatValue];
     }
 }

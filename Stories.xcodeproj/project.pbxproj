@@ -151,6 +151,7 @@
 		77DBC22D1A458D430027B838 /* haut@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77DBC22B1A458D430027B838 /* haut@2x.png */; };
 		77DBC2351A470DAB0027B838 /* Article.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77DBC2331A470DAB0027B838 /* Article.storyboard */; };
 		77E758101A2469C60015EDEF /* JAUILabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E7580F1A2469C60015EDEF /* JAUILabel.m */; };
+		8D0E7FA61A5C19A4004BB6D3 /* JAChapterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0E7FA51A5C19A4004BB6D3 /* JAChapterView.m */; };
 		8D54A8F61A14DCDA00ABDAD2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D54A8F31A14DC9A00ABDAD2 /* SystemConfiguration.framework */; };
 		8D54A8F91A14DD9C00ABDAD2 /* JAStorieModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D54A8F81A14DD9C00ABDAD2 /* JAStorieModel.m */; };
 		8D54A8FC1A14DED600ABDAD2 /* JACoverModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D54A8FB1A14DED600ABDAD2 /* JACoverModel.m */; };
@@ -386,6 +387,8 @@
 		77DBC2341A470DAB0027B838 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Article.storyboard; sourceTree = "<group>"; };
 		77E7580E1A2469C60015EDEF /* JAUILabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAUILabel.h; sourceTree = "<group>"; };
 		77E7580F1A2469C60015EDEF /* JAUILabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAUILabel.m; sourceTree = "<group>"; };
+		8D0E7FA41A5C19A4004BB6D3 /* JAChapterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAChapterView.h; sourceTree = "<group>"; };
+		8D0E7FA51A5C19A4004BB6D3 /* JAChapterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAChapterView.m; sourceTree = "<group>"; };
 		8D54A8F31A14DC9A00ABDAD2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		8D54A8F71A14DD9C00ABDAD2 /* JAStorieModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAStorieModel.h; sourceTree = "<group>"; };
 		8D54A8F81A14DD9C00ABDAD2 /* JAStorieModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAStorieModel.m; sourceTree = "<group>"; };
@@ -568,6 +571,7 @@
 				8D78D6EA1A5A9F0A00A7E1FA /* Pager */,
 				0A3FB1891A273B3600AC4362 /* Organic */,
 				0AC564CB1A2610DE00259418 /* ChapterScroll */,
+				8D0E7FA71A5C19AD004BB6D3 /* ChapterView */,
 				0AC564CA1A2610D400259418 /* Follow */,
 				0AC564C91A2610BC00259418 /* Loader */,
 				770CB9131A232FED002817BE /* ArticleCellViews */,
@@ -814,6 +818,15 @@
 				77A0D8411A27303300963904 /* JAUITextView.m */,
 			);
 			name = "Label Layout";
+			sourceTree = "<group>";
+		};
+		8D0E7FA71A5C19AD004BB6D3 /* ChapterView */ = {
+			isa = PBXGroup;
+			children = (
+				8D0E7FA41A5C19A4004BB6D3 /* JAChapterView.h */,
+				8D0E7FA51A5C19A4004BB6D3 /* JAChapterView.m */,
+			);
+			name = ChapterView;
 			sourceTree = "<group>";
 		};
 		8D54A8FD1A14DEEB00ABDAD2 /* Model */ = {
@@ -1359,6 +1372,7 @@
 				8DD244591A13856000FC7683 /* JACoverCollectionViewCell.m in Sources */,
 				8D54A9351A14EB8600ABDAD2 /* JSONKeyMapper.m in Sources */,
 				77DBC2291A4585F90027B838 /* JAFooterView.m in Sources */,
+				8D0E7FA61A5C19A4004BB6D3 /* JAChapterView.m in Sources */,
 				8D54A90B1A14E5DD00ABDAD2 /* JACreditModel.m in Sources */,
 				77DBC2221A45819F0027B838 /* JAHeaderView.m in Sources */,
 				770CB92A1A233014002817BE /* JAArticleCollectionViewController.m in Sources */,

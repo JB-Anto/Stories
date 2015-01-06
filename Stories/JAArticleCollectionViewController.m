@@ -69,7 +69,7 @@
     [self.collectionView registerClass:[JAKeyNumberCollectionViewCell class]  forCellWithReuseIdentifier:@"KeyNumberCell"];
     [self.collectionView registerClass:[JACreditCollectionViewCell class]     forCellWithReuseIdentifier:@"CreditsCell"];
 
-    NSLog(@"old %f",self.oldPercentScroll);
+//    NSLog(@"old %f",self.oldPercentScroll);
     
     UITapGestureRecognizer *doubleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTap:)];
     doubleTapGesture.numberOfTapsRequired = 2;
@@ -94,7 +94,7 @@
 -(void)doubleTap:(UITapGestureRecognizer*)sender {
 //       NSLog(@"Percent Scroll %f",self.articleCollectionView.contentOffset.y / (self.articleCollectionView.contentSize.height - scrollView.frame.size.height)  * 100);
 
-    NSLog(@"Content Offset: %.f\nPosition Of Header: %.f", self.collectionView.contentOffset.y, self.collectionView.transform.ty);
+//    NSLog(@"Content Offset: %.f\nPosition Of Header: %.f", self.collectionView.contentOffset.y, self.collectionView.transform.ty);
     CGFloat scrollTo;
     self.headerView.center = self.headerView.initialCenter;
     self.footerView.center = self.footerView.initialCenter;
@@ -180,19 +180,19 @@
 }
 
 - (void)linkDidPressed {
-    NSLog(@"Pressed");
+//    NSLog(@"Pressed");
     [self startLoader];
 }
 
 - (void)startLoader {
     // Loader View
-    NSLog(@"Start Loader");
+//    NSLog(@"Start Loader");
     //[self.loaderView movePosition:self.collectionView.center];
     [self.loaderView setState:UIGestureRecognizerStateBegan];
 }
 
 - (void)loadNextView {
-    NSLog(@"ROCKSTAR BABE");
+//    NSLog(@"ROCKSTAR BABE");
     [self.delegate scrollRead:(self.collectionView.contentOffset.y / (self.collectionViewLayout.collectionViewContentSize.height - self.collectionView.frame.size.height)) indexArticle:self.manager.currentArticle];
     [self performSegueWithIdentifier:@"JAInfoPush" sender:self];
 }
@@ -239,12 +239,12 @@
 }
 
 -(void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
-    NSLog(@"Begin Decelerating");
+//    NSLog(@"Begin Decelerating");
 }
 
 #pragma mark - JAFollowView Delegate
 - (void)followArticle:(BOOL)follow {
-    NSLog(@"BOOL Follow %d",follow);
+//    NSLog(@"BOOL Follow %d",follow);
 }
 
 

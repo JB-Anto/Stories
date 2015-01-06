@@ -57,7 +57,7 @@
     for(int i=0; i<[_blocks count]; i++) {
         self.currentBlock = _blocks[i];
         if([[self.currentBlock type] isEqualToString:@"resume"]) {
-            [self.resumesID addObject:[self.currentBlock id]];
+            [self.resumesID addObject:[NSNumber numberWithInt:[self.currentBlock id]]];
         }
     }
     
@@ -69,8 +69,6 @@
     [self.collectionView registerClass:[JAQuotesCollectionViewCell class]     forCellWithReuseIdentifier:@"QuoteCell"];
     [self.collectionView registerClass:[JAKeyNumberCollectionViewCell class]  forCellWithReuseIdentifier:@"KeyNumberCell"];
     [self.collectionView registerClass:[JACreditCollectionViewCell class]     forCellWithReuseIdentifier:@"CreditsCell"];
-
-//    NSLog(@"old %f",self.oldPercentScroll);
     
     UITapGestureRecognizer *doubleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTap:)];
     doubleTapGesture.numberOfTapsRequired = 2;
@@ -129,7 +127,7 @@
     //    [self.collectionView addSubview:self.headerView];
     
     // Mask
-    CGPathRef maskPath = [PocketSVG pathFromSVGFileNamed:@"top-2"];
+    CGPathRef maskPath = [PocketSVG pathFromSVGFileNamed:@"top-3"];
     CAShapeLayer *maskLayer = [CAShapeLayer layer];
     maskLayer.path = maskPath;
     if(IS_IPHONE_6){
@@ -151,7 +149,7 @@
     [self.footerView updateConstraintsIfNeeded];
     
     //Mask
-    CGPathRef maskPath = [PocketSVG pathFromSVGFileNamed:@"bottom-2"];
+    CGPathRef maskPath = [PocketSVG pathFromSVGFileNamed:@"bottom-3"];
     CAShapeLayer *maskLayer = [CAShapeLayer layer];
     maskLayer.path = maskPath;
     if(IS_IPHONE_6){
@@ -182,14 +180,10 @@
 }
 
 - (void)linkDidPressed {
-//    NSLog(@"Pressed");
     [self startLoader];
 }
 
 - (void)startLoader {
-    // Loader View
-//    NSLog(@"Start Loader");
-    //[self.loaderView movePosition:self.collectionView.center];
     [self.loaderView setState:UIGestureRecognizerStateBegan];
 }
 
@@ -317,7 +311,7 @@
             JAResumeCollectionViewCell *resumeCell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"ResumeCell" forIndexPath:indexPath];
             // Set Content
             [resumeCell.resumeLabel initWithString:[self.currentBlock text]];
-            resumeCell.idx = [self.resumesID indexOfObject:[self.currentBlock id]];
+            resumeCell.idx = [self.resumesID indexOfObject:[NSNumber numberWithInt:[self.currentBlock id]]];
             [resumeCell addConstraint:[NSLayoutConstraint constraintWithItem:resumeCell.resumeLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:resumeCell.contentView attribute:NSLayoutAttributeRight multiplier:0.3 - (0.3-(0.3/(resumeCell.idx+1))) + CGFLOAT_MIN constant:0]];
             [resumeCell updateConstraintsIfNeeded];
 
@@ -328,7 +322,7 @@
             JAParagraphCollectionViewCell *paragraphCell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"ParagraphCell" forIndexPath:indexPath];
             paragraphCell.paragraphLabel.links = [self.currentBlock links];
             [paragraphCell.paragraphLabel initWithString:[self.currentBlock text]];
-            if(self.currentBlock.id.integerValue == self.blocks.count-1) {
+            if([self.currentBlock id] == self.blocks.count-1) {
                 [paragraphCell.paragraphLabel applyMarkOfLastParagraph];
             }
             paragraphCell.paragraphLabel.delegate = self;

@@ -52,7 +52,7 @@
     for(int i=0; i<[_blocks count]; i++) {
         self.currentBlock = _blocks[i];
         if([[self.currentBlock type] isEqualToString:@"resume"]) {
-            [self.resumesID addObject:[self.currentBlock id]];
+            [self.resumesID addObject:[NSNumber numberWithInt:[self.currentBlock id]]];
         }
     }
     
@@ -264,7 +264,7 @@
         JAResumeCollectionViewCell *resumeCell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"ResumeCell" forIndexPath:indexPath];
         // Set Content
         [resumeCell.resumeLabel initWithString:[self.currentBlock text]];
-        resumeCell.idx = [self.resumesID indexOfObject:[self.currentBlock id]];
+        resumeCell.idx = [self.resumesID indexOfObject:[NSNumber numberWithInt:[self.currentBlock id]]];
         [resumeCell addConstraint:[NSLayoutConstraint constraintWithItem:resumeCell.resumeLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:resumeCell.contentView attribute:NSLayoutAttributeRight multiplier:0.3 - (0.3-(0.3/(resumeCell.idx+1))) + CGFLOAT_MIN constant:0]];
         [resumeCell updateConstraintsIfNeeded];
         

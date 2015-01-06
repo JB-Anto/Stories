@@ -15,7 +15,7 @@
 
 @interface JABlockModel : JSONModel
 
-@property (assign,nonatomic) NSNumber *id;
+@property (assign,nonatomic) uint id;
 @property (strong,nonatomic) NSString *type;
 @property (strong,nonatomic) NSString *title;
 @property (strong,nonatomic) NSString *titlePortrait;

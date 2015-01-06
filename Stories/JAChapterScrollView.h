@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JALabelChapter.h"
 
 @interface JAChapterScrollView : UIScrollView <UIScrollViewDelegate>
 
 @property (strong, nonatomic) JAManagerData *manager;
+@property (strong, nonatomic) NSMutableArray *chapterArray;
 
 @end

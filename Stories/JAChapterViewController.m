@@ -91,7 +91,7 @@
 //    for (int i = 0; i < chaptersCount; i++) {
 //        [self.titlesView addSubview:[self createTitlesBlocks:i]];
 //    }
-
+    [self setOpacityChapters:self.containerChapterScrollView.chapterScrollView];
     [self updatePercentChapters];
     
     [UIView animateWithDuration:.5 animations:^{
@@ -217,8 +217,21 @@
     self.manager.currentChapter = index;
     
 }
--(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+-(void)scrollViewDidScroll:(JAChapterScrollView *)scrollView{
+    
+    [self setOpacityChapters:scrollView];
     self.titlesView.frame = CGRectMake(-scrollView.contentOffset.x * 2 , self.titlesView.frame.origin.y, self.titlesView.frame.size.width, self.titlesView.frame.size.height);
+}
+-(void)setOpacityChapters:(JAChapterScrollView*)scrollView{
+    for (UILabel *label in scrollView.chapterArray ) {
+        float x = (CGRectGetMinX(label.frame) - scrollView.contentOffset.x)/ scrollView.frame.size.width;
+        float alpha = .66 + cos(M_PI * x)/3;
+        if (x > -1 && x < 1 ) {
+            label.alpha = alpha;
+        } else {
+            label.alpha = .5;
+        }
+    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

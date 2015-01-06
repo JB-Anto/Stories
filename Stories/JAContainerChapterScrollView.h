@@ -11,7 +11,7 @@
 
 @interface JAContainerChapterScrollView : UIView
 
-@property (strong, nonatomic) UIScrollView *chapterScrollView;
+@property (strong, nonatomic) JAChapterScrollView *chapterScrollView;
 
 - (id)initWithFrame:(CGRect)frame delegate:(id)scrollViewDelegate;
 

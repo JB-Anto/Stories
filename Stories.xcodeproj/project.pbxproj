@@ -187,6 +187,7 @@
 		8DB9C3D41A160BE200FBC975 /* JAFollowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DB9C3D31A160BE200FBC975 /* JAFollowView.m */; };
 		8DD244561A13850800FC7683 /* JACoverCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD244551A13850800FC7683 /* JACoverCollectionViewController.m */; };
 		8DD244591A13856000FC7683 /* JACoverCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD244581A13856000FC7683 /* JACoverCollectionViewCell.m */; };
+		8DD964171A5BE51E00C4131C /* JAContainerChapterScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD964161A5BE51E00C4131C /* JAContainerChapterScrollView.m */; };
 		93768B751A5ABFB300C25BF2 /* 2-0-0-chinese.png in Resources */ = {isa = PBXBuildFile; fileRef = 93768B731A5ABFB300C25BF2 /* 2-0-0-chinese.png */; };
 		93768B761A5ABFB300C25BF2 /* 2-0-0-chinese@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93768B741A5ABFB300C25BF2 /* 2-0-0-chinese@2x.png */; };
 		93768B791A5AE70F00C25BF2 /* 0-1-4-poroshenko.png in Resources */ = {isa = PBXBuildFile; fileRef = 93768B771A5AE70F00C25BF2 /* 0-1-4-poroshenko.png */; };
@@ -451,6 +452,8 @@
 		8DD244551A13850800FC7683 /* JACoverCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JACoverCollectionViewController.m; path = Stories/JACoverCollectionViewController.m; sourceTree = "<group>"; };
 		8DD244571A13856000FC7683 /* JACoverCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JACoverCollectionViewCell.h; path = Stories/JACoverCollectionViewCell.h; sourceTree = "<group>"; };
 		8DD244581A13856000FC7683 /* JACoverCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JACoverCollectionViewCell.m; path = Stories/JACoverCollectionViewCell.m; sourceTree = "<group>"; };
+		8DD964151A5BE51E00C4131C /* JAContainerChapterScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAContainerChapterScrollView.h; sourceTree = "<group>"; };
+		8DD964161A5BE51E00C4131C /* JAContainerChapterScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAContainerChapterScrollView.m; sourceTree = "<group>"; };
 		93768B731A5ABFB300C25BF2 /* 2-0-0-chinese.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2-0-0-chinese.png"; sourceTree = "<group>"; };
 		93768B741A5ABFB300C25BF2 /* 2-0-0-chinese@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2-0-0-chinese@2x.png"; sourceTree = "<group>"; };
 		93768B771A5AE70F00C25BF2 /* 0-1-4-poroshenko.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "0-1-4-poroshenko.png"; sourceTree = "<group>"; };
@@ -676,6 +679,8 @@
 		0AC564CB1A2610DE00259418 /* ChapterScroll */ = {
 			isa = PBXGroup;
 			children = (
+				8DD964151A5BE51E00C4131C /* JAContainerChapterScrollView.h */,
+				8DD964161A5BE51E00C4131C /* JAContainerChapterScrollView.m */,
 				0AC564C61A2610A400259418 /* JAChapterScrollView.h */,
 				0AC564C71A2610A400259418 /* JAChapterScrollView.m */,
 			);
@@ -1337,6 +1342,7 @@
 				8D54A9311A14EB8600ABDAD2 /* NSArray+JSONModel.m in Sources */,
 				0A58C1061A24BD0A0061C514 /* JACoverSeguePop.m in Sources */,
 				0A83AE341A23F52D0098F1DD /* UIColor+UIColor_PXExtentions.m in Sources */,
+				8DD964171A5BE51E00C4131C /* JAContainerChapterScrollView.m in Sources */,
 				8D8C02D51A10CB6200904841 /* main.m in Sources */,
 				770CB9261A233006002817BE /* JAQuotesCollectionViewCell.m in Sources */,
 				8D54A9321A14EB8600ABDAD2 /* JSONAPI.m in Sources */,

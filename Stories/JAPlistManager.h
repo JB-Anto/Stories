@@ -17,6 +17,7 @@
 //- (NSString*)getObject:(NSString*)key;
 - (NSMutableArray *)getObject:(NSString*)key;
 - (NSNumber *)getPercentRead;
+- (NSNumber *)getPercentRead:(NSInteger)chapter article:(NSInteger)article;
 - (NSString*)getTuto;
 
 //- (void)setValueForKey:(NSString *)key value:(NSString *)value;

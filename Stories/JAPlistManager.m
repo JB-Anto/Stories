@@ -143,6 +143,11 @@ static JAPlistManager *sharedInstance = nil;
 {
     return [[[[[self getPlistData] objectForKey:@"percentRead"] objectAtIndex:self.manager.currentStorie] objectAtIndex:self.manager.currentChapter] objectAtIndex:self.manager.currentArticle];    
 }
+
+- (NSNumber *)getPercentRead:(NSInteger)chapter article:(NSInteger)article
+{
+    return [[[[[self getPlistData] objectForKey:@"percentRead"] objectAtIndex:self.manager.currentStorie] objectAtIndex:chapter] objectAtIndex:article];
+}
 - (void)setPercentRead:(NSNumber*)value storie:(NSInteger)storie chapter:(NSInteger)chapter article:(NSInteger)article
 {
     

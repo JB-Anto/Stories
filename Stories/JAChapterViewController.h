@@ -10,12 +10,13 @@
 #import "JALoaderView.h"
 #import "JAChapterScrollView.h"
 #import "JAArticleCollectionViewController.h"
+#import "JAContainerChapterScrollView.h"
 
 @interface JAChapterViewController : UIViewController <LoaderDelegate, UIScrollViewDelegate, ScrollRead>
 
 @property (strong, nonatomic) JAManagerData *manager;
 @property (strong, nonatomic) JAPlistManager *plistManager;
-@property (strong, nonatomic) UIScrollView *chapterScrollView;
+@property (strong, nonatomic) JAContainerChapterScrollView *containerChapterScrollView;
 @property (strong, nonatomic) UIView *titlesView;
 @property (strong, nonatomic) JALoaderView *loaderView;
 

@@ -57,22 +57,16 @@
     self.view.backgroundColor = [UIColor pxColorWithHexValue:[[[self.manager getCurrentStorie] cover] color]];
     
     // Chapters View
-    self.chapterScrollView = [[JAChapterScrollView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width , self.view.bounds.size.height/7)];
-    self.chapterScrollView.delegate = self;
-    self.chapterScrollView.alpha = 0;
-    [self.view addSubview:self.chapterScrollView];
+    self.containerChapterScrollView = [[JAContainerChapterScrollView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.bounds.size.height/7) delegate:self];
+    [self.view addSubview:self.containerChapterScrollView];
     
     // Titles View
     self.titlesView = [[UIView alloc]initWithFrame:CGRectMake(0, self.view.bounds.size.height/7, self.view.bounds.size.width  * chaptersCount, self.view.bounds.size.height*6/7)];
     self.titlesView.backgroundColor = [UIColor pxColorWithHexValue:[[[self.manager getCurrentStorie] cover] color]];
     [self.view addSubview:self.titlesView];
     
-    for (int i = 0; i < chaptersCount; i++) {
-        [self.titlesView addSubview:[self createTitlesBlocks:i]];
-    }
-    
     UITapGestureRecognizer *doubleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTap:)];
-    doubleTapGesture.numberOfTapsRequired = 2;
+    doubleTapGesture.numberOfTapsRequired = 2;  
     doubleTapGesture.delegate = self;
     [self.view addGestureRecognizer:doubleTapGesture];
     
@@ -92,8 +86,20 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    NSUInteger chaptersCount = [[[self.manager getCurrentStorie] chapters] count];
+    
+    for(UIView *subview in [self.titlesView subviews]) {
+        if([subview isKindOfClass:[UIView class]]) {
+            [subview removeFromSuperview];
+        }
+    }
+    [self.titlesArray removeAllObjects];
+    for (int i = 0; i < chaptersCount; i++) {
+        [self.titlesView addSubview:[self createTitlesBlocks:i]];
+    }
+    
     [UIView animateWithDuration:.5 animations:^{
-        self.chapterScrollView.alpha = 1;
+        self.containerChapterScrollView.alpha = 1;
     }];
 
     for (int j = 0; j < [[[self.manager getCurrentStorie] chapters] count]; j++) {
@@ -118,8 +124,8 @@
     NSMutableArray *arrayOfTitle = [NSMutableArray array];
     for (int i = 0; i < self.titleChapterCount ; i++) {
         UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, i * chapterHeight, self.view.frame.size.width, chapterHeight)];
-;
-        float percent = 70.0;
+
+        float percent = [[self.plistManager getPercentRead:index article:i] floatValue]*100;
 
         NSString *text = [[[[[[self.manager getCurrentStorie] chapters]objectAtIndex:index] articles] objectAtIndex:i] title];
         

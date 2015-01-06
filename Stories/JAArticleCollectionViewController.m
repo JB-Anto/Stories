@@ -93,6 +93,7 @@
 
 -(void)doubleTap:(UITapGestureRecognizer*)sender{
 //       NSLog(@"Percent Scroll %f",self.articleCollectionView.contentOffset.y / (self.articleCollectionView.contentSize.height - scrollView.frame.size.height)  * 100);
+    [self.delegate scrollRead:(self.collectionView.contentOffset.y / (self.collectionViewLayout.collectionViewContentSize.height - self.collectionView.frame.size.height)) indexArticle:self.manager.currentArticle];
     [self performSegueWithIdentifier:@"JAArticlePop" sender:self];
 //    Method to go to cover width flip
 //    [self.navigationController popToRootViewControllerAnimated:NO];
@@ -182,12 +183,13 @@
 - (void)loadNextView {
     
     NSLog(@"ROCKSTAR BABE");
+    [self.delegate scrollRead:(self.collectionView.contentOffset.y / (self.collectionViewLayout.collectionViewContentSize.height - self.collectionView.frame.size.height)) indexArticle:self.manager.currentArticle];
     [self performSegueWithIdentifier:@"JAInfoPush" sender:self];
     
 }
 
 - (IBAction)returnFromInfoView:(UIStoryboardSegue*)segue{
-    
+  
 }
 
 #pragma mark <UICollectionViewDataSource>
@@ -228,10 +230,7 @@
     fixedFrame.origin.y = 55 + scrollView.contentOffset.y;
     [self.followView setCenter:CGPointMake(self.followView.center.x, fixedFrame.origin.y)];
     self.followView.centerView = self.followView.center;
-    
-    [self.delegate scrollRead:(self.collectionView.contentOffset.y / (self.collectionViewLayout.collectionViewContentSize.height - self.collectionView.frame.size.height)) indexArticle:self.manager.currentArticle];
 
-    
     // Loader View fixed position
     [self.loaderView movePosition:CGPointMake(self.collectionView.center.x, scrollView.contentOffset.y + self.collectionView.bounds.size.height/2)];
 }

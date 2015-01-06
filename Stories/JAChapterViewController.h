@@ -11,6 +11,7 @@
 #import "JAChapterScrollView.h"
 #import "JAArticleCollectionViewController.h"
 #import "JAContainerChapterScrollView.h"
+#import "JAChapterView.h"
 
 @interface JAChapterViewController : UIViewController <LoaderDelegate, UIScrollViewDelegate, ScrollRead>
 

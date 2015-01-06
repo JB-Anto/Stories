@@ -70,7 +70,7 @@
     [self.collectionView registerClass:[JAKeyNumberCollectionViewCell class]  forCellWithReuseIdentifier:@"KeyNumberCell"];
     [self.collectionView registerClass:[JACreditCollectionViewCell class]     forCellWithReuseIdentifier:@"CreditsCell"];
 
-    NSLog(@"old %f",self.oldPercentScroll);
+//    NSLog(@"old %f",self.oldPercentScroll);
     
     UITapGestureRecognizer *doubleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTap:)];
     doubleTapGesture.numberOfTapsRequired = 2;
@@ -97,6 +97,7 @@
 	[self animateFollow];
     [self.followView fadeIn];
 }
+
 
 -(void)doubleTap:(UITapGestureRecognizer*)sender {
     CGFloat scrollTo;
@@ -181,20 +182,22 @@
 }
 
 - (void)linkDidPressed {
-    NSLog(@"Pressed");
+//    NSLog(@"Pressed");
     [self startLoader];
 }
 
 - (void)startLoader {
     // Loader View
-    NSLog(@"Start Loader");
+//    NSLog(@"Start Loader");
     //[self.loaderView movePosition:self.collectionView.center];
     [self.loaderView setState:UIGestureRecognizerStateBegan];
 }
 
 - (void)loadNextView {
+
     NSLog(@"ROCKSTAR BABE");
     [self.followView fadeOut];
+
     [self.delegate scrollRead:(self.collectionView.contentOffset.y / (self.collectionViewLayout.collectionViewContentSize.height - self.collectionView.frame.size.height)) indexArticle:self.manager.currentArticle];
     [self performSelector:@selector(goToInfo) withObject:nil afterDelay:0.2];
 }
@@ -245,12 +248,12 @@
 }
 
 -(void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
-    NSLog(@"Begin Decelerating");
+//    NSLog(@"Begin Decelerating");
 }
 
 #pragma mark - JAFollowView Delegate
 - (void)followArticle:(BOOL)follow {
-    NSLog(@"BOOL Follow %d",follow);
+
     [self.plistManager setValueForKey:@"follow" value:[NSNumber numberWithBool:follow] index:self.manager.currentStorie];
 }
 

@@ -23,6 +23,7 @@
 
     CGSize optimalSizeForLabel;
     CGSize maximumSizeOfLabel;
+    CGFloat collectionViewHeight;
 
 }
 
@@ -69,6 +70,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    collectionViewHeight = self.collectionViewLayout.collectionViewContentSize.height - CGRectGetHeight(self.collectionView.bounds);
     [self setupHeaderView];
     [self setupFooterView];
     [self setupFollowView];
@@ -78,18 +80,18 @@
     CGFloat scrollTo;
     self.headerView.center = self.headerView.initialCenter;
     self.footerView.center = self.footerView.initialCenter;
-    scrollTo = self.collectionView.contentOffset.y - self.collectionViewLayout.collectionViewContentSize.height-CGRectGetHeight(self.collectionView.bounds);
+    scrollTo = self.collectionView.contentOffset.y;
     [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.headerView.transform = CGAffineTransformMakeTranslation(0, scrollTo);
         self.footerView.transform = CGAffineTransformMakeTranslation(0, scrollTo);
     } completion:nil];
-    [self performSelector:@selector(goToArticle) withObject:nil afterDelay:1.5];
+    [self performSelector:@selector(goToArticle) withObject:nil afterDelay:1.1];
     //    Method to go to cover width flip
     //    [self.navigationController popToRootViewControllerAnimated:NO];
 }
 
 -(void)goToArticle {
-    [self performSegueWithIdentifier:@"JAArticlePop" sender:self];
+    [self performSegueWithIdentifier:@"JAInfoPop" sender:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -104,7 +106,7 @@
 //    [self.collectionView addSubview:self.headerView];
     
     // Mask
-    CGPathRef maskPath = [PocketSVG pathFromSVGFileNamed:@"top"];
+    CGPathRef maskPath = [PocketSVG pathFromSVGFileNamed:@"top-2"];
     CAShapeLayer *maskLayer = [CAShapeLayer layer];
     maskLayer.path = maskPath;
     if(IS_IPHONE_6){
@@ -121,13 +123,12 @@
 }
 
 - (void)setupFooterView {
-    CGFloat collectionViewHeight = self.collectionViewLayout.collectionViewContentSize.height;
     self.footerView = [[JAFooterView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.collectionView.bounds), CGRectGetHeight(self.collectionView.bounds))];
     [self.footerView setImage:self.snapshot];
     [self.footerView updateConstraintsIfNeeded];
     
     //Mask
-    CGPathRef maskPath = [PocketSVG pathFromSVGFileNamed:@"bottom"];
+    CGPathRef maskPath = [PocketSVG pathFromSVGFileNamed:@"bottom-2"];
     CAShapeLayer *maskLayer = [CAShapeLayer layer];
     maskLayer.path = maskPath;
     if(IS_IPHONE_6){
@@ -138,7 +139,7 @@
     }
     self.footerView.layer.mask = maskLayer;
     [self.collectionView addSubview:self.footerView];
-    [self.footerView animateEnterWithValue:collectionViewHeight];
+    [self.footerView animateEnterWithValue:self.collectionViewLayout.collectionViewContentSize.height];
     
 }
 
@@ -154,7 +155,12 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
-    NSLog(@"%.f, %.f", scrollView.contentOffset.y, self.collectionViewLayout.collectionViewContentSize.height);
+    if(scrollView.contentOffset.y < -CGRectGetHeight(self.collectionView.bounds)/8) {
+        [scrollView setContentOffset:CGPointMake(0, -CGRectGetHeight(self.collectionView.bounds)/8)];
+    }
+    else if(scrollView.contentOffset.y > collectionViewHeight + CGRectGetHeight(self.collectionView.bounds)/8) {
+        [scrollView setContentOffset:CGPointMake(0, collectionViewHeight + CGRectGetHeight(self.collectionView.bounds)/8)];
+    }
     
     if(scrollView.contentOffset.y > scrollView.contentSize.height) {
         NSLog(@"UP");

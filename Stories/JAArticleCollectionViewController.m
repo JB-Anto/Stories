@@ -92,9 +92,6 @@
 }
 
 -(void)doubleTap:(UITapGestureRecognizer*)sender {
-//       NSLog(@"Percent Scroll %f",self.articleCollectionView.contentOffset.y / (self.articleCollectionView.contentSize.height - scrollView.frame.size.height)  * 100);
-
-    NSLog(@"Content Offset: %.f\nPosition Of Header: %.f", self.collectionView.contentOffset.y, self.collectionView.transform.ty);
     CGFloat scrollTo;
     self.headerView.center = self.headerView.initialCenter;
     self.footerView.center = self.footerView.initialCenter;
@@ -103,11 +100,8 @@
         self.headerView.transform = CGAffineTransformMakeTranslation(0, scrollTo);
         self.footerView.transform = CGAffineTransformMakeTranslation(0, scrollTo);
     } completion:nil];
-    [self performSelector:@selector(goToChapter) withObject:nil afterDelay:1.1];
+    [self performSelector:@selector(goToChapter) withObject:nil afterDelay:1.25];
     [self.delegate scrollRead:(self.collectionView.contentOffset.y / (self.collectionViewLayout.collectionViewContentSize.height - self.collectionView.frame.size.height)) indexArticle:self.manager.currentArticle];
-
-//    Method to go to cover width flip
-//    [self.navigationController popToRootViewControllerAnimated:NO];
 }
 
 -(void)goToChapter {
@@ -127,7 +121,7 @@
     //    [self.collectionView addSubview:self.headerView];
     
     // Mask
-    CGPathRef maskPath = [PocketSVG pathFromSVGFileNamed:@"top"];
+    CGPathRef maskPath = [PocketSVG pathFromSVGFileNamed:@"top-2"];
     CAShapeLayer *maskLayer = [CAShapeLayer layer];
     maskLayer.path = maskPath;
     if(IS_IPHONE_6){
@@ -149,7 +143,7 @@
     [self.footerView updateConstraintsIfNeeded];
     
     //Mask
-    CGPathRef maskPath = [PocketSVG pathFromSVGFileNamed:@"bottom"];
+    CGPathRef maskPath = [PocketSVG pathFromSVGFileNamed:@"bottom-2"];
     CAShapeLayer *maskLayer = [CAShapeLayer layer];
     maskLayer.path = maskPath;
     if(IS_IPHONE_6){

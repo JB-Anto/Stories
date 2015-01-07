@@ -84,47 +84,47 @@ static NSString * const reuseIdentifier = @"Cell";
     
     // Tuto View
 //    if([[self.plistManager getTuto] isEqualToString:@"1"]){
-//        [self.plistManager setTuto:@"0"];
-//        NSArray *tutoArray = @[@{ @"title" : @"Swipe to discover more stories",
-//                                  @"image" :  @"Swipe_000%i.png",
-//                                  @"numberImage" : @100,
-//                                  @"custom" :  @0},
-//                               @{ @"title" : @"Hold to go learn more about something",
-//                                  @"image" :  @"Hold_000%i.png",
-//                                  @"numberImage" : @80,
-//                                  @"custom" :  @0},
-//                               @{ @"title" : @"Drag to follow a new story",
-//                                  @"image" :  @"Drag_000%i.png",
-//                                  @"numberImage" : @100,
-//                                  @"custom" :  @0},
-//                               @{ @"title" : @"Flip the phone to go back to the Home page at any moment",
-//                                  @"image" :  @"Flip_000%i.png",
-//                                  @"numberImage" : @98,
-//                                  @"custom" :  @0,
-//                                  @"button" :  @1}
-//                               ];
-//        
-//        tutorialVC = [[JATutorialViewController alloc]initWithBlocks:tutoArray delegate:self];
-//        [self.view addSubview:tutorialVC.view];
-//        
-//        tutorialVC.view.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.85];
-//        
-//        [[NSNotificationCenter defaultCenter] addObserverForName:@"leaveTuto" object:nil queue:nil usingBlock:^(NSNotification *note) {
-//            
-//            [tutorialVC.view removeFromSuperview];
-//            // Gesture recognizer
-//            UILongPressGestureRecognizer *longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressDetected:)];
-//            longPressRecognizer.minimumPressDuration = .3;
-//            longPressRecognizer.numberOfTouchesRequired = 1;
-//            [self.view addGestureRecognizer:longPressRecognizer];
-//        }];
+        [self.plistManager setTuto:@"0"];
+        NSArray *tutoArray = @[@{ @"title" : @"Swipe to discover more stories",
+                                  @"image" :  @"DragSwipe%i.png",
+                                  @"numberImage" : @100,
+                                  @"custom" :  @0},
+                               @{ @"title" : @"Hold to go learn more about something",
+                                  @"image" :  @"Hold%i.png",
+                                  @"numberImage" : @40,
+                                  @"custom" :  @0},
+                               @{ @"title" : @"Drag to follow a new story",
+                                  @"image" :  @"DragSwipe%i.png",
+                                  @"numberImage" : @100,
+                                  @"custom" :  @0},
+                               @{ @"title" : @"Flip the phone to go back to the Home page at any moment",
+                                  @"image" :  @"Flip%i.png",
+                                  @"numberImage" : @40,
+                                  @"custom" :  @0,
+                                  @"button" :  @1}
+                               ];
+        
+        tutorialVC = [[JATutorialViewController alloc]initWithBlocks:tutoArray delegate:self];
+        [self.view addSubview:tutorialVC.view];
+        
+        tutorialVC.view.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.85];
+        
+        [[NSNotificationCenter defaultCenter] addObserverForName:@"leaveTuto" object:nil queue:nil usingBlock:^(NSNotification *note) {
+            
+            [tutorialVC.view removeFromSuperview];
+            // Gesture recognizer
+            UILongPressGestureRecognizer *longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressDetected:)];
+            longPressRecognizer.minimumPressDuration = .3;
+            longPressRecognizer.numberOfTouchesRequired = 1;
+            [self.view addGestureRecognizer:longPressRecognizer];
+        }];
 //    }
 //    else{
 //        // Gesture recognizer
-        UILongPressGestureRecognizer *longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressDetected:)];
-        longPressRecognizer.minimumPressDuration = .3;
-        longPressRecognizer.numberOfTouchesRequired = 1;
-        [self.view addGestureRecognizer:longPressRecognizer];
+//        UILongPressGestureRecognizer *longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressDetected:)];
+//        longPressRecognizer.minimumPressDuration = .3;
+//        longPressRecognizer.numberOfTouchesRequired = 1;
+//        [self.view addGestureRecognizer:longPressRecognizer];
 //    }
 
    

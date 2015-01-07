@@ -49,6 +49,10 @@
     self.manager = [JAManagerData sharedManager];
     self.plistManager = [JAPlistManager sharedInstance];
     
+    //Motion Listener
+    self.motionListener = [JAMotionListener sharedMotionManager];
+    self.motionListener.delegate = self;
+    
     JAArticleModel *article = [self.manager getCurrentArticle];
     self.blocks = [article blocks];
     self.credits = [article credits];
@@ -74,7 +78,6 @@
     doubleTapGesture.numberOfTapsRequired = 2;
     doubleTapGesture.delegate = self;
     [self.view addGestureRecognizer:doubleTapGesture];
-
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -202,6 +205,13 @@
 
 - (IBAction)returnFromInfoView:(UIStoryboardSegue*)segue{
   
+}
+
+#pragma mark <JAMotionListenerDelegate>
+- (void)deviceDidFlipped {
+    [self.delegate scrollRead:(self.collectionView.contentOffset.y / (self.collectionViewLayout.collectionViewContentSize.height - self.collectionView.frame.size.height)) indexArticle:self.manager.currentArticle];
+    [self.motionListener stopListening];
+    [self.navigationController popToRootViewControllerAnimated:NO];
 }
 
 #pragma mark <UICollectionViewDataSource>

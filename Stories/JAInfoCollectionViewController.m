@@ -39,7 +39,7 @@
     [super viewDidLoad];
     
     // CollectionView Initialization
-    [self.collectionView setBackgroundColor:[UIColor colorWithHue:0 saturation:0 brightness:0.97 alpha:1]];
+    [self.collectionView setBackgroundColor:[UIColor colorWithHue:0.67 saturation:0.01 brightness:0.95 alpha:1]];
 
     // Data Management
     self.manager = [JAManagerData sharedManager];
@@ -109,7 +109,7 @@
 //    [self.collectionView addSubview:self.headerView];
     
     // Mask
-    CGPathRef maskPath = [PocketSVG pathFromSVGFileNamed:@"top-2"];
+    CGPathRef maskPath = [PocketSVG pathFromSVGFileNamed:@"top-info"];
     CAShapeLayer *maskLayer = [CAShapeLayer layer];
     maskLayer.path = maskPath;
     if(IS_IPHONE_6){
@@ -131,7 +131,7 @@
     [self.footerView updateConstraintsIfNeeded];
     
     //Mask
-    CGPathRef maskPath = [PocketSVG pathFromSVGFileNamed:@"bottom-2"];
+    CGPathRef maskPath = [PocketSVG pathFromSVGFileNamed:@"bottom-info"];
     CAShapeLayer *maskLayer = [CAShapeLayer layer];
     maskLayer.path = maskPath;
     if(IS_IPHONE_6){

@@ -131,7 +131,7 @@
     //    [self.collectionView addSubview:self.headerView];
     
     // Mask
-    CGPathRef maskPath = [PocketSVG pathFromSVGFileNamed:@"top-3"];
+    CGPathRef maskPath = [PocketSVG pathFromSVGFileNamed:@"top-article"];
     CAShapeLayer *maskLayer = [CAShapeLayer layer];
     maskLayer.path = maskPath;
     if(IS_IPHONE_6){
@@ -153,7 +153,7 @@
     [self.footerView updateConstraintsIfNeeded];
     
     //Mask
-    CGPathRef maskPath = [PocketSVG pathFromSVGFileNamed:@"bottom-3"];
+    CGPathRef maskPath = [PocketSVG pathFromSVGFileNamed:@"bottom-article"];
     CAShapeLayer *maskLayer = [CAShapeLayer layer];
     maskLayer.path = maskPath;
     if(IS_IPHONE_6){
@@ -415,7 +415,7 @@
             [cell.titleLabel  initWithString:[self.currentBlock title]];
             maximumSizeOfLabel = CGSizeMake(cellWidth, CGFLOAT_MAX);
             optimalSizeForLabel = [cell.titleLabel sizeThatFits:maximumSizeOfLabel];
-            sizeOfCell = CGSizeMake(cellWidth, optimalSizeForLabel.height+100);
+            sizeOfCell = CGSizeMake(cellWidth, optimalSizeForLabel.height+160);
             
         } else if([[self.currentBlock type] isEqualToString:@"resume"]) {
 

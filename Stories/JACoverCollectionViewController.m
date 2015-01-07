@@ -63,6 +63,14 @@ static NSString * const reuseIdentifier = @"Cell";
     self.nameViewLBL.text = @"Publications";
     [self.view addSubview:self.nameViewLBL];
     
+    self.followLBL = [[UILabel alloc]initWithFrame:CGRectMake(25, 30, self.view.bounds.size.width, 50)];
+    self.followLBL.textColor = [UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1];
+    self.followLBL.font = [UIFont fontWithName:@"Circular-Std-Book" size:19.0];
+    self.followLBL.text = @"Followed";
+    self.followLBL.alpha = 0;
+    [self.view addSubview:self.followLBL];
+
+    
     // Loader View
     self.loaderView = [[JALoaderView alloc]initWithFrame:CGRectMake(0, 0, 160, 160)];
     self.loaderView.delegate = self;
@@ -75,45 +83,49 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.view addSubview:self.followView];
     
     // Tuto View
-    if([[self.plistManager getTuto] isEqualToString:@"1"]){
-        [self.plistManager setTuto:@"0"];
-        NSArray *tutoArray = @[@{ @"title" : @"Swipe to discover more leaflet",
-                                  @"image" :  @"tuto1.png",
-                                  @"custom" :  @0},
-                               @{ @"title" : @"Hold to get in a story",
-                                  @"image" :  @"tuto2.png",
-                                  @"custom" :  @0},
-                               @{ @"title" : @"Drag to follow a new story",
-                                  @"image" :  @"tuto3.png",
-                                  @"custom" :  @1},
-                               @{ @"title" : @"Flip the phone to switch between your library and the shelf",
-                                  @"image" :  @"tuto4.png",
-                                  @"custom" :  @0,
-                                  @"button" :  @1}
-                               ];
-        
-        tutorialVC = [[JATutorialViewController alloc]initWithBlocks:tutoArray delegate:self];
-        [self.view addSubview:tutorialVC.view];
-        
-        tutorialVC.view.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.75];
-        
-        [[NSNotificationCenter defaultCenter] addObserverForName:@"leaveTuto" object:nil queue:nil usingBlock:^(NSNotification *note) {
-            
-            [tutorialVC.view removeFromSuperview];
-            // Gesture recognizer
-            UILongPressGestureRecognizer *longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressDetected:)];
-            longPressRecognizer.minimumPressDuration = .3;
-            longPressRecognizer.numberOfTouchesRequired = 1;
-            [self.view addGestureRecognizer:longPressRecognizer];
-        }];
-    }
-    else{
-        // Gesture recognizer
+//    if([[self.plistManager getTuto] isEqualToString:@"1"]){
+//        [self.plistManager setTuto:@"0"];
+//        NSArray *tutoArray = @[@{ @"title" : @"Swipe to discover more stories",
+//                                  @"image" :  @"Swipe_000%i.png",
+//                                  @"numberImage" : @100,
+//                                  @"custom" :  @0},
+//                               @{ @"title" : @"Hold to go learn more about something",
+//                                  @"image" :  @"Hold_000%i.png",
+//                                  @"numberImage" : @80,
+//                                  @"custom" :  @0},
+//                               @{ @"title" : @"Drag to follow a new story",
+//                                  @"image" :  @"Drag_000%i.png",
+//                                  @"numberImage" : @100,
+//                                  @"custom" :  @0},
+//                               @{ @"title" : @"Flip the phone to go back to the Home page at any moment",
+//                                  @"image" :  @"Flip_000%i.png",
+//                                  @"numberImage" : @98,
+//                                  @"custom" :  @0,
+//                                  @"button" :  @1}
+//                               ];
+//        
+//        tutorialVC = [[JATutorialViewController alloc]initWithBlocks:tutoArray delegate:self];
+//        [self.view addSubview:tutorialVC.view];
+//        
+//        tutorialVC.view.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.85];
+//        
+//        [[NSNotificationCenter defaultCenter] addObserverForName:@"leaveTuto" object:nil queue:nil usingBlock:^(NSNotification *note) {
+//            
+//            [tutorialVC.view removeFromSuperview];
+//            // Gesture recognizer
+//            UILongPressGestureRecognizer *longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressDetected:)];
+//            longPressRecognizer.minimumPressDuration = .3;
+//            longPressRecognizer.numberOfTouchesRequired = 1;
+//            [self.view addGestureRecognizer:longPressRecognizer];
+//        }];
+//    }
+//    else{
+//        // Gesture recognizer
         UILongPressGestureRecognizer *longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressDetected:)];
         longPressRecognizer.minimumPressDuration = .3;
         longPressRecognizer.numberOfTouchesRequired = 1;
         [self.view addGestureRecognizer:longPressRecognizer];
-    }
+//    }
 
    
 }
@@ -215,6 +227,31 @@ static NSString * const reuseIdentifier = @"Cell";
 -(void)followArticle:(BOOL)follow{
     NSLog(@"BOOL Follow %@",[NSNumber numberWithBool:follow]);
     [self.plistManager setValueForKey:@"follow" value:[NSNumber numberWithBool:follow] index:self.currentIndex];
+    if(follow == YES){
+        [UIView animateWithDuration:.3 animations:^{
+            self.nameViewLBL.transform = CGAffineTransformMakeTranslation(0, -20);
+            self.nameViewLBL.alpha = 0;
+        }completion:^(BOOL finished) {
+            [UIView animateWithDuration:.4 animations:^{
+                self.nameViewLBL.transform = CGAffineTransformMakeTranslation(0, 0);
+                self.followLBL.alpha = 1;
+                self.followLBL.transform =CGAffineTransformMakeTranslation(0, -5);
+            }completion:^(BOOL finished) {
+                [UIView animateWithDuration:.3 animations:^{
+                    self.followLBL.transform =CGAffineTransformMakeTranslation(0, -20);
+                    self.followLBL.alpha = 0;
+                }completion:^(BOOL finished) {
+                    [UIView animateWithDuration:.4 animations:^{
+                        self.followLBL.transform = CGAffineTransformMakeTranslation(0, 0);
+                        self.nameViewLBL.transform = CGAffineTransformMakeTranslation(0, -5);
+                        self.nameViewLBL.alpha = 1;
+                    }];
+                }];
+
+            }];
+        }];
+
+    }
     
 }
 

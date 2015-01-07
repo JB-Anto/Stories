@@ -28,26 +28,38 @@
     [super viewDidLoad];
     
     UIView *container = [[UIView alloc]init];
-    UIImage *image = [UIImage imageNamed:[self.dico objectForKey:@"image"]];
-    UIImageView *imageView = [[UIImageView alloc]initWithImage:image];
+    UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:[self.dico objectForKey:@"image"],0]];
+    self.imageView = [[UIImageView alloc]init];
+    
+    NSMutableArray *images = [NSMutableArray array];
+    for (int i = 0; i < [[self.dico objectForKey:@"numberImage"] integerValue]; i++) {
+        [images addObject:[UIImage imageNamed:[NSString stringWithFormat:[self.dico objectForKey:@"image"],i]]];
+    }
+    
+    self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 160.0, 160.0)];
+    [self.imageView setAnimationImages:images];
+    [self.imageView setAnimationRepeatCount:1];
+    [self.imageView setAnimationDuration:2.0];
+
+    self.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:[self.dico objectForKey:@"image"],[[self.dico objectForKey:@"numberImage"] integerValue] - 1]];
     
     float margin;
     if([[self.dico objectForKey:@"custom"]  isEqual: @1]){
-        imageView.frame = CGRectMake(self.view.bounds.size.width - 88, 35, image.size.width, image.size.height);
-        [self.view addSubview:imageView];
+        self.imageView.frame = CGRectMake(self.view.bounds.size.width - 88, 35, image.size.width, image.size.height);
+        [self.view addSubview:self.imageView];
         margin = 0;
     }
     else{
-        imageView.frame = CGRectMake(self.view.frame.size.width/2 - image.size.width/2, 0, image.size.width, image.size.height);
-        [container addSubview:imageView];
+        self.imageView.frame = CGRectMake(self.view.frame.size.width/2 - image.size.width/2, 0, image.size.width, image.size.height);
+        [container addSubview:self.imageView];
         margin = image.size.height + 20;
     }
     
-    UILabel *title = [[UILabel alloc]initWithFrame:CGRectMake(40, margin, self.view.frame.size.width - 80, 40)];
+    UILabel *title = [[UILabel alloc]initWithFrame:CGRectMake(40, margin, self.view.frame.size.width - 80, 80)];
     title.text = [self.dico objectForKey:@"title"];
     title.textColor = [UIColor whiteColor];
     title.textAlignment = NSTextAlignmentCenter;
-    title.font = [UIFont fontWithName:@"News-Plantin-Pro-Regular-Italic" size:15.0];
+    title.font = [UIFont fontWithName:@"News-Plantin-Pro-Regular-Italic" size:23.0];
     title.lineBreakMode = NSLineBreakByWordWrapping;
     title.numberOfLines = 0;
     
@@ -55,7 +67,7 @@
     if([[self.dico objectForKey:@"button"] isEqual: @1]){
         UIButton *leaveBTN = [[UIButton alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height - 160, self.view.frame.size.width, 40)];
 
-        leaveBTN.titleLabel.font = [UIFont fontWithName:@"News-Plantin-Pro-Regular-Italic" size:15.0];
+        leaveBTN.titleLabel.font = [UIFont fontWithName:@"News-Plantin-Pro-Regular-Italic" size:23.0];
         leaveBTN.titleLabel.textColor = [UIColor whiteColor];
         NSMutableAttributedString *titleString = [[NSMutableAttributedString alloc] initWithString:@"Got it!"];
         [titleString addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInteger:NSUnderlineStyleSingle] range:NSMakeRange(0, [titleString length])];
@@ -71,7 +83,7 @@
         heightGlobal = title.frame.size.height;
     }
     else{
-        heightGlobal = imageView.frame.size.height + title.frame.size.height + 20;
+        heightGlobal = self.imageView.frame.size.height + title.frame.size.height + 20;
     }
     container.frame = CGRectMake(0, self.view.frame.size.height/2 - heightGlobal/2, self.view.frame.size.width, heightGlobal);
     
@@ -79,6 +91,10 @@
     [container addSubview:title];
     [self.view addSubview:container];
     
+}
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.imageView startAnimating];
 }
 -(void)leaveView:(UIButton*)sender{
     [[NSNotificationCenter defaultCenter] postNotificationName:@"leaveTuto" object:nil];

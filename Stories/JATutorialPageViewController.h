@@ -12,6 +12,7 @@
 
 @property (strong, nonatomic) NSDictionary *dico;
 @property (assign, nonatomic) NSInteger index;
+@property (strong, nonatomic) UIImageView *imageView;
 
 
 -(id)init:(NSDictionary*)dico;

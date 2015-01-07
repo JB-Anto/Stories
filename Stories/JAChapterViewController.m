@@ -34,7 +34,7 @@
     self.plistManager = [JAPlistManager sharedInstance];
     
     //Motion Listener
-    self.motionListener = [[JAMotionListener alloc] init];
+    self.motionListener = [[JAMotionListener alloc] initWithName:@"chapterMotion"];
     self.motionListener.delegate = self;
     [self.motionListener startListening];
     
@@ -82,6 +82,10 @@
     self.loaderView.userInteractionEnabled = NO;
     [self.view addSubview:self.loaderView];
 
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
 }
 
 -(void)viewWillAppear:(BOOL)animated{

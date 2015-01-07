@@ -50,8 +50,9 @@
     self.plistManager = [JAPlistManager sharedInstance];
     
     //Motion Listener
-    self.motionListener = [[JAMotionListener alloc] init];
+    self.motionListener = [[JAMotionListener alloc] initWithName:@"motionArticle"];
     self.motionListener.delegate = self;
+    [self.motionListener startListening];
     
     JAArticleModel *article = [self.manager getCurrentArticle];
     self.blocks = [article blocks];
@@ -95,7 +96,6 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.motionListener startListening];
 	[self animateFollow];
     [self.followView fadeIn];
 }
@@ -103,6 +103,7 @@
 
 -(void)doubleTap:(UITapGestureRecognizer*)sender {
     [self.collectionView setUserInteractionEnabled:NO];
+    [self.motionListener stopListening];
     CGFloat scrollTo;
     self.headerView.center = self.headerView.initialCenter;
     self.footerView.center = self.footerView.initialCenter;

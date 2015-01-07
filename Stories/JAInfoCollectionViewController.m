@@ -46,7 +46,7 @@
     self.plistManager = [JAPlistManager sharedInstance];
     
     //Motion Listener
-    self.motionListener = [[JAMotionListener alloc] init];
+    self.motionListener = [[JAMotionListener alloc] initWithName:@"infoMotion"];
     self.motionListener.delegate = self;
     [self.motionListener startListening];
     

@@ -31,7 +31,7 @@
 //    return motionListener;
 //}
 
-- (id)init {
+- (id)initWithName:(NSString *)name {
     
     NSLog(@"MotionListener Init");
     
@@ -41,6 +41,7 @@
         return nil;
     }
     
+    self.name = name;
     [self resetVariables];
     
     return self;
@@ -58,7 +59,7 @@
 
 - (void)getValues:(NSTimer *)timer
 {
-    
+    NSLog(@"%@ is listening", self.name);
     if(count < 10) {
         count++;
         
@@ -90,7 +91,9 @@
     [self resetVariables];
     [motionManager stopDeviceMotionUpdates];
     [motionManager stopGyroUpdates];
+    motionManager = nil;
     [self.timer invalidate];
+    self.timer = nil;
 }
 
 - (void)resetVariables {

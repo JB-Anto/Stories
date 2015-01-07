@@ -96,7 +96,6 @@
 		77DBC2291A4585F90027B838 /* JAFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77DBC2281A4585F90027B838 /* JAFooterView.m */; };
 		77DBC22C1A458D430027B838 /* bas@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77DBC22A1A458D430027B838 /* bas@2x.png */; };
 		77DBC22D1A458D430027B838 /* haut@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 77DBC22B1A458D430027B838 /* haut@2x.png */; };
-		77DBC2351A470DAB0027B838 /* Article.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77DBC2331A470DAB0027B838 /* Article.storyboard */; };
 		77E74FA31A5C911300E5FE85 /* JAMotionListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E74FA21A5C911300E5FE85 /* JAMotionListener.m */; };
 		77E758101A2469C60015EDEF /* JAUILabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E7580F1A2469C60015EDEF /* JAUILabel.m */; };
 		8D0E7FA61A5C19A4004BB6D3 /* JAChapterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0E7FA51A5C19A4004BB6D3 /* JAChapterView.m */; };
@@ -722,7 +721,6 @@
 		77DBC2281A4585F90027B838 /* JAFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAFooterView.m; sourceTree = "<group>"; };
 		77DBC22A1A458D430027B838 /* bas@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bas@2x.png"; sourceTree = "<group>"; };
 		77DBC22B1A458D430027B838 /* haut@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "haut@2x.png"; sourceTree = "<group>"; };
-		77DBC2341A470DAB0027B838 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Article.storyboard; sourceTree = "<group>"; };
 		77E74FA11A5C911300E5FE85 /* JAMotionListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAMotionListener.h; sourceTree = "<group>"; };
 		77E74FA21A5C911300E5FE85 /* JAMotionListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAMotionListener.m; sourceTree = "<group>"; };
 		77E7580E1A2469C60015EDEF /* JAUILabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAUILabel.h; sourceTree = "<group>"; };
@@ -1788,7 +1786,6 @@
 				8DBB41561A10EE94006FDAD4 /* Utils */,
 				8D8C02DC1A10CB6200904841 /* Main.storyboard */,
 				8D8C02DF1A10CB6200904841 /* Images.xcassets */,
-				77DBC2331A470DAB0027B838 /* Article.storyboard */,
 				8D8C02E11A10CB6200904841 /* LaunchScreen.xib */,
 				8D8C02D21A10CB6200904841 /* Supporting Files */,
 			);
@@ -2451,9 +2448,7 @@
 				8DBE24EA1A5D3F97001BE80B /* Swipe_00081.png in Resources */,
 				0AEC802F1A3B20EB004F0B1C /* background_cover_3@2x.png in Resources */,
 				93DABC841A5D4E1500E9C18A /* top-article.svg in Resources */,
-				0A63B8141A2D1DBD0032A73F /* loader_2@2x.png in Resources */,
 				8DBE248D1A5D3F97001BE80B /* Hold_00070.png in Resources */,
-				77E74F9F1A5C79FA00E5FE85 /* top-3.svg in Resources */,
 				8DBE23CD1A5D3F97001BE80B /* Drag_00078.png in Resources */,
 				8DBE242D1A5D3F97001BE80B /* Flip_00073.png in Resources */,
 				8DBE23C41A5D3F97001BE80B /* Drag_0007.png in Resources */,
@@ -2487,7 +2482,6 @@
 				8DBE23ED1A5D3F97001BE80B /* Flip_00015.png in Resources */,
 				8DBE24291A5D3F97001BE80B /* Flip_0007.png in Resources */,
 				77DBC22C1A458D430027B838 /* bas@2x.png in Resources */,
-				93A01BEA1A5C1A2700E46917 /* bottom-2.svg in Resources */,
 				8DBE23631A5D3F97001BE80B /* DoubleTap_00032.png in Resources */,
 				8DBE24171A5D3F97001BE80B /* Flip_00053.png in Resources */,
 				8DBE248C1A5D3F97001BE80B /* Hold_0007.png in Resources */,
@@ -2499,10 +2493,8 @@
 				8DBE24B01A5D3F97001BE80B /* Swipe_00029.png in Resources */,
 				8DBE23B41A5D3F97001BE80B /* Drag_00055.png in Resources */,
 				8DBE24A41A5D3F97001BE80B /* Swipe_00018.png in Resources */,
-				77DBC2351A470DAB0027B838 /* Article.storyboard in Resources */,
 				8DBE23941A5D3F97001BE80B /* Drag_00026.png in Resources */,
 				8DBE23BB1A5D3F97001BE80B /* Drag_00061.png in Resources */,
-				77ACC1851A554962009E6653 /* top.svg in Resources */,
 				8DBE24041A5D3F97001BE80B /* Flip_00036.png in Resources */,
 				8DBE23AC1A5D3F97001BE80B /* Drag_00048.png in Resources */,
 				8DBE24A51A5D3F97001BE80B /* Swipe_00019.png in Resources */,
@@ -2755,7 +2747,6 @@
 				8DBE241E1A5D3F97001BE80B /* Flip_0006.png in Resources */,
 				8DBE23661A5D3F97001BE80B /* DoubleTap_00035.png in Resources */,
 				8DBE24E01A5D3F97001BE80B /* Swipe_00072.png in Resources */,
-				77ACC1881A568DE2009E6653 /* bottom.svg in Resources */,
 				0AEC801D1A3B1906004F0B1C /* 1-3.svg in Resources */,
 				8DBE23851A5D3F97001BE80B /* Drag_00012.png in Resources */,
 				8DBE24131A5D3F97001BE80B /* Flip_0005.png in Resources */,
@@ -2915,9 +2906,6 @@
 				93DABC831A5D4E1500E9C18A /* bottom-info.svg in Resources */,
 				770CB93B1A23491E002817BE /* Circular-Std-Book.otf in Resources */,
 				7702545D1A53E57800C6FB98 /* storiesOld.json in Resources */,
-				0A63B81A1A2D1DBD0032A73F /* loader_8@2x.png in Resources */,
-				0A63B81E1A2D1DBD0032A73F /* loader_12@2x.png in Resources */,
-				0A63B8381A2D1DBD0032A73F /* loader_38@2x.png in Resources */,
 				777CA2861A24947E008A7FE3 /* Calibre-Semibold-Italic.otf in Resources */,
 				8DBE24061A5D3F97001BE80B /* Flip_00038.png in Resources */,
 				8DBE235C1A5D3F97001BE80B /* DoubleTap_00026.png in Resources */,
@@ -2926,11 +2914,9 @@
 				8DBE249E1A5D3F97001BE80B /* Swipe_00012.png in Resources */,
 				770CB93B1A23491E002817BE /* Circular-Std-Book.otf in Resources */,
 				7702545D1A53E57800C6FB98 /* storiesOld.json in Resources */,
-				93A01BEB1A5C1A2700E46917 /* top-2.svg in Resources */,
 				777CA2861A24947E008A7FE3 /* Calibre-Semibold-Italic.otf in Resources */,
 				8DBE24D31A5D3F97001BE80B /* Swipe_00060.png in Resources */,
 				8DBE24A81A5D3F97001BE80B /* Swipe_00021.png in Resources */,
-				77E74F9E1A5C79FA00E5FE85 /* bottom-3.svg in Resources */,
 				8DBE248A1A5D3F97001BE80B /* Hold_00068.png in Resources */,
 				8DBE24521A5D3F97001BE80B /* Hold_00017.png in Resources */,
 			);
@@ -3037,14 +3023,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		77DBC2331A470DAB0027B838 /* Article.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				77DBC2341A470DAB0027B838 /* Base */,
-			);
-			name = Article.storyboard;
-			sourceTree = "<group>";
-		};
 		8D8C02DC1A10CB6200904841 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

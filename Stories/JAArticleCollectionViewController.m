@@ -167,7 +167,7 @@
     _followView = [[JAFollowView alloc]initWithFrame:CGRectMake(CGRectGetWidth(self.collectionView.bounds) -75, self.collectionView.contentOffset.y + 35, 40, 40)];
     _followView.delegate = self;
     _followView.backgroundColor = [UIColor clearColor];
-    [_followView setColor:[UIColor colorWithHue:0.68 saturation:0.2 brightness:0.54 alpha:1]];
+    [_followView setColor:[self.manager getCurrentTextColor]];
     [self.collectionView addSubview:_followView];
 	[self animateFollow];
 }

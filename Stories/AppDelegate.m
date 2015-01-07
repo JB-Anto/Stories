@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "JACoverCollectionViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +17,18 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    self.motionListener = [[JAMotionListener alloc] init];
+    self.motionListener.delegate = self;
+    
     return YES;
+}
+
+- (void)deviceDidFlipped {
+    UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
+    if(![navigationController.topViewController isKindOfClass:[JACoverCollectionViewController class]]) {
+    	[navigationController popToRootViewControllerAnimated:NO];
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

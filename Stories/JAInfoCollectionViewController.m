@@ -45,11 +45,6 @@
     self.manager = [JAManagerData sharedManager];
     self.plistManager = [JAPlistManager sharedInstance];
     
-    //Motion Listener
-    self.motionListener = [[JAMotionListener alloc] initWithName:@"infoMotion"];
-    self.motionListener.delegate = self;
-    [self.motionListener startListening];
-    
     JAInfoModel *info = [self.manager getCurrentInfo];
     self.blocks = [info blocks];
     // NSArray of each resume block ids
@@ -83,7 +78,6 @@
 }
 
 -(void)doubleTap:(UITapGestureRecognizer*)sender{
-    [self.motionListener stopListening];
     [self.collectionView setUserInteractionEnabled:NO];
     [self.followView fadeOut];
     CGFloat scrollTo;
@@ -229,12 +223,6 @@
     else{
         [self.followView animationBorder:JAAnimEntryOut];
     }
-}
-
-#pragma mark <JAMotionListenerDelegate>
-- (void)deviceDidFlipped {
-    [self.motionListener stopListening];
-    [self.navigationController popToRootViewControllerAnimated:NO];
 }
 
 #pragma mark <UICollectionViewDataSource>

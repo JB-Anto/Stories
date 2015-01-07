@@ -17,10 +17,5 @@
 
 @property (assign, nonatomic) id <JAMotionListenerDelegate> delegate;
 @property (strong, nonatomic) CMMotionManager *motionManager;
-@property (strong, nonatomic) NSTimer *timer;
-@property (strong, nonatomic) NSString *name;
 
-- (id)initWithName:(NSString *)name;
-- (void) startListening;
-- (void) stopListening;
 @end

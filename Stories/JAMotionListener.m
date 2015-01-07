@@ -22,18 +22,7 @@
 @synthesize delegate;
 @synthesize motionManager;
 
-//+ (id)sharedMotionManager {
-//    static JAMotionListener *motionListener = nil;
-//    static dispatch_once_t onceToken;
-//    dispatch_once(&onceToken, ^{
-//        motionListener = [[self alloc] init];
-//    });
-//    return motionListener;
-//}
-
-- (id)initWithName:(NSString *)name {
-    
-    NSLog(@"MotionListener Init");
+- (id)init {
     
     self = [super init];
     
@@ -41,25 +30,20 @@
         return nil;
     }
     
-    self.name = name;
     [self resetVariables];
-    
-    return self;
-    
-}
-
-- (void)startListening {
     motionManager = [CMMotionManager new];
     [motionManager setDeviceMotionUpdateInterval:0.05];
     [motionManager setGyroUpdateInterval:0.05];
     [motionManager startDeviceMotionUpdates];
     [motionManager startGyroUpdates];
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(getValues:) userInfo:nil repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(getValues:) userInfo:nil repeats:YES];
+    
+    return self;
+    
 }
 
 - (void)getValues:(NSTimer *)timer
 {
-    NSLog(@"%@ is listening", self.name);
     if(count < 10) {
         count++;
         
@@ -84,16 +68,6 @@
 
 - (void)deviceFlipped {
     [delegate deviceDidFlipped];
-}
-
-- (void) stopListening {
-    delegate = nil;
-    [self resetVariables];
-    [motionManager stopDeviceMotionUpdates];
-    [motionManager stopGyroUpdates];
-    motionManager = nil;
-    [self.timer invalidate];
-    self.timer = nil;
 }
 
 - (void)resetVariables {

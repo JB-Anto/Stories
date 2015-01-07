@@ -49,11 +49,6 @@
     self.manager = [JAManagerData sharedManager];
     self.plistManager = [JAPlistManager sharedInstance];
     
-    //Motion Listener
-    self.motionListener = [[JAMotionListener alloc] initWithName:@"motionArticle"];
-    self.motionListener.delegate = self;
-    [self.motionListener startListening];
-    
     JAArticleModel *article = [self.manager getCurrentArticle];
     self.blocks = [article blocks];
     self.credits = [article credits];
@@ -103,7 +98,6 @@
 
 -(void)doubleTap:(UITapGestureRecognizer*)sender {
     [self.collectionView setUserInteractionEnabled:NO];
-    [self.motionListener stopListening];
     CGFloat scrollTo;
     self.headerView.center = self.headerView.initialCenter;
     self.footerView.center = self.footerView.initialCenter;
@@ -194,7 +188,6 @@
 }
 
 - (void)loadNextView {
-    [self.motionListener stopListening];
     [self.followView fadeOut];
 
     [self.delegate scrollRead:(self.collectionView.contentOffset.y / (self.collectionViewLayout.collectionViewContentSize.height - self.collectionView.frame.size.height)) indexArticle:self.manager.currentArticle];
@@ -207,13 +200,6 @@
 
 - (IBAction)returnFromInfoView:(UIStoryboardSegue*)segue{
   
-}
-
-#pragma mark <JAMotionListenerDelegate>
-- (void)deviceDidFlipped {
-    [self.delegate scrollRead:(self.collectionView.contentOffset.y / (self.collectionViewLayout.collectionViewContentSize.height - self.collectionView.frame.size.height)) indexArticle:self.manager.currentArticle];
-    [self.motionListener stopListening];
-    [self.navigationController popToRootViewControllerAnimated:NO];
 }
 
 #pragma mark <UICollectionViewDataSource>

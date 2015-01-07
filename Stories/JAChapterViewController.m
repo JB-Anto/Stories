@@ -33,11 +33,6 @@
     self.manager = [JAManagerData sharedManager];
     self.plistManager = [JAPlistManager sharedInstance];
     
-    //Motion Listener
-    self.motionListener = [[JAMotionListener alloc] initWithName:@"chapterMotion"];
-    self.motionListener.delegate = self;
-    [self.motionListener startListening];
-    
     self.titlesArray = [NSMutableArray array];
 
     self.heightCellArray = [NSMutableArray array];
@@ -117,12 +112,6 @@
     
 }
 
-#pragma mark <JAMotionListenerDelegate>
-- (void)deviceDidFlipped {
-    [self.motionListener stopListening];
-    [self.navigationController popToRootViewControllerAnimated:NO];
-}
-
 -(void)updatePercentChapters{
     for (int i = 0; i < [self.titlesArray count]; i++) {
         for (int k = 0; k < [[self.titlesArray objectAtIndex:i] count]; k++) {
@@ -157,7 +146,6 @@
 
 }
 -(void)doubleTap:(UITapGestureRecognizer*)sender{
-    [self.motionListener stopListening];
     [self performSegueWithIdentifier:@"JACoverPop" sender:self];
 }
 -(void)longPressDetected:(UITapGestureRecognizer *)sender{
@@ -228,7 +216,6 @@
     
 }
 -(void)loadNextView{
-    [self.motionListener stopListening];
     [self performSegueWithIdentifier:@"JAArticlePush" sender:self];
 }
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset{

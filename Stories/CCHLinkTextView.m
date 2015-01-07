@@ -63,7 +63,7 @@ NSString *const CCHLinkAttributeName = @"CCHLinkAttributeName";
 - (void)setUp
 {
     self.touchDownLocation = CGPointZero;
-    self.linkTextTouchAttributes = @{NSBackgroundColorAttributeName : UIColor.lightGrayColor};
+    self.linkTextTouchAttributes = @{NSBackgroundColorAttributeName : [UIColor clearColor]};
     
     
     

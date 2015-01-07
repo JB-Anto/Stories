@@ -123,8 +123,7 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.followView fadeIn];
     [self reverseAnimation];
 }
-- (void)dealloc
-{
+- (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 

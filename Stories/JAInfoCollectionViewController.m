@@ -78,6 +78,7 @@
 }
 
 -(void)doubleTap:(UITapGestureRecognizer*)sender{
+    [self.collectionView setUserInteractionEnabled:NO];
     [self.followView fadeOut];
     CGFloat scrollTo;
     self.headerView.center = self.headerView.initialCenter;
@@ -146,7 +147,6 @@
 }
 
 - (void)setupFollowView {
-    
     _followView = [[JAFollowView alloc]initWithFrame:CGRectMake(CGRectGetWidth(self.collectionView.bounds) -75, self.collectionView.contentOffset.y + 35, 40, 40)];
     _followView.delegate = self;
     _followView.backgroundColor = [UIColor clearColor];

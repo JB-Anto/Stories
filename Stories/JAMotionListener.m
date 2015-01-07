@@ -70,7 +70,7 @@
             maxRoll = motionManager.deviceMotion.attitude.roll;
         }
         
-        if(maxRoll < -2.5 && max > 8.5 && !isFlipped) {
+        if((maxRoll < -2.3 || maxRoll > 2.3)  && max > 8 && !isFlipped) {
             isFlipped = YES;
             [self deviceFlipped];
         }

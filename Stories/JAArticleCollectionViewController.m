@@ -101,6 +101,7 @@
 
 
 -(void)doubleTap:(UITapGestureRecognizer*)sender {
+    [self.collectionView setUserInteractionEnabled:NO];
     CGFloat scrollTo;
     self.headerView.center = self.headerView.initialCenter;
     self.footerView.center = self.footerView.initialCenter;
@@ -322,7 +323,7 @@
             // Set Content
             [resumeCell.resumeLabel initWithString:[self.currentBlock text]];
             resumeCell.idx = [self.resumesID indexOfObject:[NSNumber numberWithInt:[self.currentBlock id]]];
-            [resumeCell addConstraint:[NSLayoutConstraint constraintWithItem:resumeCell.resumeLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:resumeCell.contentView attribute:NSLayoutAttributeRight multiplier:0.3 - (0.3-(0.3/(resumeCell.idx+1))) + CGFLOAT_MIN constant:0]];
+            [resumeCell.contentView addConstraint:[NSLayoutConstraint constraintWithItem:resumeCell.resumeLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:resumeCell.contentView attribute:NSLayoutAttributeRight multiplier:0.3 - (0.3-(0.3/(resumeCell.idx+1))) + CGFLOAT_MIN constant:0]];
             [resumeCell updateConstraintsIfNeeded];
 
             cell = resumeCell;
@@ -414,7 +415,7 @@
             [cell.titleLabel  initWithString:[self.currentBlock title]];
             maximumSizeOfLabel = CGSizeMake(cellWidth, CGFLOAT_MAX);
             optimalSizeForLabel = [cell.titleLabel sizeThatFits:maximumSizeOfLabel];
-            sizeOfCell = CGSizeMake(cellWidth, optimalSizeForLabel.height+125);
+            sizeOfCell = CGSizeMake(cellWidth, optimalSizeForLabel.height+100);
             
         } else if([[self.currentBlock type] isEqualToString:@"resume"]) {
 
@@ -422,7 +423,7 @@
             [cell.resumeLabel  initWithString:[self.currentBlock text]];
             maximumSizeOfLabel = CGSizeMake(160, CGFLOAT_MAX);
             optimalSizeForLabel = [cell.resumeLabel sizeThatFits:maximumSizeOfLabel];
-            sizeOfCell = CGSizeMake(cellWidth, optimalSizeForLabel.height);
+            sizeOfCell = CGSizeMake(cellWidth, optimalSizeForLabel.height/2);
             
         } else if([[self.currentBlock type] isEqualToString:@"paragraph"]) {
             

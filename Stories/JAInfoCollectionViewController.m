@@ -39,7 +39,7 @@
     [super viewDidLoad];
     
     // CollectionView Initialization
-    [self.collectionView setBackgroundColor:[UIColor colorWithHue:0 saturation:0 brightness:0.97 alpha:1]];
+    [self.collectionView setBackgroundColor:[UIColor colorWithHue:0.67 saturation:0.01 brightness:0.95 alpha:1]];
 
     // Data Management
     self.manager = [JAManagerData sharedManager];
@@ -78,6 +78,7 @@
 }
 
 -(void)doubleTap:(UITapGestureRecognizer*)sender{
+    [self.collectionView setUserInteractionEnabled:NO];
     [self.followView fadeOut];
     CGFloat scrollTo;
     self.headerView.center = self.headerView.initialCenter;
@@ -108,7 +109,7 @@
 //    [self.collectionView addSubview:self.headerView];
     
     // Mask
-    CGPathRef maskPath = [PocketSVG pathFromSVGFileNamed:@"top-2"];
+    CGPathRef maskPath = [PocketSVG pathFromSVGFileNamed:@"top-info"];
     CAShapeLayer *maskLayer = [CAShapeLayer layer];
     maskLayer.path = maskPath;
     if(IS_IPHONE_6){
@@ -130,7 +131,7 @@
     [self.footerView updateConstraintsIfNeeded];
     
     //Mask
-    CGPathRef maskPath = [PocketSVG pathFromSVGFileNamed:@"bottom-2"];
+    CGPathRef maskPath = [PocketSVG pathFromSVGFileNamed:@"bottom-info"];
     CAShapeLayer *maskLayer = [CAShapeLayer layer];
     maskLayer.path = maskPath;
     if(IS_IPHONE_6){
@@ -146,7 +147,6 @@
 }
 
 - (void)setupFollowView {
-    
     _followView = [[JAFollowView alloc]initWithFrame:CGRectMake(CGRectGetWidth(self.collectionView.bounds) -75, self.collectionView.contentOffset.y + 35, 40, 40)];
     _followView.delegate = self;
     _followView.backgroundColor = [UIColor clearColor];

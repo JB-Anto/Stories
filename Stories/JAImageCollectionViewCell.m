@@ -139,7 +139,7 @@
             self.imageView.alpha = 1.0;
             self.imageView.transform = CGAffineTransformMakeScale(1.2, 1.2);
             
-            self.legendLabel.alpha = 0.05;
+            self.legendLabel.alpha = 0.1;
             
         }];
     }

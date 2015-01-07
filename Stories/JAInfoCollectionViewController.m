@@ -165,7 +165,6 @@
     }
     
     if(scrollView.contentOffset.y > scrollView.contentSize.height) {
-        NSLog(@"UP");
         [scrollView setContentOffset:CGPointMake(0, scrollView.contentSize.height + CGRectGetHeight(self.collectionView.bounds)/2)];
     }
     
@@ -209,14 +208,12 @@
 
 #pragma mark - JAFollowView Delegate
 -(void)followArticle:(BOOL)follow {
-    NSLog(@"BOOL Follow %d",follow);
     [self.plistManager setValueForKey:@"follow" value:[NSNumber numberWithBool:follow] index:self.manager.currentStorie];
 }
 
 -(void)animateFollow{
     
     self.followView.validate = [[[self.plistManager getObject:@"follow"] objectAtIndex:self.manager.currentStorie] boolValue];
-    NSLog(@"validate %d", self.followView.validate);
     if([[self.plistManager getObject:@"follow"] objectAtIndex:self.manager.currentStorie] == [NSNumber numberWithBool:true]){
         [self.followView animationBorder:JAAnimEntryIn];
     }

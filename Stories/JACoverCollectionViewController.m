@@ -152,7 +152,7 @@ static NSString * const reuseIdentifier = @"Cell";
 
 }
 -(void)loadNextView{
-    NSLog(@"Hiya!");
+
     [self.followView fadeOut];
     JACoverCollectionViewCell *myCell = [[self.collectionView visibleCells] firstObject];
     [UIView animateWithDuration:.5 animations:^{
@@ -214,18 +214,13 @@ static NSString * const reuseIdentifier = @"Cell";
     myCell.titleLBL.text = [[self.manager.data.stories[row] cover] title];
     myCell.locationLBL.text = [[self.manager.data.stories[row] cover] location];
     [myCell.organicView setColor:[[self.manager.data.stories[row] cover] color]];
-    NSLog(@"Paths %@",[[self.manager.data.stories[row] cover] paths]);
-//    myCell.organicView.paths = [[self.manager.data.stories[row] cover] paths];
     [myCell.organicView setPaths:[[self.manager.data.stories[row] cover] paths]];
-//    if (!myCell.organicView.organicLayer.path) {
-//        [myCell.organicView setPaths:[[self.manager.data.stories[row] cover] paths]];
-//        [myCell.organicView setLayerPath];
-//    }
+    
     return myCell;
 }
 
 -(void)followArticle:(BOOL)follow{
-    NSLog(@"BOOL Follow %@",[NSNumber numberWithBool:follow]);
+
     [self.plistManager setValueForKey:@"follow" value:[NSNumber numberWithBool:follow] index:self.currentIndex];
     if(follow == YES){
         [UIView animateWithDuration:.3 animations:^{
@@ -237,7 +232,7 @@ static NSString * const reuseIdentifier = @"Cell";
                 self.followLBL.alpha = 1;
                 self.followLBL.transform =CGAffineTransformMakeTranslation(0, -5);
             }completion:^(BOOL finished) {
-                [UIView animateWithDuration:.3 animations:^{
+                [UIView animateWithDuration:.3 delay:.5 options:UIViewAnimationOptionCurveLinear animations:^{
                     self.followLBL.transform =CGAffineTransformMakeTranslation(0, -20);
                     self.followLBL.alpha = 0;
                 }completion:^(BOOL finished) {
@@ -250,9 +245,7 @@ static NSString * const reuseIdentifier = @"Cell";
 
             }];
         }];
-
     }
-    
 }
 
 #pragma mark <UICollectionViewDataSource>
@@ -271,13 +264,10 @@ static NSString * const reuseIdentifier = @"Cell";
     if (scrollView == self.collectionView) {
         [self.cellToAnimate animateEnter];
     }
-//    [self.cellToAnimate.organicView middleAnimation];
 }
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(JACoverCollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
     self.cellToAnimate = cell;
-//    for(JACoverCollectionViewCell *cell in [self.collectionView visibleCells]){
-//        [cell resetAnimation];
-//    }
+
     if(self.firstTime){
         [cell animateEnter];
         [cell.organicView middleAnimation];
@@ -293,7 +283,7 @@ static NSString * const reuseIdentifier = @"Cell";
 -(void)animateFollow{
     
     self.followView.validate = [[[self.plistManager getObject:@"follow"] objectAtIndex:self.currentIndex] boolValue];
-    NSLog(@"validate %d", self.followView.validate);
+
     if([[self.plistManager getObject:@"follow"] objectAtIndex:self.currentIndex] == [NSNumber numberWithBool:true]){
         [self.followView animationBorder:JAAnimEntryIn];
     }
@@ -306,7 +296,6 @@ static NSString * const reuseIdentifier = @"Cell";
         self.currentIndex = (int)(scrollView.contentOffset.x/self.collectionView.frame.size.width);
         [self.cellToAnimate.organicView middleAnimation];
         [self animateFollow];
-        NSLog(@"INDEXXX %li",(long)self.currentIndex);
     }
     else{
         [[NSNotificationCenter defaultCenter] postNotificationName:@"myTestNotification" object:nil];

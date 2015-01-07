@@ -239,10 +239,6 @@
     [self.loaderView movePosition:CGPointMake(self.collectionView.center.x, scrollView.contentOffset.y + self.collectionView.bounds.size.height/2)];
 }
 
--(void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
-//    NSLog(@"Begin Decelerating");
-}
-
 #pragma mark - JAFollowView Delegate
 - (void)followArticle:(BOOL)follow {
 
@@ -252,7 +248,6 @@
 -(void)animateFollow{
     
     self.followView.validate = [[[self.plistManager getObject:@"follow"] objectAtIndex:self.manager.currentStorie] boolValue];
-    NSLog(@"validate %d", self.followView.validate);
     if([[self.plistManager getObject:@"follow"] objectAtIndex:self.manager.currentStorie] == [NSNumber numberWithBool:true]){
         [self.followView animationBorder:JAAnimEntryIn];
     }

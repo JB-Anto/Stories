@@ -75,7 +75,6 @@ static JAPlistManager *sharedInstance = nil;
             }
             [plistData setObject:percent forKey:@"percentRead"];
             [self writeDataToPlist:plistData];
-            NSLog(@"PERCENT %@", percent);
         }
 
     }
@@ -85,7 +84,6 @@ static JAPlistManager *sharedInstance = nil;
 #pragma mark - User info value handlers
 - (NSString*)getTuto
 {
-    NSLog(@"test get %@",[[self getPlistData] objectForKey:@"tuto"]);
     return [[self getPlistData] objectForKey:@"tuto"];
 }
 
@@ -96,25 +94,16 @@ static JAPlistManager *sharedInstance = nil;
 
     [self writeDataToPlist:plistData];
 
-    NSLog(@" %@ - %@ ",@"tuto", [self getTuto]);
+//    NSLog(@" %@ - %@ ",@"tuto", [self getTuto]);
 }
 - (NSMutableArray *)getObject:(NSString*)key
 {
-//    NSLog(@"stories %@", [self getPlistData]);
+
     NSMutableArray *array = [NSMutableArray arrayWithArray:[[self getPlistData] objectForKey:key]];
     return array;
 
 }
 
-//- (void)setValueForKey:(NSString *)key value:(NSString *)value{
-//    NSMutableDictionary *plistData = [self getPlistData];
-//    
-//    [plistData setObject:value forKey:key];
-//    
-//    [self writeDataToPlist:plistData];
-//    
-//    NSLog(@" %@ - %@ ",key, [self getObject:key] );
-//}
 - (void)setValueForKey:(NSString *)key value:(NSNumber*)value index:(NSInteger)index
 {
     
@@ -122,14 +111,13 @@ static JAPlistManager *sharedInstance = nil;
     
     NSMutableArray *follow = [self getObject:key];
     
-//    NSLog(@"index %li || value %@ || follow %@",(long)index,value,follow);
     [follow removeObjectAtIndex:index];
     [follow insertObject:value atIndex:index];
     [plistData setObject:follow forKey:key];
     
     [self writeDataToPlist:plistData];
-    
-    NSLog(@" %@ - %@ ",key, [self getObject:key] );
+//    
+//    NSLog(@" %@ - %@ ",key, [self getObject:key] );
 
 }
 - (NSMutableArray *)getPercentReadArray
@@ -162,7 +150,7 @@ static JAPlistManager *sharedInstance = nil;
     
     [self writeDataToPlist:plistData];
     
-    NSLog(@"Percents %@ ",[self getObject:@"percentRead"]);
+//    NSLog(@"Percents %@ ",[self getObject:@"percentRead"]);
     
 }
 #pragma mark - Update data handler

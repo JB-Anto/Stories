@@ -47,13 +47,11 @@
     firstStepOrganic = [paths objectAtIndex:0];
     middleStepOrganic = [paths objectAtIndex:1];
     endStepOrganic = [paths objectAtIndex:2];
-
-//    self.paths = paths;
-    NSLog(@"Middle %@ || end %@",middleStepOrganic, endStepOrganic);
+    
     self.organicLayer.path = [PocketSVG pathFromSVGFileNamed:firstStepOrganic];
 }
 -(void)middleAnimation{
-    NSLog(@"Animation");
+    
     CGPathRef first = [PocketSVG pathFromSVGFileNamed:firstStepOrganic];
     CGPathRef middle = [PocketSVG pathFromSVGFileNamed:middleStepOrganic];
     CABasicAnimation *pathAnimation = [CABasicAnimation animationWithKeyPath:@"path"];

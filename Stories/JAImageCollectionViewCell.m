@@ -125,8 +125,6 @@
 - (void)handleSwipeFrom:(UISwipeGestureRecognizer *)gesture
 {
     
-    NSLog(@"Swipe");
-    
     if (gesture.direction == UISwipeGestureRecognizerDirectionRight) {
         
         [self layoutIfNeeded];

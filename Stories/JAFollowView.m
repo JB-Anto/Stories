@@ -112,7 +112,7 @@
     self.validate = NO;
 }
 -(void)animationBorder:(JAAnimationEntry)entry{
-//    NSLog(@"Scintillement %ld || %ld",self.lastEntry,entry);
+
     if(entry != self.lastEntry){
         CABasicAnimation *animation =
         [CABasicAnimation animationWithKeyPath:@"lineWidth"];

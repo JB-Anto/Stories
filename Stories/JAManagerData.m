@@ -27,7 +27,6 @@
 
 - (id)init {
     if (self = [super init]) {
-        NSLog(@"Init singleton");
         [self getDataFromJSON];
     }
     return self;

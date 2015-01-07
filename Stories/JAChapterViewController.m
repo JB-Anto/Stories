@@ -85,17 +85,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-//    NSUInteger chaptersCount = [[[self.manager getCurrentStorie] chapters] count];
-    
-//    for(UIView *subview in [self.titlesView subviews]) {
-//        if([subview isKindOfClass:[UIView class]]) {
-//            [subview removeFromSuperview];
-//        }
-//    }
-//    [self.titlesArray removeAllObjects];
-//    for (int i = 0; i < chaptersCount; i++) {
-//        [self.titlesView addSubview:[self createTitlesBlocks:i]];
-//    }
+
     [self setOpacityChapters:self.containerChapterScrollView.chapterScrollView];
     [self updatePercentChapters];
     
@@ -104,7 +94,6 @@
     }];
 
     for (int j = 0; j < [[[self.manager getCurrentStorie] chapters] count]; j++) {
-
         for (int i = 0; i < [[self.titlesArray objectAtIndex:j] count] ; i++) {
             [self animateTitlesView:i forChapter:j negativeScale:.2 negativeAlpha:.3 delay:i * .05];
         }
@@ -157,9 +146,11 @@
     int index = (int)(self.touchPosition.y/heightCell.floatValue);
 
     [self animateTitlesView:index forChapter:self.manager.currentChapter negativeScale:0.0 negativeAlpha:0.0 delay:0.0];
-    
+    if(sender.state == UIGestureRecognizerStateBegan){
+        self.containerChapterScrollView.chapterScrollView.userInteractionEnabled = NO;
+    }
     if(self.currentIndex != index){
-//        NSLog(@"index %i %i",self.currentIndex,index);
+
         self.touchToLoad = NO;
         [self.loaderView setState:UIGestureRecognizerStateEnded];
         self.currentIndex = index;
@@ -185,6 +176,7 @@
     }
 
     if(sender.state == UIGestureRecognizerStateEnded){
+        self.containerChapterScrollView.chapterScrollView.userInteractionEnabled = YES;
         if(loadedNextView == NO){
             [self.timerForLoader invalidate];
             self.touchToLoad = NO;
@@ -209,7 +201,6 @@
 }
 
 -(void)startLoader{
-//    NSLog(@"Start Loader");
     self.touchToLoad = YES;
     [self.loaderView movePosition:self.positionLoader];
     [self.loaderView setState:UIGestureRecognizerStateBegan];
@@ -248,7 +239,6 @@
 }
 -(void)scrollRead:(float)percent indexArticle:(int)index{
 
-//    NSLog(@"Percent %f index %i",percent,index);
     NSNumber *percentNumber = [NSNumber numberWithFloat:percent];
     [self.plistManager setPercentRead:percentNumber storie:self.manager.currentStorie chapter:self.manager.currentChapter article:index];
 }
@@ -264,7 +254,6 @@
     if ([segue.identifier isEqualToString:@"JAArticlePush"]) {
         JAArticleCollectionViewController *articleController = segue.destinationViewController;
         [articleController setDelegate:self];
-//        NSLog(@"TESTTT %@",[self.plistManager getPercentRead]);
         articleController.oldPercentScroll = [[self.plistManager getPercentRead] floatValue];
     }
 }

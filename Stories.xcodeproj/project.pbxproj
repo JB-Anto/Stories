@@ -90,7 +90,6 @@
 		77A0D8421A27303300963904 /* JAUITextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A0D8411A27303300963904 /* JAUITextView.m */; };
 		77A0D8481A27712800963904 /* CCHLinkTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A0D8441A27712800963904 /* CCHLinkTextView.m */; };
 		77A0D8491A27712800963904 /* CCHLinkGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A0D8461A27712800963904 /* CCHLinkGestureRecognizer.m */; };
-		77C96DED1A38E7910074E9D9 /* ParallaxLayoutAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C96DEC1A38E7910074E9D9 /* ParallaxLayoutAttributes.m */; };
 		77C96DF01A38E8B20074E9D9 /* ParallaxFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C96DEF1A38E8B20074E9D9 /* ParallaxFlowLayout.m */; };
 		77DBC2221A45819F0027B838 /* JAHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77DBC2211A45819F0027B838 /* JAHeaderView.m */; };
 		77DBC2291A4585F90027B838 /* JAFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77DBC2281A4585F90027B838 /* JAFooterView.m */; };
@@ -129,10 +128,6 @@
 		8D8C02E01A10CB6200904841 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D8C02DF1A10CB6200904841 /* Images.xcassets */; };
 		8D8C02E31A10CB6200904841 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D8C02E11A10CB6200904841 /* LaunchScreen.xib */; };
 		8D8C02EF1A10CB6300904841 /* StoriesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D8C02EE1A10CB6300904841 /* StoriesTests.m */; };
-		8DA7D34B1A5AD6FD000A6EB7 /* tuto1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DA7D3471A5AD6FD000A6EB7 /* tuto1@2x.png */; };
-		8DA7D34C1A5AD6FD000A6EB7 /* tuto2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DA7D3481A5AD6FD000A6EB7 /* tuto2@2x.png */; };
-		8DA7D34D1A5AD6FD000A6EB7 /* tuto3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DA7D3491A5AD6FD000A6EB7 /* tuto3@2x.png */; };
-		8DA7D34E1A5AD6FD000A6EB7 /* tuto4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DA7D34A1A5AD6FD000A6EB7 /* tuto4@2x.png */; };
 		8DB9C3D41A160BE200FBC975 /* JAFollowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DB9C3D31A160BE200FBC975 /* JAFollowView.m */; };
 		8DBE23491A5D3F97001BE80B /* DoubleTap_0000.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DBE218F1A5D3F97001BE80B /* DoubleTap_0000.png */; };
 		8DBE234A1A5D3F97001BE80B /* DoubleTap_0001.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DBE21901A5D3F97001BE80B /* DoubleTap_0001.png */; };
@@ -575,6 +570,7 @@
 		8DD244561A13850800FC7683 /* JACoverCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD244551A13850800FC7683 /* JACoverCollectionViewController.m */; };
 		8DD244591A13856000FC7683 /* JACoverCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD244581A13856000FC7683 /* JACoverCollectionViewCell.m */; };
 		8DD964171A5BE51E00C4131C /* JAContainerChapterScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD964161A5BE51E00C4131C /* JAContainerChapterScrollView.m */; };
+		8DFA44FA1A5D8F4A004F514E /* ParallaxLayoutAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DFA44F91A5D8F4A004F514E /* ParallaxLayoutAttributes.m */; };
 		93768B751A5ABFB300C25BF2 /* 2-0-0-chinese.png in Resources */ = {isa = PBXBuildFile; fileRef = 93768B731A5ABFB300C25BF2 /* 2-0-0-chinese.png */; };
 		93768B761A5ABFB300C25BF2 /* 2-0-0-chinese@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93768B741A5ABFB300C25BF2 /* 2-0-0-chinese@2x.png */; };
 		93768B791A5AE70F00C25BF2 /* 0-1-4-poroshenko.png in Resources */ = {isa = PBXBuildFile; fileRef = 93768B771A5AE70F00C25BF2 /* 0-1-4-poroshenko.png */; };
@@ -736,8 +732,6 @@
 		77A0D8451A27712800963904 /* CCHLinkTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCHLinkTextView.h; sourceTree = "<group>"; };
 		77A0D8461A27712800963904 /* CCHLinkGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCHLinkGestureRecognizer.m; sourceTree = "<group>"; };
 		77A0D8471A27712800963904 /* CCHLinkGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCHLinkGestureRecognizer.h; sourceTree = "<group>"; };
-		77C96DEB1A38E7910074E9D9 /* ParallaxLayoutAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParallaxLayoutAttributes.h; path = Images/ParallaxLayoutAttributes.h; sourceTree = "<group>"; };
-		77C96DEC1A38E7910074E9D9 /* ParallaxLayoutAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ParallaxLayoutAttributes.m; path = Images/ParallaxLayoutAttributes.m; sourceTree = "<group>"; };
 		77C96DEE1A38E8B20074E9D9 /* ParallaxFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParallaxFlowLayout.h; sourceTree = "<group>"; };
 		77C96DEF1A38E8B20074E9D9 /* ParallaxFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParallaxFlowLayout.m; sourceTree = "<group>"; };
 		77DBC2201A45819F0027B838 /* JAHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAHeaderView.h; sourceTree = "<group>"; };
@@ -810,10 +804,6 @@
 		8D8C02E81A10CB6300904841 /* StoriesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StoriesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D8C02ED1A10CB6300904841 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D8C02EE1A10CB6300904841 /* StoriesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoriesTests.m; sourceTree = "<group>"; };
-		8DA7D3471A5AD6FD000A6EB7 /* tuto1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tuto1@2x.png"; sourceTree = "<group>"; };
-		8DA7D3481A5AD6FD000A6EB7 /* tuto2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tuto2@2x.png"; sourceTree = "<group>"; };
-		8DA7D3491A5AD6FD000A6EB7 /* tuto3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tuto3@2x.png"; sourceTree = "<group>"; };
-		8DA7D34A1A5AD6FD000A6EB7 /* tuto4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tuto4@2x.png"; sourceTree = "<group>"; };
 		8DB9C3D21A160BE200FBC975 /* JAFollowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAFollowView.h; sourceTree = "<group>"; };
 		8DB9C3D31A160BE200FBC975 /* JAFollowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAFollowView.m; sourceTree = "<group>"; };
 		8DBE218F1A5D3F97001BE80B /* DoubleTap_0000.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DoubleTap_0000.png; sourceTree = "<group>"; };
@@ -1260,6 +1250,8 @@
 		8DD244581A13856000FC7683 /* JACoverCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JACoverCollectionViewCell.m; path = Stories/JACoverCollectionViewCell.m; sourceTree = "<group>"; };
 		8DD964151A5BE51E00C4131C /* JAContainerChapterScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAContainerChapterScrollView.h; sourceTree = "<group>"; };
 		8DD964161A5BE51E00C4131C /* JAContainerChapterScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAContainerChapterScrollView.m; sourceTree = "<group>"; };
+		8DFA44F81A5D8F4A004F514E /* ParallaxLayoutAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParallaxLayoutAttributes.h; sourceTree = "<group>"; };
+		8DFA44F91A5D8F4A004F514E /* ParallaxLayoutAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParallaxLayoutAttributes.m; sourceTree = "<group>"; };
 		93768B731A5ABFB300C25BF2 /* 2-0-0-chinese.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2-0-0-chinese.png"; sourceTree = "<group>"; };
 		93768B741A5ABFB300C25BF2 /* 2-0-0-chinese@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2-0-0-chinese@2x.png"; sourceTree = "<group>"; };
 		93768B771A5AE70F00C25BF2 /* 0-1-4-poroshenko.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "0-1-4-poroshenko.png"; sourceTree = "<group>"; };
@@ -1556,8 +1548,8 @@
 		77C96DEA1A38E7710074E9D9 /* Parallax */ = {
 			isa = PBXGroup;
 			children = (
-				77C96DEB1A38E7910074E9D9 /* ParallaxLayoutAttributes.h */,
-				77C96DEC1A38E7910074E9D9 /* ParallaxLayoutAttributes.m */,
+				8DFA44F81A5D8F4A004F514E /* ParallaxLayoutAttributes.h */,
+				8DFA44F91A5D8F4A004F514E /* ParallaxLayoutAttributes.m */,
 				77C96DEE1A38E8B20074E9D9 /* ParallaxFlowLayout.h */,
 				77C96DEF1A38E8B20074E9D9 /* ParallaxFlowLayout.m */,
 			);
@@ -1878,10 +1870,6 @@
 				8DBE222D1A5D3F97001BE80B /* Flip */,
 				8DBE22911A5D3F97001BE80B /* Hold */,
 				8DBE22E31A5D3F97001BE80B /* Swipe */,
-				8DA7D3471A5AD6FD000A6EB7 /* tuto1@2x.png */,
-				8DA7D3481A5AD6FD000A6EB7 /* tuto2@2x.png */,
-				8DA7D3491A5AD6FD000A6EB7 /* tuto3@2x.png */,
-				8DA7D34A1A5AD6FD000A6EB7 /* tuto4@2x.png */,
 			);
 			path = Tuto;
 			sourceTree = "<group>";
@@ -2539,7 +2527,6 @@
 				8DBE23CD1A5D3F97001BE80B /* Drag_00078.png in Resources */,
 				8DBE242D1A5D3F97001BE80B /* Flip_00073.png in Resources */,
 				8DBE23C41A5D3F97001BE80B /* Drag_0007.png in Resources */,
-				8DA7D34E1A5AD6FD000A6EB7 /* tuto4@2x.png in Resources */,
 				8DBE23951A5D3F97001BE80B /* Drag_00027.png in Resources */,
 				8DBE24B81A5D3F97001BE80B /* Swipe_00036.png in Resources */,
 				8DBE24011A5D3F97001BE80B /* Flip_00033.png in Resources */,
@@ -2675,7 +2662,6 @@
 				8DBE23BF1A5D3F97001BE80B /* Drag_00065.png in Resources */,
 				770CB9411A23491E002817BE /* News-Plantin-Pro-Regular.otf in Resources */,
 				8DBE23E21A5D3F97001BE80B /* Drag_00097.png in Resources */,
-				8DA7D34C1A5AD6FD000A6EB7 /* tuto2@2x.png in Resources */,
 				770CB93A1A23491E002817BE /* Circular-Std-Book-Italic.otf in Resources */,
 				8DBE23DC1A5D3F97001BE80B /* Drag_00091.png in Resources */,
 				8DBE23FA1A5D3F97001BE80B /* Flip_00027.png in Resources */,
@@ -2771,7 +2757,6 @@
 				8DBE247C1A5D3F97001BE80B /* Hold_00055.png in Resources */,
 				8DBE237F1A5D3F97001BE80B /* DoubleTap_0008.png in Resources */,
 				8DBE24841A5D3F97001BE80B /* Hold_00062.png in Resources */,
-				8DA7D34D1A5AD6FD000A6EB7 /* tuto3@2x.png in Resources */,
 				8DBE244C1A5D3F97001BE80B /* Hold_00011.png in Resources */,
 				8DBE23D71A5D3F97001BE80B /* Drag_00087.png in Resources */,
 				8DBE24951A5D3F97001BE80B /* Hold_00078.png in Resources */,
@@ -2896,7 +2881,6 @@
 				8DBE24111A5D3F97001BE80B /* Flip_00048.png in Resources */,
 				8DBE24241A5D3F97001BE80B /* Flip_00065.png in Resources */,
 				93AF58AD1A5D655700514095 /* Loader1.png in Resources */,
-				8DA7D34B1A5AD6FD000A6EB7 /* tuto1@2x.png in Resources */,
 				8DBE243A1A5D3F97001BE80B /* Flip_00085.png in Resources */,
 				8DBE24DC1A5D3F97001BE80B /* Swipe_00069.png in Resources */,
 				8DBE24B71A5D3F97001BE80B /* Swipe_00035.png in Resources */,
@@ -3080,6 +3064,7 @@
 				8D54A9361A14EB8600ABDAD2 /* JSONValueTransformer.m in Sources */,
 				0A58C1091A24C3EA0061C514 /* JACustomNavigationController.m in Sources */,
 				0A3FB1881A272F9800AC4362 /* JAArticleSeguePop.m in Sources */,
+				8DFA44FA1A5D8F4A004F514E /* ParallaxLayoutAttributes.m in Sources */,
 				8D54A9081A14E53700ABDAD2 /* JABlockModel.m in Sources */,
 				0A97B2D51A290400005596C3 /* JAPlistManager.m in Sources */,
 				770CB9231A233006002817BE /* JAImageCollectionViewCell.m in Sources */,
@@ -3104,7 +3089,6 @@
 				8D54A92E1A14EB8600ABDAD2 /* JSONModelArray.m in Sources */,
 				774315831A482DE300158B5D /* JAInfoModel.m in Sources */,
 				8D78D6ED1A5A9F2200A7E1FA /* JAPagerBar.m in Sources */,
-				77C96DED1A38E7910074E9D9 /* ParallaxLayoutAttributes.m in Sources */,
 				777E458A1A52B5D20059E36C /* JAInfoSeguePop.m in Sources */,
 				77A0D8491A27712800963904 /* CCHLinkGestureRecognizer.m in Sources */,
 				7773DBB41A49808900545F27 /* JAInfoCollectionViewController.m in Sources */,

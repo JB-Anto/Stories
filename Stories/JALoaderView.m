@@ -20,10 +20,9 @@
         self.loader = [[UIView alloc]initWithFrame:CGRectMake(frame.origin.x, frame.origin.y, 160, 160)];
         
         NSMutableArray *images = [NSMutableArray array];
-        for (int i = 0; i < 24; i++) {
-            [images addObject:[UIImage imageNamed:[NSString stringWithFormat:@"loader_%i.png",i]]];
+        for (int i = 0; i < 25; i++) {
+            [images addObject:[UIImage imageNamed:[NSString stringWithFormat:@"Loader%i.png", i]]];
         }
-        
         self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 160.0, 160.0)];
         [self.imageView setAnimationImages:images];
         [self.imageView setAnimationRepeatCount:1];

@@ -50,7 +50,7 @@
     self.plistManager = [JAPlistManager sharedInstance];
     
     //Motion Listener
-    self.motionListener = [JAMotionListener sharedMotionManager];
+    self.motionListener = [[JAMotionListener alloc] init];
     self.motionListener.delegate = self;
     
     JAArticleModel *article = [self.manager getCurrentArticle];
@@ -95,6 +95,7 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self.motionListener startListening];
 	[self animateFollow];
     [self.followView fadeIn];
 }
@@ -192,8 +193,7 @@
 }
 
 - (void)loadNextView {
-
-    NSLog(@"ROCKSTAR BABE");
+    [self.motionListener stopListening];
     [self.followView fadeOut];
 
     [self.delegate scrollRead:(self.collectionView.contentOffset.y / (self.collectionViewLayout.collectionViewContentSize.height - self.collectionView.frame.size.height)) indexArticle:self.manager.currentArticle];

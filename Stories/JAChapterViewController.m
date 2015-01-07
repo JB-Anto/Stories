@@ -34,7 +34,7 @@
     self.plistManager = [JAPlistManager sharedInstance];
     
     //Motion Listener
-    self.motionListener = [JAMotionListener sharedMotionManager];
+    self.motionListener = [[JAMotionListener alloc] init];
     self.motionListener.delegate = self;
     [self.motionListener startListening];
     
@@ -83,6 +83,7 @@
     [self.view addSubview:self.loaderView];
 
 }
+
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
 //    NSUInteger chaptersCount = [[[self.manager getCurrentStorie] chapters] count];
@@ -152,6 +153,7 @@
 
 }
 -(void)doubleTap:(UITapGestureRecognizer*)sender{
+    [self.motionListener stopListening];
     [self performSegueWithIdentifier:@"JACoverPop" sender:self];
 }
 -(void)longPressDetected:(UITapGestureRecognizer *)sender{
@@ -222,6 +224,7 @@
     
 }
 -(void)loadNextView{
+    [self.motionListener stopListening];
     [self performSegueWithIdentifier:@"JAArticlePush" sender:self];
 }
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset{

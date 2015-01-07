@@ -22,14 +22,14 @@
 @synthesize delegate;
 @synthesize motionManager;
 
-+ (id)sharedMotionManager {
-    static JAMotionListener *motionListener = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        motionListener = [[self alloc] init];
-    });
-    return motionListener;
-}
+//+ (id)sharedMotionManager {
+//    static JAMotionListener *motionListener = nil;
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        motionListener = [[self alloc] init];
+//    });
+//    return motionListener;
+//}
 
 - (id)init {
     

@@ -16,10 +16,11 @@
 #import "JAHeaderView.h"
 #import "JAFooterView.h"
 
-@interface JAInfoCollectionViewController : UICollectionViewController <UICollectionViewDataSource, UICollectionViewDelegate, FollowDelegate, UIGestureRecognizerDelegate>
+@interface JAInfoCollectionViewController : UICollectionViewController <UICollectionViewDataSource, UICollectionViewDelegate, FollowDelegate, UIGestureRecognizerDelegate, JAMotionListenerDelegate>
 
 @property (strong, nonatomic) JAManagerData *manager;
 @property (strong, nonatomic) JAPlistManager *plistManager;
+@property (strong, nonatomic) JAMotionListener *motionListener;
 @property (strong, nonatomic) NSArray *blocks;
 @property (strong, nonatomic) JAFollowView *followView;
 @property (strong, nonatomic) JAHeaderView *headerView;

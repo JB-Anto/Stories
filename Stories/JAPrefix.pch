@@ -16,6 +16,7 @@
 #import "UIView+Easing.h"
 #import "JAManagerData.h"
 #import "JAPlistManager.h"
+#import "JAMotionListener.h"
 
 #define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
 

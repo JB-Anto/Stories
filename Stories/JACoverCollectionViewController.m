@@ -27,7 +27,7 @@ static NSString * const reuseIdentifier = @"Cell";
     
     self.manager = [JAManagerData sharedManager];
     self.plistManager = [JAPlistManager sharedInstance];
-
+    
     self.firstTime = YES;
     self.animatedLoader = NO;
     self.currentIndex = 0;

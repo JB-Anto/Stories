@@ -23,13 +23,14 @@
 
 @end
 
-@interface JAArticleCollectionViewController : UICollectionViewController <UICollectionViewDataSource, UICollectionViewDelegate, FollowDelegate,UIGestureRecognizerDelegate, JAUITextViewDelegate>
+@interface JAArticleCollectionViewController : UICollectionViewController <UICollectionViewDataSource, UICollectionViewDelegate, FollowDelegate,UIGestureRecognizerDelegate, JAUITextViewDelegate, JAMotionListenerDelegate>
 
 
 @property (strong, nonatomic) NSArray *blocks;
 @property (strong, nonatomic) NSArray *credits;
 @property (strong, nonatomic) JAManagerData *manager;
 @property (strong, nonatomic) JAPlistManager *plistManager;
+@property (strong, nonatomic) JAMotionListener *motionListener;
 @property (strong, nonatomic) JAFollowView *followView;
 @property (strong, nonatomic) JAHeaderView *headerView;
 @property (strong, nonatomic) JAFooterView *footerView;

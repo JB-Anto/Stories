@@ -24,7 +24,7 @@ typedef NS_ENUM(NSInteger, JAAnimDirection) {
 
 @property (nonatomic,strong) UICollectionView *collectionView;
 @property (nonatomic,strong) JACoverCollectionViewCell *cellToAnimate;
-@property (strong, nonatomic) JAFollowView *followView;
+@property (nonatomic,strong) JAFollowView *followView;
 @property (nonatomic,strong) JAManagerData *manager;
 @property (strong, nonatomic) JALoaderView *loaderView;
 @property (strong, nonatomic) UILabel *nameViewLBL;

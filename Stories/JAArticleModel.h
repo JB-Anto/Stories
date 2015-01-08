@@ -21,7 +21,6 @@
 @property (assign, nonatomic) uint id;
 @property (strong, nonatomic) NSString *title;
 @property (strong, nonatomic) NSString *createdAt;
-@property (strong, nonatomic) NSString <Optional> *imageLoading;
 @property (strong, nonatomic) NSArray <JABlockModel> *blocks;
 @property (strong, nonatomic) NSArray <JACreditModel> *credits;
 @property (strong, nonatomic) NSArray <JAInfoModel, Optional> *infos;

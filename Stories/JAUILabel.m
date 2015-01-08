@@ -41,7 +41,6 @@
 
 -(void)applyLetterSpacing
 {
-    //NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:self.text];
     NSMutableAttributedString* attrString = self.attributedText.mutableCopy;
     [attrString addAttribute:NSKernAttributeName
                 value:@(self.letterSpacing)

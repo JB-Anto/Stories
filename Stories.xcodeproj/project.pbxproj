@@ -39,7 +39,6 @@
 		0AEC80361A3B21EF004F0B1C /* forme1.svg in Resources */ = {isa = PBXBuildFile; fileRef = 0AEC80331A3B21EF004F0B1C /* forme1.svg */; };
 		0AEC80371A3B21EF004F0B1C /* forme2.svg in Resources */ = {isa = PBXBuildFile; fileRef = 0AEC80341A3B21EF004F0B1C /* forme2.svg */; };
 		0AEC80381A3B21EF004F0B1C /* forme3.svg in Resources */ = {isa = PBXBuildFile; fileRef = 0AEC80351A3B21EF004F0B1C /* forme3.svg */; };
-		7702545D1A53E57800C6FB98 /* storiesOld.json in Resources */ = {isa = PBXBuildFile; fileRef = 7702545C1A53E57800C6FB98 /* storiesOld.json */; };
 		770254621A53E79800C6FB98 /* 1-0-2-school.png in Resources */ = {isa = PBXBuildFile; fileRef = 770254601A53E79800C6FB98 /* 1-0-2-school.png */; };
 		770254631A53E79800C6FB98 /* 1-0-2-school@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 770254611A53E79800C6FB98 /* 1-0-2-school@2x.png */; };
 		7705EFBA1A2374AD0015B1BD /* Young-Serif-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7705EFB91A2374AD0015B1BD /* Young-Serif-Regular.ttf */; };
@@ -662,7 +661,6 @@
 		0AEC80331A3B21EF004F0B1C /* forme1.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = forme1.svg; sourceTree = "<group>"; };
 		0AEC80341A3B21EF004F0B1C /* forme2.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = forme2.svg; sourceTree = "<group>"; };
 		0AEC80351A3B21EF004F0B1C /* forme3.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = forme3.svg; sourceTree = "<group>"; };
-		7702545C1A53E57800C6FB98 /* storiesOld.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = storiesOld.json; path = Stories/storiesOld.json; sourceTree = "<group>"; };
 		770254601A53E79800C6FB98 /* 1-0-2-school.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1-0-2-school.png"; sourceTree = "<group>"; };
 		770254611A53E79800C6FB98 /* 1-0-2-school@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1-0-2-school@2x.png"; sourceTree = "<group>"; };
 		7705EFB91A2374AD0015B1BD /* Young-Serif-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Young-Serif-Regular.ttf"; path = "Stories/Fonts/Young-Serif-Regular.ttf"; sourceTree = "<group>"; };
@@ -1353,7 +1351,6 @@
 				0A3FB1901A273D7B00AC4362 /* Paths */,
 				8D54A9481A15085600ABDAD2 /* Fonts */,
 				8D54A9111A14E9AF00ABDAD2 /* stories.json */,
-				7702545C1A53E57800C6FB98 /* storiesOld.json */,
 			);
 			name = Ressources;
 			path = ..;
@@ -2992,7 +2989,6 @@
 				0AEC80261A3B1D94004F0B1C /* 3-3.svg in Resources */,
 				93DABC831A5D4E1500E9C18A /* bottom-info.svg in Resources */,
 				770CB93B1A23491E002817BE /* Circular-Std-Book.otf in Resources */,
-				7702545D1A53E57800C6FB98 /* storiesOld.json in Resources */,
 				777CA2861A24947E008A7FE3 /* Calibre-Semibold-Italic.otf in Resources */,
 				8DBE24061A5D3F97001BE80B /* Flip_00038.png in Resources */,
 				8DBE235C1A5D3F97001BE80B /* DoubleTap_00026.png in Resources */,
@@ -3000,7 +2996,6 @@
 				8DBE23D51A5D3F97001BE80B /* Drag_00085.png in Resources */,
 				8DBE249E1A5D3F97001BE80B /* Swipe_00012.png in Resources */,
 				770CB93B1A23491E002817BE /* Circular-Std-Book.otf in Resources */,
-				7702545D1A53E57800C6FB98 /* storiesOld.json in Resources */,
 				777CA2861A24947E008A7FE3 /* Calibre-Semibold-Italic.otf in Resources */,
 				8DBE24D31A5D3F97001BE80B /* Swipe_00060.png in Resources */,
 				8DBE24A81A5D3F97001BE80B /* Swipe_00021.png in Resources */,

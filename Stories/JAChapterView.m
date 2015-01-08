@@ -37,6 +37,7 @@
         titleLBL.textColor = [UIColor whiteColor];
         titleLBL.attributedText = [self createCompleteString:rangeFinalUnderline];
         titleLBL.tag = 1;
+        titleLBL.alpha = 0;
         
         [self setAnchorPoint:CGPointMake(0, 0.5) forView:titleLBL];
         titleLBL.transform = CGAffineTransformMakeScale(0.5, 0.5);

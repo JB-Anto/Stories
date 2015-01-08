@@ -51,10 +51,8 @@
     self.organicLayer.path = [PocketSVG pathFromSVGFileNamed:firstStepOrganic];
 }
 -(void)middleAnimation{
-    NSLog(@"Middle");
     CGPathRef first = [PocketSVG pathFromSVGFileNamed:firstStepOrganic];
     CGPathRef middle = [PocketSVG pathFromSVGFileNamed:middleStepOrganic];
-    NSLog(@"NIL %@ %@",first , middle);
     CABasicAnimation *pathAnimation = [CABasicAnimation animationWithKeyPath:@"path"];
     pathAnimation.duration = 1.2;
     pathAnimation.removedOnCompletion = NO;

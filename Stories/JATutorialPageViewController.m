@@ -32,7 +32,7 @@
     self.imageView = [[UIImageView alloc]init];
     
     NSMutableArray *images = [NSMutableArray array];
-    NSLog(@"val %li",(long)[[self.dico objectForKey:@"numberImage"] integerValue]);
+    
     for (int i = 0; i < [[self.dico objectForKey:@"numberImage"] integerValue]; i++) {
         [images addObject:[UIImage imageNamed:[NSString stringWithFormat:[self.dico objectForKey:@"image"],i]]];
     }

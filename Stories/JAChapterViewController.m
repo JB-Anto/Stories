@@ -48,6 +48,7 @@
     
     // Chapters View
     self.containerChapterScrollView = [[JAContainerChapterScrollView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.bounds.size.height/7) delegate:self];
+    self.containerChapterScrollView.alpha = 0;
     [self.view addSubview:self.containerChapterScrollView];
     
     // Titles View
@@ -86,17 +87,16 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
 
+    [UIView animateWithDuration:.3 animations:^{
+        self.containerChapterScrollView.alpha = 1;
+    }];
+    
     [self setOpacityChapters:self.containerChapterScrollView.chapterScrollView];
     [self updatePercentChapters];
     
-    [UIView animateWithDuration:.5 animations:^{
-        self.containerChapterScrollView.alpha = 1;
-    }];
-
     for (int j = 0; j < [[[self.manager getCurrentStorie] chapters] count]; j++) {
         for (int i = (int)[[self.titlesArray objectAtIndex:j] count] - 1; i >= 0 ; i--) {
-            NSLog(@"TEST %f",(([[self.titlesArray objectAtIndex:j] count] - 1) - i * .05));
-            [self animateTitlesView:i forChapter:j negativeScale:.2 negativeAlpha:.3 delay:((([[self.titlesArray objectAtIndex:j] count] - 1) - i) * .05)];
+            [self animateTitlesView:i forChapter:j negativeScale:.2 negativeAlpha:.3 delay:((([[self.titlesArray objectAtIndex:j] count] - 1) - i) * .035)];
         }
     }
     
@@ -126,7 +126,7 @@
         float percent = [[self.plistManager getPercentRead:index article:i] floatValue]*100;
         
         JAChapterView *chapterView = [[JAChapterView alloc] initWithFrame:CGRectMake(0, i * chapterHeight, self.view.frame.size.width, chapterHeight) blocks:[[[[[self.manager getCurrentStorie] chapters]objectAtIndex:index] articles] objectAtIndex:i] percent:percent];
-        
+  
         [globalTitleBlock addSubview:chapterView];
         
         [arrayOfTitle addObject:chapterView];
@@ -190,7 +190,7 @@
 }
 // Animate with a negative scale and alpha value
 -(void)animateTitlesView:(int)index forChapter:(int)chapterIndex negativeScale:(float)negativeScale negativeAlpha:(float)negativeAlpha delay:(float)delay{
-    NSLog(@"Chapter %i Article %i",chapterIndex,index);
+
     UIView *titleView = [[self.titlesArray objectAtIndex:chapterIndex] objectAtIndex:index];
     UILabel *titleLBL = (UILabel*)[titleView viewWithTag:1];
 

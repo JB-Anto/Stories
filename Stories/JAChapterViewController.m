@@ -193,10 +193,10 @@
 
     UIView *titleView = [[self.titlesArray objectAtIndex:chapterIndex] objectAtIndex:index];
     UILabel *titleLBL = (UILabel*)[titleView viewWithTag:1];
-
+    
     [UIView animateWithDuration:0.2  delay:delay options:UIViewAnimationOptionCurveEaseOut animations:^{
         titleLBL.transform = CGAffineTransformMakeScale(1.0 - negativeScale, 1.0 - negativeScale);
-        titleLBL.alpha = 1.0 - negativeAlpha;
+        titleLBL.alpha = 1.0 - (negativeAlpha > 0.9 ? 0.9 : negativeAlpha);
     } completion:^(BOOL finished) {
     }];
 }

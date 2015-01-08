@@ -56,11 +56,17 @@
         margin = image.size.height + 20;
     }
     
+
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:[self.dico objectForKey:@"title"]];
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    [paragraphStyle setLineSpacing:7.5];
+    [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [[self.dico objectForKey:@"title"] length])];
+    
     UILabel *title = [[UILabel alloc]initWithFrame:CGRectMake(40, margin, self.view.frame.size.width - 80, 80)];
-    title.text = [self.dico objectForKey:@"title"];
+    title.attributedText = attributedString;
     title.textColor = [UIColor whiteColor];
     title.textAlignment = NSTextAlignmentCenter;
-    title.font = [UIFont fontWithName:@"News-Plantin-Pro-Regular-Italic" size:17.0];
+    title.font = [UIFont fontWithName:@"News-Plantin-Pro-Regular-Italic" size:20.0];
     title.lineBreakMode = NSLineBreakByWordWrapping;
     title.numberOfLines = 0;
     
@@ -68,7 +74,7 @@
     if([[self.dico objectForKey:@"button"] isEqual: @1]){
         UIButton *leaveBTN = [[UIButton alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height - 160, self.view.frame.size.width, 40)];
 
-        leaveBTN.titleLabel.font = [UIFont fontWithName:@"News-Plantin-Pro-Regular-Italic" size:17.0];
+        leaveBTN.titleLabel.font = [UIFont fontWithName:@"News-Plantin-Pro-Regular-Italic" size:20.0];
         leaveBTN.titleLabel.textColor = [UIColor whiteColor];
         NSMutableAttributedString *titleString = [[NSMutableAttributedString alloc] initWithString:@"Got it!"];
         [titleString addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInteger:NSUnderlineStyleSingle] range:NSMakeRange(0, [titleString length])];

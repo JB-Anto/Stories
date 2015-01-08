@@ -57,7 +57,7 @@ static NSString * const reuseIdentifier = @"Cell";
     self.collectionView.showsHorizontalScrollIndicator = NO;
     
     // Name View
-    self.nameViewLBL = [[UILabel alloc]initWithFrame:CGRectMake(25, 25, self.view.bounds.size.width, 50)];
+    self.nameViewLBL = [[UILabel alloc]initWithFrame:CGRectMake(25, 27, self.view.bounds.size.width, 50)];
     self.nameViewLBL.textColor = [UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1];
     self.nameViewLBL.font = [UIFont fontWithName:@"Circular-Std-Book" size:19.0];
     self.nameViewLBL.text = @"Publications";
@@ -77,13 +77,13 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.view addSubview:self.loaderView];
     
     // Follow View
-    self.followView = [[JAFollowView alloc]initWithFrame:CGRectMake(self.view.bounds.size.width - 75, 35, 40, 40)];
+    self.followView = [[JAFollowView alloc]initWithFrame:CGRectMake(self.view.bounds.size.width - 75, 33, 40, 40)];
     self.followView.delegate = self;
     self.followView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:self.followView];
     
     // Tuto View
-    if([[self.plistManager getTuto] isEqualToString:@"1"]){
+//    if([[self.plistManager getTuto] isEqualToString:@"1"]){
         [self.plistManager setTuto:@"0"];
         NSArray *tutoArray = @[@{ @"title" : @"Swipe to discover more stories",
                                   @"image" :  @"DragSwipe%i",
@@ -107,7 +107,7 @@ static NSString * const reuseIdentifier = @"Cell";
         tutorialVC = [[JATutorialViewController alloc]initWithBlocks:tutoArray delegate:self];
         [self.view addSubview:tutorialVC.view];
         
-        tutorialVC.view.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.85];
+        tutorialVC.view.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.9];
         
         [[NSNotificationCenter defaultCenter] addObserverForName:@"leaveTuto" object:nil queue:nil usingBlock:^(NSNotification *note) {
             
@@ -118,14 +118,14 @@ static NSString * const reuseIdentifier = @"Cell";
             longPressRecognizer.numberOfTouchesRequired = 1;
             [self.view addGestureRecognizer:longPressRecognizer];
         }];
-    }
-    else{
-        // Gesture recognizer
-        UILongPressGestureRecognizer *longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressDetected:)];
-        longPressRecognizer.minimumPressDuration = .3;
-        longPressRecognizer.numberOfTouchesRequired = 1;
-        [self.view addGestureRecognizer:longPressRecognizer];
-    }
+//    }
+//    else{
+//        // Gesture recognizer
+//        UILongPressGestureRecognizer *longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressDetected:)];
+//        longPressRecognizer.minimumPressDuration = .3;
+//        longPressRecognizer.numberOfTouchesRequired = 1;
+//        [self.view addGestureRecognizer:longPressRecognizer];
+//    }
 
    
 }
@@ -155,9 +155,11 @@ static NSString * const reuseIdentifier = @"Cell";
 
     [self.followView fadeOut];
     JACoverCollectionViewCell *myCell = [[self.collectionView visibleCells] firstObject];
-    [UIView animateWithDuration:.5 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+    [myCell.titleView setEasingFunction:easeOutExpo forKeyPath:@"center"];
+    [UIView animateWithDuration:.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         myCell.titleView.frame = (CGRect){.origin=CGPointMake(myCell.titleView.frame.origin.x, myCell.titleView.frame.origin.y - 60),.size=myCell.titleView.frame.size};
     } completion:^(BOOL finished) {
+        [myCell.titleView removeEasingFunctionForKeyPath:@"center"];
         [myCell bringSubviewToFront:myCell.organicView];
         [UIView animateWithDuration:.7 animations:^{
             self.nameViewLBL.alpha = 0;
@@ -173,15 +175,15 @@ static NSString * const reuseIdentifier = @"Cell";
 -(void)reverseAnimation{
     JACoverCollectionViewCell *myCell = [[self.collectionView visibleCells] firstObject];
     [myCell.organicView reverseAnimation:^{
-
-        [UIView animateWithDuration:.5 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        [myCell.titleView setEasingFunction:easeOutExpo forKeyPath:@"center"];
+        [UIView animateWithDuration:.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
             self.nameViewLBL.alpha = 1;
             myCell.titleView.alpha = 1;
             myCell.titleView.frame = (CGRect){.origin=CGPointMake(myCell.titleView.frame.origin.x, myCell.titleView.frame.origin.y + 60),.size=myCell.titleView.frame.size};
             [myCell.organicView removeFromSuperview];
             [myCell insertSubview:myCell.organicView aboveSubview:myCell.foregroundIV];
         }completion:^(BOOL finished) {
-
+            [myCell.titleView removeEasingFunctionForKeyPath:@"center"];
         }];
     }];
     
@@ -231,17 +233,17 @@ static NSString * const reuseIdentifier = @"Cell";
             self.nameViewLBL.alpha = 0;
         }completion:^(BOOL finished) {
             [UIView animateWithDuration:.4 animations:^{
-                self.nameViewLBL.transform = CGAffineTransformMakeTranslation(0, 0);
+                self.nameViewLBL.transform = CGAffineTransformMakeTranslation(0, 5);
                 self.followLBL.alpha = 1;
                 self.followLBL.transform =CGAffineTransformMakeTranslation(0, -5);
             }completion:^(BOOL finished) {
-                [UIView animateWithDuration:.3 delay:.5 options:UIViewAnimationOptionCurveLinear animations:^{
+                [UIView animateWithDuration:.3 delay:.7 options:UIViewAnimationOptionCurveLinear animations:^{
                     self.followLBL.transform =CGAffineTransformMakeTranslation(0, -20);
                     self.followLBL.alpha = 0;
                 }completion:^(BOOL finished) {
                     [UIView animateWithDuration:.4 animations:^{
                         self.followLBL.transform = CGAffineTransformMakeTranslation(0, 0);
-                        self.nameViewLBL.transform = CGAffineTransformMakeTranslation(0, -5);
+                        self.nameViewLBL.transform = CGAffineTransformMakeTranslation(0, 0);
                         self.nameViewLBL.alpha = 1;
                     }];
                 }];

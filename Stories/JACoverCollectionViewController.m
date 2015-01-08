@@ -66,7 +66,7 @@ static NSString * const reuseIdentifier = @"Cell";
     self.followLBL = [[UILabel alloc]initWithFrame:CGRectMake(25, 30, self.view.bounds.size.width, 50)];
     self.followLBL.textColor = [UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1];
     self.followLBL.font = [UIFont fontWithName:@"Circular-Std-Book" size:19.0];
-    self.followLBL.text = @"Followed!";
+    self.followLBL.text = @"Followed !";
     self.followLBL.alpha = 0;
     [self.view addSubview:self.followLBL];
 
@@ -83,7 +83,7 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.view addSubview:self.followView];
     
     // Tuto View
-//    if([[self.plistManager getTuto] isEqualToString:@"1"]){
+    if([[self.plistManager getTuto] isEqualToString:@"1"]){
         [self.plistManager setTuto:@"0"];
         NSArray *tutoArray = @[@{ @"title" : @"Swipe to discover more stories",
                                   @"image" :  @"DragSwipe%i",
@@ -118,14 +118,14 @@ static NSString * const reuseIdentifier = @"Cell";
             longPressRecognizer.numberOfTouchesRequired = 1;
             [self.view addGestureRecognizer:longPressRecognizer];
         }];
-//    }
-//    else{
-//        // Gesture recognizer
-//        UILongPressGestureRecognizer *longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressDetected:)];
-//        longPressRecognizer.minimumPressDuration = .3;
-//        longPressRecognizer.numberOfTouchesRequired = 1;
-//        [self.view addGestureRecognizer:longPressRecognizer];
-//    }
+    }
+    else{
+        // Gesture recognizer
+        UILongPressGestureRecognizer *longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressDetected:)];
+        longPressRecognizer.minimumPressDuration = .3;
+        longPressRecognizer.numberOfTouchesRequired = 1;
+        [self.view addGestureRecognizer:longPressRecognizer];
+    }
 
    
 }
@@ -156,8 +156,9 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.followView fadeOut];
     JACoverCollectionViewCell *myCell = [[self.collectionView visibleCells] firstObject];
     [myCell.titleView setEasingFunction:easeOutExpo forKeyPath:@"center"];
-    [UIView animateWithDuration:.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+    [UIView animateWithDuration:.8 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         myCell.titleView.frame = (CGRect){.origin=CGPointMake(myCell.titleView.frame.origin.x, myCell.titleView.frame.origin.y - 60),.size=myCell.titleView.frame.size};
+        [self performSelector:@selector(finalAnimation:) withObject:myCell.titleView afterDelay:.5];
     } completion:^(BOOL finished) {
         [myCell.titleView removeEasingFunctionForKeyPath:@"center"];
         [myCell bringSubviewToFront:myCell.organicView];
@@ -165,18 +166,21 @@ static NSString * const reuseIdentifier = @"Cell";
             self.nameViewLBL.alpha = 0;
             myCell.titleView.alpha = 0;
         }];
-        [myCell.organicView finalAnimation:^{
-            [self performSegueWithIdentifier:@"JACoverPush" sender:self];
-        }];
+
     }];
     self.manager.currentStorie = (int)self.currentIndex;
 
+}
+-(void)finalAnimation:(JAOrganicView *)view{
+    [view finalAnimation:^{
+        [self performSegueWithIdentifier:@"JACoverPush" sender:self];
+    }];
 }
 -(void)reverseAnimation{
     JACoverCollectionViewCell *myCell = [[self.collectionView visibleCells] firstObject];
     [myCell.organicView reverseAnimation:^{
         [myCell.titleView setEasingFunction:easeOutExpo forKeyPath:@"center"];
-        [UIView animateWithDuration:.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        [UIView animateWithDuration:.8 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
             self.nameViewLBL.alpha = 1;
             myCell.titleView.alpha = 1;
             myCell.titleView.frame = (CGRect){.origin=CGPointMake(myCell.titleView.frame.origin.x, myCell.titleView.frame.origin.y + 60),.size=myCell.titleView.frame.size};

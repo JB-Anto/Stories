@@ -66,9 +66,7 @@
 -(void)finalAnimation:(void (^)())completion{
     
     CGPathRef middle = [PocketSVG pathFromSVGFileNamed:middleStepOrganic];
-    CGPathRetain(middle);
     CGPathRef final = [PocketSVG pathFromSVGFileNamed:endStepOrganic];
-    CGPathRetain(final);
     CABasicAnimation *pathAnimation = [CABasicAnimation animationWithKeyPath:@"path"];
     pathAnimation.duration = 1.2;
     pathAnimation.removedOnCompletion = NO;

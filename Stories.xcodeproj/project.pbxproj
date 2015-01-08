@@ -402,7 +402,6 @@
 		8D8C02D81A10CB6200904841 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D8C02D71A10CB6200904841 /* AppDelegate.m */; };
 		8D8C02DE1A10CB6200904841 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D8C02DC1A10CB6200904841 /* Main.storyboard */; };
 		8D8C02E01A10CB6200904841 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D8C02DF1A10CB6200904841 /* Images.xcassets */; };
-		8D8C02E31A10CB6200904841 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D8C02E11A10CB6200904841 /* LaunchScreen.xib */; };
 		8D8C02EF1A10CB6300904841 /* StoriesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D8C02EE1A10CB6300904841 /* StoriesTests.m */; };
 		8DB9C3D41A160BE200FBC975 /* JAFollowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DB9C3D31A160BE200FBC975 /* JAFollowView.m */; };
 		8DD244561A13850800FC7683 /* JACoverCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD244551A13850800FC7683 /* JACoverCollectionViewController.m */; };
@@ -914,7 +913,6 @@
 		8D8C02D71A10CB6200904841 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		8D8C02DD1A10CB6200904841 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8D8C02DF1A10CB6200904841 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		8D8C02E21A10CB6200904841 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		8D8C02E81A10CB6300904841 /* StoriesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StoriesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D8C02ED1A10CB6300904841 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D8C02EE1A10CB6300904841 /* StoriesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoriesTests.m; sourceTree = "<group>"; };
@@ -1816,7 +1814,6 @@
 				8DBB41561A10EE94006FDAD4 /* Utils */,
 				8D8C02DC1A10CB6200904841 /* Main.storyboard */,
 				8D8C02DF1A10CB6200904841 /* Images.xcassets */,
-				8D8C02E11A10CB6200904841 /* LaunchScreen.xib */,
 				8D8C02D21A10CB6200904841 /* Supporting Files */,
 			);
 			path = Stories;
@@ -2050,6 +2047,13 @@
 				0AEC80361A3B21EF004F0B1C /* forme1.svg in Resources */,
 				8D6E4D461A5E8B12000CFB82 /* DragSwipe69@2x.png in Resources */,
 				8D8C02E31A10CB6200904841 /* LaunchScreen.xib in Resources */,
+				8DBE243E1A5D3F97001BE80B /* Flip_00089.png in Resources */,
+				8DBE24D01A5D3F97001BE80B /* Swipe_00058.png in Resources */,
+				8DBE23E31A5D3F97001BE80B /* Drag_00098.png in Resources */,
+				8DBE24941A5D3F97001BE80B /* Hold_00077.png in Resources */,
+				8DBE24BA1A5D3F97001BE80B /* Swipe_00038.png in Resources */,
+				8DBE241A1A5D3F97001BE80B /* Flip_00056.png in Resources */,
+				8DBE241B1A5D3F97001BE80B /* Flip_00057.png in Resources */,
 				0AEC80301A3B20EB004F0B1C /* personnage_cover_1@2x.png in Resources */,
 				8D6E4D971A5E8B12000CFB82 /* Flip51@2x.png in Resources */,
 				8D6E4CFA1A5E8B12000CFB82 /* DragSwipe114@2x.png in Resources */,
@@ -2475,14 +2479,6 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		8D8C02E11A10CB6200904841 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8D8C02E21A10CB6200904841 /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -2566,6 +2562,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/JAPrefix.pch";
@@ -2580,6 +2577,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/JAPrefix.pch";

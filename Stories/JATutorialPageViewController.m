@@ -46,7 +46,7 @@
     
     float margin;
     if([[self.dico objectForKey:@"custom"]  isEqual: @1]){
-        self.imageView.frame = CGRectMake(self.view.bounds.size.width - 88, 35, image.size.width, image.size.height);
+        self.imageView.frame = CGRectMake(self.view.bounds.size.width - 104, 28, image.size.width, image.size.height);
         [self.view addSubview:self.imageView];
         margin = 0;
     }

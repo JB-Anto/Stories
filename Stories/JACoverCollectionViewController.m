@@ -94,15 +94,20 @@ static NSString * const reuseIdentifier = @"Cell";
                                   @"numberImage" : @57,
                                   @"custom" :  @0},
                                @{ @"title" : @"Drag to follow a new story",
-                                  @"image" :  @"DragSwipe%i",
+                                  @"image" :  @"DragOblique%i",
                                   @"numberImage" : @126,
                                   @"custom" :  @1},
+                               @{ @"title" : @"Double Tap to go to the previous page",
+                                  @"image" :  @"DoubleTap%i",
+                                  @"numberImage" : @31,
+                                  @"custom" :  @0},
                                @{ @"title" : @"Flip the phone to go back to the Home page at any moment",
                                   @"image" :  @"Flip%i",
                                   @"numberImage" : @58,
                                   @"custom" :  @0,
                                   @"button" :  @1}
                                ];
+        
         
         tutorialVC = [[JATutorialViewController alloc]initWithBlocks:tutoArray delegate:self];
         [self.view addSubview:tutorialVC.view];
@@ -157,7 +162,7 @@ static NSString * const reuseIdentifier = @"Cell";
     JACoverCollectionViewCell *myCell = [[self.collectionView visibleCells] firstObject];
     [myCell.titleView setEasingFunction:easeOutExpo forKeyPath:@"center"];
     [UIView animateWithDuration:.8 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        myCell.titleView.frame = (CGRect){.origin=CGPointMake(myCell.titleView.frame.origin.x, myCell.titleView.frame.origin.y - 60),.size=myCell.titleView.frame.size};
+        myCell.titleView.frame = (CGRect){.origin=CGPointMake(myCell.titleView.frame.origin.x, myCell.titleView.frame.origin.y - 85),.size=myCell.titleView.frame.size};
         [self performSelector:@selector(finalAnimation:) withObject:myCell afterDelay:.4];
     } completion:^(BOOL finished) {
             }];
@@ -184,7 +189,7 @@ static NSString * const reuseIdentifier = @"Cell";
         [UIView animateWithDuration:.8 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
             self.nameViewLBL.alpha = 1;
             myCell.titleView.alpha = 1;
-            myCell.titleView.frame = (CGRect){.origin=CGPointMake(myCell.titleView.frame.origin.x, myCell.titleView.frame.origin.y + 60),.size=myCell.titleView.frame.size};
+            myCell.titleView.frame = (CGRect){.origin=CGPointMake(myCell.titleView.frame.origin.x, myCell.titleView.frame.origin.y + 85),.size=myCell.titleView.frame.size};
             [myCell.organicView removeFromSuperview];
             [myCell insertSubview:myCell.organicView aboveSubview:myCell.foregroundIV];
         }completion:^(BOOL finished) {

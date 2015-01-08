@@ -27,6 +27,7 @@
     CGSize optimalSizeForLabel;
     CGSize maximumSizeOfLabel;
     CGFloat collectionViewHeight;
+    CGFloat scrollTo;
 }
 
 @property (strong, nonatomic) JABlockModel *currentBlock;
@@ -98,15 +99,14 @@
 
 -(void)doubleTap:(UITapGestureRecognizer*)sender {
     [self.collectionView setUserInteractionEnabled:NO];
-    CGFloat scrollTo;
     self.headerView.center = self.headerView.initialCenter;
     self.footerView.center = self.footerView.initialCenter;
     scrollTo = self.collectionView.contentOffset.y - collectionViewHeight*self.oldPercentScroll;
-    [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+    [UIView animateWithDuration:0.8 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.headerView.transform = CGAffineTransformMakeTranslation(0, scrollTo);
         self.footerView.transform = CGAffineTransformMakeTranslation(0, scrollTo);
     } completion:nil];
-    [self performSelector:@selector(goToChapter) withObject:nil afterDelay:1.25];
+    [self performSelector:@selector(goToChapter) withObject:nil afterDelay:1];
     [self.delegate scrollRead:(self.collectionView.contentOffset.y / (self.collectionViewLayout.collectionViewContentSize.height - self.collectionView.frame.size.height)) indexArticle:self.manager.currentArticle];
 }
 
@@ -139,7 +139,7 @@
     
     self.headerView.layer.mask = maskLayer;
     [self.collectionView addSubview:self.headerView];
-    [self.headerView animateEnter];
+    [self.headerView animateEnterWithValue:-CGRectGetHeight(self.collectionView.bounds)/2];
     
 }
 
@@ -160,7 +160,8 @@
     }
     self.footerView.layer.mask = maskLayer;
     [self.collectionView addSubview:self.footerView];
-    [self.footerView animateEnterWithValue:self.collectionViewLayout.collectionViewContentSize.height];
+//    [self.footerView animateEnterWithValue:self.collectionViewLayout.collectionViewContentSize.height];
+    [self.footerView animateEnterWithValue:CGRectGetHeight(self.collectionView.bounds)/2];
 }
 
 - (void)setupFollowView {
@@ -218,6 +219,8 @@
     if(scrollView.contentOffset.y < 300) {
         headerCenter.y = self.headerView.initialCenter.y + scrollView.contentOffset.y*0.5;
         [self.headerView setCenter:CGPointMake(self.headerView.center.x, headerCenter.y)];
+    } else {
+        [self.headerView setCenter:CGPointMake(self.headerView.center.x, self.headerView.initialCenter.y + scrollView.contentOffset.y)];
     }
     
     // Footer "Parallax Effect"
@@ -227,6 +230,8 @@
     if(maxScroll - scrollView.contentOffset.y < 100) {
         footerCenter.y = self.footerView.initialCenter.y + (maxScroll - scrollView.contentOffset.y);
         [self.footerView setCenter:CGPointMake(self.footerView.center.x, footerCenter.y)];
+    } else {
+        [self.footerView setCenter:CGPointMake(self.footerView.center.x, scrollView.contentOffset.y)];
     }
     
     // Follow View fixed position

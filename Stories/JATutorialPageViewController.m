@@ -32,6 +32,7 @@
     self.imageView = [[UIImageView alloc]init];
     
     NSMutableArray *images = [NSMutableArray array];
+    
     for (int i = 0; i < [[self.dico objectForKey:@"numberImage"] integerValue]; i++) {
         [images addObject:[UIImage imageNamed:[NSString stringWithFormat:[self.dico objectForKey:@"image"],i]]];
     }
@@ -59,7 +60,7 @@
     title.text = [self.dico objectForKey:@"title"];
     title.textColor = [UIColor whiteColor];
     title.textAlignment = NSTextAlignmentCenter;
-    title.font = [UIFont fontWithName:@"News-Plantin-Pro-Regular-Italic" size:23.0];
+    title.font = [UIFont fontWithName:@"News-Plantin-Pro-Regular-Italic" size:17.0];
     title.lineBreakMode = NSLineBreakByWordWrapping;
     title.numberOfLines = 0;
     
@@ -67,7 +68,7 @@
     if([[self.dico objectForKey:@"button"] isEqual: @1]){
         UIButton *leaveBTN = [[UIButton alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height - 160, self.view.frame.size.width, 40)];
 
-        leaveBTN.titleLabel.font = [UIFont fontWithName:@"News-Plantin-Pro-Regular-Italic" size:23.0];
+        leaveBTN.titleLabel.font = [UIFont fontWithName:@"News-Plantin-Pro-Regular-Italic" size:17.0];
         leaveBTN.titleLabel.textColor = [UIColor whiteColor];
         NSMutableAttributedString *titleString = [[NSMutableAttributedString alloc] initWithString:@"Got it!"];
         [titleString addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInteger:NSUnderlineStyleSingle] range:NSMakeRange(0, [titleString length])];

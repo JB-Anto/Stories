@@ -48,6 +48,7 @@
     
     // Chapters View
     self.containerChapterScrollView = [[JAContainerChapterScrollView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.bounds.size.height/7) delegate:self];
+    self.containerChapterScrollView.alpha = 0;
     [self.view addSubview:self.containerChapterScrollView];
     
     // Titles View
@@ -86,16 +87,16 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
 
+    [UIView animateWithDuration:.3 animations:^{
+        self.containerChapterScrollView.alpha = 1;
+    }];
+    
     [self setOpacityChapters:self.containerChapterScrollView.chapterScrollView];
     [self updatePercentChapters];
     
-    [UIView animateWithDuration:.5 animations:^{
-        self.containerChapterScrollView.alpha = 1;
-    }];
-
     for (int j = 0; j < [[[self.manager getCurrentStorie] chapters] count]; j++) {
-        for (int i = 0; i < [[self.titlesArray objectAtIndex:j] count] ; i++) {
-            [self animateTitlesView:i forChapter:j negativeScale:.2 negativeAlpha:.3 delay:i * .05];
+        for (int i = (int)[[self.titlesArray objectAtIndex:j] count] - 1; i >= 0 ; i--) {
+            [self animateTitlesView:i forChapter:j negativeScale:.2 negativeAlpha:.3 delay:((([[self.titlesArray objectAtIndex:j] count] - 1) - i) * .035)];
         }
     }
     
@@ -125,7 +126,7 @@
         float percent = [[self.plistManager getPercentRead:index article:i] floatValue]*100;
         
         JAChapterView *chapterView = [[JAChapterView alloc] initWithFrame:CGRectMake(0, i * chapterHeight, self.view.frame.size.width, chapterHeight) blocks:[[[[[self.manager getCurrentStorie] chapters]objectAtIndex:index] articles] objectAtIndex:i] percent:percent];
-        
+  
         [globalTitleBlock addSubview:chapterView];
         
         [arrayOfTitle addObject:chapterView];
@@ -169,10 +170,10 @@
     }
     
     for (int i = index - 1; i >= 0; i--) {
-        [self animateTitlesView:i forChapter:self.manager.currentChapter negativeScale:((index-i)*((1.0 /[[self.titlesArray objectAtIndex:self.manager.currentChapter]count])/2)) negativeAlpha:((index-i) * (1.0 /[[self.titlesArray objectAtIndex:self.manager.currentChapter]count])) delay:0.0];
+        [self animateTitlesView:i forChapter:self.manager.currentChapter negativeScale:((index-i)*((1.0 /[[self.titlesArray objectAtIndex:self.manager.currentChapter]count])/2)) negativeAlpha:((index-i) * (1.0 /([[self.titlesArray objectAtIndex:self.manager.currentChapter]count])))*1.5 delay:0.0];
     }
     for (int i = index + 1; i < [[self.titlesArray objectAtIndex:self.manager.currentChapter]count]; i++) {
-        [self animateTitlesView:i forChapter:self.manager.currentChapter negativeScale:((i - index)*((1.0 /[[self.titlesArray objectAtIndex:self.manager.currentChapter]count])/2)) negativeAlpha:((i - index)*(1.0 /[[self.titlesArray objectAtIndex:self.manager.currentChapter]count])) delay:0.0];
+        [self animateTitlesView:i forChapter:self.manager.currentChapter negativeScale:((i - index)*((1.0 /[[self.titlesArray objectAtIndex:self.manager.currentChapter]count])/2)) negativeAlpha:((i - index)*(1.0 /[[self.titlesArray objectAtIndex:self.manager.currentChapter]count]))*1.5 delay:0.0];
     }
 
     if(sender.state == UIGestureRecognizerStateEnded){

@@ -31,13 +31,13 @@
 
         int rangeFinalUnderline = (int)(percent * [[self.blocks title] length] / 100);
         
-        
         titleLBL = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, frame.size.width - 40, frame.size.height)];
         titleLBL.lineBreakMode = NSLineBreakByWordWrapping;
         titleLBL.numberOfLines = 0;
         titleLBL.textColor = [UIColor whiteColor];
         titleLBL.attributedText = [self createCompleteString:rangeFinalUnderline];
         titleLBL.tag = 1;
+        titleLBL.alpha = 0;
         
         [self setAnchorPoint:CGPointMake(0, 0.5) forView:titleLBL];
         titleLBL.transform = CGAffineTransformMakeScale(0.5, 0.5);
@@ -55,12 +55,9 @@
     
     NSDate *date = [self.dateFormaterFromString dateFromString:dateString];
     NSString *finalDate = [self.dateFormater stringFromDate:date];
-//    CGFloat hue = ( arc4random() % 256 / 256.0 );  //  0.0 to 1.0
-//    CGFloat saturation = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from white
-//    CGFloat brightness = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from black
-//    UIColor *color = [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:1];
+
     NSMutableAttributedString *completeString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ %@",text,[finalDate lowercaseString]]];
-//    [completeString addAttribute:NSForegroundColorAttributeName value:color range:NSMakeRange(0,[text length])];
+
     [completeString addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"News-Plantin-Pro-Regular" size:32.0] range:NSMakeRange(0,[text length])];
     [completeString addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"Calibre-Thin" size:20.0] range:NSMakeRange([text length]+1,[finalDate length])];
     

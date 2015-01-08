@@ -51,7 +51,6 @@
     self.organicLayer.path = [PocketSVG pathFromSVGFileNamed:firstStepOrganic];
 }
 -(void)middleAnimation{
-    
     CGPathRef first = [PocketSVG pathFromSVGFileNamed:firstStepOrganic];
     CGPathRef middle = [PocketSVG pathFromSVGFileNamed:middleStepOrganic];
     CABasicAnimation *pathAnimation = [CABasicAnimation animationWithKeyPath:@"path"];
@@ -65,9 +64,11 @@
     [self.organicLayer addAnimation:pathAnimation forKey:@"pathAnimation"];
 }
 -(void)finalAnimation:(void (^)())completion{
-
+    
     CGPathRef middle = [PocketSVG pathFromSVGFileNamed:middleStepOrganic];
+    CGPathRetain(middle);
     CGPathRef final = [PocketSVG pathFromSVGFileNamed:endStepOrganic];
+    CGPathRetain(final);
     CABasicAnimation *pathAnimation = [CABasicAnimation animationWithKeyPath:@"path"];
     pathAnimation.duration = 1.2;
     pathAnimation.removedOnCompletion = NO;
@@ -82,6 +83,7 @@
     [self performSelector:@selector(fireBlockAfterDelay:)
                withObject:completion
                afterDelay:1.2];
+    
 }
 - (void)fireBlockAfterDelay:(void (^)(void))block {
     block();
@@ -103,10 +105,11 @@
 }
 -(void)reverseAnimation:(void (^)(void))block {
     
-    
+    void (^block_)() = [block copy]; // autorelease this if you're not using ARC
+    [self performSelector:@selector(performBlock:) withObject:block_ afterDelay:.5];
     [CATransaction begin]; {
         [CATransaction setCompletionBlock:^{
-            block();
+
         }];
         CGPathRef final = [PocketSVG pathFromSVGFileNamed:endStepOrganic];
         CGPathRef middle = [PocketSVG pathFromSVGFileNamed:middleStepOrganic];
@@ -120,6 +123,10 @@
         [self.organicLayer addAnimation:pathAnimation forKey:@"pathAnimation"];
     } [CATransaction commit];
 
+}
+- (void)performBlock:(void (^)())block
+{
+    block();
 }
 -(void)setColor:(NSString *)color{
     [self.organicLayer setFillColor:[UIColor pxColorWithHexValue:color].CGColor];

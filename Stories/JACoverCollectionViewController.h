@@ -30,5 +30,5 @@ typedef NS_ENUM(NSInteger, JAAnimDirection) {
 @property (strong, nonatomic) UILabel *nameViewLBL;
 @property (strong, nonatomic) UILabel *followLBL;
 @property (strong, nonatomic) JAPlistManager *plistManager;
-@property NSInteger currentIndex;
+@property int currentIndex;
 @end

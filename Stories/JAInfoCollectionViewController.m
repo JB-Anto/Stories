@@ -84,11 +84,11 @@
     self.headerView.center = self.headerView.initialCenter;
     self.footerView.center = self.footerView.initialCenter;
     scrollTo = self.collectionView.contentOffset.y;
-    [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+    [UIView animateWithDuration:0.8 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.headerView.transform = CGAffineTransformMakeTranslation(0, scrollTo);
         self.footerView.transform = CGAffineTransformMakeTranslation(0, scrollTo);
     } completion:nil];
-    [self performSelector:@selector(goToArticle) withObject:nil afterDelay:1.1];
+    [self performSelector:@selector(goToArticle) withObject:nil afterDelay:1];
     //    Method to go to cover width flip
     //    [self.navigationController popToRootViewControllerAnimated:NO];
 }
@@ -121,7 +121,7 @@
     
     self.headerView.layer.mask = maskLayer;
     [self.collectionView addSubview:self.headerView];
-    [self.headerView animateEnter];
+    [self.headerView animateEnterWithValue:0];
     
 }
 
@@ -309,7 +309,7 @@
         [cell.resumeLabel initWithString:[self.currentBlock text]];
         maximumSizeOfLabel = CGSizeMake(160, CGFLOAT_MAX);
         optimalSizeForLabel = [cell.resumeLabel sizeThatFits:maximumSizeOfLabel];
-        sizeOfCell = CGSizeMake(cellWidth, optimalSizeForLabel.height);
+        sizeOfCell = CGSizeMake(cellWidth, optimalSizeForLabel.height/2);
         
     } else if([[self.currentBlock type] isEqualToString:@"paragraph"]) {
         

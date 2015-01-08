@@ -18,7 +18,6 @@
         return nil;
     }
     
-    self.contentMode = UIViewContentModeBottom;
     self.initialCenter = self.center;
     
     return self;
@@ -26,9 +25,9 @@
 }
 
 -(void)animateEnterWithValue:(CGFloat)superViewHeight {
-    [UIView animateWithDuration:1.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        self.transform = CGAffineTransformMakeTranslation(0, superViewHeight-CGRectGetHeight(self.bounds)/2-self.frame.origin.y-50);
-//        self.transform = CGAffineTransformMakeTranslation(0, superViewHeight-CGRectGetHeight(self.bounds)/2-self.frame.origin.y);
+    [UIView animateWithDuration:0.8 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+//        self.transform = CGAffineTransformMakeTranslation(0, superViewHeight-CGRectGetHeight(self.bounds)/2-self.frame.origin.y-50);
+        self.transform = CGAffineTransformMakeTranslation(0, superViewHeight);
     } completion:nil];
 }
 

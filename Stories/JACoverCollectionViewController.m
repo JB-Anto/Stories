@@ -83,23 +83,23 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.view addSubview:self.followView];
     
     // Tuto View
-//    if([[self.plistManager getTuto] isEqualToString:@"1"]){
+    if([[self.plistManager getTuto] isEqualToString:@"1"]){
         [self.plistManager setTuto:@"0"];
         NSArray *tutoArray = @[@{ @"title" : @"Swipe to discover more stories",
-                                  @"image" :  @"DragSwipe%i.png",
-                                  @"numberImage" : @100,
+                                  @"image" :  @"DragSwipe%i",
+                                  @"numberImage" : @126,
                                   @"custom" :  @0},
                                @{ @"title" : @"Hold to go learn more about something",
-                                  @"image" :  @"Hold%i.png",
-                                  @"numberImage" : @40,
+                                  @"image" :  @"Hold%i",
+                                  @"numberImage" : @57,
                                   @"custom" :  @0},
                                @{ @"title" : @"Drag to follow a new story",
-                                  @"image" :  @"DragSwipe%i.png",
-                                  @"numberImage" : @100,
-                                  @"custom" :  @0},
+                                  @"image" :  @"DragSwipe%i",
+                                  @"numberImage" : @126,
+                                  @"custom" :  @1},
                                @{ @"title" : @"Flip the phone to go back to the Home page at any moment",
-                                  @"image" :  @"Flip%i.png",
-                                  @"numberImage" : @40,
+                                  @"image" :  @"Flip%i",
+                                  @"numberImage" : @58,
                                   @"custom" :  @0,
                                   @"button" :  @1}
                                ];
@@ -118,14 +118,14 @@ static NSString * const reuseIdentifier = @"Cell";
             longPressRecognizer.numberOfTouchesRequired = 1;
             [self.view addGestureRecognizer:longPressRecognizer];
         }];
-//    }
-//    else{
-//        // Gesture recognizer
-//        UILongPressGestureRecognizer *longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressDetected:)];
-//        longPressRecognizer.minimumPressDuration = .3;
-//        longPressRecognizer.numberOfTouchesRequired = 1;
-//        [self.view addGestureRecognizer:longPressRecognizer];
-//    }
+    }
+    else{
+        // Gesture recognizer
+        UILongPressGestureRecognizer *longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressDetected:)];
+        longPressRecognizer.minimumPressDuration = .3;
+        longPressRecognizer.numberOfTouchesRequired = 1;
+        [self.view addGestureRecognizer:longPressRecognizer];
+    }
 
    
 }
@@ -173,12 +173,15 @@ static NSString * const reuseIdentifier = @"Cell";
 -(void)reverseAnimation{
     JACoverCollectionViewCell *myCell = [[self.collectionView visibleCells] firstObject];
     [myCell.organicView reverseAnimation:^{
+
         [UIView animateWithDuration:.5 animations:^{
             self.nameViewLBL.alpha = 1;
             myCell.titleView.alpha = 1;
             myCell.titleView.frame = (CGRect){.origin=CGPointMake(myCell.titleView.frame.origin.x, myCell.titleView.frame.origin.y + 60),.size=myCell.titleView.frame.size};
             [myCell.organicView removeFromSuperview];
             [myCell insertSubview:myCell.organicView aboveSubview:myCell.foregroundIV];
+        }completion:^(BOOL finished) {
+
         }];
     }];
     

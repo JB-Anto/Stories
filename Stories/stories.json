@@ -531,8 +531,7 @@
                             "blocks": [],
                             "credits": [],
                             "infos": []
-                        },
-                        
+                        }
                     ]
                 }
             ]
@@ -718,128 +717,130 @@
                 "textColor": "#152950",
                 "paths": ["3-1", "3-2", "3-3"]
             },
-            "chapters": [{
-                "id": 0,
-                "title": "Chapitre 1",
-                "articles": [
-                    {
-                        "id": 0,
-                        "title": "An intern issue\nin Chinese Government",
-                        "createdAt": "2014-12-14T19:00:00.000Z",
-                        "blocks": [],
-                        "credits": [],
-                        "infos": []
-                    },
-                    {
-                        "id": 1,
-                        "title": "Dismantles protest\ncamp",
-                        "createdAt": "2014-12-11T19:00:00.000Z",
-                        "blocks": [
-                            {
-                                "id": 0,
-                                "type": "title",
-                                "title": "Officials sweep in to clear main protest site",
-                                "createdAt": "2014-12-11T19:00:00.000Z",
-                                "location": "Hong Kong"
-                            },
-                            {
-                                "id": 1 ,
-                                "type": "resume",
-                                "text": "Mood defiant as students prepare to pack up tents and depart."
-                            },
-                            {
-                               "id": 2 ,
-                               "type": "resume",
-                               "text": "Protests the most serious challenge to China since Tiananmen crackdown."
-                            },
-                            {
-                               "id": 3 ,
-                               "type": "resume",
-                               "text": "Student leader says this is not the end."
-                            },
-                            {
-                               "id": 4,
-                               "type": "paragraph",
-                               "text": "Hong Kong workers cleared large parts of the main pro-democracy protest site near the heart of the financial centre on Thursday, marking an end to more than two months of street demonstrations that have choked parts of the Chinese-controlled city.",
-                               "links": []
-                            },
-                            {
-                               "id": 5,
-                               "type": "image",
-                               "text": "A worker holds an umbrella as he and his coworkers clear an area blocked by pro-democracy protesters near the government headquarters building at the financial Central district.",
-                               "image": "2-0-0-chinese"
-                            },
-                            {
-                                "id": 6,
-                                "type": "paragraph",
-                                "text": "The mainly peaceful protests to demand free elections have represented one of the most serious challenges to China's authority since the 1989 pro-democracy demonstrations and bloody crackdown in and around Beijing's Tiananmen Square.",
-                                "links": []
-                            },
-                            {
-                                "id": 7,
-                                "type": "quote",
-                                "author": "protester\nJavis Luk, 27",
-                                "text": "“The movement has been surreal. No one knew it could last more than two months ... in a place where time and money are most important”"
-                            },
-                            {
-                                "id": 8,
-                                "type": "paragraph",
-                                "text": "Hundreds of police stood by in the Admiralty district next to government buildings and the Central business area as workers in construction hats used wire cutters to remove barricades.",
-                                "links": []
-                            },
-                            {
-                                "id": 9,
-                                "type": "paragraph",
-                                "text": "Police were seen hauling away two protesters as the workers slowly dismantled bamboo scaffolding, watched by large crowds of onlookers and media.",
-                                "links": []
-                            },
-                            {
-                                "id": 10,
-                                "type": "quote",
-                                "author": "Alex Chow",
-                                "text": "“You might have the clearance today but people will come back on to the streets another day”"
-                            },
-                            {
-                                "id": 11,
-                                "type": "paragraph",
-                                "text": "There was little resistance as protesters packed up pillows, blankets and other belongings from inside their tents in some of the world's most expensive real estate and prepared to leave.",
-                                "links": []
-                            }
-                        ],
-                        "credits": [
-                            {
-                                "id": 0,
-                                "type": "authors",
-                                "title": "Authors:",
-                                "names": ["James Pomfret", "Clare Baldwin"]
-                            },
-                            {
-                                "id": 1,
-                                "type": "source",
-                                "title": "Source:",
-                                "names": ["Reuters"]
-                            }
-                        ],
-                        "infos": []
-                    },
-                    {
-                        "id": 2,
-                        "title": "Government just arrest\nstudentleaders",
-                        "createdAt": "2014-11-26T19:00:00.000Z",
-                        "blocks": [],
-                        "credits": [],
-                        "infos": []
-                    },
-                    {
-                        "id": 3,
-                        "title": "A national security issue for China",
-                        "createdAt": "2014-11-18T19:00:00.000Z",
-                        "blocks": [],
-                        "credits": [],
-                        "infos": []
-                    }
-                ]
-            }]
+            "chapters": [
+                {
+                    "id": 0,
+                    "title": "Chapitre 1",
+                    "articles": [
+                        {
+                            "id": 0,
+                            "title": "An intern issue\nin Chinese Government",
+                            "createdAt": "2014-12-14T19:00:00.000Z",
+                            "blocks": [],
+                            "credits": [],
+                            "infos": []
+                        },
+                        {
+                            "id": 1,
+                            "title": "Dismantles protest\ncamp",
+                            "createdAt": "2014-12-11T19:00:00.000Z",
+                            "blocks": [
+                                {
+                                    "id": 0,
+                                    "type": "title",
+                                    "title": "Officials sweep in to clear main protest site",
+                                    "createdAt": "2014-12-11T19:00:00.000Z",
+                                    "location": "Hong Kong"
+                                },
+                                {
+                                    "id": 1 ,
+                                    "type": "resume",
+                                    "text": "Mood defiant as students prepare to pack up tents and depart."
+                                },
+                                {
+                                   "id": 2 ,
+                                   "type": "resume",
+                                   "text": "Protests the most serious challenge to China since Tiananmen crackdown."
+                                },
+                                {
+                                   "id": 3 ,
+                                   "type": "resume",
+                                   "text": "Student leader says this is not the end."
+                                },
+                                {
+                                   "id": 4,
+                                   "type": "paragraph",
+                                   "text": "Hong Kong workers cleared large parts of the main pro-democracy protest site near the heart of the financial centre on Thursday, marking an end to more than two months of street demonstrations that have choked parts of the Chinese-controlled city.",
+                                   "links": []
+                                },
+                                {
+                                   "id": 5,
+                                   "type": "image",
+                                   "text": "A worker holds an umbrella as he and his coworkers clear an area blocked by pro-democracy protesters near the government headquarters building at the financial Central district.",
+                                   "image": "2-0-0-chinese"
+                                },
+                                {
+                                    "id": 6,
+                                    "type": "paragraph",
+                                    "text": "The mainly peaceful protests to demand free elections have represented one of the most serious challenges to China's authority since the 1989 pro-democracy demonstrations and bloody crackdown in and around Beijing's Tiananmen Square.",
+                                    "links": []
+                                },
+                                {
+                                    "id": 7,
+                                    "type": "quote",
+                                    "author": "protester\nJavis Luk, 27",
+                                    "text": "“The movement has been surreal. No one knew it could last more than two months ... in a place where time and money are most important”"
+                                },
+                                {
+                                    "id": 8,
+                                    "type": "paragraph",
+                                    "text": "Hundreds of police stood by in the Admiralty district next to government buildings and the Central business area as workers in construction hats used wire cutters to remove barricades.",
+                                    "links": []
+                                },
+                                {
+                                    "id": 9,
+                                    "type": "paragraph",
+                                    "text": "Police were seen hauling away two protesters as the workers slowly dismantled bamboo scaffolding, watched by large crowds of onlookers and media.",
+                                    "links": []
+                                },
+                                {
+                                    "id": 10,
+                                    "type": "quote",
+                                    "author": "Alex Chow",
+                                    "text": "“You might have the clearance today but people will come back on to the streets another day”"
+                                },
+                                {
+                                    "id": 11,
+                                    "type": "paragraph",
+                                    "text": "There was little resistance as protesters packed up pillows, blankets and other belongings from inside their tents in some of the world's most expensive real estate and prepared to leave.",
+                                    "links": []
+                                }
+                            ],
+                            "credits": [
+                                {
+                                    "id": 0,
+                                    "type": "authors",
+                                    "title": "Authors:",
+                                    "names": ["James Pomfret", "Clare Baldwin"]
+                                },
+                                {
+                                    "id": 1,
+                                    "type": "source",
+                                    "title": "Source:",
+                                    "names": ["Reuters"]
+                                }
+                            ],
+                            "infos": []
+                        },
+                        {
+                            "id": 2,
+                            "title": "Government just arrest\nstudentleaders",
+                            "createdAt": "2014-11-26T19:00:00.000Z",
+                            "blocks": [],
+                            "credits": [],
+                            "infos": []
+                        },
+                        {
+                            "id": 3,
+                            "title": "A national security issue for China",
+                            "createdAt": "2014-11-18T19:00:00.000Z",
+                            "blocks": [],
+                            "credits": [],
+                            "infos": []
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }

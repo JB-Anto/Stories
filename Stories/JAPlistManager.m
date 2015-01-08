@@ -116,7 +116,7 @@ static JAPlistManager *sharedInstance = nil;
     [plistData setObject:follow forKey:key];
     
     [self writeDataToPlist:plistData];
-//    
+    
 //    NSLog(@" %@ - %@ ",key, [self getObject:key] );
 
 }

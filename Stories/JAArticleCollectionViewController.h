@@ -16,6 +16,7 @@
 #import "JAHeaderView.h"
 #import "JAFooterView.h"
 #import "JAUITextView.h"
+#import "JAPushView.h"
 
 @protocol ScrollRead
 
@@ -34,6 +35,7 @@
 @property (strong, nonatomic) JAHeaderView *headerView;
 @property (strong, nonatomic) JAFooterView *footerView;
 @property (strong, nonatomic) UIImage *snapshot;
+@property (strong, nonatomic) JAPushView *stain;
 @property (nonatomic, assign) id delegate;
 @property float oldPercentScroll;
 

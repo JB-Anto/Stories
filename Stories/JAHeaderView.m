@@ -18,18 +18,17 @@
         return nil;
     }
     
-    self.contentMode = UIViewContentModeTop;
     self.initialCenter = self.center;
     
     return self;
     
 }
 
--(void)animateEnter{
-    [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+-(void)animateEnterWithValue:(CGFloat)superViewHeight {
+    [UIView animateWithDuration:0.8 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         [self.superview setUserInteractionEnabled:NO];
         self.transform = CGAffineTransformMakeTranslation(0, -CGRectGetHeight(self.bounds)/2-self.frame.origin.y+110);
-//        self.transform = CGAffineTransformMakeTranslation(0, -CGRectGetHeight(self.bounds)/2-self.frame.origin.y/2-50);
+//        self.transform = CGAffineTransformMakeTranslation(0, superViewHeight);
     } completion:^(BOOL finished) {
         [self.superview setUserInteractionEnabled:YES];
     }];

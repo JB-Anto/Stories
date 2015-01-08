@@ -14,6 +14,5 @@
 @property (nonatomic) CGPoint initialCenter;
 @property (nonatomic) CGFloat maxParallaxOffset;
 
--(void)animateEnter;
-
+-(void)animateEnterWithValue:(CGFloat)superViewHeight;
 @end

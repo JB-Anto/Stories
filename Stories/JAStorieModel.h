@@ -18,7 +18,6 @@
 @interface JAStorieModel : JSONModel
 
 @property (assign, nonatomic) uint id;
-@property (assign, nonatomic) bool isFollow;
 @property (strong, nonatomic) NSDate *createdAt;
 @property (strong, nonatomic) JACoverModel* cover;
 @property (strong, nonatomic) NSArray<JAChapterModel>* chapters;

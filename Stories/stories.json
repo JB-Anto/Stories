@@ -4,7 +4,6 @@
         {
             "id": 2,
             "createdAt": "12-10-2014",
-            "isFollow": 0,
             "cover": {
                 "id": 0,
                 "title": "The Umbrella\nRevolution",
@@ -24,8 +23,92 @@
                             "id": 0,
                             "title": "An intern issue\nin Chinese Government",
                             "createdAt": "2014-12-14T19:00:00.000Z",
-                            "blocks": [],
-                            "credits": [],
+                            "blocks": [
+                                {
+                                    "id": 0,
+                                    "type": "title",
+                                    "title": "Officials sweep in to clear main protest site",
+                                    "createdAt": "2014-12-11T19:00:00.000Z",
+                                    "location": "Hong Kong"
+                                },
+                                {
+                                    "id": 1 ,
+                                    "type": "resume",
+                                    "text": "Mood defiant as students prepare to pack up tents and depart."
+                                },
+                                {
+                                   "id": 2 ,
+                                   "type": "resume",
+                                   "text": "Protests the most serious challenge to China since Tiananmen crackdown."
+                                },
+                                {
+                                   "id": 3 ,
+                                   "type": "resume",
+                                   "text": "Student leader says this is not the end."
+                                },
+                                {
+                                   "id": 4,
+                                   "type": "paragraph",
+                                   "text": "Hong Kong workers cleared large parts of the main pro-democracy protest site near the heart of the financial centre on Thursday, marking an end to more than two months of street demonstrations that have choked parts of the Chinese-controlled city.",
+                                   "links": []
+                                },
+                                {
+                                   "id": 5,
+                                   "type": "image",
+                                   "text": "A worker holds an umbrella as he and his coworkers clear an area blocked by pro-democracy protesters near the government headquarters building at the financial Central district.",
+                                   "image": "2-0-0-chinese"
+                                },
+                                {
+                                    "id": 6,
+                                    "type": "paragraph",
+                                    "text": "The mainly peaceful protests to demand free elections have represented one of the most serious challenges to China's authority since the 1989 pro-democracy demonstrations and bloody crackdown in and around Beijing's Tiananmen Square.",
+                                    "links": []
+                                },
+                                {
+                                    "id": 7,
+                                    "type": "quote",
+                                    "author": "protester\nJavis Luk, 27",
+                                    "text": "“The movement has been surreal. No one knew it could last more than two months ... in a place where time and money are most important”"
+                                },
+                                {
+                                    "id": 8,
+                                    "type": "paragraph",
+                                    "text": "Hundreds of police stood by in the Admiralty district next to government buildings and the Central business area as workers in construction hats used wire cutters to remove barricades.",
+                                    "links": []
+                                },
+                                {
+                                    "id": 9,
+                                    "type": "paragraph",
+                                    "text": "Police were seen hauling away two protesters as the workers slowly dismantled bamboo scaffolding, watched by large crowds of onlookers and media.",
+                                    "links": []
+                                },
+                                {
+                                    "id": 10,
+                                    "type": "quote",
+                                    "author": "Alex Chow",
+                                    "text": "“You might have the clearance today but people will come back on to the streets another day”"
+                                },
+                                {
+                                    "id": 11,
+                                    "type": "paragraph",
+                                    "text": "There was little resistance as protesters packed up pillows, blankets and other belongings from inside their tents in some of the world's most expensive real estate and prepared to leave.",
+                                    "links": []
+                                }
+                            ],
+                            "credits": [
+                                {
+                                    "id": 0,
+                                    "type": "authors",
+                                    "title": "Authors:",
+                                    "names": ["James Pomfret", "Clare Baldwin"]
+                                },
+                                {
+                                    "id": 1,
+                                    "type": "source",
+                                    "title": "Source:",
+                                    "names": ["Reuters"]
+                                }
+                            ],
                             "infos": []
                         },
                         {
@@ -124,16 +207,184 @@
                             "id": 2,
                             "title": "Government just arrest\nstudentleaders",
                             "createdAt": "2014-11-26T19:00:00.000Z",
-                            "blocks": [],
-                            "credits": [],
+                            "blocks": [
+                                {
+                                    "id": 0,
+                                    "type": "title",
+                                    "title": "Officials sweep in to clear main protest site",
+                                    "createdAt": "2014-12-11T19:00:00.000Z",
+                                    "location": "Hong Kong"
+                                },
+                                {
+                                    "id": 1 ,
+                                    "type": "resume",
+                                    "text": "Mood defiant as students prepare to pack up tents and depart."
+                                },
+                                {
+                                   "id": 2 ,
+                                   "type": "resume",
+                                   "text": "Protests the most serious challenge to China since Tiananmen crackdown."
+                                },
+                                {
+                                   "id": 3 ,
+                                   "type": "resume",
+                                   "text": "Student leader says this is not the end."
+                                },
+                                {
+                                   "id": 4,
+                                   "type": "paragraph",
+                                   "text": "Hong Kong workers cleared large parts of the main pro-democracy protest site near the heart of the financial centre on Thursday, marking an end to more than two months of street demonstrations that have choked parts of the Chinese-controlled city.",
+                                   "links": []
+                                },
+                                {
+                                   "id": 5,
+                                   "type": "image",
+                                   "text": "A worker holds an umbrella as he and his coworkers clear an area blocked by pro-democracy protesters near the government headquarters building at the financial Central district.",
+                                   "image": "2-0-0-chinese"
+                                },
+                                {
+                                    "id": 6,
+                                    "type": "paragraph",
+                                    "text": "The mainly peaceful protests to demand free elections have represented one of the most serious challenges to China's authority since the 1989 pro-democracy demonstrations and bloody crackdown in and around Beijing's Tiananmen Square.",
+                                    "links": []
+                                },
+                                {
+                                    "id": 7,
+                                    "type": "quote",
+                                    "author": "protester\nJavis Luk, 27",
+                                    "text": "“The movement has been surreal. No one knew it could last more than two months ... in a place where time and money are most important”"
+                                },
+                                {
+                                    "id": 8,
+                                    "type": "paragraph",
+                                    "text": "Hundreds of police stood by in the Admiralty district next to government buildings and the Central business area as workers in construction hats used wire cutters to remove barricades.",
+                                    "links": []
+                                },
+                                {
+                                    "id": 9,
+                                    "type": "paragraph",
+                                    "text": "Police were seen hauling away two protesters as the workers slowly dismantled bamboo scaffolding, watched by large crowds of onlookers and media.",
+                                    "links": []
+                                },
+                                {
+                                    "id": 10,
+                                    "type": "quote",
+                                    "author": "Alex Chow",
+                                    "text": "“You might have the clearance today but people will come back on to the streets another day”"
+                                },
+                                {
+                                    "id": 11,
+                                    "type": "paragraph",
+                                    "text": "There was little resistance as protesters packed up pillows, blankets and other belongings from inside their tents in some of the world's most expensive real estate and prepared to leave.",
+                                    "links": []
+                                }
+                            ],
+                            "credits": [
+                                {
+                                    "id": 0,
+                                    "type": "authors",
+                                    "title": "Authors:",
+                                    "names": ["James Pomfret", "Clare Baldwin"]
+                                },
+                                {
+                                    "id": 1,
+                                    "type": "source",
+                                    "title": "Source:",
+                                    "names": ["Reuters"]
+                                }
+                            ],
                             "infos": []
                         },
                         {
                             "id": 3,
                             "title": "A national security issue for China",
                             "createdAt": "2014-11-18T19:00:00.000Z",
-                            "blocks": [],
-                            "credits": [],
+                            "blocks": [
+                                {
+                                    "id": 0,
+                                    "type": "title",
+                                    "title": "Officials sweep in to clear main protest site",
+                                    "createdAt": "2014-12-11T19:00:00.000Z",
+                                    "location": "Hong Kong"
+                                },
+                                {
+                                    "id": 1 ,
+                                    "type": "resume",
+                                    "text": "Mood defiant as students prepare to pack up tents and depart."
+                                },
+                                {
+                                   "id": 2 ,
+                                   "type": "resume",
+                                   "text": "Protests the most serious challenge to China since Tiananmen crackdown."
+                                },
+                                {
+                                   "id": 3 ,
+                                   "type": "resume",
+                                   "text": "Student leader says this is not the end."
+                                },
+                                {
+                                   "id": 4,
+                                   "type": "paragraph",
+                                   "text": "Hong Kong workers cleared large parts of the main pro-democracy protest site near the heart of the financial centre on Thursday, marking an end to more than two months of street demonstrations that have choked parts of the Chinese-controlled city.",
+                                   "links": []
+                                },
+                                {
+                                   "id": 5,
+                                   "type": "image",
+                                   "text": "A worker holds an umbrella as he and his coworkers clear an area blocked by pro-democracy protesters near the government headquarters building at the financial Central district.",
+                                   "image": "2-0-0-chinese"
+                                },
+                                {
+                                    "id": 6,
+                                    "type": "paragraph",
+                                    "text": "The mainly peaceful protests to demand free elections have represented one of the most serious challenges to China's authority since the 1989 pro-democracy demonstrations and bloody crackdown in and around Beijing's Tiananmen Square.",
+                                    "links": []
+                                },
+                                {
+                                    "id": 7,
+                                    "type": "quote",
+                                    "author": "protester\nJavis Luk, 27",
+                                    "text": "“The movement has been surreal. No one knew it could last more than two months ... in a place where time and money are most important”"
+                                },
+                                {
+                                    "id": 8,
+                                    "type": "paragraph",
+                                    "text": "Hundreds of police stood by in the Admiralty district next to government buildings and the Central business area as workers in construction hats used wire cutters to remove barricades.",
+                                    "links": []
+                                },
+                                {
+                                    "id": 9,
+                                    "type": "paragraph",
+                                    "text": "Police were seen hauling away two protesters as the workers slowly dismantled bamboo scaffolding, watched by large crowds of onlookers and media.",
+                                    "links": []
+                                },
+                                {
+                                    "id": 10,
+                                    "type": "quote",
+                                    "author": "Alex Chow",
+                                    "text": "“You might have the clearance today but people will come back on to the streets another day”"
+                                },
+                                {
+                                    "id": 11,
+                                    "type": "paragraph",
+                                    "text": "There was little resistance as protesters packed up pillows, blankets and other belongings from inside their tents in some of the world's most expensive real estate and prepared to leave.",
+                                    "links": []
+                                }
+                            ],
+                            "credits": [
+                                {
+                                    "id": 0,
+                                    "type": "authors",
+                                    "title": "Authors:",
+                                    "names": ["James Pomfret", "Clare Baldwin"]
+                                },
+                                {
+                                    "id": 1,
+                                    "type": "source",
+                                    "title": "Source:",
+                                    "names": ["Reuters"]
+                                }
+                            ],
                             "infos": []
                         }
                     ]
@@ -143,7 +394,6 @@
         {
             "id": 1,
             "createdAt": "12-10-2014",
-            "isFollow": 0,
             "cover": {
                 "id": 0,
                 "title": "The fight of the\nKurd Rebels",
@@ -163,32 +413,276 @@
                             "id": 0,
                             "title": "Islamist violence is \"grave sin against God\"",
                             "createdAt": "2014-11-30T19:00:00.000Z",
-                            "blocks": [],
-                            "credits": [],
+                            "blocks": [
+                                {
+                                    "id": 0,
+                                    "type": "title",
+                                    "title": "Isis\nbesieges universities but allows scientists’ return",
+                                    "createdAt": "2014-10-21T19:00:00.000Z",
+                                    "location": "Baghdad"
+                                },
+                                {
+                                    "id": 1 ,
+                                    "type": "resume",
+                                    "text": "Schools and universities in Iraq were supposed to start the new academic year on 21 September."
+                                },
+                                {
+                                    "id": 2 ,
+                                    "type": "resume",
+                                    "text": "Hundreds of schools remain shut, and universities are empty."
+                                },
+                                {
+                                    "id": 3,
+                                    "type": "paragraph",
+                                    "text": "Having captured large swathes of Syria and Iraq, in late June ISIS stated it had created a caliphate stretching from Aleppo in Syria to the province of Diyala in Iraq. The group has reportedly replaced the name ‘Republic of Iraq’ on some universities and research institutions with ‘<link>Islamic State - Knowledge Bureau</link>’.",
+                                    "links": ["0"]
+                                },
+                                {
+                                    "id": 4,
+                                    "type": "quote",
+                                    "author": "ISIS",
+                                    "text": "“If they fail to do so, their moveable and immovable property will be confiscated”"
+                                },
+                                {
+                                    "id": 5,
+                                    "type": "paragraph",
+                                    "text": "There are conflicting reports as to who controls them. Some local media suggest that the Iraqi government is in charge of public institutions such as Tikrit University and the University of Samarra in Salahuddin, as well as several private ones, including Imam Sadiq University in the Dujail district, Balad University and Tuz Khormato University.",
+                                    "links": []
+                                },
+                                {
+                                    "id": 6,
+                                    "type": "image",
+                                    "text": "University of Tikrit, located in Tikrit, Saladin Province, Iraq. It is one of the largest universities in Iraq with over 12,000 students.",
+                                    "image": "1-0-2-school"
+                                },
+                                {
+                                    "id": 7,
+                                    "type": "paragraph",
+                                    "text": "However, other reports say that, even though the army indeed claims to control the establishments, students cannot access them unless allowed in by ISIS.",
+                                    "links": []
+                                }
+                            ],
+                            "credits": [
+                                {
+                                    "id": 0,
+                                    "type": "authors",
+                                    "title": "Authors:",
+                                    "names": ["Adel Fakhir"]
+                                },
+                                {
+                                    "id": 1,
+                                    "type": "Source",
+                                    "title": "Source:",
+                                    "names": ["SciDev.net"]
+                                }
+                            ],
                             "infos": []
                         },
                         {
                             "id": 1,
                             "title": "Thirty U.S. led strikes hit Islamic State",
                             "createdAt": "2014-11-22T19:00:00.000Z",
-                            "blocks": [],
-                            "credits": [],
+                            "blocks": [
+                                {
+                                    "id": 0,
+                                    "type": "title",
+                                    "title": "Isis\nbesieges universities but allows scientists’ return",
+                                    "createdAt": "2014-10-21T19:00:00.000Z",
+                                    "location": "Baghdad"
+                                },
+                                {
+                                    "id": 1 ,
+                                    "type": "resume",
+                                    "text": "Schools and universities in Iraq were supposed to start the new academic year on 21 September."
+                                },
+                                {
+                                    "id": 2 ,
+                                    "type": "resume",
+                                    "text": "Hundreds of schools remain shut, and universities are empty."
+                                },
+                                {
+                                    "id": 3,
+                                    "type": "paragraph",
+                                    "text": "Having captured large swathes of Syria and Iraq, in late June ISIS stated it had created a caliphate stretching from Aleppo in Syria to the province of Diyala in Iraq. The group has reportedly replaced the name ‘Republic of Iraq’ on some universities and research institutions with ‘<link>Islamic State - Knowledge Bureau</link>’.",
+                                    "links": ["0"]
+                                },
+                                {
+                                    "id": 4,
+                                    "type": "quote",
+                                    "author": "ISIS",
+                                    "text": "“If they fail to do so, their moveable and immovable property will be confiscated”"
+                                },
+                                {
+                                    "id": 5,
+                                    "type": "paragraph",
+                                    "text": "There are conflicting reports as to who controls them. Some local media suggest that the Iraqi government is in charge of public institutions such as Tikrit University and the University of Samarra in Salahuddin, as well as several private ones, including Imam Sadiq University in the Dujail district, Balad University and Tuz Khormato University.",
+                                    "links": []
+                                },
+                                {
+                                    "id": 6,
+                                    "type": "image",
+                                    "text": "University of Tikrit, located in Tikrit, Saladin Province, Iraq. It is one of the largest universities in Iraq with over 12,000 students.",
+                                    "image": "1-0-2-school"
+                                },
+                                {
+                                    "id": 7,
+                                    "type": "paragraph",
+                                    "text": "However, other reports say that, even though the army indeed claims to control the establishments, students cannot access them unless allowed in by ISIS.",
+                                    "links": []
+                                }
+                            ],
+                            "credits": [
+                                {
+                                    "id": 0,
+                                    "type": "authors",
+                                    "title": "Authors:",
+                                    "names": ["Adel Fakhir"]
+                                },
+                                {
+                                    "id": 1,
+                                    "type": "Source",
+                                    "title": "Source:",
+                                    "names": ["SciDev.net"]
+                                }
+                            ],
                             "infos": []
                         },
                         {
                             "id": 2,
                             "title": "New chief for Israel armed forces",
                             "createdAt": "2014-11-17T19:00:00.000Z",
-                            "blocks": [],
-                            "credits": [],
+                            "blocks": [
+                                {
+                                    "id": 0,
+                                    "type": "title",
+                                    "title": "Isis\nbesieges universities but allows scientists’ return",
+                                    "createdAt": "2014-10-21T19:00:00.000Z",
+                                    "location": "Baghdad"
+                                },
+                                {
+                                    "id": 1 ,
+                                    "type": "resume",
+                                    "text": "Schools and universities in Iraq were supposed to start the new academic year on 21 September."
+                                },
+                                {
+                                    "id": 2 ,
+                                    "type": "resume",
+                                    "text": "Hundreds of schools remain shut, and universities are empty."
+                                },
+                                {
+                                    "id": 3,
+                                    "type": "paragraph",
+                                    "text": "Having captured large swathes of Syria and Iraq, in late June ISIS stated it had created a caliphate stretching from Aleppo in Syria to the province of Diyala in Iraq. The group has reportedly replaced the name ‘Republic of Iraq’ on some universities and research institutions with ‘<link>Islamic State - Knowledge Bureau</link>’.",
+                                    "links": ["0"]
+                                },
+                                {
+                                    "id": 4,
+                                    "type": "quote",
+                                    "author": "ISIS",
+                                    "text": "“If they fail to do so, their moveable and immovable property will be confiscated”"
+                                },
+                                {
+                                    "id": 5,
+                                    "type": "paragraph",
+                                    "text": "There are conflicting reports as to who controls them. Some local media suggest that the Iraqi government is in charge of public institutions such as Tikrit University and the University of Samarra in Salahuddin, as well as several private ones, including Imam Sadiq University in the Dujail district, Balad University and Tuz Khormato University.",
+                                    "links": []
+                                },
+                                {
+                                    "id": 6,
+                                    "type": "image",
+                                    "text": "University of Tikrit, located in Tikrit, Saladin Province, Iraq. It is one of the largest universities in Iraq with over 12,000 students.",
+                                    "image": "1-0-2-school"
+                                },
+                                {
+                                    "id": 7,
+                                    "type": "paragraph",
+                                    "text": "However, other reports say that, even though the army indeed claims to control the establishments, students cannot access them unless allowed in by ISIS.",
+                                    "links": []
+                                }
+                            ],
+                            "credits": [
+                                {
+                                    "id": 0,
+                                    "type": "authors",
+                                    "title": "Authors:",
+                                    "names": ["Adel Fakhir"]
+                                },
+                                {
+                                    "id": 1,
+                                    "type": "Source",
+                                    "title": "Source:",
+                                    "names": ["SciDev.net"]
+                                }
+                            ],
                             "infos": []
                         },
                         {
                             "id": 3,
                             "title": "Islamic State sets off suicide bombs",
                             "createdAt": "2014-11-12T19:00:00.000Z",
-                            "blocks": [],
-                            "credits": [],
+                            "blocks": [
+                                {
+                                    "id": 0,
+                                    "type": "title",
+                                    "title": "Isis\nbesieges universities but allows scientists’ return",
+                                    "createdAt": "2014-10-21T19:00:00.000Z",
+                                    "location": "Baghdad"
+                                },
+                                {
+                                    "id": 1 ,
+                                    "type": "resume",
+                                    "text": "Schools and universities in Iraq were supposed to start the new academic year on 21 September."
+                                },
+                                {
+                                    "id": 2 ,
+                                    "type": "resume",
+                                    "text": "Hundreds of schools remain shut, and universities are empty."
+                                },
+                                {
+                                    "id": 3,
+                                    "type": "paragraph",
+                                    "text": "Having captured large swathes of Syria and Iraq, in late June ISIS stated it had created a caliphate stretching from Aleppo in Syria to the province of Diyala in Iraq. The group has reportedly replaced the name ‘Republic of Iraq’ on some universities and research institutions with ‘<link>Islamic State - Knowledge Bureau</link>’.",
+                                    "links": ["0"]
+                                },
+                                {
+                                    "id": 4,
+                                    "type": "quote",
+                                    "author": "ISIS",
+                                    "text": "“If they fail to do so, their moveable and immovable property will be confiscated”"
+                                },
+                                {
+                                    "id": 5,
+                                    "type": "paragraph",
+                                    "text": "There are conflicting reports as to who controls them. Some local media suggest that the Iraqi government is in charge of public institutions such as Tikrit University and the University of Samarra in Salahuddin, as well as several private ones, including Imam Sadiq University in the Dujail district, Balad University and Tuz Khormato University.",
+                                    "links": []
+                                },
+                                {
+                                    "id": 6,
+                                    "type": "image",
+                                    "text": "University of Tikrit, located in Tikrit, Saladin Province, Iraq. It is one of the largest universities in Iraq with over 12,000 students.",
+                                    "image": "1-0-2-school"
+                                },
+                                {
+                                    "id": 7,
+                                    "type": "paragraph",
+                                    "text": "However, other reports say that, even though the army indeed claims to control the establishments, students cannot access them unless allowed in by ISIS.",
+                                    "links": []
+                                }
+                            ],
+                            "credits": [
+                                {
+                                    "id": 0,
+                                    "type": "authors",
+                                    "title": "Authors:",
+                                    "names": ["Adel Fakhir"]
+                                },
+                                {
+                                    "id": 1,
+                                    "type": "Source",
+                                    "title": "Source:",
+                                    "names": ["SciDev.net"]
+                                }
+                            ],
                             "infos": []
                         }
                     ]
@@ -199,18 +693,140 @@
                     "articles": [
                         {
                             "id": 0,
-                            "title": "Islamic State targeted in air strikes",
+                            "title": "Isis targeted in air strikes",
                             "createdAt": "2014-11-06T19:00:00.000Z",
-                            "blocks": [],
-                            "credits": [],
+                            "blocks": [
+                                {
+                                    "id": 0,
+                                    "type": "title",
+                                    "title": "Isis\nbesieges universities but allows scientists’ return",
+                                    "createdAt": "2014-10-21T19:00:00.000Z",
+                                    "location": "Baghdad"
+                                },
+                                {
+                                    "id": 1 ,
+                                    "type": "resume",
+                                    "text": "Schools and universities in Iraq were supposed to start the new academic year on 21 September."
+                                },
+                                {
+                                    "id": 2 ,
+                                    "type": "resume",
+                                    "text": "Hundreds of schools remain shut, and universities are empty."
+                                },
+                                {
+                                    "id": 3,
+                                    "type": "paragraph",
+                                    "text": "Having captured large swathes of Syria and Iraq, in late June ISIS stated it had created a caliphate stretching from Aleppo in Syria to the province of Diyala in Iraq. The group has reportedly replaced the name ‘Republic of Iraq’ on some universities and research institutions with ‘<link>Islamic State - Knowledge Bureau</link>’.",
+                                    "links": ["0"]
+                                },
+                                {
+                                    "id": 4,
+                                    "type": "quote",
+                                    "author": "ISIS",
+                                    "text": "“If they fail to do so, their moveable and immovable property will be confiscated”"
+                                },
+                                {
+                                    "id": 5,
+                                    "type": "paragraph",
+                                    "text": "There are conflicting reports as to who controls them. Some local media suggest that the Iraqi government is in charge of public institutions such as Tikrit University and the University of Samarra in Salahuddin, as well as several private ones, including Imam Sadiq University in the Dujail district, Balad University and Tuz Khormato University.",
+                                    "links": []
+                                },
+                                {
+                                    "id": 6,
+                                    "type": "image",
+                                    "text": "University of Tikrit, located in Tikrit, Saladin Province, Iraq. It is one of the largest universities in Iraq with over 12,000 students.",
+                                    "image": "1-0-2-school"
+                                },
+                                {
+                                    "id": 7,
+                                    "type": "paragraph",
+                                    "text": "However, other reports say that, even though the army indeed claims to control the establishments, students cannot access them unless allowed in by ISIS.",
+                                    "links": []
+                                }
+                            ],
+                            "credits": [
+                                {
+                                    "id": 0,
+                                    "type": "authors",
+                                    "title": "Authors:",
+                                    "names": ["Adel Fakhir"]
+                                },
+                                {
+                                    "id": 1,
+                                    "type": "Source",
+                                    "title": "Source:",
+                                    "names": ["SciDev.net"]
+                                }
+                            ],
                             "infos": []
                         },
                         {
                             "id": 1,
                             "title": "Conspiring to support Islamic State",
                             "createdAt": "2014-11-02T19:00:00.000Z",
-                            "blocks": [],
-                            "credits": [],
+                            "blocks": [
+                                {
+                                    "id": 0,
+                                    "type": "title",
+                                    "title": "Isis\nbesieges universities but allows scientists’ return",
+                                    "createdAt": "2014-10-21T19:00:00.000Z",
+                                    "location": "Baghdad"
+                                },
+                                {
+                                    "id": 1 ,
+                                    "type": "resume",
+                                    "text": "Schools and universities in Iraq were supposed to start the new academic year on 21 September."
+                                },
+                                {
+                                    "id": 2 ,
+                                    "type": "resume",
+                                    "text": "Hundreds of schools remain shut, and universities are empty."
+                                },
+                                {
+                                    "id": 3,
+                                    "type": "paragraph",
+                                    "text": "Having captured large swathes of Syria and Iraq, in late June ISIS stated it had created a caliphate stretching from Aleppo in Syria to the province of Diyala in Iraq. The group has reportedly replaced the name ‘Republic of Iraq’ on some universities and research institutions with ‘<link>Islamic State - Knowledge Bureau</link>’.",
+                                    "links": ["0"]
+                                },
+                                {
+                                    "id": 4,
+                                    "type": "quote",
+                                    "author": "ISIS",
+                                    "text": "“If they fail to do so, their moveable and immovable property will be confiscated”"
+                                },
+                                {
+                                    "id": 5,
+                                    "type": "paragraph",
+                                    "text": "There are conflicting reports as to who controls them. Some local media suggest that the Iraqi government is in charge of public institutions such as Tikrit University and the University of Samarra in Salahuddin, as well as several private ones, including Imam Sadiq University in the Dujail district, Balad University and Tuz Khormato University.",
+                                    "links": []
+                                },
+                                {
+                                    "id": 6,
+                                    "type": "image",
+                                    "text": "University of Tikrit, located in Tikrit, Saladin Province, Iraq. It is one of the largest universities in Iraq with over 12,000 students.",
+                                    "image": "1-0-2-school"
+                                },
+                                {
+                                    "id": 7,
+                                    "type": "paragraph",
+                                    "text": "However, other reports say that, even though the army indeed claims to control the establishments, students cannot access them unless allowed in by ISIS.",
+                                    "links": []
+                                }
+                            ],
+                            "credits": [
+                                {
+                                    "id": 0,
+                                    "type": "authors",
+                                    "title": "Authors:",
+                                    "names": ["Adel Fakhir"]
+                                },
+                                {
+                                    "id": 1,
+                                    "type": "Source",
+                                    "title": "Source:",
+                                    "names": ["SciDev.net"]
+                                }
+                            ],
                             "infos": []
                         },
                         {
@@ -291,16 +907,138 @@
                             "id": 3,
                             "title": "British joining militants in Syria",
                             "createdAt": "2014-09-28T19:00:00.000Z",
-                            "blocks": [],
-                            "credits": [],
+                            "blocks": [
+                                {
+                                    "id": 0,
+                                    "type": "title",
+                                    "title": "Isis\nbesieges universities but allows scientists’ return",
+                                    "createdAt": "2014-10-21T19:00:00.000Z",
+                                    "location": "Baghdad"
+                                },
+                                {
+                                    "id": 1 ,
+                                    "type": "resume",
+                                    "text": "Schools and universities in Iraq were supposed to start the new academic year on 21 September."
+                                },
+                                {
+                                    "id": 2 ,
+                                    "type": "resume",
+                                    "text": "Hundreds of schools remain shut, and universities are empty."
+                                },
+                                {
+                                    "id": 3,
+                                    "type": "paragraph",
+                                    "text": "Having captured large swathes of Syria and Iraq, in late June ISIS stated it had created a caliphate stretching from Aleppo in Syria to the province of Diyala in Iraq. The group has reportedly replaced the name ‘Republic of Iraq’ on some universities and research institutions with ‘<link>Islamic State - Knowledge Bureau</link>’.",
+                                    "links": ["0"]
+                                },
+                                {
+                                    "id": 4,
+                                    "type": "quote",
+                                    "author": "ISIS",
+                                    "text": "“If they fail to do so, their moveable and immovable property will be confiscated”"
+                                },
+                                {
+                                    "id": 5,
+                                    "type": "paragraph",
+                                    "text": "There are conflicting reports as to who controls them. Some local media suggest that the Iraqi government is in charge of public institutions such as Tikrit University and the University of Samarra in Salahuddin, as well as several private ones, including Imam Sadiq University in the Dujail district, Balad University and Tuz Khormato University.",
+                                    "links": []
+                                },
+                                {
+                                    "id": 6,
+                                    "type": "image",
+                                    "text": "University of Tikrit, located in Tikrit, Saladin Province, Iraq. It is one of the largest universities in Iraq with over 12,000 students.",
+                                    "image": "1-0-2-school"
+                                },
+                                {
+                                    "id": 7,
+                                    "type": "paragraph",
+                                    "text": "However, other reports say that, even though the army indeed claims to control the establishments, students cannot access them unless allowed in by ISIS.",
+                                    "links": []
+                                }
+                            ],
+                            "credits": [
+                                {
+                                    "id": 0,
+                                    "type": "authors",
+                                    "title": "Authors:",
+                                    "names": ["Adel Fakhir"]
+                                },
+                                {
+                                    "id": 1,
+                                    "type": "Source",
+                                    "title": "Source:",
+                                    "names": ["SciDev.net"]
+                                }
+                            ],
                             "infos": []
                         },
                         {
                             "id": 4,
                             "title": "Isis has lured Germans into fighting",
                             "createdAt": "2014-09-23T19:00:00.000Z",
-                            "blocks": [],
-                            "credits": [],
+                            "blocks": [
+                                {
+                                    "id": 0,
+                                    "type": "title",
+                                    "title": "Isis\nbesieges universities but allows scientists’ return",
+                                    "createdAt": "2014-10-21T19:00:00.000Z",
+                                    "location": "Baghdad"
+                                },
+                                {
+                                    "id": 1 ,
+                                    "type": "resume",
+                                    "text": "Schools and universities in Iraq were supposed to start the new academic year on 21 September."
+                                },
+                                {
+                                    "id": 2 ,
+                                    "type": "resume",
+                                    "text": "Hundreds of schools remain shut, and universities are empty."
+                                },
+                                {
+                                    "id": 3,
+                                    "type": "paragraph",
+                                    "text": "Having captured large swathes of Syria and Iraq, in late June ISIS stated it had created a caliphate stretching from Aleppo in Syria to the province of Diyala in Iraq. The group has reportedly replaced the name ‘Republic of Iraq’ on some universities and research institutions with ‘<link>Islamic State - Knowledge Bureau</link>’.",
+                                    "links": ["0"]
+                                },
+                                {
+                                    "id": 4,
+                                    "type": "quote",
+                                    "author": "ISIS",
+                                    "text": "“If they fail to do so, their moveable and immovable property will be confiscated”"
+                                },
+                                {
+                                    "id": 5,
+                                    "type": "paragraph",
+                                    "text": "There are conflicting reports as to who controls them. Some local media suggest that the Iraqi government is in charge of public institutions such as Tikrit University and the University of Samarra in Salahuddin, as well as several private ones, including Imam Sadiq University in the Dujail district, Balad University and Tuz Khormato University.",
+                                    "links": []
+                                },
+                                {
+                                    "id": 6,
+                                    "type": "image",
+                                    "text": "University of Tikrit, located in Tikrit, Saladin Province, Iraq. It is one of the largest universities in Iraq with over 12,000 students.",
+                                    "image": "1-0-2-school"
+                                },
+                                {
+                                    "id": 7,
+                                    "type": "paragraph",
+                                    "text": "However, other reports say that, even though the army indeed claims to control the establishments, students cannot access them unless allowed in by ISIS.",
+                                    "links": []
+                                }
+                            ],
+                            "credits": [
+                                {
+                                    "id": 0,
+                                    "type": "authors",
+                                    "title": "Authors:",
+                                    "names": ["Adel Fakhir"]
+                                },
+                                {
+                                    "id": 1,
+                                    "type": "Source",
+                                    "title": "Source:",
+                                    "names": ["SciDev.net"]
+                                }
+                            ],
                             "infos": []
                         }
                     ]
@@ -310,7 +1048,6 @@
         {
             "id": 0,
             "createdAt": "12-10-2014",
-            "isFollow": 0,
             "cover": {
                 "id": 0,
                 "title": "The Russian\nIntervention",
@@ -330,25 +1067,454 @@
                             "id": 0,
                             "title": "Country opposes federalisation",
                             "createdAt": "2014-12-12T19:00:00.000Z",
-                            "blocks": [],
-                            "credits": [],
-                            "infos": []
+                            "blocks": [
+                                {
+                                    "id": 0,
+                                    "type": "title",
+                                    "title": "Ukraine president accepts embattled defence minister’s resignation",
+                                    "createdAt": "2014-10-12T19:00:00.000Z",
+                                    "location": "Kiev"
+                                },
+                                {
+                                    "id": 1 ,
+                                    "type": "resume",
+                                    "text": "Defence minister criticised over August rout of troops."
+                                },
+                                {
+                                   "id": 2 ,
+                                   "type": "resume",
+                                   "text": "President hopes to nominate successor on Monday."
+                                },
+                                {
+                                   "id": 3 ,
+                                   "type": "resume",
+                                   "text": "Fragile ceasefire in eastern Ukraine broadly holding."
+                                },
+                                {
+                                   "id": 4,
+                                   "type": "paragraph",
+                                   "text": "Ukrainian president <link>Petro Poroshenko</link> accepted on Sunday the resignation of his defence minister who has been under fire over a rout of government forces in the east which let to Kiev calling a ceasefire with pro-Russian separatists.",
+                                   "links": ["0"]
+                                },
+                                {
+                                   "id": 5,
+                                   "type": "image",
+                                   "text": "US Attorney General Eric Holder speaks at the opening of the Ukraine Forum of Asset Recovery at Lancaster House in Central London, April 29, 2014.",
+                                   "image": "0-1-4-poroshenko"
+                                },
+                                {
+                                    "id": 6,
+                                    "type": "paragraph",
+                                    "text": "<link>Poroshenko</link>’s website said the president had accepted the offer of resignation from Valery Heletey, 47, whom he appointed only in July. It said Poroshenko hoped to present a new ministerial candidate to parliament on Monday.",
+                                    "links": ["0"]
+                                },
+                                {
+                                    "id": 7,
+                                    "type": "quote",
+                                    "author": "Petro\nPoroshenko",
+                                    "text": "“I don’t have illusion. These will be difficult talks. But I am.”"
+                                },
+                                {
+                                    "id": 8,
+                                    "type": "paragraph",
+                                    "text": "<link>Heletey</link> who formerly led a presidential bodyguard unit, had drawn criticism since the crushing defeat of Ukrainian forces at Ilovaisk, east of the main rebel held eastern city of Donetsk, in late August.",
+                                    "links": ["0"]
+                                },
+                                {
+                                    "id": 9,
+                                    "type": "paragraph",
+                                    "text": "Ukrainian military sources say a large number of Russian troops were also killed - a charge not acknowledged by Moscow, which denies any part in the Ukraine Conflict despite what Kiev and Western governements say is incontrovertible proof.",
+                                    "links": []
+                                },
+                                {
+                                    "id": 10,
+                                    "type": "keyNumber",
+                                    "number": "<link>102</link>",
+                                    "text": "Ukrainian troops Were killed",
+                                    "links": ["1"]
+                                },
+                                {
+                                    "id": 11,
+                                    "type": "paragraph",
+                                    "text": "Analysts say the Aug. 24 attack led <link>Poroshenko</link> reluctantly to accept that Kiev could not beat the separatists militarily as long as they were sypported by direct involvement of Russian troops and equipment.",
+                                    "links": ["0"]
+                                }
+                            ],
+                            "credits": [
+                                {
+                                    "id": 0,
+                                    "type": "editor",
+                                    "title": "Authors:",
+                                    "names": ["Richard Balmforth", "Natalia Zinets"]
+                                },
+                                {
+                                    "id": 1,
+                                    "type": "publishing",
+                                    "title": "Editing:",
+                                    "names": ["Robin Pomeroy"]
+                                }
+                            ],
+                            "infos": [
+                                {
+                                    "id": 0,
+                                    "blocks": [
+                                      {
+                                        "id":0,
+                                        "type": "titlePortrait",
+                                        "image": "poroshenko-portrait",
+                                        "text": "Petro Poroshenko"
+                                      },
+                                      {
+                                        "id": 1,
+                                        "type": "resume",
+                                        "text": "Business man and statesman from Ukraine."
+                                      },
+                                      {
+                                        "id": 2,
+                                        "type": "resume",
+                                        "text": "Ukraine president since 2014."
+                                      },
+                                      {
+                                        "id": 3,
+                                        "type": "resume",
+                                        "text": "Important member of Solidarity party."
+                                      },
+                                      {
+                                        "id": 4,
+                                        "type": "paragraph",
+                                        "text": "Ukrainian president Petro Poroshenko accepted on Sunday the resignation of his defence minister who has been under fire over a rout of government forces in the east which let to Kiev calling a ceasefire with pro-Russian separatists."
+                                      }
+                                    ]
+                                },
+                                {
+                                    "id": 1,
+                                    "blocks": [
+                                         {
+                                            "id":0,
+                                            "type": "titleNumber",
+                                            "number": "102",
+                                            "text": "More than\nUkrainian troops\nand members of pro\ngovernment volunteer\nbattalions were killed"
+                                         },
+                                         {
+                                            "id": 1,
+                                            "type": "paragraph",
+                                            "text": "They were hemmed in by an unexpected attack from Russian forces supporting the separatists. Large numbers of Ukrainians were also taken prisoner by the rebels."
+                                         },
+                                         {
+                                            "id": 2,
+                                            "type": "paragraph",
+                                            "text": "Ukrainian military sources say a large number of Russian troops were also killed - a charge not acknowledged by Moscow, which denies any part in the Ukraine conflict despite what Kiev and Western governments say is incontrovertible proof."
+                                         },
+                                         {
+                                            "id": 3,
+                                            "type": "paragraph",
+                                            "text": "Analysts say the Aug. 24 attack led Poroshenko reluctantly to accept that Kiev could not beat the separatists militarily as long as they were supported by direct involvement of Russian troops and equipment."
+                                         }
+                                    ]
+                                }
+                            ]
                         },
                         {
                             "id": 1,
                             "title": "Russian Railways chief says coal trains to go to Ukraine",
                             "createdAt": "2014-11-22T19:00:00.000Z",
-                            "blocks": [],
-                            "credits": [],
-                            "infos": []
+                            "blocks": [
+                                {
+                                    "id": 0,
+                                    "type": "title",
+                                    "title": "Ukraine president accepts embattled defence minister’s resignation",
+                                    "createdAt": "2014-10-12T19:00:00.000Z",
+                                    "location": "Kiev"
+                                },
+                                {
+                                    "id": 1 ,
+                                    "type": "resume",
+                                    "text": "Defence minister criticised over August rout of troops."
+                                },
+                                {
+                                   "id": 2 ,
+                                   "type": "resume",
+                                   "text": "President hopes to nominate successor on Monday."
+                                },
+                                {
+                                   "id": 3 ,
+                                   "type": "resume",
+                                   "text": "Fragile ceasefire in eastern Ukraine broadly holding."
+                                },
+                                {
+                                   "id": 4,
+                                   "type": "paragraph",
+                                   "text": "Ukrainian president <link>Petro Poroshenko</link> accepted on Sunday the resignation of his defence minister who has been under fire over a rout of government forces in the east which let to Kiev calling a ceasefire with pro-Russian separatists.",
+                                   "links": ["0"]
+                                },
+                                {
+                                   "id": 5,
+                                   "type": "image",
+                                   "text": "US Attorney General Eric Holder speaks at the opening of the Ukraine Forum of Asset Recovery at Lancaster House in Central London, April 29, 2014.",
+                                   "image": "0-1-4-poroshenko"
+                                },
+                                {
+                                    "id": 6,
+                                    "type": "paragraph",
+                                    "text": "<link>Poroshenko</link>’s website said the president had accepted the offer of resignation from Valery Heletey, 47, whom he appointed only in July. It said Poroshenko hoped to present a new ministerial candidate to parliament on Monday.",
+                                    "links": ["0"]
+                                },
+                                {
+                                    "id": 7,
+                                    "type": "quote",
+                                    "author": "Petro\nPoroshenko",
+                                    "text": "“I don’t have illusion. These will be difficult talks. But I am.”"
+                                },
+                                {
+                                    "id": 8,
+                                    "type": "paragraph",
+                                    "text": "<link>Heletey</link> who formerly led a presidential bodyguard unit, had drawn criticism since the crushing defeat of Ukrainian forces at Ilovaisk, east of the main rebel held eastern city of Donetsk, in late August.",
+                                    "links": ["0"]
+                                },
+                                {
+                                    "id": 9,
+                                    "type": "paragraph",
+                                    "text": "Ukrainian military sources say a large number of Russian troops were also killed - a charge not acknowledged by Moscow, which denies any part in the Ukraine Conflict despite what Kiev and Western governements say is incontrovertible proof.",
+                                    "links": []
+                                },
+                                {
+                                    "id": 10,
+                                    "type": "keyNumber",
+                                    "number": "<link>102</link>",
+                                    "text": "Ukrainian troops Were killed",
+                                    "links": ["1"]
+                                },
+                                {
+                                    "id": 11,
+                                    "type": "paragraph",
+                                    "text": "Analysts say the Aug. 24 attack led <link>Poroshenko</link> reluctantly to accept that Kiev could not beat the separatists militarily as long as they were sypported by direct involvement of Russian troops and equipment.",
+                                    "links": ["0"]
+                                }
+                            ],
+                            "credits": [
+                                {
+                                    "id": 0,
+                                    "type": "editor",
+                                    "title": "Authors:",
+                                    "names": ["Richard Balmforth", "Natalia Zinets"]
+                                },
+                                {
+                                    "id": 1,
+                                    "type": "publishing",
+                                    "title": "Editing:",
+                                    "names": ["Robin Pomeroy"]
+                                }
+                            ],
+                            "infos": [
+                                {
+                                    "id": 0,
+                                    "blocks": [
+                                      {
+                                        "id":0,
+                                        "type": "titlePortrait",
+                                        "image": "poroshenko-portrait",
+                                        "text": "Petro Poroshenko"
+                                      },
+                                      {
+                                        "id": 1,
+                                        "type": "resume",
+                                        "text": "Business man and statesman from Ukraine."
+                                      },
+                                      {
+                                        "id": 2,
+                                        "type": "resume",
+                                        "text": "Ukraine president since 2014."
+                                      },
+                                      {
+                                        "id": 3,
+                                        "type": "resume",
+                                        "text": "Important member of Solidarity party."
+                                      },
+                                      {
+                                        "id": 4,
+                                        "type": "paragraph",
+                                        "text": "Ukrainian president Petro Poroshenko accepted on Sunday the resignation of his defence minister who has been under fire over a rout of government forces in the east which let to Kiev calling a ceasefire with pro-Russian separatists."
+                                      }
+                                    ]
+                                },
+                                {
+                                    "id": 1,
+                                    "blocks": [
+                                         {
+                                            "id":0,
+                                            "type": "titleNumber",
+                                            "number": "102",
+                                            "text": "More than\nUkrainian troops\nand members of pro\ngovernment volunteer\nbattalions were killed"
+                                         },
+                                         {
+                                            "id": 1,
+                                            "type": "paragraph",
+                                            "text": "They were hemmed in by an unexpected attack from Russian forces supporting the separatists. Large numbers of Ukrainians were also taken prisoner by the rebels."
+                                         },
+                                         {
+                                            "id": 2,
+                                            "type": "paragraph",
+                                            "text": "Ukrainian military sources say a large number of Russian troops were also killed - a charge not acknowledged by Moscow, which denies any part in the Ukraine conflict despite what Kiev and Western governments say is incontrovertible proof."
+                                         },
+                                         {
+                                            "id": 3,
+                                            "type": "paragraph",
+                                            "text": "Analysts say the Aug. 24 attack led Poroshenko reluctantly to accept that Kiev could not beat the separatists militarily as long as they were supported by direct involvement of Russian troops and equipment."
+                                         }
+                                    ]
+                                }
+                            ]
                         },
                         {
                             "id": 2,
                             "title": "Backbone to Ukraine rebels",
                             "createdAt": "2014-11-02T19:00:00.000Z",
-                            "blocks": [],
-                            "credits": [],
-                            "infos": []
+                            "blocks": [
+                                {
+                                    "id": 0,
+                                    "type": "title",
+                                    "title": "Ukraine president accepts embattled defence minister’s resignation",
+                                    "createdAt": "2014-10-12T19:00:00.000Z",
+                                    "location": "Kiev"
+                                },
+                                {
+                                    "id": 1 ,
+                                    "type": "resume",
+                                    "text": "Defence minister criticised over August rout of troops."
+                                },
+                                {
+                                   "id": 2 ,
+                                   "type": "resume",
+                                   "text": "President hopes to nominate successor on Monday."
+                                },
+                                {
+                                   "id": 3 ,
+                                   "type": "resume",
+                                   "text": "Fragile ceasefire in eastern Ukraine broadly holding."
+                                },
+                                {
+                                   "id": 4,
+                                   "type": "paragraph",
+                                   "text": "Ukrainian president <link>Petro Poroshenko</link> accepted on Sunday the resignation of his defence minister who has been under fire over a rout of government forces in the east which let to Kiev calling a ceasefire with pro-Russian separatists.",
+                                   "links": ["0"]
+                                },
+                                {
+                                   "id": 5,
+                                   "type": "image",
+                                   "text": "US Attorney General Eric Holder speaks at the opening of the Ukraine Forum of Asset Recovery at Lancaster House in Central London, April 29, 2014.",
+                                   "image": "0-1-4-poroshenko"
+                                },
+                                {
+                                    "id": 6,
+                                    "type": "paragraph",
+                                    "text": "<link>Poroshenko</link>’s website said the president had accepted the offer of resignation from Valery Heletey, 47, whom he appointed only in July. It said Poroshenko hoped to present a new ministerial candidate to parliament on Monday.",
+                                    "links": ["0"]
+                                },
+                                {
+                                    "id": 7,
+                                    "type": "quote",
+                                    "author": "Petro\nPoroshenko",
+                                    "text": "“I don’t have illusion. These will be difficult talks. But I am.”"
+                                },
+                                {
+                                    "id": 8,
+                                    "type": "paragraph",
+                                    "text": "<link>Heletey</link> who formerly led a presidential bodyguard unit, had drawn criticism since the crushing defeat of Ukrainian forces at Ilovaisk, east of the main rebel held eastern city of Donetsk, in late August.",
+                                    "links": ["0"]
+                                },
+                                {
+                                    "id": 9,
+                                    "type": "paragraph",
+                                    "text": "Ukrainian military sources say a large number of Russian troops were also killed - a charge not acknowledged by Moscow, which denies any part in the Ukraine Conflict despite what Kiev and Western governements say is incontrovertible proof.",
+                                    "links": []
+                                },
+                                {
+                                    "id": 10,
+                                    "type": "keyNumber",
+                                    "number": "<link>102</link>",
+                                    "text": "Ukrainian troops Were killed",
+                                    "links": ["1"]
+                                },
+                                {
+                                    "id": 11,
+                                    "type": "paragraph",
+                                    "text": "Analysts say the Aug. 24 attack led <link>Poroshenko</link> reluctantly to accept that Kiev could not beat the separatists militarily as long as they were sypported by direct involvement of Russian troops and equipment.",
+                                    "links": ["0"]
+                                }
+                            ],
+                            "credits": [
+                                {
+                                    "id": 0,
+                                    "type": "editor",
+                                    "title": "Authors:",
+                                    "names": ["Richard Balmforth", "Natalia Zinets"]
+                                },
+                                {
+                                    "id": 1,
+                                    "type": "publishing",
+                                    "title": "Editing:",
+                                    "names": ["Robin Pomeroy"]
+                                }
+                            ],
+                            "infos": [
+                                {
+                                    "id": 0,
+                                    "blocks": [
+                                      {
+                                        "id":0,
+                                        "type": "titlePortrait",
+                                        "image": "poroshenko-portrait",
+                                        "text": "Petro Poroshenko"
+                                      },
+                                      {
+                                        "id": 1,
+                                        "type": "resume",
+                                        "text": "Business man and statesman from Ukraine."
+                                      },
+                                      {
+                                        "id": 2,
+                                        "type": "resume",
+                                        "text": "Ukraine president since 2014."
+                                      },
+                                      {
+                                        "id": 3,
+                                        "type": "resume",
+                                        "text": "Important member of Solidarity party."
+                                      },
+                                      {
+                                        "id": 4,
+                                        "type": "paragraph",
+                                        "text": "Ukrainian president Petro Poroshenko accepted on Sunday the resignation of his defence minister who has been under fire over a rout of government forces in the east which let to Kiev calling a ceasefire with pro-Russian separatists."
+                                      }
+                                    ]
+                                },
+                                {
+                                    "id": 1,
+                                    "blocks": [
+                                         {
+                                            "id":0,
+                                            "type": "titleNumber",
+                                            "number": "102",
+                                            "text": "More than\nUkrainian troops\nand members of pro\ngovernment volunteer\nbattalions were killed"
+                                         },
+                                         {
+                                            "id": 1,
+                                            "type": "paragraph",
+                                            "text": "They were hemmed in by an unexpected attack from Russian forces supporting the separatists. Large numbers of Ukrainians were also taken prisoner by the rebels."
+                                         },
+                                         {
+                                            "id": 2,
+                                            "type": "paragraph",
+                                            "text": "Ukrainian military sources say a large number of Russian troops were also killed - a charge not acknowledged by Moscow, which denies any part in the Ukraine conflict despite what Kiev and Western governments say is incontrovertible proof."
+                                         },
+                                         {
+                                            "id": 3,
+                                            "type": "paragraph",
+                                            "text": "Analysts say the Aug. 24 attack led Poroshenko reluctantly to accept that Kiev could not beat the separatists militarily as long as they were supported by direct involvement of Russian troops and equipment."
+                                         }
+                                    ]
+                                }
+                            ]
                         }
                     ]
                 },
@@ -506,9 +1672,152 @@
                             "id": 1,
                             "title": "Defeat of Ukrainian forces at Ilovaisk",
                             "createdAt": "2014-10-22T19:00:00.000Z",
-                            "blocks": [],
-                            "credits": [],
-                            "infos": []
+                            "blocks": [
+                                {
+                                    "id": 0,
+                                    "type": "title",
+                                    "title": "Ukraine president accepts embattled defence minister’s resignation",
+                                    "createdAt": "2014-10-12T19:00:00.000Z",
+                                    "location": "Kiev"
+                                },
+                                {
+                                    "id": 1 ,
+                                    "type": "resume",
+                                    "text": "Defence minister criticised over August rout of troops."
+                                },
+                                {
+                                   "id": 2 ,
+                                   "type": "resume",
+                                   "text": "President hopes to nominate successor on Monday."
+                                },
+                                {
+                                   "id": 3 ,
+                                   "type": "resume",
+                                   "text": "Fragile ceasefire in eastern Ukraine broadly holding."
+                                },
+                                {
+                                   "id": 4,
+                                   "type": "paragraph",
+                                   "text": "Ukrainian president <link>Petro Poroshenko</link> accepted on Sunday the resignation of his defence minister who has been under fire over a rout of government forces in the east which let to Kiev calling a ceasefire with pro-Russian separatists.",
+                                   "links": ["0"]
+                                },
+                                {
+                                   "id": 5,
+                                   "type": "image",
+                                   "text": "US Attorney General Eric Holder speaks at the opening of the Ukraine Forum of Asset Recovery at Lancaster House in Central London, April 29, 2014.",
+                                   "image": "0-1-4-poroshenko"
+                                },
+                                {
+                                    "id": 6,
+                                    "type": "paragraph",
+                                    "text": "<link>Poroshenko</link>’s website said the president had accepted the offer of resignation from Valery Heletey, 47, whom he appointed only in July. It said Poroshenko hoped to present a new ministerial candidate to parliament on Monday.",
+                                    "links": ["0"]
+                                },
+                                {
+                                    "id": 7,
+                                    "type": "quote",
+                                    "author": "Petro\nPoroshenko",
+                                    "text": "“I don’t have illusion. These will be difficult talks. But I am.”"
+                                },
+                                {
+                                    "id": 8,
+                                    "type": "paragraph",
+                                    "text": "<link>Heletey</link> who formerly led a presidential bodyguard unit, had drawn criticism since the crushing defeat of Ukrainian forces at Ilovaisk, east of the main rebel held eastern city of Donetsk, in late August.",
+                                    "links": ["0"]
+                                },
+                                {
+                                    "id": 9,
+                                    "type": "paragraph",
+                                    "text": "Ukrainian military sources say a large number of Russian troops were also killed - a charge not acknowledged by Moscow, which denies any part in the Ukraine Conflict despite what Kiev and Western governements say is incontrovertible proof.",
+                                    "links": []
+                                },
+                                {
+                                    "id": 10,
+                                    "type": "keyNumber",
+                                    "number": "<link>102</link>",
+                                    "text": "Ukrainian troops Were killed",
+                                    "links": ["1"]
+                                },
+                                {
+                                    "id": 11,
+                                    "type": "paragraph",
+                                    "text": "Analysts say the Aug. 24 attack led <link>Poroshenko</link> reluctantly to accept that Kiev could not beat the separatists militarily as long as they were sypported by direct involvement of Russian troops and equipment.",
+                                    "links": ["0"]
+                                }
+                            ],
+                            "credits": [
+                                {
+                                    "id": 0,
+                                    "type": "editor",
+                                    "title": "Authors:",
+                                    "names": ["Richard Balmforth", "Natalia Zinets"]
+                                },
+                                {
+                                    "id": 1,
+                                    "type": "publishing",
+                                    "title": "Editing:",
+                                    "names": ["Robin Pomeroy"]
+                                }
+                            ],
+                            "infos": [
+                                {
+                                    "id": 0,
+                                    "blocks": [
+                                      {
+                                        "id":0,
+                                        "type": "titlePortrait",
+                                        "image": "poroshenko-portrait",
+                                        "text": "Petro Poroshenko"
+                                      },
+                                      {
+                                        "id": 1,
+                                        "type": "resume",
+                                        "text": "Business man and statesman from Ukraine."
+                                      },
+                                      {
+                                        "id": 2,
+                                        "type": "resume",
+                                        "text": "Ukraine president since 2014."
+                                      },
+                                      {
+                                        "id": 3,
+                                        "type": "resume",
+                                        "text": "Important member of Solidarity party."
+                                      },
+                                      {
+                                        "id": 4,
+                                        "type": "paragraph",
+                                        "text": "Ukrainian president Petro Poroshenko accepted on Sunday the resignation of his defence minister who has been under fire over a rout of government forces in the east which let to Kiev calling a ceasefire with pro-Russian separatists."
+                                      }
+                                    ]
+                                },
+                                {
+                                    "id": 1,
+                                    "blocks": [
+                                         {
+                                            "id":0,
+                                            "type": "titleNumber",
+                                            "number": "102",
+                                            "text": "More than\nUkrainian troops\nand members of pro\ngovernment volunteer\nbattalions were killed"
+                                         },
+                                         {
+                                            "id": 1,
+                                            "type": "paragraph",
+                                            "text": "They were hemmed in by an unexpected attack from Russian forces supporting the separatists. Large numbers of Ukrainians were also taken prisoner by the rebels."
+                                         },
+                                         {
+                                            "id": 2,
+                                            "type": "paragraph",
+                                            "text": "Ukrainian military sources say a large number of Russian troops were also killed - a charge not acknowledged by Moscow, which denies any part in the Ukraine conflict despite what Kiev and Western governments say is incontrovertible proof."
+                                         },
+                                         {
+                                            "id": 3,
+                                            "type": "paragraph",
+                                            "text": "Analysts say the Aug. 24 attack led Poroshenko reluctantly to accept that Kiev could not beat the separatists militarily as long as they were supported by direct involvement of Russian troops and equipment."
+                                         }
+                                    ]
+                                }
+                            ]
                         },
                         {
                             "id": 2,
@@ -637,9 +1946,152 @@
                             "id": 3,
                             "title": "Germany wants Russian troops pull back",
                             "createdAt": "2014-10-12T19:00:00.000Z",
-                            "blocks": [],
-                            "credits": [],
-                            "infos": []
+                            "blocks": [
+                                {
+                                    "id": 0,
+                                    "type": "title",
+                                    "title": "Ukraine president accepts embattled defence minister’s resignation",
+                                    "createdAt": "2014-10-12T19:00:00.000Z",
+                                    "location": "Kiev"
+                                },
+                                {
+                                    "id": 1 ,
+                                    "type": "resume",
+                                    "text": "Defence minister criticised over August rout of troops."
+                                },
+                                {
+                                   "id": 2 ,
+                                   "type": "resume",
+                                   "text": "President hopes to nominate successor on Monday."
+                                },
+                                {
+                                   "id": 3 ,
+                                   "type": "resume",
+                                   "text": "Fragile ceasefire in eastern Ukraine broadly holding."
+                                },
+                                {
+                                   "id": 4,
+                                   "type": "paragraph",
+                                   "text": "Ukrainian president <link>Petro Poroshenko</link> accepted on Sunday the resignation of his defence minister who has been under fire over a rout of government forces in the east which let to Kiev calling a ceasefire with pro-Russian separatists.",
+                                   "links": ["0"]
+                                },
+                                {
+                                   "id": 5,
+                                   "type": "image",
+                                   "text": "US Attorney General Eric Holder speaks at the opening of the Ukraine Forum of Asset Recovery at Lancaster House in Central London, April 29, 2014.",
+                                   "image": "0-1-4-poroshenko"
+                                },
+                                {
+                                    "id": 6,
+                                    "type": "paragraph",
+                                    "text": "<link>Poroshenko</link>’s website said the president had accepted the offer of resignation from Valery Heletey, 47, whom he appointed only in July. It said Poroshenko hoped to present a new ministerial candidate to parliament on Monday.",
+                                    "links": ["0"]
+                                },
+                                {
+                                    "id": 7,
+                                    "type": "quote",
+                                    "author": "Petro\nPoroshenko",
+                                    "text": "“I don’t have illusion. These will be difficult talks. But I am.”"
+                                },
+                                {
+                                    "id": 8,
+                                    "type": "paragraph",
+                                    "text": "<link>Heletey</link> who formerly led a presidential bodyguard unit, had drawn criticism since the crushing defeat of Ukrainian forces at Ilovaisk, east of the main rebel held eastern city of Donetsk, in late August.",
+                                    "links": ["0"]
+                                },
+                                {
+                                    "id": 9,
+                                    "type": "paragraph",
+                                    "text": "Ukrainian military sources say a large number of Russian troops were also killed - a charge not acknowledged by Moscow, which denies any part in the Ukraine Conflict despite what Kiev and Western governements say is incontrovertible proof.",
+                                    "links": []
+                                },
+                                {
+                                    "id": 10,
+                                    "type": "keyNumber",
+                                    "number": "<link>102</link>",
+                                    "text": "Ukrainian troops Were killed",
+                                    "links": ["1"]
+                                },
+                                {
+                                    "id": 11,
+                                    "type": "paragraph",
+                                    "text": "Analysts say the Aug. 24 attack led <link>Poroshenko</link> reluctantly to accept that Kiev could not beat the separatists militarily as long as they were sypported by direct involvement of Russian troops and equipment.",
+                                    "links": ["0"]
+                                }
+                            ],
+                            "credits": [
+                                {
+                                    "id": 0,
+                                    "type": "editor",
+                                    "title": "Authors:",
+                                    "names": ["Richard Balmforth", "Natalia Zinets"]
+                                },
+                                {
+                                    "id": 1,
+                                    "type": "publishing",
+                                    "title": "Editing:",
+                                    "names": ["Robin Pomeroy"]
+                                }
+                            ],
+                            "infos": [
+                                {
+                                    "id": 0,
+                                    "blocks": [
+                                      {
+                                        "id":0,
+                                        "type": "titlePortrait",
+                                        "image": "poroshenko-portrait",
+                                        "text": "Petro Poroshenko"
+                                      },
+                                      {
+                                        "id": 1,
+                                        "type": "resume",
+                                        "text": "Business man and statesman from Ukraine."
+                                      },
+                                      {
+                                        "id": 2,
+                                        "type": "resume",
+                                        "text": "Ukraine president since 2014."
+                                      },
+                                      {
+                                        "id": 3,
+                                        "type": "resume",
+                                        "text": "Important member of Solidarity party."
+                                      },
+                                      {
+                                        "id": 4,
+                                        "type": "paragraph",
+                                        "text": "Ukrainian president Petro Poroshenko accepted on Sunday the resignation of his defence minister who has been under fire over a rout of government forces in the east which let to Kiev calling a ceasefire with pro-Russian separatists."
+                                      }
+                                    ]
+                                },
+                                {
+                                    "id": 1,
+                                    "blocks": [
+                                         {
+                                            "id":0,
+                                            "type": "titleNumber",
+                                            "number": "102",
+                                            "text": "More than\nUkrainian troops\nand members of pro\ngovernment volunteer\nbattalions were killed"
+                                         },
+                                         {
+                                            "id": 1,
+                                            "type": "paragraph",
+                                            "text": "They were hemmed in by an unexpected attack from Russian forces supporting the separatists. Large numbers of Ukrainians were also taken prisoner by the rebels."
+                                         },
+                                         {
+                                            "id": 2,
+                                            "type": "paragraph",
+                                            "text": "Ukrainian military sources say a large number of Russian troops were also killed - a charge not acknowledged by Moscow, which denies any part in the Ukraine conflict despite what Kiev and Western governments say is incontrovertible proof."
+                                         },
+                                         {
+                                            "id": 3,
+                                            "type": "paragraph",
+                                            "text": "Analysts say the Aug. 24 attack led Poroshenko reluctantly to accept that Kiev could not beat the separatists militarily as long as they were supported by direct involvement of Russian troops and equipment."
+                                         }
+                                    ]
+                                }
+                            ]
                         },
                         {
                             "id": 4,
@@ -802,41 +2254,756 @@
                             "id": 0,
                             "title": "Servicemen stand at a checkpoint in Karlovka",
                             "createdAt": "2014-09-06T19:00:00.000Z",
-                            "blocks": [],
-                            "credits": [],
-                            "infos": []
+                            "blocks": [
+                                {
+                                    "id": 0,
+                                    "type": "title",
+                                    "title": "Ukraine president accepts embattled defence minister’s resignation",
+                                    "createdAt": "2014-10-12T19:00:00.000Z",
+                                    "location": "Kiev"
+                                },
+                                {
+                                    "id": 1 ,
+                                    "type": "resume",
+                                    "text": "Defence minister criticised over August rout of troops."
+                                },
+                                {
+                                   "id": 2 ,
+                                   "type": "resume",
+                                   "text": "President hopes to nominate successor on Monday."
+                                },
+                                {
+                                   "id": 3 ,
+                                   "type": "resume",
+                                   "text": "Fragile ceasefire in eastern Ukraine broadly holding."
+                                },
+                                {
+                                   "id": 4,
+                                   "type": "paragraph",
+                                   "text": "Ukrainian president <link>Petro Poroshenko</link> accepted on Sunday the resignation of his defence minister who has been under fire over a rout of government forces in the east which let to Kiev calling a ceasefire with pro-Russian separatists.",
+                                   "links": ["0"]
+                                },
+                                {
+                                   "id": 5,
+                                   "type": "image",
+                                   "text": "US Attorney General Eric Holder speaks at the opening of the Ukraine Forum of Asset Recovery at Lancaster House in Central London, April 29, 2014.",
+                                   "image": "0-1-4-poroshenko"
+                                },
+                                {
+                                    "id": 6,
+                                    "type": "paragraph",
+                                    "text": "<link>Poroshenko</link>’s website said the president had accepted the offer of resignation from Valery Heletey, 47, whom he appointed only in July. It said Poroshenko hoped to present a new ministerial candidate to parliament on Monday.",
+                                    "links": ["0"]
+                                },
+                                {
+                                    "id": 7,
+                                    "type": "quote",
+                                    "author": "Petro\nPoroshenko",
+                                    "text": "“I don’t have illusion. These will be difficult talks. But I am.”"
+                                },
+                                {
+                                    "id": 8,
+                                    "type": "paragraph",
+                                    "text": "<link>Heletey</link> who formerly led a presidential bodyguard unit, had drawn criticism since the crushing defeat of Ukrainian forces at Ilovaisk, east of the main rebel held eastern city of Donetsk, in late August.",
+                                    "links": ["0"]
+                                },
+                                {
+                                    "id": 9,
+                                    "type": "paragraph",
+                                    "text": "Ukrainian military sources say a large number of Russian troops were also killed - a charge not acknowledged by Moscow, which denies any part in the Ukraine Conflict despite what Kiev and Western governements say is incontrovertible proof.",
+                                    "links": []
+                                },
+                                {
+                                    "id": 10,
+                                    "type": "keyNumber",
+                                    "number": "<link>102</link>",
+                                    "text": "Ukrainian troops Were killed",
+                                    "links": ["1"]
+                                },
+                                {
+                                    "id": 11,
+                                    "type": "paragraph",
+                                    "text": "Analysts say the Aug. 24 attack led <link>Poroshenko</link> reluctantly to accept that Kiev could not beat the separatists militarily as long as they were sypported by direct involvement of Russian troops and equipment.",
+                                    "links": ["0"]
+                                }
+                            ],
+                            "credits": [
+                                {
+                                    "id": 0,
+                                    "type": "editor",
+                                    "title": "Authors:",
+                                    "names": ["Richard Balmforth", "Natalia Zinets"]
+                                },
+                                {
+                                    "id": 1,
+                                    "type": "publishing",
+                                    "title": "Editing:",
+                                    "names": ["Robin Pomeroy"]
+                                }
+                            ],
+                            "infos": [
+                                {
+                                    "id": 0,
+                                    "blocks": [
+                                      {
+                                        "id":0,
+                                        "type": "titlePortrait",
+                                        "image": "poroshenko-portrait",
+                                        "text": "Petro Poroshenko"
+                                      },
+                                      {
+                                        "id": 1,
+                                        "type": "resume",
+                                        "text": "Business man and statesman from Ukraine."
+                                      },
+                                      {
+                                        "id": 2,
+                                        "type": "resume",
+                                        "text": "Ukraine president since 2014."
+                                      },
+                                      {
+                                        "id": 3,
+                                        "type": "resume",
+                                        "text": "Important member of Solidarity party."
+                                      },
+                                      {
+                                        "id": 4,
+                                        "type": "paragraph",
+                                        "text": "Ukrainian president Petro Poroshenko accepted on Sunday the resignation of his defence minister who has been under fire over a rout of government forces in the east which let to Kiev calling a ceasefire with pro-Russian separatists."
+                                      }
+                                    ]
+                                },
+                                {
+                                    "id": 1,
+                                    "blocks": [
+                                         {
+                                            "id":0,
+                                            "type": "titleNumber",
+                                            "number": "102",
+                                            "text": "More than\nUkrainian troops\nand members of pro\ngovernment volunteer\nbattalions were killed"
+                                         },
+                                         {
+                                            "id": 1,
+                                            "type": "paragraph",
+                                            "text": "They were hemmed in by an unexpected attack from Russian forces supporting the separatists. Large numbers of Ukrainians were also taken prisoner by the rebels."
+                                         },
+                                         {
+                                            "id": 2,
+                                            "type": "paragraph",
+                                            "text": "Ukrainian military sources say a large number of Russian troops were also killed - a charge not acknowledged by Moscow, which denies any part in the Ukraine conflict despite what Kiev and Western governments say is incontrovertible proof."
+                                         },
+                                         {
+                                            "id": 3,
+                                            "type": "paragraph",
+                                            "text": "Analysts say the Aug. 24 attack led Poroshenko reluctantly to accept that Kiev could not beat the separatists militarily as long as they were supported by direct involvement of Russian troops and equipment."
+                                         }
+                                    ]
+                                }
+                            ]
                         },
                         {
                             "id": 1,
                             "title": "Economy will rebound",
                             "createdAt": "2014-09-05T19:00:00.000Z",
-                            "blocks": [],
-                            "credits": [],
-                            "infos": []
+                            "blocks": [
+                                {
+                                    "id": 0,
+                                    "type": "title",
+                                    "title": "Ukraine president accepts embattled defence minister’s resignation",
+                                    "createdAt": "2014-10-12T19:00:00.000Z",
+                                    "location": "Kiev"
+                                },
+                                {
+                                    "id": 1 ,
+                                    "type": "resume",
+                                    "text": "Defence minister criticised over August rout of troops."
+                                },
+                                {
+                                   "id": 2 ,
+                                   "type": "resume",
+                                   "text": "President hopes to nominate successor on Monday."
+                                },
+                                {
+                                   "id": 3 ,
+                                   "type": "resume",
+                                   "text": "Fragile ceasefire in eastern Ukraine broadly holding."
+                                },
+                                {
+                                   "id": 4,
+                                   "type": "paragraph",
+                                   "text": "Ukrainian president <link>Petro Poroshenko</link> accepted on Sunday the resignation of his defence minister who has been under fire over a rout of government forces in the east which let to Kiev calling a ceasefire with pro-Russian separatists.",
+                                   "links": ["0"]
+                                },
+                                {
+                                   "id": 5,
+                                   "type": "image",
+                                   "text": "US Attorney General Eric Holder speaks at the opening of the Ukraine Forum of Asset Recovery at Lancaster House in Central London, April 29, 2014.",
+                                   "image": "0-1-4-poroshenko"
+                                },
+                                {
+                                    "id": 6,
+                                    "type": "paragraph",
+                                    "text": "<link>Poroshenko</link>’s website said the president had accepted the offer of resignation from Valery Heletey, 47, whom he appointed only in July. It said Poroshenko hoped to present a new ministerial candidate to parliament on Monday.",
+                                    "links": ["0"]
+                                },
+                                {
+                                    "id": 7,
+                                    "type": "quote",
+                                    "author": "Petro\nPoroshenko",
+                                    "text": "“I don’t have illusion. These will be difficult talks. But I am.”"
+                                },
+                                {
+                                    "id": 8,
+                                    "type": "paragraph",
+                                    "text": "<link>Heletey</link> who formerly led a presidential bodyguard unit, had drawn criticism since the crushing defeat of Ukrainian forces at Ilovaisk, east of the main rebel held eastern city of Donetsk, in late August.",
+                                    "links": ["0"]
+                                },
+                                {
+                                    "id": 9,
+                                    "type": "paragraph",
+                                    "text": "Ukrainian military sources say a large number of Russian troops were also killed - a charge not acknowledged by Moscow, which denies any part in the Ukraine Conflict despite what Kiev and Western governements say is incontrovertible proof.",
+                                    "links": []
+                                },
+                                {
+                                    "id": 10,
+                                    "type": "keyNumber",
+                                    "number": "<link>102</link>",
+                                    "text": "Ukrainian troops Were killed",
+                                    "links": ["1"]
+                                },
+                                {
+                                    "id": 11,
+                                    "type": "paragraph",
+                                    "text": "Analysts say the Aug. 24 attack led <link>Poroshenko</link> reluctantly to accept that Kiev could not beat the separatists militarily as long as they were sypported by direct involvement of Russian troops and equipment.",
+                                    "links": ["0"]
+                                }
+                            ],
+                            "credits": [
+                                {
+                                    "id": 0,
+                                    "type": "editor",
+                                    "title": "Authors:",
+                                    "names": ["Richard Balmforth", "Natalia Zinets"]
+                                },
+                                {
+                                    "id": 1,
+                                    "type": "publishing",
+                                    "title": "Editing:",
+                                    "names": ["Robin Pomeroy"]
+                                }
+                            ],
+                            "infos": [
+                                {
+                                    "id": 0,
+                                    "blocks": [
+                                      {
+                                        "id":0,
+                                        "type": "titlePortrait",
+                                        "image": "poroshenko-portrait",
+                                        "text": "Petro Poroshenko"
+                                      },
+                                      {
+                                        "id": 1,
+                                        "type": "resume",
+                                        "text": "Business man and statesman from Ukraine."
+                                      },
+                                      {
+                                        "id": 2,
+                                        "type": "resume",
+                                        "text": "Ukraine president since 2014."
+                                      },
+                                      {
+                                        "id": 3,
+                                        "type": "resume",
+                                        "text": "Important member of Solidarity party."
+                                      },
+                                      {
+                                        "id": 4,
+                                        "type": "paragraph",
+                                        "text": "Ukrainian president Petro Poroshenko accepted on Sunday the resignation of his defence minister who has been under fire over a rout of government forces in the east which let to Kiev calling a ceasefire with pro-Russian separatists."
+                                      }
+                                    ]
+                                },
+                                {
+                                    "id": 1,
+                                    "blocks": [
+                                         {
+                                            "id":0,
+                                            "type": "titleNumber",
+                                            "number": "102",
+                                            "text": "More than\nUkrainian troops\nand members of pro\ngovernment volunteer\nbattalions were killed"
+                                         },
+                                         {
+                                            "id": 1,
+                                            "type": "paragraph",
+                                            "text": "They were hemmed in by an unexpected attack from Russian forces supporting the separatists. Large numbers of Ukrainians were also taken prisoner by the rebels."
+                                         },
+                                         {
+                                            "id": 2,
+                                            "type": "paragraph",
+                                            "text": "Ukrainian military sources say a large number of Russian troops were also killed - a charge not acknowledged by Moscow, which denies any part in the Ukraine conflict despite what Kiev and Western governments say is incontrovertible proof."
+                                         },
+                                         {
+                                            "id": 3,
+                                            "type": "paragraph",
+                                            "text": "Analysts say the Aug. 24 attack led Poroshenko reluctantly to accept that Kiev could not beat the separatists militarily as long as they were supported by direct involvement of Russian troops and equipment."
+                                         }
+                                    ]
+                                }
+                            ]
                         },
                         {
                             "id": 2,
                             "title": "Ukraine accuses rebels of violating",
                             "createdAt": "2014-08-30T19:00:00.000Z",
-                            "blocks": [],
-                            "credits": [],
-                            "infos": []
+                            "blocks": [
+                                {
+                                    "id": 0,
+                                    "type": "title",
+                                    "title": "Ukraine president accepts embattled defence minister’s resignation",
+                                    "createdAt": "2014-10-12T19:00:00.000Z",
+                                    "location": "Kiev"
+                                },
+                                {
+                                    "id": 1 ,
+                                    "type": "resume",
+                                    "text": "Defence minister criticised over August rout of troops."
+                                },
+                                {
+                                   "id": 2 ,
+                                   "type": "resume",
+                                   "text": "President hopes to nominate successor on Monday."
+                                },
+                                {
+                                   "id": 3 ,
+                                   "type": "resume",
+                                   "text": "Fragile ceasefire in eastern Ukraine broadly holding."
+                                },
+                                {
+                                   "id": 4,
+                                   "type": "paragraph",
+                                   "text": "Ukrainian president <link>Petro Poroshenko</link> accepted on Sunday the resignation of his defence minister who has been under fire over a rout of government forces in the east which let to Kiev calling a ceasefire with pro-Russian separatists.",
+                                   "links": ["0"]
+                                },
+                                {
+                                   "id": 5,
+                                   "type": "image",
+                                   "text": "US Attorney General Eric Holder speaks at the opening of the Ukraine Forum of Asset Recovery at Lancaster House in Central London, April 29, 2014.",
+                                   "image": "0-1-4-poroshenko"
+                                },
+                                {
+                                    "id": 6,
+                                    "type": "paragraph",
+                                    "text": "<link>Poroshenko</link>’s website said the president had accepted the offer of resignation from Valery Heletey, 47, whom he appointed only in July. It said Poroshenko hoped to present a new ministerial candidate to parliament on Monday.",
+                                    "links": ["0"]
+                                },
+                                {
+                                    "id": 7,
+                                    "type": "quote",
+                                    "author": "Petro\nPoroshenko",
+                                    "text": "“I don’t have illusion. These will be difficult talks. But I am.”"
+                                },
+                                {
+                                    "id": 8,
+                                    "type": "paragraph",
+                                    "text": "<link>Heletey</link> who formerly led a presidential bodyguard unit, had drawn criticism since the crushing defeat of Ukrainian forces at Ilovaisk, east of the main rebel held eastern city of Donetsk, in late August.",
+                                    "links": ["0"]
+                                },
+                                {
+                                    "id": 9,
+                                    "type": "paragraph",
+                                    "text": "Ukrainian military sources say a large number of Russian troops were also killed - a charge not acknowledged by Moscow, which denies any part in the Ukraine Conflict despite what Kiev and Western governements say is incontrovertible proof.",
+                                    "links": []
+                                },
+                                {
+                                    "id": 10,
+                                    "type": "keyNumber",
+                                    "number": "<link>102</link>",
+                                    "text": "Ukrainian troops Were killed",
+                                    "links": ["1"]
+                                },
+                                {
+                                    "id": 11,
+                                    "type": "paragraph",
+                                    "text": "Analysts say the Aug. 24 attack led <link>Poroshenko</link> reluctantly to accept that Kiev could not beat the separatists militarily as long as they were sypported by direct involvement of Russian troops and equipment.",
+                                    "links": ["0"]
+                                }
+                            ],
+                            "credits": [
+                                {
+                                    "id": 0,
+                                    "type": "editor",
+                                    "title": "Authors:",
+                                    "names": ["Richard Balmforth", "Natalia Zinets"]
+                                },
+                                {
+                                    "id": 1,
+                                    "type": "publishing",
+                                    "title": "Editing:",
+                                    "names": ["Robin Pomeroy"]
+                                }
+                            ],
+                            "infos": [
+                                {
+                                    "id": 0,
+                                    "blocks": [
+                                      {
+                                        "id":0,
+                                        "type": "titlePortrait",
+                                        "image": "poroshenko-portrait",
+                                        "text": "Petro Poroshenko"
+                                      },
+                                      {
+                                        "id": 1,
+                                        "type": "resume",
+                                        "text": "Business man and statesman from Ukraine."
+                                      },
+                                      {
+                                        "id": 2,
+                                        "type": "resume",
+                                        "text": "Ukraine president since 2014."
+                                      },
+                                      {
+                                        "id": 3,
+                                        "type": "resume",
+                                        "text": "Important member of Solidarity party."
+                                      },
+                                      {
+                                        "id": 4,
+                                        "type": "paragraph",
+                                        "text": "Ukrainian president Petro Poroshenko accepted on Sunday the resignation of his defence minister who has been under fire over a rout of government forces in the east which let to Kiev calling a ceasefire with pro-Russian separatists."
+                                      }
+                                    ]
+                                },
+                                {
+                                    "id": 1,
+                                    "blocks": [
+                                         {
+                                            "id":0,
+                                            "type": "titleNumber",
+                                            "number": "102",
+                                            "text": "More than\nUkrainian troops\nand members of pro\ngovernment volunteer\nbattalions were killed"
+                                         },
+                                         {
+                                            "id": 1,
+                                            "type": "paragraph",
+                                            "text": "They were hemmed in by an unexpected attack from Russian forces supporting the separatists. Large numbers of Ukrainians were also taken prisoner by the rebels."
+                                         },
+                                         {
+                                            "id": 2,
+                                            "type": "paragraph",
+                                            "text": "Ukrainian military sources say a large number of Russian troops were also killed - a charge not acknowledged by Moscow, which denies any part in the Ukraine conflict despite what Kiev and Western governments say is incontrovertible proof."
+                                         },
+                                         {
+                                            "id": 3,
+                                            "type": "paragraph",
+                                            "text": "Analysts say the Aug. 24 attack led Poroshenko reluctantly to accept that Kiev could not beat the separatists militarily as long as they were supported by direct involvement of Russian troops and equipment."
+                                         }
+                                    ]
+                                }
+                            ]
                         },
                         {
                             "id": 3,
                             "title": "IMF visits Ukraine for bailout talks",
                             "createdAt": "2014-08-19T19:00:00.000Z",
-                            "blocks": [],
-                            "credits": [],
-                            "infos": []
+                            "blocks": [
+                                {
+                                    "id": 0,
+                                    "type": "title",
+                                    "title": "Ukraine president accepts embattled defence minister’s resignation",
+                                    "createdAt": "2014-10-12T19:00:00.000Z",
+                                    "location": "Kiev"
+                                },
+                                {
+                                    "id": 1 ,
+                                    "type": "resume",
+                                    "text": "Defence minister criticised over August rout of troops."
+                                },
+                                {
+                                   "id": 2 ,
+                                   "type": "resume",
+                                   "text": "President hopes to nominate successor on Monday."
+                                },
+                                {
+                                   "id": 3 ,
+                                   "type": "resume",
+                                   "text": "Fragile ceasefire in eastern Ukraine broadly holding."
+                                },
+                                {
+                                   "id": 4,
+                                   "type": "paragraph",
+                                   "text": "Ukrainian president <link>Petro Poroshenko</link> accepted on Sunday the resignation of his defence minister who has been under fire over a rout of government forces in the east which let to Kiev calling a ceasefire with pro-Russian separatists.",
+                                   "links": ["0"]
+                                },
+                                {
+                                   "id": 5,
+                                   "type": "image",
+                                   "text": "US Attorney General Eric Holder speaks at the opening of the Ukraine Forum of Asset Recovery at Lancaster House in Central London, April 29, 2014.",
+                                   "image": "0-1-4-poroshenko"
+                                },
+                                {
+                                    "id": 6,
+                                    "type": "paragraph",
+                                    "text": "<link>Poroshenko</link>’s website said the president had accepted the offer of resignation from Valery Heletey, 47, whom he appointed only in July. It said Poroshenko hoped to present a new ministerial candidate to parliament on Monday.",
+                                    "links": ["0"]
+                                },
+                                {
+                                    "id": 7,
+                                    "type": "quote",
+                                    "author": "Petro\nPoroshenko",
+                                    "text": "“I don’t have illusion. These will be difficult talks. But I am.”"
+                                },
+                                {
+                                    "id": 8,
+                                    "type": "paragraph",
+                                    "text": "<link>Heletey</link> who formerly led a presidential bodyguard unit, had drawn criticism since the crushing defeat of Ukrainian forces at Ilovaisk, east of the main rebel held eastern city of Donetsk, in late August.",
+                                    "links": ["0"]
+                                },
+                                {
+                                    "id": 9,
+                                    "type": "paragraph",
+                                    "text": "Ukrainian military sources say a large number of Russian troops were also killed - a charge not acknowledged by Moscow, which denies any part in the Ukraine Conflict despite what Kiev and Western governements say is incontrovertible proof.",
+                                    "links": []
+                                },
+                                {
+                                    "id": 10,
+                                    "type": "keyNumber",
+                                    "number": "<link>102</link>",
+                                    "text": "Ukrainian troops Were killed",
+                                    "links": ["1"]
+                                },
+                                {
+                                    "id": 11,
+                                    "type": "paragraph",
+                                    "text": "Analysts say the Aug. 24 attack led <link>Poroshenko</link> reluctantly to accept that Kiev could not beat the separatists militarily as long as they were sypported by direct involvement of Russian troops and equipment.",
+                                    "links": ["0"]
+                                }
+                            ],
+                            "credits": [
+                                {
+                                    "id": 0,
+                                    "type": "editor",
+                                    "title": "Authors:",
+                                    "names": ["Richard Balmforth", "Natalia Zinets"]
+                                },
+                                {
+                                    "id": 1,
+                                    "type": "publishing",
+                                    "title": "Editing:",
+                                    "names": ["Robin Pomeroy"]
+                                }
+                            ],
+                            "infos": [
+                                {
+                                    "id": 0,
+                                    "blocks": [
+                                      {
+                                        "id":0,
+                                        "type": "titlePortrait",
+                                        "image": "poroshenko-portrait",
+                                        "text": "Petro Poroshenko"
+                                      },
+                                      {
+                                        "id": 1,
+                                        "type": "resume",
+                                        "text": "Business man and statesman from Ukraine."
+                                      },
+                                      {
+                                        "id": 2,
+                                        "type": "resume",
+                                        "text": "Ukraine president since 2014."
+                                      },
+                                      {
+                                        "id": 3,
+                                        "type": "resume",
+                                        "text": "Important member of Solidarity party."
+                                      },
+                                      {
+                                        "id": 4,
+                                        "type": "paragraph",
+                                        "text": "Ukrainian president Petro Poroshenko accepted on Sunday the resignation of his defence minister who has been under fire over a rout of government forces in the east which let to Kiev calling a ceasefire with pro-Russian separatists."
+                                      }
+                                    ]
+                                },
+                                {
+                                    "id": 1,
+                                    "blocks": [
+                                         {
+                                            "id":0,
+                                            "type": "titleNumber",
+                                            "number": "102",
+                                            "text": "More than\nUkrainian troops\nand members of pro\ngovernment volunteer\nbattalions were killed"
+                                         },
+                                         {
+                                            "id": 1,
+                                            "type": "paragraph",
+                                            "text": "They were hemmed in by an unexpected attack from Russian forces supporting the separatists. Large numbers of Ukrainians were also taken prisoner by the rebels."
+                                         },
+                                         {
+                                            "id": 2,
+                                            "type": "paragraph",
+                                            "text": "Ukrainian military sources say a large number of Russian troops were also killed - a charge not acknowledged by Moscow, which denies any part in the Ukraine conflict despite what Kiev and Western governments say is incontrovertible proof."
+                                         },
+                                         {
+                                            "id": 3,
+                                            "type": "paragraph",
+                                            "text": "Analysts say the Aug. 24 attack led Poroshenko reluctantly to accept that Kiev could not beat the separatists militarily as long as they were supported by direct involvement of Russian troops and equipment."
+                                         }
+                                    ]
+                                }
+                            ]
                         },
                         {
                             "id": 4,
                             "title": "Hope Ukraine ceasefire will soon take hold",
                             "createdAt": "2014-08-08T19:00:00.000Z",
-                            "blocks": [],
-                            "credits": [],
-                            "infos": []
+                            "blocks": [
+                                {
+                                    "id": 0,
+                                    "type": "title",
+                                    "title": "Ukraine president accepts embattled defence minister’s resignation",
+                                    "createdAt": "2014-10-12T19:00:00.000Z",
+                                    "location": "Kiev"
+                                },
+                                {
+                                    "id": 1 ,
+                                    "type": "resume",
+                                    "text": "Defence minister criticised over August rout of troops."
+                                },
+                                {
+                                   "id": 2 ,
+                                   "type": "resume",
+                                   "text": "President hopes to nominate successor on Monday."
+                                },
+                                {
+                                   "id": 3 ,
+                                   "type": "resume",
+                                   "text": "Fragile ceasefire in eastern Ukraine broadly holding."
+                                },
+                                {
+                                   "id": 4,
+                                   "type": "paragraph",
+                                   "text": "Ukrainian president <link>Petro Poroshenko</link> accepted on Sunday the resignation of his defence minister who has been under fire over a rout of government forces in the east which let to Kiev calling a ceasefire with pro-Russian separatists.",
+                                   "links": ["0"]
+                                },
+                                {
+                                   "id": 5,
+                                   "type": "image",
+                                   "text": "US Attorney General Eric Holder speaks at the opening of the Ukraine Forum of Asset Recovery at Lancaster House in Central London, April 29, 2014.",
+                                   "image": "0-1-4-poroshenko"
+                                },
+                                {
+                                    "id": 6,
+                                    "type": "paragraph",
+                                    "text": "<link>Poroshenko</link>’s website said the president had accepted the offer of resignation from Valery Heletey, 47, whom he appointed only in July. It said Poroshenko hoped to present a new ministerial candidate to parliament on Monday.",
+                                    "links": ["0"]
+                                },
+                                {
+                                    "id": 7,
+                                    "type": "quote",
+                                    "author": "Petro\nPoroshenko",
+                                    "text": "“I don’t have illusion. These will be difficult talks. But I am.”"
+                                },
+                                {
+                                    "id": 8,
+                                    "type": "paragraph",
+                                    "text": "<link>Heletey</link> who formerly led a presidential bodyguard unit, had drawn criticism since the crushing defeat of Ukrainian forces at Ilovaisk, east of the main rebel held eastern city of Donetsk, in late August.",
+                                    "links": ["0"]
+                                },
+                                {
+                                    "id": 9,
+                                    "type": "paragraph",
+                                    "text": "Ukrainian military sources say a large number of Russian troops were also killed - a charge not acknowledged by Moscow, which denies any part in the Ukraine Conflict despite what Kiev and Western governements say is incontrovertible proof.",
+                                    "links": []
+                                },
+                                {
+                                    "id": 10,
+                                    "type": "keyNumber",
+                                    "number": "<link>102</link>",
+                                    "text": "Ukrainian troops Were killed",
+                                    "links": ["1"]
+                                },
+                                {
+                                    "id": 11,
+                                    "type": "paragraph",
+                                    "text": "Analysts say the Aug. 24 attack led <link>Poroshenko</link> reluctantly to accept that Kiev could not beat the separatists militarily as long as they were sypported by direct involvement of Russian troops and equipment.",
+                                    "links": ["0"]
+                                }
+                            ],
+                            "credits": [
+                                {
+                                    "id": 0,
+                                    "type": "editor",
+                                    "title": "Authors:",
+                                    "names": ["Richard Balmforth", "Natalia Zinets"]
+                                },
+                                {
+                                    "id": 1,
+                                    "type": "publishing",
+                                    "title": "Editing:",
+                                    "names": ["Robin Pomeroy"]
+                                }
+                            ],
+                            "infos": [
+                                {
+                                    "id": 0,
+                                    "blocks": [
+                                      {
+                                        "id":0,
+                                        "type": "titlePortrait",
+                                        "image": "poroshenko-portrait",
+                                        "text": "Petro Poroshenko"
+                                      },
+                                      {
+                                        "id": 1,
+                                        "type": "resume",
+                                        "text": "Business man and statesman from Ukraine."
+                                      },
+                                      {
+                                        "id": 2,
+                                        "type": "resume",
+                                        "text": "Ukraine president since 2014."
+                                      },
+                                      {
+                                        "id": 3,
+                                        "type": "resume",
+                                        "text": "Important member of Solidarity party."
+                                      },
+                                      {
+                                        "id": 4,
+                                        "type": "paragraph",
+                                        "text": "Ukrainian president Petro Poroshenko accepted on Sunday the resignation of his defence minister who has been under fire over a rout of government forces in the east which let to Kiev calling a ceasefire with pro-Russian separatists."
+                                      }
+                                    ]
+                                },
+                                {
+                                    "id": 1,
+                                    "blocks": [
+                                         {
+                                            "id":0,
+                                            "type": "titleNumber",
+                                            "number": "102",
+                                            "text": "More than\nUkrainian troops\nand members of pro\ngovernment volunteer\nbattalions were killed"
+                                         },
+                                         {
+                                            "id": 1,
+                                            "type": "paragraph",
+                                            "text": "They were hemmed in by an unexpected attack from Russian forces supporting the separatists. Large numbers of Ukrainians were also taken prisoner by the rebels."
+                                         },
+                                         {
+                                            "id": 2,
+                                            "type": "paragraph",
+                                            "text": "Ukrainian military sources say a large number of Russian troops were also killed - a charge not acknowledged by Moscow, which denies any part in the Ukraine conflict despite what Kiev and Western governments say is incontrovertible proof."
+                                         },
+                                         {
+                                            "id": 3,
+                                            "type": "paragraph",
+                                            "text": "Analysts say the Aug. 24 attack led Poroshenko reluctantly to accept that Kiev could not beat the separatists militarily as long as they were supported by direct involvement of Russian troops and equipment."
+                                         }
+                                    ]
+                                }
+                            ]
                         }
                     ]
                 }

@@ -158,23 +158,24 @@ static NSString * const reuseIdentifier = @"Cell";
     [myCell.titleView setEasingFunction:easeOutExpo forKeyPath:@"center"];
     [UIView animateWithDuration:.8 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         myCell.titleView.frame = (CGRect){.origin=CGPointMake(myCell.titleView.frame.origin.x, myCell.titleView.frame.origin.y - 60),.size=myCell.titleView.frame.size};
-        [self performSelector:@selector(finalAnimation:) withObject:myCell.titleView afterDelay:.5];
+        [self performSelector:@selector(finalAnimation:) withObject:myCell afterDelay:.4];
     } completion:^(BOOL finished) {
-        [myCell.titleView removeEasingFunctionForKeyPath:@"center"];
-        [myCell bringSubviewToFront:myCell.organicView];
-        [UIView animateWithDuration:.7 animations:^{
-            self.nameViewLBL.alpha = 0;
-            myCell.titleView.alpha = 0;
-        }];
-
-    }];
+            }];
     self.manager.currentStorie = (int)self.currentIndex;
 
 }
--(void)finalAnimation:(JAOrganicView *)view{
-    [view finalAnimation:^{
+-(void)finalAnimation:(JACoverCollectionViewCell *)view{
+    [view.titleView removeEasingFunctionForKeyPath:@"center"];
+    [view bringSubviewToFront:view.organicView];
+    [UIView animateWithDuration:.7 animations:^{
+        self.nameViewLBL.alpha = 0;
+        view.titleView.alpha = 0;
+    }];
+
+    [view.organicView finalAnimation:^{
         [self performSegueWithIdentifier:@"JACoverPush" sender:self];
     }];
+
 }
 -(void)reverseAnimation{
     JACoverCollectionViewCell *myCell = [[self.collectionView visibleCells] firstObject];

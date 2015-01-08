@@ -155,7 +155,7 @@ static NSString * const reuseIdentifier = @"Cell";
 
     [self.followView fadeOut];
     JACoverCollectionViewCell *myCell = [[self.collectionView visibleCells] firstObject];
-    [UIView animateWithDuration:.5 animations:^{
+    [UIView animateWithDuration:.5 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         myCell.titleView.frame = (CGRect){.origin=CGPointMake(myCell.titleView.frame.origin.x, myCell.titleView.frame.origin.y - 60),.size=myCell.titleView.frame.size};
     } completion:^(BOOL finished) {
         [myCell bringSubviewToFront:myCell.organicView];
@@ -174,7 +174,7 @@ static NSString * const reuseIdentifier = @"Cell";
     JACoverCollectionViewCell *myCell = [[self.collectionView visibleCells] firstObject];
     [myCell.organicView reverseAnimation:^{
 
-        [UIView animateWithDuration:.5 animations:^{
+        [UIView animateWithDuration:.5 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
             self.nameViewLBL.alpha = 1;
             myCell.titleView.alpha = 1;
             myCell.titleView.frame = (CGRect){.origin=CGPointMake(myCell.titleView.frame.origin.x, myCell.titleView.frame.origin.y + 60),.size=myCell.titleView.frame.size};
@@ -264,9 +264,11 @@ static NSString * const reuseIdentifier = @"Cell";
 
 #pragma mark <UICollectionViewDelegate>
 - (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
-    if (scrollView == self.collectionView) {
-        [self.cellToAnimate animateEnter];
-    }
+
+    [self.cellToAnimate animateEnter];
+    [self.cellToAnimate.organicView middleAnimation];
+    [self animateFollow];
+
 }
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(JACoverCollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
     self.cellToAnimate = cell;
@@ -295,14 +297,9 @@ static NSString * const reuseIdentifier = @"Cell";
     }
 }
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
-    if (scrollView == self.collectionView) {
-        self.currentIndex = (int)(scrollView.contentOffset.x/self.collectionView.frame.size.width);
-        [self.cellToAnimate.organicView middleAnimation];
-        [self animateFollow];
-    }
-    else{
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"myTestNotification" object:nil];
-    }
+
+    self.currentIndex = (int)(scrollView.contentOffset.x/self.collectionView.frame.size.width);
+    
 
 }
 

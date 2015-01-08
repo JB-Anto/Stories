@@ -51,9 +51,10 @@
     self.organicLayer.path = [PocketSVG pathFromSVGFileNamed:firstStepOrganic];
 }
 -(void)middleAnimation{
-    
+    NSLog(@"Middle");
     CGPathRef first = [PocketSVG pathFromSVGFileNamed:firstStepOrganic];
     CGPathRef middle = [PocketSVG pathFromSVGFileNamed:middleStepOrganic];
+    NSLog(@"NIL %@ %@",first , middle);
     CABasicAnimation *pathAnimation = [CABasicAnimation animationWithKeyPath:@"path"];
     pathAnimation.duration = 1.2;
     pathAnimation.removedOnCompletion = NO;
@@ -65,9 +66,11 @@
     [self.organicLayer addAnimation:pathAnimation forKey:@"pathAnimation"];
 }
 -(void)finalAnimation:(void (^)())completion{
-
+    
     CGPathRef middle = [PocketSVG pathFromSVGFileNamed:middleStepOrganic];
+    CGPathRetain(middle);
     CGPathRef final = [PocketSVG pathFromSVGFileNamed:endStepOrganic];
+    CGPathRetain(final);
     CABasicAnimation *pathAnimation = [CABasicAnimation animationWithKeyPath:@"path"];
     pathAnimation.duration = 1.2;
     pathAnimation.removedOnCompletion = NO;
@@ -82,6 +85,7 @@
     [self performSelector:@selector(fireBlockAfterDelay:)
                withObject:completion
                afterDelay:1.2];
+    
 }
 - (void)fireBlockAfterDelay:(void (^)(void))block {
     block();

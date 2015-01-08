@@ -21,6 +21,7 @@
 #import "ParallaxFlowLayout.h"
 #import "PocketSVG.h"
 
+
 @interface JAArticleCollectionViewController ()
 {
     
@@ -28,6 +29,7 @@
     CGSize maximumSizeOfLabel;
     CGFloat collectionViewHeight;
     CGFloat scrollTo;
+    BOOL stainShowed;
 }
 
 @property (strong, nonatomic) JABlockModel *currentBlock;
@@ -75,6 +77,11 @@
     doubleTapGesture.numberOfTapsRequired = 2;
     doubleTapGesture.delegate = self;
     [self.view addGestureRecognizer:doubleTapGesture];
+    
+    if([[self.manager getCurrentStorie] id] == 0) {
+        [self setupStain];
+        stainShowed = NO;
+    }
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -101,13 +108,21 @@
     [self.collectionView setUserInteractionEnabled:NO];
     self.headerView.center = self.headerView.initialCenter;
     self.footerView.center = self.footerView.initialCenter;
-    scrollTo = self.collectionView.contentOffset.y - collectionViewHeight*self.oldPercentScroll;
+    scrollTo = (self.collectionView.contentOffset.y - collectionViewHeight*self.oldPercentScroll);
     [UIView animateWithDuration:0.8 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.headerView.transform = CGAffineTransformMakeTranslation(0, scrollTo);
         self.footerView.transform = CGAffineTransformMakeTranslation(0, scrollTo);
     } completion:nil];
     [self performSelector:@selector(goToChapter) withObject:nil afterDelay:1];
     [self.delegate scrollRead:(self.collectionView.contentOffset.y / (self.collectionViewLayout.collectionViewContentSize.height - self.collectionView.frame.size.height)) indexArticle:self.manager.currentArticle];
+    
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        self.stain.alpha = 0;
+    } completion:^(BOOL finished) {
+        [self.stain removeFromSuperview];
+    }];
+    
 }
 
 -(void)goToChapter {
@@ -120,11 +135,18 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)setupStain {
+    self.stain = [[JAPushView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame))];
+    [self.stain setBackgroundColor:[self.manager getCurrentTextColor]];
+    [self.stain.textView setTextColor:[self.manager getCurrentColor]];
+    [self.stain.textView setText:@"A new offensive made by Russia on Ukraine, Poroshenko declare that this new  attack must be punish right away, without taking care of the protocole."];
+    [self.view addSubview:self.stain];
+}
+
 - (void)setupHeaderView {
     self.headerView = [[JAHeaderView alloc] initWithFrame:CGRectMake(0, self.collectionView.contentOffset.y, CGRectGetWidth(self.collectionView.bounds), CGRectGetHeight(self.collectionView.bounds))];
     [self.headerView setImage:self.snapshot];
     [self.headerView updateConstraintsIfNeeded];
-    //    [self.collectionView addSubview:self.headerView];
     
     // Mask
     CGPathRef maskPath = [PocketSVG pathFromSVGFileNamed:@"top-article"];
@@ -139,7 +161,7 @@
     
     self.headerView.layer.mask = maskLayer;
     [self.collectionView addSubview:self.headerView];
-    [self.headerView animateEnterWithValue:-CGRectGetHeight(self.collectionView.bounds)/2];
+    [self.headerView animateEnterWithValue:0];
     
 }
 
@@ -160,8 +182,8 @@
     }
     self.footerView.layer.mask = maskLayer;
     [self.collectionView addSubview:self.footerView];
-//    [self.footerView animateEnterWithValue:self.collectionViewLayout.collectionViewContentSize.height];
-    [self.footerView animateEnterWithValue:CGRectGetHeight(self.collectionView.bounds)/2];
+    [self.footerView animateEnterWithValue:self.collectionViewLayout.collectionViewContentSize.height];
+//    [self.footerView animateEnterWithValue:568];
 }
 
 - (void)setupFollowView {
@@ -190,7 +212,6 @@
 
 - (void)loadNextView {
     [self.followView fadeOut];
-
     [self.delegate scrollRead:(self.collectionView.contentOffset.y / (self.collectionViewLayout.collectionViewContentSize.height - self.collectionView.frame.size.height)) indexArticle:self.manager.currentArticle];
     [self performSelector:@selector(goToInfo) withObject:nil afterDelay:0.2];
 }
@@ -214,14 +235,26 @@
         [scrollView setContentOffset:CGPointMake(0, collectionViewHeight + CGRectGetHeight(self.collectionView.bounds)/8)];
     }
     
+    if(scrollView.contentOffset.y > scrollView.contentSize.height/2-400 && self.stain != nil && !stainShowed && self.followView.validate) {
+        [self.stain firstAnimation:^{
+            self.stain.isAnimating = NO;
+            stainShowed = YES;
+        }];
+    }
+    
     // Header "Parallax Effect"
     CGPoint headerCenter = self.headerView.center;
     if(scrollView.contentOffset.y < 300) {
         headerCenter.y = self.headerView.initialCenter.y + scrollView.contentOffset.y*0.5;
         [self.headerView setCenter:CGPointMake(self.headerView.center.x, headerCenter.y)];
-    } else {
-        [self.headerView setCenter:CGPointMake(self.headerView.center.x, self.headerView.initialCenter.y + scrollView.contentOffset.y)];
     }
+    
+//    if(scrollView.contentOffset.y < 284) {
+//        [self.headerView setCenter:CGPointMake(self.headerView.center.x, 400 + scrollView.contentOffset.y*0.5)];
+//    } else {
+//        [self.headerView setCenter:CGPointMake(self.headerView.center.x, scrollView.contentOffset.y+CGRectGetHeight(self.headerView.bounds)/2)];
+//    }
+
     
     // Footer "Parallax Effect"
     CGPoint footerCenter = self.footerView.center;
@@ -230,9 +263,10 @@
     if(maxScroll - scrollView.contentOffset.y < 100) {
         footerCenter.y = self.footerView.initialCenter.y + (maxScroll - scrollView.contentOffset.y);
         [self.footerView setCenter:CGPointMake(self.footerView.center.x, footerCenter.y)];
-    } else {
-        [self.footerView setCenter:CGPointMake(self.footerView.center.x, scrollView.contentOffset.y)];
     }
+//    else {
+//        [self.footerView setCenter:CGPointMake(self.footerView.center.x, scrollView.contentOffset.y+CGRectGetHeight(self.footerView.bounds)/2)];
+//    }
     
     // Follow View fixed position
     CGRect fixedFrame = self.followView.frame;

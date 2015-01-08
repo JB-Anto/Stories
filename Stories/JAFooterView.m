@@ -25,9 +25,11 @@
 }
 
 -(void)animateEnterWithValue:(CGFloat)superViewHeight {
+    NSLog(@"%.f", self.center.y);
     [UIView animateWithDuration:0.8 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-//        self.transform = CGAffineTransformMakeTranslation(0, superViewHeight-CGRectGetHeight(self.bounds)/2-self.frame.origin.y-50);
-        self.transform = CGAffineTransformMakeTranslation(0, superViewHeight);
+        self.transform = CGAffineTransformMakeTranslation(0, superViewHeight-CGRectGetHeight(self.bounds)/2-self.frame.origin.y-50);
+//        self.transform = CGAffineTransformMakeTranslation(0, superViewHeight);
+        NSLog(@"%.f", self.center.y);
     } completion:nil];
 }
 

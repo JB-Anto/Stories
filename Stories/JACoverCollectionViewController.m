@@ -66,7 +66,7 @@ static NSString * const reuseIdentifier = @"Cell";
     self.followLBL = [[UILabel alloc]initWithFrame:CGRectMake(25, 30, self.view.bounds.size.width, 50)];
     self.followLBL.textColor = [UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1];
     self.followLBL.font = [UIFont fontWithName:@"Circular-Std-Book" size:19.0];
-    self.followLBL.text = @"Followed";
+    self.followLBL.text = @"Followed!";
     self.followLBL.alpha = 0;
     [self.view addSubview:self.followLBL];
 
@@ -267,7 +267,7 @@ static NSString * const reuseIdentifier = @"Cell";
 
     [self.cellToAnimate animateEnter];
     [self.cellToAnimate.organicView middleAnimation];
-    [self animateFollow];
+
 
 }
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(JACoverCollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -299,7 +299,7 @@ static NSString * const reuseIdentifier = @"Cell";
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
 
     self.currentIndex = (int)(scrollView.contentOffset.x/self.collectionView.frame.size.width);
-    
+    [self animateFollow];
 
 }
 

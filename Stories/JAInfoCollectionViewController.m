@@ -309,7 +309,7 @@
         [cell.resumeLabel initWithString:[self.currentBlock text]];
         maximumSizeOfLabel = CGSizeMake(160, CGFLOAT_MAX);
         optimalSizeForLabel = [cell.resumeLabel sizeThatFits:maximumSizeOfLabel];
-        sizeOfCell = CGSizeMake(cellWidth, optimalSizeForLabel.height);
+        sizeOfCell = CGSizeMake(cellWidth, optimalSizeForLabel.height/2);
         
     } else if([[self.currentBlock type] isEqualToString:@"paragraph"]) {
         

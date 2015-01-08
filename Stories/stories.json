@@ -2,6 +2,312 @@
 { 
     "stories" : [
         {
+            "id": 2,
+            "createdAt": "12-10-2014",
+            "isFollow": 0,
+            "cover": {
+                "id": 0,
+                "title": "The Umbrella\nRevolution",
+                "location": "Hong Kong",
+                "background": "background_cover_3",
+                "foreground": "personnage_cover_3",
+                "color": "#40A8f1",
+                "textColor": "#152950",
+                "paths": ["3-1", "3-2", "3-3"]
+            },
+            "chapters": [
+                {
+                    "id": 0,
+                    "title": "Chapitre 1",
+                    "articles": [
+                        {
+                            "id": 0,
+                            "title": "An intern issue\nin Chinese Government",
+                            "createdAt": "2014-12-14T19:00:00.000Z",
+                            "blocks": [],
+                            "credits": [],
+                            "infos": []
+                        },
+                        {
+                            "id": 1,
+                            "title": "Dismantles protest\ncamp",
+                            "createdAt": "2014-12-11T19:00:00.000Z",
+                            "blocks": [
+                                {
+                                    "id": 0,
+                                    "type": "title",
+                                    "title": "Officials sweep in to clear main protest site",
+                                    "createdAt": "2014-12-11T19:00:00.000Z",
+                                    "location": "Hong Kong"
+                                },
+                                {
+                                    "id": 1 ,
+                                    "type": "resume",
+                                    "text": "Mood defiant as students prepare to pack up tents and depart."
+                                },
+                                {
+                                   "id": 2 ,
+                                   "type": "resume",
+                                   "text": "Protests the most serious challenge to China since Tiananmen crackdown."
+                                },
+                                {
+                                   "id": 3 ,
+                                   "type": "resume",
+                                   "text": "Student leader says this is not the end."
+                                },
+                                {
+                                   "id": 4,
+                                   "type": "paragraph",
+                                   "text": "Hong Kong workers cleared large parts of the main pro-democracy protest site near the heart of the financial centre on Thursday, marking an end to more than two months of street demonstrations that have choked parts of the Chinese-controlled city.",
+                                   "links": []
+                                },
+                                {
+                                   "id": 5,
+                                   "type": "image",
+                                   "text": "A worker holds an umbrella as he and his coworkers clear an area blocked by pro-democracy protesters near the government headquarters building at the financial Central district.",
+                                   "image": "2-0-0-chinese"
+                                },
+                                {
+                                    "id": 6,
+                                    "type": "paragraph",
+                                    "text": "The mainly peaceful protests to demand free elections have represented one of the most serious challenges to China's authority since the 1989 pro-democracy demonstrations and bloody crackdown in and around Beijing's Tiananmen Square.",
+                                    "links": []
+                                },
+                                {
+                                    "id": 7,
+                                    "type": "quote",
+                                    "author": "protester\nJavis Luk, 27",
+                                    "text": "“The movement has been surreal. No one knew it could last more than two months ... in a place where time and money are most important”"
+                                },
+                                {
+                                    "id": 8,
+                                    "type": "paragraph",
+                                    "text": "Hundreds of police stood by in the Admiralty district next to government buildings and the Central business area as workers in construction hats used wire cutters to remove barricades.",
+                                    "links": []
+                                },
+                                {
+                                    "id": 9,
+                                    "type": "paragraph",
+                                    "text": "Police were seen hauling away two protesters as the workers slowly dismantled bamboo scaffolding, watched by large crowds of onlookers and media.",
+                                    "links": []
+                                },
+                                {
+                                    "id": 10,
+                                    "type": "quote",
+                                    "author": "Alex Chow",
+                                    "text": "“You might have the clearance today but people will come back on to the streets another day”"
+                                },
+                                {
+                                    "id": 11,
+                                    "type": "paragraph",
+                                    "text": "There was little resistance as protesters packed up pillows, blankets and other belongings from inside their tents in some of the world's most expensive real estate and prepared to leave.",
+                                    "links": []
+                                }
+                            ],
+                            "credits": [
+                                {
+                                    "id": 0,
+                                    "type": "authors",
+                                    "title": "Authors:",
+                                    "names": ["James Pomfret", "Clare Baldwin"]
+                                },
+                                {
+                                    "id": 1,
+                                    "type": "source",
+                                    "title": "Source:",
+                                    "names": ["Reuters"]
+                                }
+                            ],
+                            "infos": []
+                        },
+                        {
+                            "id": 2,
+                            "title": "Government just arrest\nstudentleaders",
+                            "createdAt": "2014-11-26T19:00:00.000Z",
+                            "blocks": [],
+                            "credits": [],
+                            "infos": []
+                        },
+                        {
+                            "id": 3,
+                            "title": "A national security issue for China",
+                            "createdAt": "2014-11-18T19:00:00.000Z",
+                            "blocks": [],
+                            "credits": [],
+                            "infos": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "createdAt": "12-10-2014",
+            "isFollow": 0,
+            "cover": {
+                "id": 0,
+                "title": "The fight of the\nKurd Rebels",
+                "location": "Isis",
+                "background": "background_cover_1",
+                "foreground": "personnage_cover_1",
+                "color": "#C23847",
+                "textColor": "#390E2A", 
+                "paths": ["2-1", "2-2", "2-3"]
+            },
+            "chapters": [
+                {
+                    "id": 0,
+                    "title": "Chapitre 2",
+                    "articles": [
+                        {
+                            "id": 0,
+                            "title": "Islamist violence is \"grave sin against God\"",
+                            "createdAt": "2014-11-30T19:00:00.000Z",
+                            "blocks": [],
+                            "credits": [],
+                            "infos": []
+                        },
+                        {
+                            "id": 1,
+                            "title": "Thirty U.S. led strikes hit Islamic State",
+                            "createdAt": "2014-11-22T19:00:00.000Z",
+                            "blocks": [],
+                            "credits": [],
+                            "infos": []
+                        },
+                        {
+                            "id": 2,
+                            "title": "New chief for Israel armed forces",
+                            "createdAt": "2014-11-17T19:00:00.000Z",
+                            "blocks": [],
+                            "credits": [],
+                            "infos": []
+                        },
+                        {
+                            "id": 3,
+                            "title": "Islamic State sets off suicide bombs",
+                            "createdAt": "2014-11-12T19:00:00.000Z",
+                            "blocks": [],
+                            "credits": [],
+                            "infos": []
+                        }
+                    ]
+                },
+                {
+                    "id": 1,
+                    "title": "Chapitre 1",
+                    "articles": [
+                        {
+                            "id": 0,
+                            "title": "Islamic State targeted in air strikes",
+                            "createdAt": "2014-11-06T19:00:00.000Z",
+                            "blocks": [],
+                            "credits": [],
+                            "infos": []
+                        },
+                        {
+                            "id": 1,
+                            "title": "Conspiring to support Islamic State",
+                            "createdAt": "2014-11-02T19:00:00.000Z",
+                            "blocks": [],
+                            "credits": [],
+                            "infos": []
+                        },
+                        {
+                            "id": 2,
+                            "title": "Schools and universities besieged",
+                            "createdAt": "2014-10-21T19:00:00.000Z",
+                            "blocks": [
+                                {
+                                    "id": 0,
+                                    "type": "title",
+                                    "title": "Isis\nbesieges universities but allows scientists’ return",
+                                    "createdAt": "2014-10-21T19:00:00.000Z",
+                                    "location": "Baghdad"
+                                },
+                                {
+                                    "id": 1 ,
+                                    "type": "resume",
+                                    "text": "Schools and universities in Iraq were supposed to start the new academic year on 21 September."
+                                },
+                                {
+                                    "id": 2 ,
+                                    "type": "resume",
+                                    "text": "Hundreds of schools remain shut, and universities are empty."
+                                },
+                                {
+                                    "id": 3,
+                                    "type": "paragraph",
+                                    "text": "Having captured large swathes of Syria and Iraq, in late June ISIS stated it had created a caliphate stretching from Aleppo in Syria to the province of Diyala in Iraq. The group has reportedly replaced the name ‘Republic of Iraq’ on some universities and research institutions with ‘<link>Islamic State - Knowledge Bureau</link>’.",
+                                    "links": ["0"]
+                                },
+                                {
+                                    "id": 4,
+                                    "type": "quote",
+                                    "author": "ISIS",
+                                    "text": "“If they fail to do so, their moveable and immovable property will be confiscated”"
+                                },
+                                {
+                                    "id": 5,
+                                    "type": "paragraph",
+                                    "text": "There are conflicting reports as to who controls them. Some local media suggest that the Iraqi government is in charge of public institutions such as Tikrit University and the University of Samarra in Salahuddin, as well as several private ones, including Imam Sadiq University in the Dujail district, Balad University and Tuz Khormato University.",
+                                    "links": []
+                                },
+                                {
+                                    "id": 6,
+                                    "type": "image",
+                                    "text": "University of Tikrit, located in Tikrit, Saladin Province, Iraq. It is one of the largest universities in Iraq with over 12,000 students.",
+                                    "image": "1-0-2-school"
+                                },
+                                {
+                                    "id": 7,
+                                    "type": "paragraph",
+                                    "text": "However, other reports say that, even though the army indeed claims to control the establishments, students cannot access them unless allowed in by ISIS.",
+                                    "links": []
+                                }
+                            ],
+                            "credits": [
+                                {
+                                    "id": 0,
+                                    "type": "authors",
+                                    "title": "Authors:",
+                                    "names": ["Adel Fakhir"]
+                                },
+                                {
+                                    "id": 1,
+                                    "type": "Source",
+                                    "title": "Source:",
+                                    "names": ["SciDev.net"]
+                                }
+                            ],
+                            "infos": [
+                                {
+                                    "id": 0,
+                                    "blocks": []
+                                }
+                            ]
+                        },
+                        {
+                            "id": 3,
+                            "title": "British joining militants in Syria",
+                            "createdAt": "2014-09-28T19:00:00.000Z",
+                            "blocks": [],
+                            "credits": [],
+                            "infos": []
+                        },
+                        {
+                            "id": 4,
+                            "title": "Isis has lured Germans into fighting",
+                            "createdAt": "2014-09-23T19:00:00.000Z",
+                            "blocks": [],
+                            "credits": [],
+                            "infos": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "id": 0,
             "createdAt": "12-10-2014",
             "isFollow": 0,
@@ -535,312 +841,7 @@
                     ]
                 }
             ]
-        },
-        {
-            "id": 1,
-            "createdAt": "12-10-2014",
-            "isFollow": 0,
-            "cover": {
-                "id": 0,
-                "title": "The fight of the\nKurd Rebels",
-                "location": "Isis",
-                "background": "background_cover_1",
-                "foreground": "personnage_cover_1",
-                "color": "#C23847",
-                "textColor": "#390E2A", 
-                "paths": ["2-1", "2-2", "2-3"]
-            },
-            "chapters": [
-                {
-                    "id": 0,
-                    "title": "Chapitre 2",
-                    "articles": [
-                        {
-                            "id": 0,
-                            "title": "Islamist violence is \"grave sin against God\"",
-                            "createdAt": "2014-11-30T19:00:00.000Z",
-                            "blocks": [],
-                            "credits": [],
-                            "infos": []
-                        },
-                        {
-                            "id": 1,
-                            "title": "Thirty U.S. led strikes hit Islamic State",
-                            "createdAt": "2014-11-22T19:00:00.000Z",
-                            "blocks": [],
-                            "credits": [],
-                            "infos": []
-                        },
-                        {
-                            "id": 2,
-                            "title": "New chief for Israel armed forces",
-                            "createdAt": "2014-11-17T19:00:00.000Z",
-                            "blocks": [],
-                            "credits": [],
-                            "infos": []
-                        },
-                        {
-                            "id": 3,
-                            "title": "Islamic State sets off suicide bombs",
-                            "createdAt": "2014-11-12T19:00:00.000Z",
-                            "blocks": [],
-                            "credits": [],
-                            "infos": []
-                        }
-                    ]
-                },
-                {
-                    "id": 1,
-                    "title": "Chapitre 1",
-                    "articles": [
-                        {
-                            "id": 0,
-                            "title": "Islamic State targeted in air strikes",
-                            "createdAt": "2014-11-06T19:00:00.000Z",
-                            "blocks": [],
-                            "credits": [],
-                            "infos": []
-                        },
-                        {
-                            "id": 1,
-                            "title": "Conspiring to support Islamic State",
-                            "createdAt": "2014-11-02T19:00:00.000Z",
-                            "blocks": [],
-                            "credits": [],
-                            "infos": []
-                        },
-                        {
-                            "id": 2,
-                            "title": "Schools and universities besieged",
-                            "createdAt": "2014-10-21T19:00:00.000Z",
-                            "blocks": [
-                                {
-                                    "id": 0,
-                                    "type": "title",
-                                    "title": "Isis\nbesieges universities but allows scientists’ return",
-                                    "createdAt": "2014-10-21T19:00:00.000Z",
-                                    "location": "Baghdad"
-                                },
-                                {
-                                    "id": 1 ,
-                                    "type": "resume",
-                                    "text": "Schools and universities in Iraq were supposed to start the new academic year on 21 September."
-                                },
-                                {
-                                    "id": 2 ,
-                                    "type": "resume",
-                                    "text": "Hundreds of schools remain shut, and universities are empty."
-                                },
-                                {
-                                    "id": 3,
-                                    "type": "paragraph",
-                                    "text": "Having captured large swathes of Syria and Iraq, in late June ISIS stated it had created a caliphate stretching from Aleppo in Syria to the province of Diyala in Iraq. The group has reportedly replaced the name ‘Republic of Iraq’ on some universities and research institutions with ‘<link>Islamic State - Knowledge Bureau</link>’.",
-                                    "links": ["0"]
-                                },
-                                {
-                                    "id": 4,
-                                    "type": "quote",
-                                    "author": "ISIS",
-                                    "text": "“If they fail to do so, their moveable and immovable property will be confiscated”"
-                                },
-                                {
-                                    "id": 5,
-                                    "type": "paragraph",
-                                    "text": "There are conflicting reports as to who controls them. Some local media suggest that the Iraqi government is in charge of public institutions such as Tikrit University and the University of Samarra in Salahuddin, as well as several private ones, including Imam Sadiq University in the Dujail district, Balad University and Tuz Khormato University.",
-                                    "links": []
-                                },
-                                {
-                                    "id": 6,
-                                    "type": "image",
-                                    "text": "University of Tikrit, located in Tikrit, Saladin Province, Iraq. It is one of the largest universities in Iraq with over 12,000 students.",
-                                    "image": "1-0-2-school"
-                                },
-                                {
-                                    "id": 7,
-                                    "type": "paragraph",
-                                    "text": "However, other reports say that, even though the army indeed claims to control the establishments, students cannot access them unless allowed in by ISIS.",
-                                    "links": []
-                                }
-                            ],
-                            "credits": [
-                                {
-                                    "id": 0,
-                                    "type": "authors",
-                                    "title": "Authors:",
-                                    "names": ["Adel Fakhir"]
-                                },
-                                {
-                                    "id": 1,
-                                    "type": "Source",
-                                    "title": "Source:",
-                                    "names": ["SciDev.net"]
-                                }
-                            ],
-                            "infos": [
-                                {
-                                    "id": 0,
-                                    "blocks": []
-                                }
-                            ]
-                        },
-                        {
-                            "id": 3,
-                            "title": "British joining militants in Syria",
-                            "createdAt": "2014-09-28T19:00:00.000Z",
-                            "blocks": [],
-                            "credits": [],
-                            "infos": []
-                        },
-                        {
-                            "id": 4,
-                            "title": "Isis has lured Germans into fighting",
-                            "createdAt": "2014-09-23T19:00:00.000Z",
-                            "blocks": [],
-                            "credits": [],
-                            "infos": []
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "id": 2,
-            "createdAt": "12-10-2014",
-            "isFollow": 0,
-            "cover": {
-                "id": 0,
-                "title": "The Umbrella\nRevolution",
-                "location": "Hong Kong",
-                "background": "background_cover_3",
-                "foreground": "personnage_cover_3",
-                "color": "#40A8f1",
-                "textColor": "#152950",
-                "paths": ["3-1", "3-2", "3-3"]
-            },
-            "chapters": [
-                {
-                    "id": 0,
-                    "title": "Chapitre 1",
-                    "articles": [
-                        {
-                            "id": 0,
-                            "title": "An intern issue\nin Chinese Government",
-                            "createdAt": "2014-12-14T19:00:00.000Z",
-                            "blocks": [],
-                            "credits": [],
-                            "infos": []
-                        },
-                        {
-                            "id": 1,
-                            "title": "Dismantles protest\ncamp",
-                            "createdAt": "2014-12-11T19:00:00.000Z",
-                            "blocks": [
-                                {
-                                    "id": 0,
-                                    "type": "title",
-                                    "title": "Officials sweep in to clear main protest site",
-                                    "createdAt": "2014-12-11T19:00:00.000Z",
-                                    "location": "Hong Kong"
-                                },
-                                {
-                                    "id": 1 ,
-                                    "type": "resume",
-                                    "text": "Mood defiant as students prepare to pack up tents and depart."
-                                },
-                                {
-                                   "id": 2 ,
-                                   "type": "resume",
-                                   "text": "Protests the most serious challenge to China since Tiananmen crackdown."
-                                },
-                                {
-                                   "id": 3 ,
-                                   "type": "resume",
-                                   "text": "Student leader says this is not the end."
-                                },
-                                {
-                                   "id": 4,
-                                   "type": "paragraph",
-                                   "text": "Hong Kong workers cleared large parts of the main pro-democracy protest site near the heart of the financial centre on Thursday, marking an end to more than two months of street demonstrations that have choked parts of the Chinese-controlled city.",
-                                   "links": []
-                                },
-                                {
-                                   "id": 5,
-                                   "type": "image",
-                                   "text": "A worker holds an umbrella as he and his coworkers clear an area blocked by pro-democracy protesters near the government headquarters building at the financial Central district.",
-                                   "image": "2-0-0-chinese"
-                                },
-                                {
-                                    "id": 6,
-                                    "type": "paragraph",
-                                    "text": "The mainly peaceful protests to demand free elections have represented one of the most serious challenges to China's authority since the 1989 pro-democracy demonstrations and bloody crackdown in and around Beijing's Tiananmen Square.",
-                                    "links": []
-                                },
-                                {
-                                    "id": 7,
-                                    "type": "quote",
-                                    "author": "protester\nJavis Luk, 27",
-                                    "text": "“The movement has been surreal. No one knew it could last more than two months ... in a place where time and money are most important”"
-                                },
-                                {
-                                    "id": 8,
-                                    "type": "paragraph",
-                                    "text": "Hundreds of police stood by in the Admiralty district next to government buildings and the Central business area as workers in construction hats used wire cutters to remove barricades.",
-                                    "links": []
-                                },
-                                {
-                                    "id": 9,
-                                    "type": "paragraph",
-                                    "text": "Police were seen hauling away two protesters as the workers slowly dismantled bamboo scaffolding, watched by large crowds of onlookers and media.",
-                                    "links": []
-                                },
-                                {
-                                    "id": 10,
-                                    "type": "quote",
-                                    "author": "Alex Chow",
-                                    "text": "“You might have the clearance today but people will come back on to the streets another day”"
-                                },
-                                {
-                                    "id": 11,
-                                    "type": "paragraph",
-                                    "text": "There was little resistance as protesters packed up pillows, blankets and other belongings from inside their tents in some of the world's most expensive real estate and prepared to leave.",
-                                    "links": []
-                                }
-                            ],
-                            "credits": [
-                                {
-                                    "id": 0,
-                                    "type": "authors",
-                                    "title": "Authors:",
-                                    "names": ["James Pomfret", "Clare Baldwin"]
-                                },
-                                {
-                                    "id": 1,
-                                    "type": "source",
-                                    "title": "Source:",
-                                    "names": ["Reuters"]
-                                }
-                            ],
-                            "infos": []
-                        },
-                        {
-                            "id": 2,
-                            "title": "Government just arrest\nstudentleaders",
-                            "createdAt": "2014-11-26T19:00:00.000Z",
-                            "blocks": [],
-                            "credits": [],
-                            "infos": []
-                        },
-                        {
-                            "id": 3,
-                            "title": "A national security issue for China",
-                            "createdAt": "2014-11-18T19:00:00.000Z",
-                            "blocks": [],
-                            "credits": [],
-                            "infos": []
-                        }
-                    ]
-                }
-            ]
         }
+        
     ]
 }

@@ -31,7 +31,6 @@
     self.textView = [[UITextView alloc] initWithFrame:CGRectMake(-10, (CGRectGetHeight(frame)/2)-30, CGRectGetWidth(frame)+40, CGRectGetHeight(frame))];
     [self.textView setFont:[UIFont fontWithName:@"News-Plantin-Pro-Bold" size:45.0]];
     [self.textView setBackgroundColor:[UIColor clearColor]];
-    [self.textView setTextAlignment:NSTextAlignmentCenter];
     [self.textView setScrollEnabled:NO];
     [self.textView setEditable:NO];
     [self.textView setSelectable:NO];

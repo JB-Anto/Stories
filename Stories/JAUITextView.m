@@ -87,7 +87,7 @@
 }
 
 - (void)linkTextView:(CCHLinkTextView *)linkTextView didLongPressLinkWithValue:(id)value {
-    self.manager.currentInfo = [value integerValue];
+    self.manager.currentInfo = [value intValue];
     [delegate linkDidPressed];
     
 }

@@ -200,7 +200,6 @@
 		0AEC80381A3B21EF004F0B1C /* forme3.svg in Resources */ = {isa = PBXBuildFile; fileRef = 0AEC80351A3B21EF004F0B1C /* forme3.svg */; };
 		770254621A53E79800C6FB98 /* 1-0-2-school.png in Resources */ = {isa = PBXBuildFile; fileRef = 770254601A53E79800C6FB98 /* 1-0-2-school.png */; };
 		770254631A53E79800C6FB98 /* 1-0-2-school@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 770254611A53E79800C6FB98 /* 1-0-2-school@2x.png */; };
-		7705EFBA1A2374AD0015B1BD /* Young-Serif-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7705EFB91A2374AD0015B1BD /* Young-Serif-Regular.ttf */; };
 		770CB9221A233006002817BE /* JACreditCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 770CB9161A233006002817BE /* JACreditCollectionViewCell.m */; };
 		770CB9231A233006002817BE /* JAImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 770CB9181A233006002817BE /* JAImageCollectionViewCell.m */; };
 		770CB9241A233006002817BE /* JAKeyNumberCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 770CB91A1A233006002817BE /* JAKeyNumberCollectionViewCell.m */; };
@@ -209,18 +208,6 @@
 		770CB9271A233006002817BE /* JAResumeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 770CB9201A233006002817BE /* JAResumeCollectionViewCell.m */; };
 		770CB92A1A233014002817BE /* JAArticleCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 770CB9281A233014002817BE /* JAArticleCollectionViewController.m */; };
 		770CB92B1A233014002817BE /* JATitleCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 770CB9291A233014002817BE /* JATitleCollectionViewCell.m */; };
-		770CB9371A23491E002817BE /* Circular-Std-Black-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 770CB92C1A23491E002817BE /* Circular-Std-Black-Italic.otf */; };
-		770CB9381A23491E002817BE /* Circular-Std-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 770CB92D1A23491E002817BE /* Circular-Std-Black.otf */; };
-		770CB9391A23491E002817BE /* Circular-Std-Bold-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 770CB92E1A23491E002817BE /* Circular-Std-Bold-Italic.otf */; };
-		770CB93A1A23491E002817BE /* Circular-Std-Book-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 770CB92F1A23491E002817BE /* Circular-Std-Book-Italic.otf */; };
-		770CB93B1A23491E002817BE /* Circular-Std-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = 770CB9301A23491E002817BE /* Circular-Std-Book.otf */; };
-		770CB93C1A23491E002817BE /* Circular-Std-Medium-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 770CB9311A23491E002817BE /* Circular-Std-Medium-Italic.otf */; };
-		770CB93D1A23491E002817BE /* Circular-Std-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 770CB9321A23491E002817BE /* Circular-Std-Medium.otf */; };
-		770CB93E1A23491E002817BE /* News-Plantin-Pro-Bold-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 770CB9331A23491E002817BE /* News-Plantin-Pro-Bold-Italic.otf */; };
-		770CB93F1A23491E002817BE /* News-Plantin-Pro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 770CB9341A23491E002817BE /* News-Plantin-Pro-Bold.otf */; };
-		770CB9401A23491E002817BE /* News-Plantin-Pro-Regular-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 770CB9351A23491E002817BE /* News-Plantin-Pro-Regular-Italic.otf */; };
-		770CB9411A23491E002817BE /* News-Plantin-Pro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 770CB9361A23491E002817BE /* News-Plantin-Pro-Regular.otf */; };
-		770CB9431A234A18002817BE /* Circular-Std-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 770CB9421A234A18002817BE /* Circular-Std-Bold.otf */; };
 		774315831A482DE300158B5D /* JAInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 774315821A482DE300158B5D /* JAInfoModel.m */; };
 		7743158F1A48397500158B5D /* poroshenko-portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = 7743158B1A48397500158B5D /* poroshenko-portrait.png */; };
 		774315901A48397500158B5D /* poroshenko-portrait@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7743158C1A48397500158B5D /* poroshenko-portrait@2x.png */; };
@@ -234,20 +221,6 @@
 		775B16781A5F3419001CFBB7 /* bottom-zero.svg in Resources */ = {isa = PBXBuildFile; fileRef = 775B16761A5F3419001CFBB7 /* bottom-zero.svg */; };
 		775B16791A5F3419001CFBB7 /* top-zero.svg in Resources */ = {isa = PBXBuildFile; fileRef = 775B16771A5F3419001CFBB7 /* top-zero.svg */; };
 		7773DBB41A49808900545F27 /* JAInfoCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7773DBB31A49808900545F27 /* JAInfoCollectionViewController.m */; };
-		777CA27C1A24947E008A7FE3 /* Calibre-Black-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 777CA26E1A24947E008A7FE3 /* Calibre-Black-Italic.otf */; };
-		777CA27D1A24947E008A7FE3 /* Calibre-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 777CA26F1A24947E008A7FE3 /* Calibre-Black.otf */; };
-		777CA27E1A24947E008A7FE3 /* Calibre-Bold-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 777CA2701A24947E008A7FE3 /* Calibre-Bold-Italic.otf */; };
-		777CA27F1A24947E008A7FE3 /* Calibre-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 777CA2711A24947E008A7FE3 /* Calibre-Bold.otf */; };
-		777CA2801A24947E008A7FE3 /* Calibre-Light-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 777CA2721A24947E008A7FE3 /* Calibre-Light-Italic.otf */; };
-		777CA2811A24947E008A7FE3 /* Calibre-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 777CA2731A24947E008A7FE3 /* Calibre-Light.otf */; };
-		777CA2821A24947E008A7FE3 /* Calibre-Medium-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 777CA2741A24947E008A7FE3 /* Calibre-Medium-Italic.otf */; };
-		777CA2831A24947E008A7FE3 /* Calibre-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 777CA2751A24947E008A7FE3 /* Calibre-Medium.otf */; };
-		777CA2841A24947E008A7FE3 /* Calibre-Regular-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 777CA2761A24947E008A7FE3 /* Calibre-Regular-Italic.otf */; };
-		777CA2851A24947E008A7FE3 /* Calibre-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 777CA2771A24947E008A7FE3 /* Calibre-Regular.otf */; };
-		777CA2861A24947E008A7FE3 /* Calibre-Semibold-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 777CA2781A24947E008A7FE3 /* Calibre-Semibold-Italic.otf */; };
-		777CA2871A24947E008A7FE3 /* Calibre-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 777CA2791A24947E008A7FE3 /* Calibre-Semibold.otf */; };
-		777CA2881A24947E008A7FE3 /* Calibre-Thin-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 777CA27A1A24947E008A7FE3 /* Calibre-Thin-Italic.otf */; };
-		777CA2891A24947E008A7FE3 /* Calibre-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 777CA27B1A24947E008A7FE3 /* Calibre-Thin.otf */; };
 		777E45871A52B5C50059E36C /* JAInfoSeguePush.m in Sources */ = {isa = PBXBuildFile; fileRef = 777E45861A52B5C50059E36C /* JAInfoSeguePush.m */; };
 		777E458A1A52B5D20059E36C /* JAInfoSeguePop.m in Sources */ = {isa = PBXBuildFile; fileRef = 777E45891A52B5D20059E36C /* JAInfoSeguePop.m */; };
 		77A0D8421A27303300963904 /* JAUITextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A0D8411A27303300963904 /* JAUITextView.m */; };
@@ -260,6 +233,33 @@
 		77E758101A2469C60015EDEF /* JAUILabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E7580F1A2469C60015EDEF /* JAUILabel.m */; };
 		8D0E7FA61A5C19A4004BB6D3 /* JAChapterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0E7FA51A5C19A4004BB6D3 /* JAChapterView.m */; };
 		8D0E7FAA1A5C3FAC004BB6D3 /* JALabelChapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0E7FA91A5C3FAC004BB6D3 /* JALabelChapter.m */; };
+		8D418DD61A5FDB6F009CC8CE /* Calibre-Black-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D418DBB1A5FDB6F009CC8CE /* Calibre-Black-Italic.otf */; };
+		8D418DD71A5FDB6F009CC8CE /* Calibre-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D418DBC1A5FDB6F009CC8CE /* Calibre-Black.otf */; };
+		8D418DD81A5FDB6F009CC8CE /* Calibre-Bold-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D418DBD1A5FDB6F009CC8CE /* Calibre-Bold-Italic.otf */; };
+		8D418DD91A5FDB6F009CC8CE /* Calibre-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D418DBE1A5FDB6F009CC8CE /* Calibre-Bold.otf */; };
+		8D418DDA1A5FDB6F009CC8CE /* Calibre-Light-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D418DBF1A5FDB6F009CC8CE /* Calibre-Light-Italic.otf */; };
+		8D418DDB1A5FDB6F009CC8CE /* Calibre-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D418DC01A5FDB6F009CC8CE /* Calibre-Light.otf */; };
+		8D418DDC1A5FDB6F009CC8CE /* Calibre-Medium-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D418DC11A5FDB6F009CC8CE /* Calibre-Medium-Italic.otf */; };
+		8D418DDD1A5FDB6F009CC8CE /* Calibre-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D418DC21A5FDB6F009CC8CE /* Calibre-Medium.otf */; };
+		8D418DDE1A5FDB6F009CC8CE /* Calibre-Regular-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D418DC31A5FDB6F009CC8CE /* Calibre-Regular-Italic.otf */; };
+		8D418DDF1A5FDB6F009CC8CE /* Calibre-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D418DC41A5FDB6F009CC8CE /* Calibre-Regular.otf */; };
+		8D418DE01A5FDB6F009CC8CE /* Calibre-Semibold-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D418DC51A5FDB6F009CC8CE /* Calibre-Semibold-Italic.otf */; };
+		8D418DE11A5FDB6F009CC8CE /* Calibre-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D418DC61A5FDB6F009CC8CE /* Calibre-Semibold.otf */; };
+		8D418DE21A5FDB6F009CC8CE /* Calibre-Thin-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D418DC71A5FDB6F009CC8CE /* Calibre-Thin-Italic.otf */; };
+		8D418DE31A5FDB6F009CC8CE /* Calibre-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D418DC81A5FDB6F009CC8CE /* Calibre-Thin.otf */; };
+		8D418DE41A5FDB6F009CC8CE /* Circular-Std-Black-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D418DC91A5FDB6F009CC8CE /* Circular-Std-Black-Italic.otf */; };
+		8D418DE51A5FDB6F009CC8CE /* Circular-Std-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D418DCA1A5FDB6F009CC8CE /* Circular-Std-Black.otf */; };
+		8D418DE61A5FDB6F009CC8CE /* Circular-Std-Bold-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D418DCB1A5FDB6F009CC8CE /* Circular-Std-Bold-Italic.otf */; };
+		8D418DE71A5FDB6F009CC8CE /* Circular-Std-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D418DCC1A5FDB6F009CC8CE /* Circular-Std-Bold.otf */; };
+		8D418DE81A5FDB6F009CC8CE /* Circular-Std-Book-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D418DCD1A5FDB6F009CC8CE /* Circular-Std-Book-Italic.otf */; };
+		8D418DE91A5FDB6F009CC8CE /* Circular-Std-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D418DCE1A5FDB6F009CC8CE /* Circular-Std-Book.otf */; };
+		8D418DEA1A5FDB6F009CC8CE /* Circular-Std-Medium-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D418DCF1A5FDB6F009CC8CE /* Circular-Std-Medium-Italic.otf */; };
+		8D418DEB1A5FDB6F009CC8CE /* Circular-Std-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D418DD01A5FDB6F009CC8CE /* Circular-Std-Medium.otf */; };
+		8D418DEC1A5FDB6F009CC8CE /* News-Plantin-Pro-Bold-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D418DD11A5FDB6F009CC8CE /* News-Plantin-Pro-Bold-Italic.otf */; };
+		8D418DED1A5FDB6F009CC8CE /* News-Plantin-Pro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D418DD21A5FDB6F009CC8CE /* News-Plantin-Pro-Bold.otf */; };
+		8D418DEE1A5FDB6F009CC8CE /* News-Plantin-Pro-Regular-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D418DD31A5FDB6F009CC8CE /* News-Plantin-Pro-Regular-Italic.otf */; };
+		8D418DEF1A5FDB6F009CC8CE /* News-Plantin-Pro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D418DD41A5FDB6F009CC8CE /* News-Plantin-Pro-Regular.otf */; };
+		8D418DF01A5FDB6F009CC8CE /* Young-Serif-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8D418DD51A5FDB6F009CC8CE /* Young-Serif-Regular.ttf */; };
 		8D54A8F61A14DCDA00ABDAD2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D54A8F31A14DC9A00ABDAD2 /* SystemConfiguration.framework */; };
 		8D54A8F91A14DD9C00ABDAD2 /* JAStorieModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D54A8F81A14DD9C00ABDAD2 /* JAStorieModel.m */; };
 		8D54A8FC1A14DED600ABDAD2 /* JACoverModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D54A8FB1A14DED600ABDAD2 /* JACoverModel.m */; };
@@ -790,7 +790,6 @@
 		0AEC80351A3B21EF004F0B1C /* forme3.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = forme3.svg; sourceTree = "<group>"; };
 		770254601A53E79800C6FB98 /* 1-0-2-school.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1-0-2-school.png"; sourceTree = "<group>"; };
 		770254611A53E79800C6FB98 /* 1-0-2-school@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1-0-2-school@2x.png"; sourceTree = "<group>"; };
-		7705EFB91A2374AD0015B1BD /* Young-Serif-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Young-Serif-Regular.ttf"; path = "Stories/Fonts/Young-Serif-Regular.ttf"; sourceTree = "<group>"; };
 		770CB9141A233006002817BE /* JAArticleCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JAArticleCollectionViewController.h; path = Stories/JAArticleCollectionViewController.h; sourceTree = "<group>"; };
 		770CB9151A233006002817BE /* JACreditCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JACreditCollectionViewCell.h; sourceTree = "<group>"; };
 		770CB9161A233006002817BE /* JACreditCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JACreditCollectionViewCell.m; sourceTree = "<group>"; };
@@ -807,18 +806,6 @@
 		770CB9211A233006002817BE /* JATitleCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JATitleCollectionViewCell.h; sourceTree = "<group>"; };
 		770CB9281A233014002817BE /* JAArticleCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JAArticleCollectionViewController.m; path = Stories/JAArticleCollectionViewController.m; sourceTree = "<group>"; };
 		770CB9291A233014002817BE /* JATitleCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JATitleCollectionViewCell.m; sourceTree = "<group>"; };
-		770CB92C1A23491E002817BE /* Circular-Std-Black-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Circular-Std-Black-Italic.otf"; path = "Stories/Fonts/Circular-Std-Black-Italic.otf"; sourceTree = "<group>"; };
-		770CB92D1A23491E002817BE /* Circular-Std-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Circular-Std-Black.otf"; path = "Stories/Fonts/Circular-Std-Black.otf"; sourceTree = "<group>"; };
-		770CB92E1A23491E002817BE /* Circular-Std-Bold-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Circular-Std-Bold-Italic.otf"; path = "Stories/Fonts/Circular-Std-Bold-Italic.otf"; sourceTree = "<group>"; };
-		770CB92F1A23491E002817BE /* Circular-Std-Book-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Circular-Std-Book-Italic.otf"; path = "Stories/Fonts/Circular-Std-Book-Italic.otf"; sourceTree = "<group>"; };
-		770CB9301A23491E002817BE /* Circular-Std-Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Circular-Std-Book.otf"; path = "Stories/Fonts/Circular-Std-Book.otf"; sourceTree = "<group>"; };
-		770CB9311A23491E002817BE /* Circular-Std-Medium-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Circular-Std-Medium-Italic.otf"; path = "Stories/Fonts/Circular-Std-Medium-Italic.otf"; sourceTree = "<group>"; };
-		770CB9321A23491E002817BE /* Circular-Std-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Circular-Std-Medium.otf"; path = "Stories/Fonts/Circular-Std-Medium.otf"; sourceTree = "<group>"; };
-		770CB9331A23491E002817BE /* News-Plantin-Pro-Bold-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "News-Plantin-Pro-Bold-Italic.otf"; path = "Stories/Fonts/News-Plantin-Pro-Bold-Italic.otf"; sourceTree = "<group>"; };
-		770CB9341A23491E002817BE /* News-Plantin-Pro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "News-Plantin-Pro-Bold.otf"; path = "Stories/Fonts/News-Plantin-Pro-Bold.otf"; sourceTree = "<group>"; };
-		770CB9351A23491E002817BE /* News-Plantin-Pro-Regular-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "News-Plantin-Pro-Regular-Italic.otf"; path = "Stories/Fonts/News-Plantin-Pro-Regular-Italic.otf"; sourceTree = "<group>"; };
-		770CB9361A23491E002817BE /* News-Plantin-Pro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "News-Plantin-Pro-Regular.otf"; path = "Stories/Fonts/News-Plantin-Pro-Regular.otf"; sourceTree = "<group>"; };
-		770CB9421A234A18002817BE /* Circular-Std-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Circular-Std-Bold.otf"; path = "Stories/Fonts/Circular-Std-Bold.otf"; sourceTree = "<group>"; };
 		774315811A482DE300158B5D /* JAInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAInfoModel.h; sourceTree = "<group>"; };
 		774315821A482DE300158B5D /* JAInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAInfoModel.m; sourceTree = "<group>"; };
 		7743158B1A48397500158B5D /* poroshenko-portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "poroshenko-portrait.png"; path = "Info/poroshenko-portrait.png"; sourceTree = "<group>"; };
@@ -837,20 +824,6 @@
 		775B16771A5F3419001CFBB7 /* top-zero.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "top-zero.svg"; path = "masks/top-zero.svg"; sourceTree = "<group>"; };
 		7773DBB21A49808900545F27 /* JAInfoCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JAInfoCollectionViewController.h; path = Stories/JAInfoCollectionViewController.h; sourceTree = "<group>"; };
 		7773DBB31A49808900545F27 /* JAInfoCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JAInfoCollectionViewController.m; path = Stories/JAInfoCollectionViewController.m; sourceTree = "<group>"; };
-		777CA26E1A24947E008A7FE3 /* Calibre-Black-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Black-Italic.otf"; path = "Stories/Fonts/Calibre-Black-Italic.otf"; sourceTree = "<group>"; };
-		777CA26F1A24947E008A7FE3 /* Calibre-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Black.otf"; path = "Stories/Fonts/Calibre-Black.otf"; sourceTree = "<group>"; };
-		777CA2701A24947E008A7FE3 /* Calibre-Bold-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Bold-Italic.otf"; path = "Stories/Fonts/Calibre-Bold-Italic.otf"; sourceTree = "<group>"; };
-		777CA2711A24947E008A7FE3 /* Calibre-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Bold.otf"; path = "Stories/Fonts/Calibre-Bold.otf"; sourceTree = "<group>"; };
-		777CA2721A24947E008A7FE3 /* Calibre-Light-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Light-Italic.otf"; path = "Stories/Fonts/Calibre-Light-Italic.otf"; sourceTree = "<group>"; };
-		777CA2731A24947E008A7FE3 /* Calibre-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Light.otf"; path = "Stories/Fonts/Calibre-Light.otf"; sourceTree = "<group>"; };
-		777CA2741A24947E008A7FE3 /* Calibre-Medium-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Medium-Italic.otf"; path = "Stories/Fonts/Calibre-Medium-Italic.otf"; sourceTree = "<group>"; };
-		777CA2751A24947E008A7FE3 /* Calibre-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Medium.otf"; path = "Stories/Fonts/Calibre-Medium.otf"; sourceTree = "<group>"; };
-		777CA2761A24947E008A7FE3 /* Calibre-Regular-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Regular-Italic.otf"; path = "Stories/Fonts/Calibre-Regular-Italic.otf"; sourceTree = "<group>"; };
-		777CA2771A24947E008A7FE3 /* Calibre-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Regular.otf"; path = "Stories/Fonts/Calibre-Regular.otf"; sourceTree = "<group>"; };
-		777CA2781A24947E008A7FE3 /* Calibre-Semibold-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Semibold-Italic.otf"; path = "Stories/Fonts/Calibre-Semibold-Italic.otf"; sourceTree = "<group>"; };
-		777CA2791A24947E008A7FE3 /* Calibre-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Semibold.otf"; path = "Stories/Fonts/Calibre-Semibold.otf"; sourceTree = "<group>"; };
-		777CA27A1A24947E008A7FE3 /* Calibre-Thin-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Thin-Italic.otf"; path = "Stories/Fonts/Calibre-Thin-Italic.otf"; sourceTree = "<group>"; };
-		777CA27B1A24947E008A7FE3 /* Calibre-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Calibre-Thin.otf"; path = "Stories/Fonts/Calibre-Thin.otf"; sourceTree = "<group>"; };
 		777E45851A52B5C50059E36C /* JAInfoSeguePush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAInfoSeguePush.h; sourceTree = "<group>"; };
 		777E45861A52B5C50059E36C /* JAInfoSeguePush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAInfoSeguePush.m; sourceTree = "<group>"; };
 		777E45881A52B5D20059E36C /* JAInfoSeguePop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAInfoSeguePop.h; sourceTree = "<group>"; };
@@ -876,6 +849,33 @@
 		8D0E7FA51A5C19A4004BB6D3 /* JAChapterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAChapterView.m; sourceTree = "<group>"; };
 		8D0E7FA81A5C3FAC004BB6D3 /* JALabelChapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JALabelChapter.h; sourceTree = "<group>"; };
 		8D0E7FA91A5C3FAC004BB6D3 /* JALabelChapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JALabelChapter.m; sourceTree = "<group>"; };
+		8D418DBB1A5FDB6F009CC8CE /* Calibre-Black-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Calibre-Black-Italic.otf"; sourceTree = "<group>"; };
+		8D418DBC1A5FDB6F009CC8CE /* Calibre-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Calibre-Black.otf"; sourceTree = "<group>"; };
+		8D418DBD1A5FDB6F009CC8CE /* Calibre-Bold-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Calibre-Bold-Italic.otf"; sourceTree = "<group>"; };
+		8D418DBE1A5FDB6F009CC8CE /* Calibre-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Calibre-Bold.otf"; sourceTree = "<group>"; };
+		8D418DBF1A5FDB6F009CC8CE /* Calibre-Light-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Calibre-Light-Italic.otf"; sourceTree = "<group>"; };
+		8D418DC01A5FDB6F009CC8CE /* Calibre-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Calibre-Light.otf"; sourceTree = "<group>"; };
+		8D418DC11A5FDB6F009CC8CE /* Calibre-Medium-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Calibre-Medium-Italic.otf"; sourceTree = "<group>"; };
+		8D418DC21A5FDB6F009CC8CE /* Calibre-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Calibre-Medium.otf"; sourceTree = "<group>"; };
+		8D418DC31A5FDB6F009CC8CE /* Calibre-Regular-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Calibre-Regular-Italic.otf"; sourceTree = "<group>"; };
+		8D418DC41A5FDB6F009CC8CE /* Calibre-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Calibre-Regular.otf"; sourceTree = "<group>"; };
+		8D418DC51A5FDB6F009CC8CE /* Calibre-Semibold-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Calibre-Semibold-Italic.otf"; sourceTree = "<group>"; };
+		8D418DC61A5FDB6F009CC8CE /* Calibre-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Calibre-Semibold.otf"; sourceTree = "<group>"; };
+		8D418DC71A5FDB6F009CC8CE /* Calibre-Thin-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Calibre-Thin-Italic.otf"; sourceTree = "<group>"; };
+		8D418DC81A5FDB6F009CC8CE /* Calibre-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Calibre-Thin.otf"; sourceTree = "<group>"; };
+		8D418DC91A5FDB6F009CC8CE /* Circular-Std-Black-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Circular-Std-Black-Italic.otf"; sourceTree = "<group>"; };
+		8D418DCA1A5FDB6F009CC8CE /* Circular-Std-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Circular-Std-Black.otf"; sourceTree = "<group>"; };
+		8D418DCB1A5FDB6F009CC8CE /* Circular-Std-Bold-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Circular-Std-Bold-Italic.otf"; sourceTree = "<group>"; };
+		8D418DCC1A5FDB6F009CC8CE /* Circular-Std-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Circular-Std-Bold.otf"; sourceTree = "<group>"; };
+		8D418DCD1A5FDB6F009CC8CE /* Circular-Std-Book-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Circular-Std-Book-Italic.otf"; sourceTree = "<group>"; };
+		8D418DCE1A5FDB6F009CC8CE /* Circular-Std-Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Circular-Std-Book.otf"; sourceTree = "<group>"; };
+		8D418DCF1A5FDB6F009CC8CE /* Circular-Std-Medium-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Circular-Std-Medium-Italic.otf"; sourceTree = "<group>"; };
+		8D418DD01A5FDB6F009CC8CE /* Circular-Std-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Circular-Std-Medium.otf"; sourceTree = "<group>"; };
+		8D418DD11A5FDB6F009CC8CE /* News-Plantin-Pro-Bold-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "News-Plantin-Pro-Bold-Italic.otf"; sourceTree = "<group>"; };
+		8D418DD21A5FDB6F009CC8CE /* News-Plantin-Pro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "News-Plantin-Pro-Bold.otf"; sourceTree = "<group>"; };
+		8D418DD31A5FDB6F009CC8CE /* News-Plantin-Pro-Regular-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "News-Plantin-Pro-Regular-Italic.otf"; sourceTree = "<group>"; };
+		8D418DD41A5FDB6F009CC8CE /* News-Plantin-Pro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "News-Plantin-Pro-Regular.otf"; sourceTree = "<group>"; };
+		8D418DD51A5FDB6F009CC8CE /* Young-Serif-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Young-Serif-Regular.ttf"; sourceTree = "<group>"; };
 		8D54A8F31A14DC9A00ABDAD2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		8D54A8F71A14DD9C00ABDAD2 /* JAStorieModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JAStorieModel.h; sourceTree = "<group>"; };
 		8D54A8F81A14DD9C00ABDAD2 /* JAStorieModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JAStorieModel.m; sourceTree = "<group>"; };
@@ -1286,7 +1286,7 @@
 				93AF57841A5D623E00514095 /* Loader */,
 				8D54A93C1A14FE9800ABDAD2 /* Images */,
 				0A3FB1901A273D7B00AC4362 /* Paths */,
-				8D54A9481A15085600ABDAD2 /* Fonts */,
+				8D418DBA1A5FDB6F009CC8CE /* Fonts */,
 				8D54A9111A14E9AF00ABDAD2 /* stories.json */,
 			);
 			name = Ressources;
@@ -1718,6 +1718,41 @@
 			name = ChapterView;
 			sourceTree = "<group>";
 		};
+		8D418DBA1A5FDB6F009CC8CE /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				8D418DBB1A5FDB6F009CC8CE /* Calibre-Black-Italic.otf */,
+				8D418DBC1A5FDB6F009CC8CE /* Calibre-Black.otf */,
+				8D418DBD1A5FDB6F009CC8CE /* Calibre-Bold-Italic.otf */,
+				8D418DBE1A5FDB6F009CC8CE /* Calibre-Bold.otf */,
+				8D418DBF1A5FDB6F009CC8CE /* Calibre-Light-Italic.otf */,
+				8D418DC01A5FDB6F009CC8CE /* Calibre-Light.otf */,
+				8D418DC11A5FDB6F009CC8CE /* Calibre-Medium-Italic.otf */,
+				8D418DC21A5FDB6F009CC8CE /* Calibre-Medium.otf */,
+				8D418DC31A5FDB6F009CC8CE /* Calibre-Regular-Italic.otf */,
+				8D418DC41A5FDB6F009CC8CE /* Calibre-Regular.otf */,
+				8D418DC51A5FDB6F009CC8CE /* Calibre-Semibold-Italic.otf */,
+				8D418DC61A5FDB6F009CC8CE /* Calibre-Semibold.otf */,
+				8D418DC71A5FDB6F009CC8CE /* Calibre-Thin-Italic.otf */,
+				8D418DC81A5FDB6F009CC8CE /* Calibre-Thin.otf */,
+				8D418DC91A5FDB6F009CC8CE /* Circular-Std-Black-Italic.otf */,
+				8D418DCA1A5FDB6F009CC8CE /* Circular-Std-Black.otf */,
+				8D418DCB1A5FDB6F009CC8CE /* Circular-Std-Bold-Italic.otf */,
+				8D418DCC1A5FDB6F009CC8CE /* Circular-Std-Bold.otf */,
+				8D418DCD1A5FDB6F009CC8CE /* Circular-Std-Book-Italic.otf */,
+				8D418DCE1A5FDB6F009CC8CE /* Circular-Std-Book.otf */,
+				8D418DCF1A5FDB6F009CC8CE /* Circular-Std-Medium-Italic.otf */,
+				8D418DD01A5FDB6F009CC8CE /* Circular-Std-Medium.otf */,
+				8D418DD11A5FDB6F009CC8CE /* News-Plantin-Pro-Bold-Italic.otf */,
+				8D418DD21A5FDB6F009CC8CE /* News-Plantin-Pro-Bold.otf */,
+				8D418DD31A5FDB6F009CC8CE /* News-Plantin-Pro-Regular-Italic.otf */,
+				8D418DD41A5FDB6F009CC8CE /* News-Plantin-Pro-Regular.otf */,
+				8D418DD51A5FDB6F009CC8CE /* Young-Serif-Regular.ttf */,
+			);
+			name = Fonts;
+			path = Stories/Fonts;
+			sourceTree = "<group>";
+		};
 		8D54A8FD1A14DEEB00ABDAD2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -1849,40 +1884,6 @@
 				0AEC802C1A3B20EB004F0B1C /* personnage_cover_3@2x.png */,
 			);
 			path = Cover;
-			sourceTree = "<group>";
-		};
-		8D54A9481A15085600ABDAD2 /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				777CA26E1A24947E008A7FE3 /* Calibre-Black-Italic.otf */,
-				777CA26F1A24947E008A7FE3 /* Calibre-Black.otf */,
-				777CA2701A24947E008A7FE3 /* Calibre-Bold-Italic.otf */,
-				777CA2711A24947E008A7FE3 /* Calibre-Bold.otf */,
-				777CA2721A24947E008A7FE3 /* Calibre-Light-Italic.otf */,
-				777CA2731A24947E008A7FE3 /* Calibre-Light.otf */,
-				777CA2741A24947E008A7FE3 /* Calibre-Medium-Italic.otf */,
-				777CA2751A24947E008A7FE3 /* Calibre-Medium.otf */,
-				777CA2761A24947E008A7FE3 /* Calibre-Regular-Italic.otf */,
-				777CA2771A24947E008A7FE3 /* Calibre-Regular.otf */,
-				777CA2781A24947E008A7FE3 /* Calibre-Semibold-Italic.otf */,
-				777CA2791A24947E008A7FE3 /* Calibre-Semibold.otf */,
-				777CA27A1A24947E008A7FE3 /* Calibre-Thin-Italic.otf */,
-				777CA27B1A24947E008A7FE3 /* Calibre-Thin.otf */,
-				7705EFB91A2374AD0015B1BD /* Young-Serif-Regular.ttf */,
-				770CB92C1A23491E002817BE /* Circular-Std-Black-Italic.otf */,
-				770CB92D1A23491E002817BE /* Circular-Std-Black.otf */,
-				770CB92E1A23491E002817BE /* Circular-Std-Bold-Italic.otf */,
-				770CB9421A234A18002817BE /* Circular-Std-Bold.otf */,
-				770CB9311A23491E002817BE /* Circular-Std-Medium-Italic.otf */,
-				770CB9321A23491E002817BE /* Circular-Std-Medium.otf */,
-				770CB92F1A23491E002817BE /* Circular-Std-Book-Italic.otf */,
-				770CB9301A23491E002817BE /* Circular-Std-Book.otf */,
-				770CB9331A23491E002817BE /* News-Plantin-Pro-Bold-Italic.otf */,
-				770CB9341A23491E002817BE /* News-Plantin-Pro-Bold.otf */,
-				770CB9351A23491E002817BE /* News-Plantin-Pro-Regular-Italic.otf */,
-				770CB9361A23491E002817BE /* News-Plantin-Pro-Regular.otf */,
-			);
-			name = Fonts;
 			sourceTree = "<group>";
 		};
 		8D6E4BD21A5E8B11000CFB82 /* DragSwipe */ = {
@@ -2405,7 +2406,9 @@
 				8D6E4D3C1A5E8B12000CFB82 /* DragSwipe5@2x.png in Resources */,
 				8D6E4D781A5E8B12000CFB82 /* Flip23@2x.png in Resources */,
 				0AEC802D1A3B20EB004F0B1C /* background_cover_1@2x.png in Resources */,
+				8D418DD91A5FDB6F009CC8CE /* Calibre-Bold.otf in Resources */,
 				0A58BA0B1A5F29B700845410 /* DragOblique77@2x.png in Resources */,
+				8D418DE11A5FDB6F009CC8CE /* Calibre-Semibold.otf in Resources */,
 				770254621A53E79800C6FB98 /* 1-0-2-school.png in Resources */,
 				0A58B9AE1A5F29B700845410 /* DragOblique107@2x.png in Resources */,
 				8D6E4D941A5E8B12000CFB82 /* Flip49@2x.png in Resources */,
@@ -2420,15 +2423,14 @@
 				8D6E4DB21A5E8B12000CFB82 /* Hold22@2x.png in Resources */,
 				8D6E4D681A5E8B12000CFB82 /* DragSwipe9@2x.png in Resources */,
 				0A58BA231A5F29B700845410 /* DragOblique98@2x.png in Resources */,
+				8D418DD71A5FDB6F009CC8CE /* Calibre-Black.otf in Resources */,
 				0A58B9071A5F288400845410 /* DoubleTap10@2x.png in Resources */,
 				8D6E4CEF1A5E8B12000CFB82 /* DragSwipe104@2x.png in Resources */,
 				0A58B9CB1A5F29B700845410 /* DragOblique19@2x.png in Resources */,
 				8D6E4D891A5E8B12000CFB82 /* Flip39@2x.png in Resources */,
 				8D6E4CF51A5E8B12000CFB82 /* DragSwipe10@2x.png in Resources */,
 				8D6E4DB71A5E8B12000CFB82 /* Hold27@2x.png in Resources */,
-				777CA27E1A24947E008A7FE3 /* Calibre-Bold-Italic.otf in Resources */,
 				93AF58B71A5D655700514095 /* Loader11.png in Resources */,
-				777CA2891A24947E008A7FE3 /* Calibre-Thin.otf in Resources */,
 				8D6E4D301A5E8B12000CFB82 /* DragSwipe49@2x.png in Resources */,
 				0A58B9211A5F288400845410 /* DoubleTap5@2x.png in Resources */,
 				8D6E4DBD1A5E8B12000CFB82 /* Hold32@2x.png in Resources */,
@@ -2444,16 +2446,13 @@
 				93AF58C11A5D655700514095 /* Loader21.png in Resources */,
 				8D6E4DD81A5E8B12000CFB82 /* Hold57@2x.png in Resources */,
 				0A58BA1D1A5F29B700845410 /* DragOblique92@2x.png in Resources */,
-				770CB93C1A23491E002817BE /* Circular-Std-Medium-Italic.otf in Resources */,
 				93AF58B11A5D655700514095 /* Loader5.png in Resources */,
 				0A58B9D11A5F29B700845410 /* DragOblique24@2x.png in Resources */,
 				8D6E4D281A5E8B12000CFB82 /* DragSwipe41@2x.png in Resources */,
 				8D6E4DC91A5E8B12000CFB82 /* Hold43@2x.png in Resources */,
 				0A58B9181A5F288400845410 /* DoubleTap26@2x.png in Resources */,
-				77DBC22C1A458D430027B838 /* bas@2x.png in Resources */,
 				0A58B9BD1A5F29B700845410 /* DragOblique120@2x.png in Resources */,
 				775B16741A5F3024001CFBB7 /* top-base.svg in Resources */,
-				777CA2891A24947E008A7FE3 /* Calibre-Thin.otf in Resources */,
 				0A58B91A1A5F288400845410 /* DoubleTap28@2x.png in Resources */,
 				0A58BA0E1A5F29B700845410 /* DragOblique7@2x.png in Resources */,
 				0A58BA241A5F29B700845410 /* DragOblique99@2x.png in Resources */,
@@ -2466,7 +2465,6 @@
 				8D6E4D511A5E8B12000CFB82 /* DragSwipe79@2x.png in Resources */,
 				8D6E4D5B1A5E8B12000CFB82 /* DragSwipe88@2x.png in Resources */,
 				8D6E4D381A5E8B12000CFB82 /* DragSwipe56@2x.png in Resources */,
-				770CB93C1A23491E002817BE /* Circular-Std-Medium-Italic.otf in Resources */,
 				8D6E4DCD1A5E8B12000CFB82 /* Hold47@2x.png in Resources */,
 				8D6E4D721A5E8B12000CFB82 /* Flip18@2x.png in Resources */,
 				0A58B9C11A5F29B700845410 /* DragOblique124@2x.png in Resources */,
@@ -2477,6 +2475,7 @@
 				8D6E4D461A5E8B12000CFB82 /* DragSwipe69@2x.png in Resources */,
 				0A58BA001A5F29B700845410 /* DragOblique67@2x.png in Resources */,
 				0A58B9CC1A5F29B700845410 /* DragOblique1@2x.png in Resources */,
+				8D418DD81A5FDB6F009CC8CE /* Calibre-Bold-Italic.otf in Resources */,
 				0A58B9B81A5F29B700845410 /* DragOblique116@2x.png in Resources */,
 				0A58B9251A5F288400845410 /* DoubleTap9@2x.png in Resources */,
 				0AEC80301A3B20EB004F0B1C /* personnage_cover_1@2x.png in Resources */,
@@ -2488,7 +2487,6 @@
 				8D6E4DC71A5E8B12000CFB82 /* Hold41@2x.png in Resources */,
 				0A58BA1C1A5F29B700845410 /* DragOblique91@2x.png in Resources */,
 				0A58B9DF1A5F29B700845410 /* DragOblique37@2x.png in Resources */,
-				777CA2821A24947E008A7FE3 /* Calibre-Medium-Italic.otf in Resources */,
 				8D6E4DCA1A5E8B12000CFB82 /* Hold44@2x.png in Resources */,
 				8D6E4D7A1A5E8B12000CFB82 /* Flip25@2x.png in Resources */,
 				8D6E4D531A5E8B12000CFB82 /* DragSwipe80@2x.png in Resources */,
@@ -2497,9 +2495,9 @@
 				8D6E4D571A5E8B12000CFB82 /* DragSwipe84@2x.png in Resources */,
 				0A58B9B41A5F29B700845410 /* DragOblique112@2x.png in Resources */,
 				8D6E4DC31A5E8B12000CFB82 /* Hold38@2x.png in Resources */,
+				8D418DDC1A5FDB6F009CC8CE /* Calibre-Medium-Italic.otf in Resources */,
 				0A58B9EF1A5F29B700845410 /* DragOblique51@2x.png in Resources */,
 				8D6E4D001A5E8B12000CFB82 /* DragSwipe11@2x.png in Resources */,
-				770CB9381A23491E002817BE /* Circular-Std-Black.otf in Resources */,
 				8D6E4D251A5E8B12000CFB82 /* DragSwipe39@2x.png in Resources */,
 				0A58B9EA1A5F29B700845410 /* DragOblique47@2x.png in Resources */,
 				0A58B91F1A5F288400845410 /* DoubleTap3@2x.png in Resources */,
@@ -2529,7 +2527,7 @@
 				8D6E4D831A5E8B12000CFB82 /* Flip33@2x.png in Resources */,
 				0A58B9AD1A5F29B700845410 /* DragOblique106@2x.png in Resources */,
 				8D6E4D561A5E8B12000CFB82 /* DragSwipe83@2x.png in Resources */,
-				777CA2811A24947E008A7FE3 /* Calibre-Light.otf in Resources */,
+				8D418DEE1A5FDB6F009CC8CE /* News-Plantin-Pro-Regular-Italic.otf in Resources */,
 				0A58B9C01A5F29B700845410 /* DragOblique123@2x.png in Resources */,
 				8D6E4D2A1A5E8B12000CFB82 /* DragSwipe43@2x.png in Resources */,
 				8D6E4D5A1A5E8B12000CFB82 /* DragSwipe87@2x.png in Resources */,
@@ -2542,11 +2540,14 @@
 				8D6E4D2F1A5E8B12000CFB82 /* DragSwipe48@2x.png in Resources */,
 				93DABC821A5D4E1500E9C18A /* bottom-article.svg in Resources */,
 				8D6E4D711A5E8B12000CFB82 /* Flip17@2x.png in Resources */,
+				8D418DE51A5FDB6F009CC8CE /* Circular-Std-Black.otf in Resources */,
 				8D6E4DAA1A5E8B12000CFB82 /* Hold15@2x.png in Resources */,
 				93AF58C01A5D655700514095 /* Loader20.png in Resources */,
 				8D6E4D5F1A5E8B12000CFB82 /* DragSwipe91@2x.png in Resources */,
 				0A58B90B1A5F288400845410 /* DoubleTap14@2x.png in Resources */,
 				0A58B9D51A5F29B700845410 /* DragOblique28@2x.png in Resources */,
+				8D418DD61A5FDB6F009CC8CE /* Calibre-Black-Italic.otf in Resources */,
+				8D418DDD1A5FDB6F009CC8CE /* Calibre-Medium.otf in Resources */,
 				8D6E4D361A5E8B12000CFB82 /* DragSwipe54@2x.png in Resources */,
 				0A58B9EB1A5F29B700845410 /* DragOblique48@2x.png in Resources */,
 				0A58B9101A5F288400845410 /* DoubleTap19@2x.png in Resources */,
@@ -2574,22 +2575,19 @@
 				0A58B9D41A5F29B700845410 /* DragOblique27@2x.png in Resources */,
 				0A58B9F81A5F29B700845410 /* DragOblique5@2x.png in Resources */,
 				8D6E4D311A5E8B12000CFB82 /* DragSwipe4@2x.png in Resources */,
+				8D418DEC1A5FDB6F009CC8CE /* News-Plantin-Pro-Bold-Italic.otf in Resources */,
 				93AF58BA1A5D655700514095 /* Loader14.png in Resources */,
 				8D6E4D331A5E8B12000CFB82 /* DragSwipe51@2x.png in Resources */,
 				8D6E4D6C1A5E8B12000CFB82 /* Flip12@2x.png in Resources */,
 				8D6E4D231A5E8B12000CFB82 /* DragSwipe37@2x.png in Resources */,
-				777CA2871A24947E008A7FE3 /* Calibre-Semibold.otf in Resources */,
 				775B16731A5F3024001CFBB7 /* bottom-expand.svg in Resources */,
 				8D6E4DCF1A5E8B12000CFB82 /* Hold49@2x.png in Resources */,
-				770CB9411A23491E002817BE /* News-Plantin-Pro-Regular.otf in Resources */,
+				8D418DE61A5FDB6F009CC8CE /* Circular-Std-Bold-Italic.otf in Resources */,
 				8D6E4D121A5E8B12000CFB82 /* DragSwipe21@2x.png in Resources */,
-				770CB93A1A23491E002817BE /* Circular-Std-Book-Italic.otf in Resources */,
 				8D6E4DC11A5E8B12000CFB82 /* Hold36@2x.png in Resources */,
-				777CA27C1A24947E008A7FE3 /* Calibre-Black-Italic.otf in Resources */,
 				8D6E4D9C1A5E8B12000CFB82 /* Flip56@2x.png in Resources */,
 				0A58B9231A5F288400845410 /* DoubleTap7@2x.png in Resources */,
 				8D6E4D221A5E8B12000CFB82 /* DragSwipe36@2x.png in Resources */,
-				7743158D1A48397500158B5D /* basBlank@2x.png in Resources */,
 				0A58B9161A5F288400845410 /* DoubleTap24@2x.png in Resources */,
 				0A58BA131A5F29B700845410 /* DragOblique84@2x.png in Resources */,
 				8D6E4DD61A5E8B12000CFB82 /* Hold55@2x.png in Resources */,
@@ -2598,37 +2596,37 @@
 				8D6E4D1B1A5E8B12000CFB82 /* DragSwipe2@2x.png in Resources */,
 				93AF58B21A5D655700514095 /* Loader6.png in Resources */,
 				8D6E4D791A5E8B12000CFB82 /* Flip24@2x.png in Resources */,
+				8D418DF01A5FDB6F009CC8CE /* Young-Serif-Regular.ttf in Resources */,
 				8D6E4D661A5E8B12000CFB82 /* DragSwipe98@2x.png in Resources */,
 				0A58BA091A5F29B700845410 /* DragOblique75@2x.png in Resources */,
 				8D6E4D041A5E8B12000CFB82 /* DragSwipe123@2x.png in Resources */,
 				0A58B9BC1A5F29B700845410 /* DragOblique11@2x.png in Resources */,
 				0A58B9D21A5F29B700845410 /* DragOblique25@2x.png in Resources */,
-				777CA27D1A24947E008A7FE3 /* Calibre-Black.otf in Resources */,
 				8D6E4CF81A5E8B12000CFB82 /* DragSwipe112@2x.png in Resources */,
+				8D418DEB1A5FDB6F009CC8CE /* Circular-Std-Medium.otf in Resources */,
 				8D6E4DB81A5E8B12000CFB82 /* Hold28@2x.png in Resources */,
 				8D6E4D981A5E8B12000CFB82 /* Flip52@2x.png in Resources */,
 				8D6E4D4F1A5E8B12000CFB82 /* DragSwipe77@2x.png in Resources */,
 				93768B751A5ABFB300C25BF2 /* 2-0-0-chinese.png in Resources */,
 				8D6E4D321A5E8B12000CFB82 /* DragSwipe50@2x.png in Resources */,
-				777CA2831A24947E008A7FE3 /* Calibre-Medium.otf in Resources */,
 				0A58B9B11A5F29B700845410 /* DragOblique10@2x.png in Resources */,
 				8D6E4D741A5E8B12000CFB82 /* Flip1@2x.png in Resources */,
 				0A58BA211A5F29B700845410 /* DragOblique96@2x.png in Resources */,
 				8D6E4D8B1A5E8B12000CFB82 /* Flip40@2x.png in Resources */,
 				0A58B9A91A5F29B700845410 /* DragOblique102@2x.png in Resources */,
+				8D418DE71A5FDB6F009CC8CE /* Circular-Std-Bold.otf in Resources */,
 				0A58B9E51A5F29B700845410 /* DragOblique42@2x.png in Resources */,
 				8D6E4D6E1A5E8B12000CFB82 /* Flip14@2x.png in Resources */,
 				8D6E4DB31A5E8B12000CFB82 /* Hold23@2x.png in Resources */,
 				8D6E4D9F1A5E8B12000CFB82 /* Flip5@2x.png in Resources */,
 				0A58BA021A5F29B700845410 /* DragOblique69@2x.png in Resources */,
 				8D6E4D6B1A5E8B12000CFB82 /* Flip11@2x.png in Resources */,
+				8D418DE31A5FDB6F009CC8CE /* Calibre-Thin.otf in Resources */,
 				8D6E4D771A5E8B12000CFB82 /* Flip22@2x.png in Resources */,
 				0A58B9CF1A5F29B700845410 /* DragOblique22@2x.png in Resources */,
 				8D6E4D611A5E8B12000CFB82 /* DragSwipe93@2x.png in Resources */,
-				770CB9391A23491E002817BE /* Circular-Std-Bold-Italic.otf in Resources */,
 				0A58B9A81A5F29B700845410 /* DragOblique101@2x.png in Resources */,
 				8D6E4DAF1A5E8B12000CFB82 /* Hold1@2x.png in Resources */,
-				770CB9401A23491E002817BE /* News-Plantin-Pro-Regular-Italic.otf in Resources */,
 				0A58B9091A5F288400845410 /* DoubleTap12@2x.png in Resources */,
 				0A58B9131A5F288400845410 /* DoubleTap21@2x.png in Resources */,
 				0A58BA0F1A5F29B700845410 /* DragOblique80@2x.png in Resources */,
@@ -2644,16 +2642,13 @@
 				0A58B9151A5F288400845410 /* DoubleTap23@2x.png in Resources */,
 				0A58B9D71A5F29B700845410 /* DragOblique2@2x.png in Resources */,
 				8D6E4DA01A5E8B12000CFB82 /* Flip6@2x.png in Resources */,
-				770CB93F1A23491E002817BE /* News-Plantin-Pro-Bold.otf in Resources */,
 				0A58B9FF1A5F29B700845410 /* DragOblique66@2x.png in Resources */,
 				8D6E4DD21A5E8B12000CFB82 /* Hold51@2x.png in Resources */,
 				774315901A48397500158B5D /* poroshenko-portrait@2x.png in Resources */,
 				0A58B9D81A5F29B700845410 /* DragOblique30@2x.png in Resources */,
-				770CB9401A23491E002817BE /* News-Plantin-Pro-Regular-Italic.otf in Resources */,
 				8D6E4D6F1A5E8B12000CFB82 /* Flip15@2x.png in Resources */,
 				8D6E4DCE1A5E8B12000CFB82 /* Hold48@2x.png in Resources */,
 				8D6E4DD71A5E8B12000CFB82 /* Hold56@2x.png in Resources */,
-				770CB93F1A23491E002817BE /* News-Plantin-Pro-Bold.otf in Resources */,
 				0A58B9DE1A5F29B700845410 /* DragOblique36@2x.png in Resources */,
 				93AF58B61A5D655700514095 /* Loader10.png in Resources */,
 				0A58BA031A5F29B700845410 /* DragOblique6@2x.png in Resources */,
@@ -2664,14 +2659,13 @@
 				8D6E4D421A5E8B12000CFB82 /* DragSwipe65@2x.png in Resources */,
 				0A58BA041A5F29B700845410 /* DragOblique70@2x.png in Resources */,
 				8D6E4CF11A5E8B12000CFB82 /* DragSwipe106@2x.png in Resources */,
-				77DBC22D1A458D430027B838 /* haut@2x.png in Resources */,
 				0A58B9F91A5F29B700845410 /* DragOblique60@2x.png in Resources */,
 				8D6E4D871A5E8B12000CFB82 /* Flip37@2x.png in Resources */,
-				777CA2801A24947E008A7FE3 /* Calibre-Light-Italic.otf in Resources */,
 				0A58B9DC1A5F29B700845410 /* DragOblique34@2x.png in Resources */,
 				8D6E4CF31A5E8B12000CFB82 /* DragSwipe108@2x.png in Resources */,
 				8D6E4DBC1A5E8B12000CFB82 /* Hold31@2x.png in Resources */,
 				0A58BA061A5F29B700845410 /* DragOblique72@2x.png in Resources */,
+				8D418DE81A5FDB6F009CC8CE /* Circular-Std-Book-Italic.otf in Resources */,
 				8D6E4D071A5E8B12000CFB82 /* DragSwipe126@2x.png in Resources */,
 				8D6E4D7F1A5E8B12000CFB82 /* Flip2@2x.png in Resources */,
 				93768B791A5AE70F00C25BF2 /* 0-1-4-poroshenko.png in Resources */,
@@ -2682,10 +2676,12 @@
 				0A58B9E91A5F29B700845410 /* DragOblique46@2x.png in Resources */,
 				0A58B9BB1A5F29B700845410 /* DragOblique119@2x.png in Resources */,
 				8D6E4DDC1A5E8B12000CFB82 /* Hold8@2x.png in Resources */,
+				8D418DE91A5FDB6F009CC8CE /* Circular-Std-Book.otf in Resources */,
 				8D6E4D631A5E8B12000CFB82 /* DragSwipe95@2x.png in Resources */,
 				0A58B9BE1A5F29B700845410 /* DragOblique121@2x.png in Resources */,
 				0A58B9CE1A5F29B700845410 /* DragOblique21@2x.png in Resources */,
 				0AEC80321A3B20EB004F0B1C /* personnage_cover_3@2x.png in Resources */,
+				8D418DDF1A5FDB6F009CC8CE /* Calibre-Regular.otf in Resources */,
 				8D6E4D8F1A5E8B12000CFB82 /* Flip44@2x.png in Resources */,
 				8D6E4DBA1A5E8B12000CFB82 /* Hold2@2x.png in Resources */,
 				0A58B9AA1A5F29B700845410 /* DragOblique103@2x.png in Resources */,
@@ -2697,13 +2693,11 @@
 				8D6E4D9B1A5E8B12000CFB82 /* Flip55@2x.png in Resources */,
 				0A58BA0D1A5F29B700845410 /* DragOblique79@2x.png in Resources */,
 				8D6E4D4B1A5E8B12000CFB82 /* DragSwipe73@2x.png in Resources */,
-				777CA27F1A24947E008A7FE3 /* Calibre-Bold.otf in Resources */,
 				775B16751A5F3024001CFBB7 /* top-expand.svg in Resources */,
 				8D6E4D761A5E8B12000CFB82 /* Flip21@2x.png in Resources */,
 				8D6E4D6D1A5E8B12000CFB82 /* Flip13@2x.png in Resources */,
 				93AF58AE1A5D655700514095 /* Loader2.png in Resources */,
 				8D6E4DA31A5E8B12000CFB82 /* Flip9@2x.png in Resources */,
-				770CB9371A23491E002817BE /* Circular-Std-Black-Italic.otf in Resources */,
 				8D6E4D401A5E8B12000CFB82 /* DragSwipe63@2x.png in Resources */,
 				8D6E4DB51A5E8B12000CFB82 /* Hold25@2x.png in Resources */,
 				0AEC80371A3B21EF004F0B1C /* forme2.svg in Resources */,
@@ -2741,7 +2735,6 @@
 				93768B7A1A5AE70F00C25BF2 /* 0-1-4-poroshenko@2x.png in Resources */,
 				93AF58BC1A5D655700514095 /* Loader16.png in Resources */,
 				8D6E4D1A1A5E8B12000CFB82 /* DragSwipe29@2x.png in Resources */,
-				770CB9431A234A18002817BE /* Circular-Std-Bold.otf in Resources */,
 				0A58B9F21A5F29B700845410 /* DragOblique54@2x.png in Resources */,
 				770254631A53E79800C6FB98 /* 1-0-2-school@2x.png in Resources */,
 				0A97B2D81A29092E005596C3 /* stories.plist in Resources */,
@@ -2751,8 +2744,6 @@
 				8D6E4D481A5E8B12000CFB82 /* DragSwipe70@2x.png in Resources */,
 				8D6E4D601A5E8B12000CFB82 /* DragSwipe92@2x.png in Resources */,
 				8D6E4D061A5E8B12000CFB82 /* DragSwipe125@2x.png in Resources */,
-				770CB93D1A23491E002817BE /* Circular-Std-Medium.otf in Resources */,
-				777CA2851A24947E008A7FE3 /* Calibre-Regular.otf in Resources */,
 				8D6E4DCB1A5E8B12000CFB82 /* Hold45@2x.png in Resources */,
 				8D6E4DC61A5E8B12000CFB82 /* Hold40@2x.png in Resources */,
 				8D6E4CEC1A5E8B12000CFB82 /* DragSwipe101@2x.png in Resources */,
@@ -2783,18 +2774,16 @@
 				93AF58BB1A5D655700514095 /* Loader15.png in Resources */,
 				0AEC80201A3B1906004F0B1C /* 2-3.svg in Resources */,
 				8D6E4DC01A5E8B12000CFB82 /* Hold35@2x.png in Resources */,
-				777CA2881A24947E008A7FE3 /* Calibre-Thin-Italic.otf in Resources */,
 				0A58B9061A5F288400845410 /* DoubleTap0@2x.png in Resources */,
 				8D6E4D2C1A5E8B12000CFB82 /* DragSwipe45@2x.png in Resources */,
 				8D6E4DB91A5E8B12000CFB82 /* Hold29@2x.png in Resources */,
 				0A58B91E1A5F288400845410 /* DoubleTap31@2x.png in Resources */,
-				7743158E1A48397500158B5D /* hautBlank@2x.png in Resources */,
 				8D6E4D441A5E8B12000CFB82 /* DragSwipe67@2x.png in Resources */,
 				8D6E4D5D1A5E8B12000CFB82 /* DragSwipe8@2x.png in Resources */,
 				8D6E4CF91A5E8B12000CFB82 /* DragSwipe113@2x.png in Resources */,
 				0A58B9E71A5F29B700845410 /* DragOblique44@2x.png in Resources */,
-				7705EFBA1A2374AD0015B1BD /* Young-Serif-Regular.ttf in Resources */,
 				8D54A9121A14E9AF00ABDAD2 /* stories.json in Resources */,
+				8D418DDE1A5FDB6F009CC8CE /* Calibre-Regular-Italic.otf in Resources */,
 				8D6E4DC41A5E8B12000CFB82 /* Hold39@2x.png in Resources */,
 				0A58B9E61A5F29B700845410 /* DragOblique43@2x.png in Resources */,
 				0AEC801E1A3B1906004F0B1C /* 2-1.svg in Resources */,
@@ -2806,7 +2795,6 @@
 				0A58B9B61A5F29B700845410 /* DragOblique114@2x.png in Resources */,
 				8D6E4D921A5E8B12000CFB82 /* Flip47@2x.png in Resources */,
 				0A58BA1F1A5F29B700845410 /* DragOblique94@2x.png in Resources */,
-				777CA2841A24947E008A7FE3 /* Calibre-Regular-Italic.otf in Resources */,
 				0A58B9201A5F288400845410 /* DoubleTap4@2x.png in Resources */,
 				8D6E4DB01A5E8B12000CFB82 /* Hold20@2x.png in Resources */,
 				8D6E4D291A5E8B12000CFB82 /* DragSwipe42@2x.png in Resources */,
@@ -2815,6 +2803,7 @@
 				0A58B9B31A5F29B700845410 /* DragOblique111@2x.png in Resources */,
 				8D6E4DD31A5E8B12000CFB82 /* Hold52@2x.png in Resources */,
 				7743158F1A48397500158B5D /* poroshenko-portrait.png in Resources */,
+				8D418DDB1A5FDB6F009CC8CE /* Calibre-Light.otf in Resources */,
 				0AEC80241A3B1D94004F0B1C /* 3-1.svg in Resources */,
 				8D6E4DBF1A5E8B12000CFB82 /* Hold34@2x.png in Resources */,
 				8D6E4DCC1A5E8B12000CFB82 /* Hold46@2x.png in Resources */,
@@ -2824,29 +2813,34 @@
 				8D6E4D081A5E8B12000CFB82 /* DragSwipe12@2x.png in Resources */,
 				0A58BA121A5F29B700845410 /* DragOblique83@2x.png in Resources */,
 				8D6E4D7C1A5E8B12000CFB82 /* Flip27@2x.png in Resources */,
+				8D418DEA1A5FDB6F009CC8CE /* Circular-Std-Medium-Italic.otf in Resources */,
 				8D6E4D541A5E8B12000CFB82 /* DragSwipe81@2x.png in Resources */,
 				0A58B9D01A5F29B700845410 /* DragOblique23@2x.png in Resources */,
+				8D418DEF1A5FDB6F009CC8CE /* News-Plantin-Pro-Regular.otf in Resources */,
 				8D6E4DBB1A5E8B12000CFB82 /* Hold30@2x.png in Resources */,
+				8D418DE01A5FDB6F009CC8CE /* Calibre-Semibold-Italic.otf in Resources */,
 				8D6E4D111A5E8B12000CFB82 /* DragSwipe20@2x.png in Resources */,
 				0AEC801C1A3B1906004F0B1C /* 1-2.svg in Resources */,
 				8D6E4D171A5E8B12000CFB82 /* DragSwipe26@2x.png in Resources */,
-				770CB93E1A23491E002817BE /* News-Plantin-Pro-Bold-Italic.otf in Resources */,
 				8D6E4DA71A5E8B12000CFB82 /* Hold12@2x.png in Resources */,
 				8D6E4D411A5E8B12000CFB82 /* DragSwipe64@2x.png in Resources */,
 				0A58BA1A1A5F29B700845410 /* DragOblique9.png in Resources */,
 				8D6E4D691A5E8B12000CFB82 /* Flip0@2x.png in Resources */,
 				8D6E4DD01A5E8B12000CFB82 /* Hold4@2x.png in Resources */,
 				0AEC80261A3B1D94004F0B1C /* 3-3.svg in Resources */,
+				8D418DE41A5FDB6F009CC8CE /* Circular-Std-Black-Italic.otf in Resources */,
 				0A58B9DB1A5F29B700845410 /* DragOblique33@2x.png in Resources */,
 				0A58B9FE1A5F29B700845410 /* DragOblique65@2x.png in Resources */,
 				8D6E4D261A5E8B12000CFB82 /* DragSwipe3@2x.png in Resources */,
 				8D6E4D4E1A5E8B12000CFB82 /* DragSwipe76@2x.png in Resources */,
 				8D6E4D7B1A5E8B12000CFB82 /* Flip26@2x.png in Resources */,
+				8D418DE21A5FDB6F009CC8CE /* Calibre-Thin-Italic.otf in Resources */,
 				0A58B9B01A5F29B700845410 /* DragOblique109@2x.png in Resources */,
 				0A58B9AF1A5F29B700845410 /* DragOblique108@2x.png in Resources */,
 				8D6E4DB61A5E8B12000CFB82 /* Hold26@2x.png in Resources */,
 				8D6E4D161A5E8B12000CFB82 /* DragSwipe25@2x.png in Resources */,
 				8D6E4D801A5E8B12000CFB82 /* Flip30@2x.png in Resources */,
+				8D418DDA1A5FDB6F009CC8CE /* Calibre-Light-Italic.otf in Resources */,
 				8D6E4D861A5E8B12000CFB82 /* Flip36@2x.png in Resources */,
 				8D6E4D7D1A5E8B12000CFB82 /* Flip28@2x.png in Resources */,
 				8D6E4D551A5E8B12000CFB82 /* DragSwipe82@2x.png in Resources */,
@@ -2855,32 +2849,28 @@
 				8D6E4D9E1A5E8B12000CFB82 /* Flip58@2x.png in Resources */,
 				0A58B9E21A5F29B700845410 /* DragOblique3@2x.png in Resources */,
 				0A58B9F41A5F29B700845410 /* DragOblique56@2x.png in Resources */,
-				770CB93B1A23491E002817BE /* Circular-Std-Book.otf in Resources */,
 				8D6E4D5E1A5E8B12000CFB82 /* DragSwipe90@2x.png in Resources */,
 				8D6E4D391A5E8B12000CFB82 /* DragSwipe57@2x.png in Resources */,
 				8D6E4D371A5E8B12000CFB82 /* DragSwipe55@2x.png in Resources */,
 				8D6E4D031A5E8B12000CFB82 /* DragSwipe122@2x.png in Resources */,
-				7702545D1A53E57800C6FB98 /* storiesOld.json in Resources */,
 				0A58B9D61A5F29B700845410 /* DragOblique29@2x.png in Resources */,
 				8D6E4D1F1A5E8B12000CFB82 /* DragSwipe33@2x.png in Resources */,
-				777CA2861A24947E008A7FE3 /* Calibre-Semibold-Italic.otf in Resources */,
 				8D6E4D2B1A5E8B12000CFB82 /* DragSwipe44@2x.png in Resources */,
 				8D6E4CFF1A5E8B12000CFB82 /* DragSwipe119@2x.png in Resources */,
 				8D6E4D1C1A5E8B12000CFB82 /* DragSwipe30@2x.png in Resources */,
 				8D6E4DDA1A5E8B12000CFB82 /* Hold6@2x.png in Resources */,
 				0A58BA0C1A5F29B700845410 /* DragOblique78@2x.png in Resources */,
 				8D6E4D651A5E8B12000CFB82 /* DragSwipe97@2x.png in Resources */,
-				770CB93B1A23491E002817BE /* Circular-Std-Book.otf in Resources */,
 				8D6E4CEB1A5E8B12000CFB82 /* DragSwipe100@2x.png in Resources */,
 				8D6E4D151A5E8B12000CFB82 /* DragSwipe24@2x.png in Resources */,
 				0A58B9ED1A5F29B700845410 /* DragOblique4@2x.png in Resources */,
 				8D6E4CEA1A5E8B12000CFB82 /* DragSwipe0@2x.png in Resources */,
 				8D6E4D4A1A5E8B12000CFB82 /* DragSwipe72@2x.png in Resources */,
 				0A58B9A61A5F29B700845410 /* DragOblique0@2x.png in Resources */,
-				777CA2861A24947E008A7FE3 /* Calibre-Semibold-Italic.otf in Resources */,
 				0A58B9CD1A5F29B700845410 /* DragOblique20@2x.png in Resources */,
 				8D6E4D011A5E8B12000CFB82 /* DragSwipe120@2x.png in Resources */,
 				8D6E4D191A5E8B12000CFB82 /* DragSwipe28@2x.png in Resources */,
+				8D418DED1A5FDB6F009CC8CE /* News-Plantin-Pro-Bold.otf in Resources */,
 				8D6E4DAE1A5E8B12000CFB82 /* Hold19@2x.png in Resources */,
 				8D6E4D211A5E8B12000CFB82 /* DragSwipe35@2x.png in Resources */,
 				8D6E4D4C1A5E8B12000CFB82 /* DragSwipe74@2x.png in Resources */,

@@ -59,13 +59,13 @@ static NSString * const reuseIdentifier = @"Cell";
     // Name View
     self.nameViewLBL = [[UILabel alloc]initWithFrame:CGRectMake(25, 27, self.view.bounds.size.width, 50)];
     self.nameViewLBL.textColor = [UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1];
-    self.nameViewLBL.font = [UIFont fontWithName:@"Circular-Std-Book" size:19.0];
+    self.nameViewLBL.font = [UIFont fontWithName:@"Calibre-Regular" size:19.0];
     self.nameViewLBL.text = @"Publications";
     [self.view addSubview:self.nameViewLBL];
     
     self.followLBL = [[UILabel alloc]initWithFrame:CGRectMake(25, 30, self.view.bounds.size.width, 50)];
     self.followLBL.textColor = [UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1];
-    self.followLBL.font = [UIFont fontWithName:@"Circular-Std-Book" size:19.0];
+    self.followLBL.font = [UIFont fontWithName:@"Calibre-Regular" size:19.0];
     self.followLBL.text = @"Followed !";
     self.followLBL.alpha = 0;
     [self.view addSubview:self.followLBL];

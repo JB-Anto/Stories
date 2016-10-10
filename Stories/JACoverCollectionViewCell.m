@@ -32,7 +32,7 @@
         self.titleLBL = [[UILabel alloc]initWithFrame:CGRectMake(0, 70, self.bounds.size.width, 70)];
         self.titleLBL.textAlignment = NSTextAlignmentCenter;
         self.titleLBL.textColor = [UIColor colorWithRed:0.87 green:0.87 blue:0.87 alpha:1];
-        self.titleLBL.font = [UIFont fontWithName:@"Circular-Std-Book" size:24.0];
+        self.titleLBL.font = [UIFont fontWithName:@"Calibre-Regular" size:24.0];
         self.titleLBL.lineBreakMode = NSLineBreakByWordWrapping;
         self.titleLBL.numberOfLines = 2;
 

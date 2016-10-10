@@ -29,7 +29,7 @@
     self.manager = [JAManagerData sharedManager];
     
     // Main characteristics of labels in the view
-    _font   = [UIFont fontWithName:@"Circular-Std-Book" size:11.0];
+    _font   = [UIFont fontWithName:@"Calibre-Regular" size:11.0];
     _color = [self.manager getCurrentTextColor];
     
     [self setupTitleLabel];

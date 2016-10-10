@@ -34,7 +34,7 @@
     self.manager = [JAManagerData sharedManager];
     
     _nameFont = [UIFont fontWithName:@"Young-Serif-Regular" size:45.0];
-    _portraitFont = [UIFont fontWithName:@"Circular-Std-Medium" size:38.0];
+    _portraitFont = [UIFont fontWithName:@"Calibre-Regular" size:38.0];
     _nameColor = [self.manager getCurrentTextColor];
     _portraitColor = [self.manager getCurrentColor];
     

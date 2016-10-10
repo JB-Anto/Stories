@@ -28,14 +28,6 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Circular-Std-Book.otf</string>
-		<string>Circular-Std-Book-Italic.otf</string>
-		<string>Circular-Std-Medium.otf</string>
-		<string>Circular-Std-Medium-Italic.otf</string>
-		<string>Circular-Std-Bold.otf</string>
-		<string>Circular-Std-Bold-Italic.otf</string>
-		<string>Circular-Std-Black.otf</string>
-		<string>Circular-Std-Black-Italic.otf</string>
 		<string>News-Plantin-Pro-Bold-Italic.otf</string>
 		<string>News-Plantin-Pro-Bold.otf</string>
 		<string>News-Plantin-Pro-Regular-Italic.otf</string>

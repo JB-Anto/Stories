@@ -33,7 +33,7 @@
     
     _numberFont = [UIFont fontWithName:@"News-Plantin-Pro-Regular" size:90];
     _numberColor = [self.manager getCurrentColor];
-    _textFont = [UIFont fontWithName:@"Circular-Std-Book" size:24.0];
+    _textFont = [UIFont fontWithName:@"Calibre-Regular" size:24.0];
     _textColor = [self.manager getCurrentTextColor];
     
     // Creating subviews

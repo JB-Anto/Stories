@@ -39,7 +39,7 @@
     // Main characteristics of labels in the view
     _authorFont = [UIFont fontWithName:@"News-Plantin-Pro-Regular-Italic" size:28.0];
     _authorColor = [self.manager getCurrentColor];
-    _quoteFont = [UIFont fontWithName:@"Circular-Std-Book" size:26.0];
+    _quoteFont = [UIFont fontWithName:@"Calibre-Regular" size:26.0];
     _quoteColor  = [self.manager getCurrentTextColor];
     
     // Creating subviews

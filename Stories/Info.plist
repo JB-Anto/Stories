@@ -33,20 +33,6 @@
 		<string>News-Plantin-Pro-Regular-Italic.otf</string>
 		<string>News-Plantin-Pro-Regular.otf</string>
 		<string>Young-Serif-Regular.ttf</string>
-		<string>Calibre-Black-Italic.otf</string>
-		<string>Calibre-Black.otf</string>
-		<string>Calibre-Bold-Italic.otf</string>
-		<string>Calibre-Bold.otf</string>
-		<string>Calibre-Light-Italic.otf</string>
-		<string>Calibre-Light.otf</string>
-		<string>Calibre-Medium-Italic.otf</string>
-		<string>Calibre-Medium.otf</string>
-		<string>Calibre-Regular-Italic.otf</string>
-		<string>Calibre-Regular.otf</string>
-		<string>Calibre-Semibold-Italic.otf</string>
-		<string>Calibre-Semibold.otf</string>
-		<string>Calibre-Thin-Italic.otf</string>
-		<string>Calibre-Thin.otf</string>
 	</array>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>

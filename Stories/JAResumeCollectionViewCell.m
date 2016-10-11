@@ -33,7 +33,7 @@
     self.manager = [JAManagerData sharedManager];
     
     // Main characteristics of labels in the view
-    _resumeFont = [UIFont fontWithName:@"Calibre-Regular" size:12.0];
+    _resumeFont = [UIFont fontWithName:@"Helvetica" size:12.0];
     _resumeColor = [self.manager getCurrentTextColor];
     
     // Creating subviews

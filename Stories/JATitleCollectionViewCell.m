@@ -40,7 +40,7 @@
     
     // Main characteristics of labels in the view
     _titleFont = [UIFont fontWithName:@"Young-Serif-Regular" size:45.0];
-    _infoFont = [UIFont fontWithName:@"Calibre-Regular" size:48.0];
+    _infoFont = [UIFont fontWithName:@"Helvetica" size:48.0];
     _titleColor = [self.manager getCurrentTextColor];
     _infoColor = [self.manager getCurrentColor];
     

@@ -28,7 +28,7 @@
             
             JALabelChapter *chapterLBL = [[JALabelChapter alloc]initWithFrame:CGRectMake(i * self.frame.size.width, 0, self.frame.size.width, self.frame.size.height)];
             chapterLBL.text = [[[[self.manager getCurrentStorie] chapters]objectAtIndex:i]title] ;
-            chapterLBL.font = [UIFont fontWithName:@"Calibre-Regular" size:18];
+            chapterLBL.font = [UIFont fontWithName:@"Helvetica" size:18];
             chapterLBL.textColor = [self.manager getCurrentTextColor];
             
 //            chapterLBL.layer.borderColor = [UIColor greenColor].CGColor;
